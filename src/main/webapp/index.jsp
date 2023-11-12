@@ -29,7 +29,7 @@
 <title>Home</title>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
 <link rel="stylesheet" type="text/css"
 	href="css/css-personalizado/personalizacao.css">
 </head>

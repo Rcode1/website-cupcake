@@ -14,11 +14,10 @@ public class ProductRegistration {
 	private String productName;
 	private String basicDescription;
 	private String longDescription;
-	private String productImagePath;
 	private String entryDate;
 	private String departureDate;
 	private Integer quantityEntry;
-	private Integer quantityDeoartury;
+	private Integer quantityDepartury;
 
 	public ProductRegistration() {
 	}
@@ -79,14 +78,7 @@ public class ProductRegistration {
 		this.longDescription = longDescription;
 	}
 
-	public String getProductImagePath() {
-		return productImagePath;
-	}
-
-	public void setProductImagePath(String productImagePath) {
-		this.productImagePath = productImagePath;
-	}
-
+	
 	public String getEntryDate() {
 		return entryDate;
 	}
@@ -111,12 +103,12 @@ public class ProductRegistration {
 		this.quantityEntry = quantityEntry;
 	}
 
-	public Integer getQuantityDeoartury() {
-		return quantityDeoartury;
+	public Integer getQuantityDepartury() {
+		return quantityDepartury;
 	}
 
-	public void setQuantityDeoartury(Integer quantityDeoartury) {
-		this.quantityDeoartury = quantityDeoartury;
+	public void setQuantityDepartury(Integer quantityDeoartury) {
+		this.quantityDepartury = quantityDeoartury;
 	}
 
 	

@@ -29,56 +29,76 @@
 </head>
 <body>
 
-	
 
-	<div class="center-div">
-		<div class="card " style="width: 20rem;">
+     
 
+	<div class="center-div" style="max-width: 800px;  border: 1px solid gray; ">
+
+		<div class="card float-rigth" style="width: 20rem;">
 
 			<div class="center-div-text">
 				<div class="card-body">
 					<h5 class="card-title">Acesse a sua conta!</h5>
-					<p class="card-text">Aqui você acessará a sua conta, basta
-						informar o usuário e senha.</p>
+					<p class="card-text">Uso exclusivo para administradores.</p>
 				</div>
 
 
 			</div>
 
 			<div class="center-div-text">
-				<label for="usuario">Use o seu email e senha cadastrados
-					para validar o acesso!</label>
+				<label for="usuario">Use o seu email empresarial e a sua
+					senha cadastrada de acordo com o seu nível de acesso. </label>
 			</div>
 			<br>
-			<form action="../home-page/home.jsp"
-				method="post">
+			<form action="../home-page/home.jsp" method="post">
 				<div class="center-div-text">
-					<input class="form-control" style="text-transform: lowercase;" type="text" id="user-name"
-						name="fuser-name" placeholder="Entre com o usuário!" required></input><br>
-					<input class="form-control" type="password" id="password-access"
-						name="fpassword-access" placeholder="Entre com a sua senha!" required></input>
+					<input class="form-control" style="text-transform: lowercase;"
+						type="text" id="email_main-admin" name="femail_main-admin"
+						placeholder="Email do admin principal" required></input><br>
+					<input class="form-control" type="password"
+						id="main-admin-password" name="fmain-admin-password"
+						placeholder="Entre com a sua senha!" required></input>
+
+
+					<div style="margin-top: 10px;">
+						<button type="submit" class="btn btn-primary btn-sm"
+							style="margin-right: 10px;">Acessar</button>
+
+
+						<a href="../client/client-form/client-registration_view.jsp"><button
+								type="button" class="btn btn-secondary btn-sm">Cadastrar</button></a>
+					</div>
 				</div>
+
+			</form>
+			<hr>
+			<form action="../home-page/home.jsp" method="post">
 				<div class="center-div-text">
+					<input class="form-control" style="text-transform: lowercase;"
+						type="text" id="email_standard-admin" name="femail_standard-admin"
+						placeholder="Email do admin padrão" required></input><br> <input
+						class="form-control" type="password" id="standard-admin-password"
+						name="fstandard-admin-password"
+						placeholder="Entre com a sua senha!" required></input>
 
-					<button type="submit" class="btn btn-primary btn-sm"
-						style="margin-right: 10px;">Acessar</button>
+					<div style="margin-top: 10px;">
+						<button type="submit" class="btn btn-primary btn-sm"
+							style="margin-right: 10px;">Acessar</button>
+					</div>
 
-					 
-							<a	href="../client/client-form/client-registration_view.jsp"><button type="button"
-							class="btn btn-secondary btn-sm">Cadastrar</button></a>
-							
-							<a href="../index.jsp"><button type="button"
-							class="btn btn-secondary btn-sm">Início</button></a>
 				</div>
+
 			</form>
 
+			<div style="text-align: center; margin: 10px;">
+				<a style="margin: 20px;" href="../index.jsp"><button
+						type="button" class="btn btn-secondary btn-sm">sair</button></a>
+			</div>
 
 
 		</div>
 
 	</div>
-
-
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

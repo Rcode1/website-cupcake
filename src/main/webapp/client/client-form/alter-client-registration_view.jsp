@@ -162,7 +162,7 @@ try{
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label for="birthDate">Data de nascimento *</label> <input
-									class="form-control" type="text" id="birthDate"
+									class="form-control" type="date" id="birthDate"
 									name="fbirthDate" placeholder="Data: <%=clientResultSelect.get(1).getBirthDate()%>" ></input>
 							</div>
 							<!------>
@@ -308,9 +308,9 @@ try{
 	<!--Mascaras dos campos de cadastro-->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#birthDate").mask('00/00/0000', {
-				reverse : true
-			});
+		//	$("#birthDate").mask('00/00/0000', {
+		//		reverse : true
+		//	});
 			$("#document").mask('000.000.000-00', {
 				reverse : true
 			});
