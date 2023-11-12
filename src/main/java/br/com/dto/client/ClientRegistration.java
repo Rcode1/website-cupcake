@@ -15,6 +15,7 @@ public class ClientRegistration extends RegistrationAddress {
 	private String emailRegistration;
 	private String password;
 	private String phone;
+	
 
 	
 
