@@ -2,14 +2,14 @@
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	
+
 <%-- 
 * year 2023 title Cupcake Store
 * 
 * @author - Rodrigo Braga
 --%>
-	
-	
+
+
 <!DOCTYPE html>
 <html>
 
@@ -134,7 +134,7 @@
 					</ul>
 
 					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
-						de cadadstro das imagens</h5>
+						de cadastro das imagens</h5>
 					<ul class="list-group list-group-flush">
 
 						<li class="list-group-item"><strong>As imagens
@@ -232,18 +232,16 @@
 
 					<div class="form-group col-md-12">
 						<label for="basicDescription_query">Descrição básica *</label>
-						<textarea class="form-control" style="text-transform: lowercase;"
-							type="text" id="basicDescription_query"
-							name="fbasicDescription_query"
+						<textarea class="form-control" type="text"
+							id="basicDescription_query" name="fbasicDescription_query"
 							placeholder="Descrição b.: <%=productDao.getResult_listProduct_Dao().get(0).getBasicDescription()%>"
 							disabled></textarea>
 					</div>
 
 					<div class="form-group col-md-12">
 						<label for="longDescription_query">Descrição completa *</label>
-						<textarea class="form-control" style="text-transform: lowercase;"
-							type="text" id="longDescription_query"
-							name="flongDescription_query"
+						<textarea class="form-control" type="text"
+							id="longDescription_query" name="flongDescription_query"
 							placeholder="Descrição c.: <%=productDao.getResult_listProduct_Dao().get(0).getLongDescription()%>"
 							disabled></textarea>
 					</div>

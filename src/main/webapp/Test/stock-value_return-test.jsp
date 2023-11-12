@@ -2,18 +2,18 @@
 <%@page import="br.com.dto.product.ProductRegistration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dto.methods.ProductData"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
 	
-	<p>Teste para verificação do retorno dos preços dos produtos cadastrados no estoque. Caso o valor 
-	seja null a lista productStock_List não será processada</p>
+	<p>Teste para verificaÃ§Ã£o do retorno dos preÃ§os dos produtos cadastrados no estoque. Caso o valor 
+	seja null a lista productStock_List nÃ£o serÃ¡ processada</p>
 	<%
 	ProductData productData = new ProductData();
 	ProductDao productDao = new ProductDao();
@@ -29,7 +29,7 @@
 	if (productData.productStock_List(productRegistration.get(i).getIdProductRegistration()) != null) {
 	%>
 
-	Valor <%=i+": "+productData.productStock_List(productRegistration.get(i).getIdProductRegistration()).get(0).getProductPrice() +"<br>" %>
+	Valor <%=i+" - "+productData.productStock_List(productRegistration.get(i).getIdProductRegistration()).get(0).getProductPrice() +"<br>" %>
 
 	<%
 	}

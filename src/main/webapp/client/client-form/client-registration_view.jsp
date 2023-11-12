@@ -41,13 +41,9 @@
 			<div class="  largura-max-cadastro">
 				<ul class="nav nav-tabs  ">
 					<li class="nav-item"><a class="nav-link active "
-						href="../../home-page/home.jsp">Home</a></li>
-
-
+						href="../../index.jsp">Home</a></li>
 				</ul>
-
 			</div>
-
 		</div>
 		<br> <br> <br>
 

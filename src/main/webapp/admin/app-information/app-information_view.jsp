@@ -194,7 +194,7 @@ generalInformationDao.select_generalInformation_dao();
 
 						<div class="form-group col-md-12">
 							<label for="website_information">Informações do site </label>
-							<textarea class="form-control" style="text-transform: lowercase;"
+							<textarea class="form-control" 
 								type="text" id="website_information" name="fwebsite_information"
 								minlength="20" maxlength="500"
 								placeholder="Informações do site: Insira aqui as informações pertinentes ao assunto, máximo 500 caracteres."
@@ -203,7 +203,7 @@ generalInformationDao.select_generalInformation_dao();
 						
 						<div class="form-group col-md-12">
 							<label for="privacy_policy">Políticas de privacidade*</label>
-							<textarea class="form-control" style="text-transform: lowercase;"
+							<textarea class="form-control" 
 								type="text" id="privacy_policy" name="fprivacy_policy"
 								minlength="20" maxlength="500"
 								placeholder="Informações da política de privacidade: Insira aqui as informações pertinentes ao assunto, máximo 500 caracteres"
@@ -212,7 +212,7 @@ generalInformationDao.select_generalInformation_dao();
 						
 						<div class="form-group col-md-12">
 							<label for="contact">Formas de contato</label>
-							<textarea class="form-control" style="text-transform: lowercase;"
+							<textarea class="form-control" 
 								type="text" id="contact" name="fcontact"
 								minlength="20" maxlength="400"
 								placeholder="Informações de contato: Insira aqui as informações pertinentes ao assunto, máximo 400 caracteres"
@@ -221,7 +221,7 @@ generalInformationDao.select_generalInformation_dao();
 						
 						<div class="form-group col-md-12">
 							<label for="about_us">Sobre a empresa</label>
-							<textarea class="form-control" style="text-transform: lowercase;"
+							<textarea class="form-control" 
 								type="text" id="about_us" name="fabout_us"
 								minlength="20" maxlength="1000"
 								placeholder="Informações sobre a empresa: Insira aqui as informações pertinentes ao assunto, máximo 1000 caracteres"
@@ -230,7 +230,7 @@ generalInformationDao.select_generalInformation_dao();
 						
 						<div class="form-group col-md-12">
 							<label for="site_navigation">Navegação do site</label>
-							<textarea class="form-control" style="text-transform: lowercase;"
+							<textarea class="form-control"
 								type="text" id="site_navigation" name="fsite_navigation"
 								minlength="20" maxlength="500"
 								placeholder="Informações sobre a empresa: Insira aqui as informações pertinentes ao assunto, máximo 500 caracteres"

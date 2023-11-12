@@ -32,7 +32,11 @@
 	dto_productRegistration.setEntryDate((request.getParameter("fentryDate")));
 	dto_productRegistration.setDepartureDate((request.getParameter("fdepartureDate")));
 	dto_productRegistration.setQuantityEntry((Integer.parseInt(request.getParameter("fquantityEntry"))));
-	dto_productRegistration.setQuantityDepartury((Integer.parseInt(request.getParameter("fquantityEntry"))));
+	
+	if(!request.getParameter("fquantityDepartury").isEmpty()){
+	dto_productRegistration.setQuantityDepartury((Integer.parseInt(request.getParameter("fquantityDepartury"))));}else{
+		dto_productRegistration.setQuantityDepartury(0);}
+	
 	dto_productRegistration.setProductPrice((Double.valueOf(request.getParameter("fproductPrice"))));
 	dto_productRegistration.setProductDiscount((Double.valueOf(request.getParameter("fproductDiscount"))));
 	

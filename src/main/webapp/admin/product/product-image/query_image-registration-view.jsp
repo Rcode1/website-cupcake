@@ -300,7 +300,7 @@
 								<label for="idCategory">Categoria *</label> <input
 									class="form-control" type="text" id="idCategory"
 									name="fidIdCategory"
-									placeholder="Categoria: <%=productDao.select_productImage_dao().get(i).getImageCategory()%> "
+									placeholder=" <%=productDao.select_productImage_dao().get(i).getImageCategory()%> "
 									disabled></input>
 							</div>
 
@@ -314,10 +314,13 @@
 						</div>
 
 					</form>
-					<span style="margin: 5px;"> <img style="max-width: 124px;"
+				<span style="margin: 5px;"> <img style="max-width: 124px;"
+						src="../../../img/1000/1000.jpg">
+				
+			
+	<%-- 	Colocar depois --------> <span style="margin: 5px;"> <img style="max-width: 124px;"
 						src="<%="../../../img/" + String.valueOf(productDao.select_productImage_dao().get(i).getIdProduct()) + "/"
-		+ String.valueOf(productDao.select_productImage_dao().get(i).getIdProductImage()) + ".jpg"%>">
-
+		+ String.valueOf(productDao.select_productImage_dao().get(i).getIdProductImage()) + ".jpg"%>"> --%>
 
 					</span>
 				</div>

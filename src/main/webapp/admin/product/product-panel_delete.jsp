@@ -192,7 +192,7 @@
 					<div class="form-group col-md-4"
 						Style="margin-left: auto; margin-right: auto; text-align: center;">
 
-						<label for="idProduct">Confirmação para exclusão</label> <input
+						<label for="idProduct">Confirmação para deletar</label> <input
 							class="form-control" type="text" id="idProduct" name="fidProduct"
 							placeholder=" Digite aqui este código: <%=productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration()%>"></input>
 					</div>

@@ -81,6 +81,7 @@ public class ClientRegistration extends RegistrationAddress {
 	}
 
 	public void setEmailRegistration(String emailRegistration) {
+		if(emailRegistration!=null)
 		this.emailRegistration = emailRegistration.toLowerCase();
 	}
 

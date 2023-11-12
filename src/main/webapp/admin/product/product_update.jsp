@@ -24,7 +24,7 @@
 <body>
 	<%
 	ProductDao productDao = new ProductDao();
-
+if(!request.getParameter("fidProductRegistration_update").isEmpty())
 	if (productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration()
 			.equals(Integer.parseInt(request.getParameter("fidProductRegistration_update")))) {
 
@@ -52,12 +52,8 @@
 		ProductDao productDao_result = new ProductDao();
 		productDao_result.updateProductRegistration_Dao(productRegistration_dto);
 
-	} else {
-		out.print("não realizou a alteração");
-	}
-	%>
-
 	
+	%>
 	<div class="center-div"
 		style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
 		<div
@@ -72,7 +68,35 @@
 					consulta de produtos</a>
 			</div>
 		</div>
-	</div>
+	</div><%
+	
+	
+	} %>
 
+
+<% if(request.getParameter("fidProductRegistration_update").isEmpty()){%>
+		<div class="center-div"
+		style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
+		<div
+			style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
+			<img style="max-width: 100%" src="../../img/erro.jpeg">
+			<div class="card-body" style="margin: auto auto;">
+				<h5 class="card-title ">Não houve alterações nos dados cadastrais.</h5>
+				<p class="card-text">Talvez tenha sido a ausência da <strong>Confirmação para a alteração</strong>,
+				caso este seja o motivo, basta inserir o código do produto e realizar às modificações necessárias e, em seguida, 
+				click em <strong>Alterar dados</strong></p><br>
+				<a href="product-panel_operation.jsp" class="btn btn-secondary"
+					style="text-decoration: none; margin: auto auto;">Retornar para a
+					consulta de produtos</a>
+			</div>
+		</div>
+	</div>
+	
+
+<%
+	}
+%>
+
+	
 </body>
 </html>

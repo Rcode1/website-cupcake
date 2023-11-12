@@ -6,14 +6,14 @@
 <%@page import="br.com.dao.client.ClientDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	
+
 <%-- 
 * year 2023 title Cupcake Store
 * 
 * @author - Rodrigo Braga
 --%>
-	
-	
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,10 +56,11 @@
 	try {
 
 		//Este linha traz como resultado às informações contidas no DB de acordo com o usuário e senha
-		if (dao_client.clientListResult().isEmpty()) {
-			dao_client.resultSelectRegistration_Dao(request.getParameter("fuser-name").toLowerCase(),
-			request.getParameter("fpassword-access"));
-		}
+		if (dao_client.clientListResult().isEmpty())
+			if (request.getParameter("fuser-name")!=null) {
+		dao_client.resultSelectRegistration_Dao(request.getParameter("fuser-name").toLowerCase(),
+				request.getParameter("fpassword-access"));
+			}
 
 	} catch (Exception e) {
 		e.printStackTrace();
@@ -222,68 +223,63 @@
 
 		<%--------------------------Card com o produto-----------------------------------%>
 		<div style="margin-bottom: 50px;">
-				<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
-					os nossos principais produtos!</h4>
-				<hr>
+			<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
+				os nossos principais produtos!</h4>
+			<hr>
 
-				<%--  --%>
-				<%
-				// Lista com as informações do registro do produto 
-				ArrayList<ProductRegistration> productRegistration = new ArrayList<>();
-				productRegistration = productData.productRegistration_List();
+			<%--  --%>
+			<%
+			// Lista com as informações do registro do produto 
+			ArrayList<ProductRegistration> productRegistration = new ArrayList<>();
+			productRegistration = productData.productRegistration_List();
 
-				for (int i = 0; i < productRegistration.size(); i++) {
-			
-				%>
-				<div class="card float-left" style="width: 17rem; margin: 14px;">
+			for (int i = 0; i < productRegistration.size(); i++) {
+			%>
+			<div class="card float-left" style="width: 17rem; margin: 14px;">
 
-					<img src="../img/1000/1000.jpg"
-		
-			class="card-img-top"style="margin-top: 10px; max-height: 300px; min-height: 300px;">
+				<img src="../img/1000/1000.jpg" class="card-img-top"
+					style="margin-top: 10px; max-height: 300px; min-height: 300px;">
 
-					<div class="card-body">
-						<h5 class="card-title"><%=productRegistration.get(i).getProductName()%></h5>
-						<p class="card-text"><%=productRegistration.get(i).getBasicDescription()%></p>
-					</div>
-
-					<%
-					if (productData.productStock_List(productRegistration.get(i).getIdProductRegistration()) != null) {
-					%>
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">Quantidade disponível: <%=productData.productStock_List(productRegistration.get(i)
-								.getIdProductRegistration()).get(0).getQuantityEntry() - productData.productStock_List(productRegistration.get(i)
-								.getIdProductRegistration()).get(0).getQuantityDepartury()%>
-						</li>
-						<h>
-						<li class="list-group-item">Preço: R$ <%=productData.productStock_List(productRegistration.get(i)
-								.getIdProductRegistration()).get(0).getProductPrice()%>
-						</li>
-
-					</ul>
-					<%
-					} else {
-					%>
-
-					<ul class="list-group list-group-flush">
-					<li class="list-group-item">Produto não disponível!</li>
-					<h>
-						<li class="list-group-item">Valor indiponível!</li>
-
-					</ul>
-					<%
-					}
-					%>
-					<div class="card-body">
-						<a href="#" class="card-link">Verifique as condições para
-							entrega </a>
-
-					</div>
+				<div class="card-body">
+					<h5 class="card-title"><%=productRegistration.get(i).getProductName()%></h5>
+					<p class="card-text"><%=productRegistration.get(i).getBasicDescription()%></p>
 				</div>
 
 				<%
+				if (productData.productStock_List(productRegistration.get(i).getIdProductRegistration()) != null) {
+				%>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Quantidade disponível: <%=productData.productStock_List(productRegistration.get(i).getIdProductRegistration()).get(0).getQuantityEntry()
+		- productData.productStock_List(productRegistration.get(i).getIdProductRegistration()).get(0)
+				.getQuantityDepartury()%>
+					</li>
+					<h>
+					<li class="list-group-item">Preço: R$ <%=productData.productStock_List(productRegistration.get(i).getIdProductRegistration()).get(0).getProductPrice()%>
+					</li>
+				</ul>
+				<%
+				} else {
+				%>
+
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Produto não disponível!</li>
+					<h>
+					<li class="list-group-item">Valor indiponível!</li>
+				</ul>
+				<%
 				}
 				%>
-				
+				<div class="card-body">
+					<a href="#" class="card-link">Verifique as condições para
+						entrega </a>
+
+				</div>
+			</div>
+
+			<%
+			}
+			%>
+
 		</div>
 		<div style="clear: left; min-height: 80px;"></div>
 

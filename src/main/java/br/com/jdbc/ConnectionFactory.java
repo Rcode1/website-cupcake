@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 
 public class ConnectionFactory {
 
-	public Connection getConnection_client() throws ClassNotFoundException {
+public Connection getConnection_client() throws ClassNotFoundException {
 
 		Connection con = null;
 
@@ -43,6 +43,7 @@ public class ConnectionFactory {
 		}
 		return con;
 	}
+	
 	
 }
 

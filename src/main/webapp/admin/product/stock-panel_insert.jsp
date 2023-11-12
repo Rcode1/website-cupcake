@@ -16,8 +16,8 @@
 <head>
 
 <!-- Required meta tags -->
-<meta charset="utf-8">
 
+<%@ page language="java" errorPage="redirect_update-error.jsp"%>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -38,7 +38,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
+
 <meta charset="utf-8">
 <title>Insert title here</title>
 
@@ -252,9 +252,9 @@
 						</div>
 
 						<div class="form-group col-md-3">
-							<label for="entryDate">Data de entrada </label> <input
+							<label for="entryDate">Data de entrada *</label> <input
 								class="form-control" type="date" id="entryDate"
-								name="fentryDate" placeholder="D.entrada"></input>
+								name="fentryDate" placeholder="D.entrada" 	required></input>
 						</div>
 
 						<div class="form-group col-md-3">
@@ -264,17 +264,17 @@
 						</div>
 
 						<div class="form-group col-md-3">
-							<label for="quantityEntry">Quantidade de entrada </label> <input
+							<label for="quantityEntry">Quantidade de entrada *</label> <input
 								class="form-control" type="number" id="quantityEntry"
-								name="fquantityEntry" placeholder="Q.entrada:"></input>
+								name="fquantityEntry" placeholder="Q.entrada:" required></input>
 						</div>
 
 						<div class="form-group col-md-3">
-							<label for="quantityDepartury">Quantidade de saída </label> <input
+							<label for="quantityDepartury">Quantidade de saída *</label> <input
 								class="form-control" type="number" id="quantityDepartury"
-								name="fquantityDepartury" placeholder="Q.saída"></input>
+								name="fquantityDepartury" placeholder="Q.saída:" ></input>
 						</div>
-
+						
 						<div class="form-group col-md-3">
 							<label for="productPrice">Valor do produto *</label> <input
 								class="form-control" type="number" id="productPrice"

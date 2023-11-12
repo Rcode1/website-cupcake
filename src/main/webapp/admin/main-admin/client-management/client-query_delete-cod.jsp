@@ -16,7 +16,7 @@
 <meta charset="utf-8">
 
 
-<%@ page language="java" errorPage="../error-redirection/error-redirection_admin-query.jsp"%>
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -44,18 +44,14 @@
 <body>
 
 	<%
-	
 	ClientDao clientDao = new ClientDao();
 
 	ClientRegistration clientRegistration_obj = new ClientRegistration();
-	clientRegistration_obj.setIdClient(Integer.parseInt(request.getParameter("fidClient")));
-	clientDao.excludeClientRegistration_Dao(clientRegistration_obj);
-	clientDao.close_resultSelectRegistrationForAdmin_Dao();
-	
-
-
+	if (!request.getParameter("fidClient").isEmpty()) {
+		clientRegistration_obj.setIdClient(Integer.parseInt(request.getParameter("fidClient")));
+		clientDao.excludeClientRegistration_Dao(clientRegistration_obj);
+		clientDao.close_resultSelectRegistrationForAdmin_Dao();
 	%>
-	
 	<div class="center-div"
 		style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
 		<div
@@ -67,14 +63,48 @@
 					finalizar o processo de exclusão!</p>
 				<br> <a href="client-query_basic.jsp" class="btn btn-primary"
 					style="text-decoration: none; margin: auto auto; margin-top: 5px;">Continuar
-					excluindo</a> <a href="../main-page_home.jsp" class="btn btn-secondary"
+					excluindo</a> <a href="../../main-admin/main-page_home.jsp"
+					class="btn btn-secondary"
 					style="text-decoration: none; margin: auto auto; margin-top: 5px;">Retornar
-					para a página principal</a> 
+					para a página principal</a>
 
 
 			</div>
 		</div>
 	</div>
+
+	<%
+	}
+	%>
+
+	<%
+	if (request.getParameter("fidClient").isEmpty()) {
+	%>
+	<div class="center-div"
+		style="border: 1px solid #C4C3C3; max-width: 500px; padding: 10px;">
+		<div>
+			<img style="max-width: 100%" src="../../../img/erro.jpeg">
+			<div class="card-body" style="margin: auto auto;">
+				<h5 class="card-title ">Erro referente a área de cancelamento
+					do cadastro.</h5>
+				<p class="card-text">
+					Houve um problena na área destinada a deletar os dados cadastrais,
+					talves tenha sido a ausência da <strong>confirmação para
+						exclusão</strong>, por gentileza, pedimos que acesse novamente a sua conta
+					e realize o mesmo procedimento, acrescentando o o item já
+					mencionado, caso não consiga deletar entre em contato conosco!
+				</p>
+				<a href="../../main-admin/main-page_home.jsp"
+					class="btn btn-secondary"
+					style="text-decoration: none; margin: auto auto;"> Retornar
+					para página principal </a>
+			</div>
+		</div>
+	</div>
+	<%
+	}
+	%>
+
 
 
 	<!-- Optional JavaScript -->

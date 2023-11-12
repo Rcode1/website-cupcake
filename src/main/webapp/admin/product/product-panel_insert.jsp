@@ -202,7 +202,7 @@
 							<div class="form-group col-md-12">
 								<label for="basicDescription_insert">Descrição básica *</label>
 								<textarea class="form-control"
-									style="text-transform: lowercase;" type="text"
+									type="text"
 									id="basicDescription_insert" name="fbasicDescription_insert"
 									minlength="20" maxlength="300"
 									placeholder="Descrição b.: Insira aqui a descrição simplificada, máximo 300 caracteres"
@@ -214,7 +214,7 @@
 								<label for="longDescription_insert">Descrição completa *</label>
 
 								<textarea class="form-control"
-									style="text-transform: lowercase;" type="text"
+									type="text"
 									id="longDescription_insert" name="flongDescription_insert"
 									minlength="20" maxlength="1000"
 									placeholder="Descrição c.: Insira aqui a descrição completa, máximo 1000 caracteres"

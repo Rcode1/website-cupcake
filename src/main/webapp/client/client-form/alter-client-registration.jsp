@@ -108,7 +108,7 @@
 					sucesso.</h5>
 				<p class="card-text">Para finalizar as modificações basta clicar
 					no botão abaixo. Sua sessão será encerrada e, ao retornar a sua conta, seu
-					cadastro estará atualizado</p><br>
+					cadastro estará atualizado.</p><br>
 
 				<a href="../../home-page/close_account.jsp"
 					class="btn btn-secondary"

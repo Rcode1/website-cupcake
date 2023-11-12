@@ -3,6 +3,13 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +19,7 @@
 <body>
 	<br>
 	<form action="" Method="post">
-<p>Este teste tem como referencia o ID do produto, para verificar o retorno lógico dos dados armazenados</p>
+<p>Este teste tem como referência o ID do produto para realizar a verificação do conteúdo armazenado.</p>
 		<input type="text" name="obj"> Teste de retorno, V/F do banco de dados (Cadastro de imagens)</input>
 
 		<button type="submit">testar</button>
@@ -50,9 +57,9 @@
 
 		}
 		if(result!=null && result==true){
-			out.print("Tem itens da verificação verdadeiro");
+			out.print("Existe conteúdo armazenado para este ID");
 		}else{
-			out.print("Todos são falsos");
+			out.print("Não existe conteúdo armazenado para este ID");
 		}
 		
 		

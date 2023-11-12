@@ -70,7 +70,7 @@ client_Dao.close_resultSelectRegistration_Dao();
 				method="post">
 				<div class="center-div-text">
 					<input class="form-control"  type="text" id="user-name"
-						name="fuser-name"style="text-transform: lowercase;" placeholder="Entre com o email cadastrado!" required></input><br>
+						name="fuser-name" placeholder="Entre com o email cadastrado!" required></input><br>
 					<input class="form-control" type="password" id="password-access"
 						name="fpassword-access" placeholder="Entre com a sua senha!" required></input>
 				</div>

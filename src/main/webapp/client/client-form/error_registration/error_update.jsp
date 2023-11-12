@@ -26,10 +26,10 @@
 					procedimento de atualização do cadastro,  acrescentando o 
 					o item já mencionado, caso não consiga atualizar entre em contato conosco!
 				</p>
-				<a href="../../../index.jsp" class="btn btn-secondary"
+				<a href="../../../home-page/home.jsp" class="btn btn-secondary"
 					style="text-decoration: none; margin: auto auto;"> <%
  ClientDao clientDao = new ClientDao();
- clientDao.close_resultSelectRegistration_Dao();
+ //clientDao.close_resultSelectRegistration_Dao();
  %>Retornar para página principal
 				</a>
 

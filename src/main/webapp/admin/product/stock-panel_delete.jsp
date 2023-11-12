@@ -90,7 +90,7 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
-			<<a href="stock-panel_operation.jsp"><button
+			<a href="stock-panel_operation.jsp"><button
 					class="btn btn-light  float-left " type="button"
 					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
 

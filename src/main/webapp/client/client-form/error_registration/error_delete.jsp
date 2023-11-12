@@ -24,10 +24,10 @@
 					<strong>confirmação para exclusão</strong>, por gentileza, pedimos que acesse
 					novamente a sua conta e realize o mesmo procedimento, acrescentando o 
 					o item já mencionado, caso não consiga deletar entre em contato conosco!</p>
-				<a href="../../../index.jsp" class="btn btn-secondary"
+				<a href="../../../home-page/home.jsp" class="btn btn-secondary"
 					style="text-decoration: none; margin: auto auto;"> <%
  ClientDao clientDao = new ClientDao();
- clientDao.close_resultSelectRegistration_Dao();
+ //clientDao.close_resultSelectRegistration_Dao();
  %>Retornar para página principal
 				</a>
 			</div>
