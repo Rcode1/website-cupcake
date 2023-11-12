@@ -51,9 +51,8 @@
 		</div>
 		<br> <br> <br>
 
-
-		<!--------------------------formulario----------------------------------------------------------->
-
+				<%-- Início do formulário--%>
+		
 		<div class="largura-max-cadastro">
 			<div class="largura-max-cadastro text-center">
 				<h1>Formulário de cadastro.</h1>
@@ -170,7 +169,7 @@
 
 							<div class="form-group col-md-4">
 								<label for="state">Estado *</label> <select id="state"
-									class="form-control" name="fstate" placeholder="Estado:">
+									class="form-control" name="fstate">
 									<option selected>Estado</option>
 									<option>Acre (AC)</option>
 									<option>Alagoas (AL)</option>

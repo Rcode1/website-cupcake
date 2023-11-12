@@ -1,3 +1,4 @@
+<%@page import="java.lang.String" %>
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -7,7 +8,7 @@
 <head>
 
 <!-- Required meta tags -->
-<meta charset="utf-8">
+
 
 <%@ page language="java"
 	errorPage="error-redirection/error-redirection_admin-delete.jsp"%>
@@ -30,7 +31,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
+
 <meta charset="utf-8">
 <title>Insert title here</title>
 
@@ -79,8 +80,8 @@
 								meu cadastro </a>
 
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item"
-								href="admin-panel_operation.jsp">Operações gerais</a>
+							<a class="dropdown-item" href="admin-panel_operation.jsp">Operações
+								gerais</a>
 
 							<div class="dropdown-divider"></div>
 
@@ -118,8 +119,6 @@
 							style="text-decoration: none;">Consultar dados </a></li>
 						<li class="list-group-item"><a href="main-panel_update.jsp"
 							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="main-panel_inserir.jsp"
-							style="text-decoration: none;">Inserir dados</a></li>
 						<li class="list-group-item"><a
 							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
 								- operações cadastrais </a></li>
@@ -129,14 +128,12 @@
 
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-							do cliente</h5>
-						<li class="list-group-item"><a href="#"
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+							dos clientes</h5>
+						<li class="list-group-item"><a
+							href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
+
 						<hr>
 
 					</ul>
@@ -182,26 +179,27 @@
 		</div>
 		<div class="borda-cor-cadastro">
 
-			<form action="#" id="main-admin_delete" method="post">
+			<%-- Início do formulário  --%>
+
+			<form action="admin_delete.jsp" id="main-admin_delete" method="post">
 
 				<!---Neste trecho abre um campo imput para a entrada do código do main-admin, desta forma é possível
 			confirmar às intenções de deletar os dados cadastrais--->
-				<div class="borda-red"">
+				
+				<div class="borda-red">
 					<p>Digite o mesmo código que aparece no campo (confirmação para
 						exclusão) que está logo abaixo, em seguida click no botão excluir.</p>
 
 					<div class="form-group col-md-4"
 						Style="margin-left: auto; margin-right: auto; text-align: center;">
 
-						<label for="idAdmin_delete">Confirmação para exclusão</label> <input
-							class="form-control" type="text" id="idAdmin_delete"
-							name="fidAdmin_delete" placeholder=" Digite aqui este código:"></input>
+						<label for="idadmin_delete">Confirmação para exclusão</label> <input
+							class="form-control" type="text" id="idadmin_delelte"
+							name="fidadmin_delete" placeholder=" Digite aqui este código: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"></input>
 					</div>
 				</div>
-
-
-
-
+				
+				
 				<!------>
 				<div class="borda-cor-cadastro">
 					<div class="form-row">
@@ -211,10 +209,10 @@
 
 
 						<div class="form-group col-md-3">
-							<label for="idAdmin_query">Identificação de registro *</label> <input
-								class="form-control" type="text" id="idAdmin_query"
-								name="fidAdmin_query"
-								placeholder="Identificação:<%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"
+							<label for="idAdmin_delete">Identificação de registro *</label> <input
+								class="form-control" type="text" id="idAdmin_delete"
+								name="fidAdmin_delete"
+								placeholder="Identificação:<%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin() %>"
 								disabled></input>
 						</div>
 
@@ -325,7 +323,7 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
-	<script src="../../../js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
 
 
 	<script

@@ -35,7 +35,7 @@ public class ConnectionFactory {
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			String url = "jdbc:mysql://localhost:3306/db_cupcake_client?user=root&password=hook";
+			String url = "jdbc:mysql://localhost:3306/db_cupcake_admin?user=root&password=hook";
 			con = DriverManager.getConnection(url);
 
 		} catch (Exception e) {

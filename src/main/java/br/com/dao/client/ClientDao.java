@@ -185,10 +185,10 @@ public class ClientDao {
 		select_RegistrationClient_dao();
 		ArrayList<ClientRegistration> list = new ArrayList<>();
 		list = select_RegistrationClient_dao();
-
+		String emailLowerCase = email.toLowerCase();
 		try {
 			for (int i = 0; i < list.size(); i++) {
-				if (list.get(i).getEmailRegistration().equals(email)) {
+				if (list.get(i).getEmailRegistration().equals(emailLowerCase)) {
 					if (list.get(i).getPassword().equals(password)) {
 						ClientRegistration clientResult = new ClientRegistration();
 
@@ -236,7 +236,7 @@ public class ClientDao {
 	// Método para remover os itens da lista
 	public void close_resultSelectRegistration_Dao() {
 
-		for (int i = 0; i < clientListResult().size(); i++) {
+		for (int i = 0; i <  persistence_clientListResult.size(); i++) {
 
 			// listResult.remove(i);
 			persistence_clientListResult.remove(i);

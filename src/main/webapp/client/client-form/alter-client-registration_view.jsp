@@ -225,16 +225,12 @@ try{
 							</div>
 							<!------>
 							
-							<div class="form-group col-md-4">
-								<label for="city">Estado atual *</label> <input class="form-control"
-									type="text" id="state_" name="fstate_" placeholder="Estado: <%=clientResultSelect.get(0).getState()%>" disabled></input>
-							</div>
-							
+										
 							
 							<div class="form-group col-md-4">
 								<label for="state">Alterar estado *</label> <select id="state"
 									class="form-control" name="fstate" >
-									<option selected>Estado</option>
+									<option selected> <%=clientResultSelect.get(0).getState()%></option>
 									<option>Acre (AC)</option>
 									<option>Alagoas (AL)</option>
 									<option>Amapá (AP)</option>

@@ -80,7 +80,7 @@ public class AdminRegistrationDao {
 
 				AdministratorRegistration obj_administratorRegistration = new AdministratorRegistration();
 
-				obj_administratorRegistration.setIdAdmin(rs.getInt(" id_admin"));
+				obj_administratorRegistration.setIdAdmin(rs.getInt("idAdmin"));
 				obj_administratorRegistration.setAdiminDateRegistration(rs.getString("admin_date_registration"));
 				obj_administratorRegistration.setNameAdmin(rs.getString("name_admin"));
 				obj_administratorRegistration.setAccessLevel(rs.getString("access_level"));
@@ -105,7 +105,7 @@ public class AdminRegistrationDao {
 	public void excludeadminRegistration_Dao(AdministratorRegistration obj) {
 
 		try {
-			String sql = " DELETE FROM db_cupcake_admin.administrator_registration WHERE (id_admin = ?);";
+			String sql = "DELETE FROM db_cupcake_admin.administrator_registration WHERE (idAdmin = ?);";
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 
@@ -126,16 +126,20 @@ public class AdminRegistrationDao {
 	public void updateAdminRegistration_Dao(AdministratorRegistration obj) {
 
 		try {
-			String sql = "UPDATE db_cupcake_admin.administrator_registration SET (name_admin = ?, access_level = ?, "
-					+ "email_access = ?, phone_contact = ?, admin_password = ?) WHERE (id_admin = ?);";
 
+			String sql = "UPDATE db_cupcake_admin.administrator_registration SET"
+					+ " admin_date_registration = ?, name_admin = ?, access_level = ?, email_access = ?, "
+					+ "phone_contact = ?, admin_password = ? WHERE ( idAdmin = ?);";
 			PreparedStatement stmt = con.prepareStatement(sql);
-
-			stmt.setString(1, obj.getNameAdmin());
-			stmt.setString(2, obj.getAccessLevel());
-			stmt.setString(3, obj.getEmailAccess());
-			stmt.setString(4, obj.getPhoneContact());
-			stmt.setString(5, obj.getAdminPassword());
+			// InsertDate insertDate = new InsertDate();
+            
+			stmt.setString(1, obj.getAdiminDateRegistration());
+			stmt.setString(2, obj.getNameAdmin());
+			stmt.setString(3, obj.getAccessLevel());
+			stmt.setString(4, obj.getEmailAccess());
+			stmt.setString(5, obj.getPhoneContact());
+			stmt.setString(6, obj.getAdminPassword());
+			stmt.setInt(7, obj.getIdAdmin());
 
 			stmt.execute();
 
@@ -149,15 +153,18 @@ public class AdminRegistrationDao {
 	}
 
 //********************************************************************************	
+	public ArrayList<AdministratorRegistration> returnVerification_Administrator_dao = new ArrayList<>();
 
 //Métodos para selecionar, retornar e remover apenas um único administrador	
+	// ***Métodos para realizar a query de apenas um único administrador ****
 	public void uniqueSelectResultAdmin_Dao(Integer obj) {
 
 		for (int i = 0; i < select_AdministratorRegistration_dao().size(); i++) {
 
-			if (select_AdministratorRegistration_dao().get(i).getIdAdmin() == (obj)) {
+			if (select_AdministratorRegistration_dao().get(i).getIdAdmin().equals(obj)) {
 
-				persistence_administratorRegistration_dao.add(0, select_AdministratorRegistration_dao().get(i));
+				persistence_administratorRegistration_dao.add(select_AdministratorRegistration_dao().get(i));
+				//returnVerification_Administrator_UPDATE_dao.add(select_AdministratorRegistration_dao().get(i));
 
 			}
 
@@ -166,45 +173,57 @@ public class AdminRegistrationDao {
 	}
 
 	public ArrayList<AdministratorRegistration> getUniqueSelectResultAdmin_Dao() {
-		return persistence_administratorRegistration_dao;
+		returnVerification_Administrator_dao.add(persistence_administratorRegistration_dao.get(0));
+
+		return returnVerification_Administrator_dao;
 	}
 
 	public void removeUniqueSelectResultAdmin_Dao() {
 		for (int i = 0; i < persistence_administratorRegistration_dao.size(); i++) {
+
 			persistence_administratorRegistration_dao.remove(i);
 		}
 
 	}
+
+//Metodos para a realização de update	
 	
+
+	static public ArrayList<AdministratorRegistration> returnVerification_Administrator_UPDATE_dao = new ArrayList<>();
+
+	public ArrayList<AdministratorRegistration> getUniqueSelectResultAdmin_UPDATE_Dao() {
+		ArrayList<AdministratorRegistration> returnVerification_Admin_UPDATE_dao = new ArrayList<>();
+		returnVerification_Admin_UPDATE_dao.add(returnVerification_Administrator_UPDATE_dao.get(0));
+		return returnVerification_Admin_UPDATE_dao;
+	}
+
 //********************************************************************************
 // Verificação de login e senha do administrador
-		static public ArrayList<AdministratorRegistration> AccessVerification_Administrator_dao = new ArrayList<>();
+	static public ArrayList<AdministratorRegistration> AccessVerification_Administrator_dao = new ArrayList<>();
 
-		public void access_Administrator_dao(String email, String password, String access_level) {
-			select_AdministratorRegistration_dao();
-			for (int i = 0; i < select_AdministratorRegistration_dao().size(); i++) {
+	public void access_Administrator_dao(String email, String password, String access_level) {
+		select_AdministratorRegistration_dao();
+		for (int i = 0; i < select_AdministratorRegistration_dao().size(); i++) {
 
-				if (select_AdministratorRegistration_dao().get(i).getEmailAccess().equals(email))
-					if (select_AdministratorRegistration_dao().get(i).getAdminPassword().equals(password))
-						if (select_AdministratorRegistration_dao().get(i).getAccessLevel().equals(access_level)) {
+			if (select_AdministratorRegistration_dao().get(i).getEmailAccess().equals(email))
+				if (select_AdministratorRegistration_dao().get(i).getAdminPassword().equals(password))
+					if (select_AdministratorRegistration_dao().get(i).getAccessLevel().equals(access_level)) {
 
-							AccessVerification_Administrator_dao.add(0, select_AdministratorRegistration_dao().get(i));
+						AccessVerification_Administrator_dao.add(0, select_AdministratorRegistration_dao().get(i));
+						returnVerification_Administrator_UPDATE_dao.add(0, select_AdministratorRegistration_dao().get(i));
 
-						}
-			}
+					}
 		}
+	}
 
-		static public ArrayList<AdministratorRegistration> returnAccess_Administrator_dao() {
-			return AccessVerification_Administrator_dao;
-		}
+	static public ArrayList<AdministratorRegistration> returnAccess_Administrator_dao() {
+		return AccessVerification_Administrator_dao;
+	}
 
-		static public void deleteAccess_Administrator_dao() {
-			for (int i = 0; i < AccessVerification_Administrator_dao.size(); i++) {
-				AccessVerification_Administrator_dao.remove(i);
-			}
+	static public void deleteAccess_Administrator_dao() {
+		for (int i = 0; i < AccessVerification_Administrator_dao.size(); i++) {
+			AccessVerification_Administrator_dao.remove(i);
 		}
-	
+	}
 
 }
-
-

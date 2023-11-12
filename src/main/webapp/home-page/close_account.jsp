@@ -15,10 +15,10 @@
 	//os itens da lista.
 	ClientDao clientDao = new ClientDao();
 
-	clientDao.close_resultSelectRegistration_Dao();
+	
 
 	//Teste para verificação de lista, (vazia ou cheia)
-	if (clientDao.clientListResult().isEmpty()) {
+	if (!clientDao.clientListResult().isEmpty()) {
 	%>
 	<script>
 		window.location.href = '../index.jsp';

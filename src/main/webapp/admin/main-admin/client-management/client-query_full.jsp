@@ -188,7 +188,7 @@
 
 							<label for="idClient">Confirmação para exclusão</label> <input
 								class="form-control" type="text" id="idClient" name="fidClient"
-								placeholder=" Digite aqui este código: <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getIdClient()%>"></input>
+								placeholder=" Digite aqui este código: <%=clientDao.clientListResult().get(0).getIdClient()%>"></input>
 						</div>
 					</div>
 
@@ -199,14 +199,14 @@
 							<label for="clientName">Data do cadastro </label> <input
 								class="form-control" type="text" id="clientName"
 								name="fclientName"
-								placeholder="<%=clientDao.getUniqueSelectResultClient_Dao().get(0).getDateRegistration()%>"
+								placeholder="<%=clientDao.clientListResult().get(0).getDateRegistration()%>"
 								disabled></input>
 						</div>
 						<!------>
 						<div class="form-group col-md-9">
 							<label for="nome">Nome completo </label> <input
 								class="form-control" type="text" id="name" name="fclientName"
-								placeholder="  <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getName()%>"
+								placeholder="  <%=clientDao.clientListResult().get(0).getName()%>"
 								disabled></input>
 						</div>
 						<!------>
@@ -216,14 +216,14 @@
 						<div class="form-group col-md-8">
 							<label for="email">Email </label> <input class="form-control"
 								type="text" id="emaiL" name="femail"
-								placeholder="Email: <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getEmailRegistration()%>"
+								placeholder="Email: <%=clientDao.clientListResult().get(0).getEmailRegistration()%>"
 								disabled></input>
 						</div>
 						<!------>
 						<div class="form-group col-md-4">
 							<label for="senha">Senha </label> <input class="form-control"
 								type="txt" id="password" name="fpassword"
-								placeholder="<%=clientDao.getUniqueSelectResultClient_Dao().get(0).getPassword()%>"
+								placeholder="<%=clientDao.clientListResult().get(0).getPassword()%>"
 								disabled></input>
 						</div>
 					</div>
@@ -239,21 +239,21 @@
 							<label for="birthDate">Data de nascimento </label> <input
 								class="form-control" type="text" id="birthDate"
 								name="fbirthDate"
-								placeholder=" <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getBirthDate()%>"
+								placeholder=" <%=clientDao.clientListResult().get(0).getBirthDate() %>"
 								disabled></input>
 						</div>
 						<!------>
 						<div class="form-group col-md-5">
 							<label for="document">Documento - CPF </label> <input
 								class="form-control" type="text" id="document" name="fdocument"
-								placeholder=" <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getDocumentCpf()%>"
+								placeholder=" <%=clientDao.clientListResult().get(0).getDocumentCpf()%>"
 								disabled></input>
 						</div>
 						<!------>
 						<div class="form-group col-md-4">
 							<label for="phone">Telefone cel </label> <input
 								class="form-control" type="text" id="phone" name="fphone"
-								placeholder=" <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getPhone()%>"
+								placeholder=" <%=clientDao.clientListResult().get(0).getPhone()%>"
 								disabled></input>
 						</div>
 					</div>
@@ -269,7 +269,7 @@
 					<div class="form-group">
 						<label for="street">Rua </label> <input class="form-control"
 							type="text" id="street" name="fstreet"
-							placeholder="<%=clientDao.getUniqueSelectResultClient_Dao().get(0).getStreet()%>"
+							placeholder="<%=clientDao.clientListResult().get(0).getStreet()%>"
 							disabled></input>
 					</div>
 					<!------>
@@ -278,7 +278,7 @@
 						<label for="complement">Complemento </label> <input
 							class="form-control" type="text" id="complement"
 							name="fcomplement"
-							placeholder=" <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getComplement()%>"
+							placeholder=" <%=clientDao.clientListResult().get(0).getComplement()%>"
 							disabled></input>
 					</div>
 					<!------>
@@ -288,7 +288,7 @@
 							<label for="homeNumber">Numero</label> <input
 								class="form-control" type="text" id="homeNumber"
 								name="fhomeNumber"
-								placeholder=" <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getHomeNumber()%>"
+								placeholder=" <%=clientDao.clientListResult().get(0).getHomeNumber()%>"
 								disabled></input>
 						</div>
 
@@ -298,7 +298,7 @@
 							<label for="neighborhood">Bairro</label> <input
 								class="form-control" type="text" id="neighborhood"
 								name="fneighborhood"
-								placeholder=" <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getNeighborhood()%>"
+								placeholder=" <%=clientDao.clientListResult().get(0).getNeighborhood()%>"
 								disabled></input>
 						</div>
 					</div>
@@ -309,7 +309,7 @@
 						<div class="form-group col-md-8">
 							<label for="city">Cidade </label> <input class="form-control"
 								type="text" id="city" name="fcity"
-								placeholder=" <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getCity()%>"
+								placeholder=" <%=clientDao.clientListResult().get(0).getCity()%>"
 								disabled></input>
 						</div>
 						<!------>
@@ -317,7 +317,7 @@
 						<div class="form-group col-md-4">
 							<label for="city">Estado atual </label> <input
 								class="form-control" type="text" id="state_" name="fstate_"
-								placeholder=" <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getState()%>"
+								placeholder=" <%=clientDao.clientListResult().get(0).getState()%>"
 								disabled></input>
 						</div>
 
@@ -326,7 +326,7 @@
 						<div class="form-group col-md-3">
 							<label for="zipCode">Cep *</label> <input class="form-control"
 								type="text" id="zipCode" name="fzipCode"
-								placeholder="Cep: <%=clientDao.getUniqueSelectResultClient_Dao().get(0).getZipCode()%>"
+								placeholder="Cep: <%=clientDao.clientListResult().get(0).getZipCode()%>"
 								disabled></input>
 						</div>
 					</div>

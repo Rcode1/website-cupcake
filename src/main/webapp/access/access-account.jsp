@@ -29,7 +29,11 @@
 
 </head>
 <body>
+<%
+ClientDao client_Dao = new ClientDao();
+client_Dao.close_resultSelectRegistration_Dao();
 
+%>
 	
 
 	<div class="center-div">
@@ -51,6 +55,9 @@
 					para validar o acesso!</label>
 			</div>
 			<br>
+			
+			<%-- Formulário --%>
+			
 			<form action="../home-page/home.jsp"
 				method="post">
 				<div class="center-div-text">

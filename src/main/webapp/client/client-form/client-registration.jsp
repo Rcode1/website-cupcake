@@ -12,6 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ page language="java" errorPage="redirect_error.jsp"%>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="../../css/css-personalizado/personalizacao.css">
@@ -39,15 +40,8 @@
 
 	ClientDao dao_client = new ClientDao();
 	dao_client.registrationClient_Dao(dto_registrationClient);
+	dao_client.close_resultSelectRegistration_Dao();
 	%>
-	<%
-	//ClientDao dao_client1 = new ClientDao();
-	//ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
-	//Este linha traz como resultado às informações contidas no DB de acordo com o usuário e senha
-	dao_client.resultSelectRegistration_Dao(dto_registrationClient.getEmailRegistration(),
-			dto_registrationClient.getPassword());
-	%>
-
 
 	<div class="center-div"
 		style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
@@ -56,11 +50,12 @@
 			<img style="max-width: 100%" src="../../img/cadastro.png">
 			<div class="card-body" style="margin: auto auto;">
 				<h5 class="card-title ">Seu cadastro foi realizado com sucesso.</h5>
-				<p class="card-text">Sua sessão será inicializada automaticamente,
-				basta dar um click no botão situado logo abaixo!</p><br>
-				<a href="../../home-page/home.jsp" class="btn btn-secondary"
-					style="text-decoration: none; margin: auto auto;">Retornar para a
-					página principal</a>
+				<p class="card-text">Basta acessar a sua conta com o seu email e
+					senha cadastrados, através do botão situado logo abaixo!</p>
+				<br> <a href="../../index.jsp"
+					class="btn btn-secondary"
+					style="text-decoration: none; margin: auto auto;">Retornar para
+					a página principal</a>
 			</div>
 		</div>
 	</div>

@@ -47,9 +47,9 @@
 	
 	ClientDao clientDao = new ClientDao();
 
-	 clientDao.removeUniqueSelectResultClient_Dao();
-	 clientDao.uniqueSelectResultFoAdmin(Integer.parseInt(request.getParameter("fclient_query")));
-
+//	 clientDao.removeUniqueSelectResultClient_Dao();
+//	 clientDao.uniqueSelectResultFoAdmin(Integer.parseInt(request.getParameter("fclient_query")));
+//
 
 	%>
 	

@@ -1,4 +1,3 @@
-<%@page import="java.lang.String"%>
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -10,6 +9,8 @@
 <!-- Required meta tags -->
 
 
+<%@ page language="java"
+	errorPage="error-redirection/error-redirection_admin-update.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -25,9 +26,9 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" type="text/css"
-	href="../../../css/bootstrap.min.css">
+	href="../../css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
-	href="../../../css/css-personalizado/personalizacao.css">
+	href="../../css/css-personalizado/personalizacao.css">
 
 
 <meta charset="utf-8">
@@ -37,20 +38,20 @@
 </head>
 
 <body>
-	<%
-	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
-	%>
 
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
 
-			<%-- Menu principal --%>
 
 
-			<%--  Início do menu principal --%>
 
-			<a href=../../main-admin/main-page_home.jsp><button
+
+			<!----------------------Menu principal------------------------------------>
+
+			<!--  Início do menu principal -->
+
+			<a href="main-page_home.jsp"><button
 					class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
 					aria-controls="offcanvasWithBothOptions">Início</button></a>
@@ -61,43 +62,42 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
-
+			<a href="main-panel_query.jsp"><button
+					class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
 
 			<span class="acesso-usuario">
 				<ul class="nav nav menu-principal">
 					<div style="width: 80px;">
-						<img style="width: 80px;" src="../../../img/capaAdminA.png">
+						<img style="width: 80px;" src="../../img/capaAdminA.png">
 					</div>
 					<li class="nav-item dropdown"><p
-							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.getUniqueSelectResultAdmin_UPDATE_Dao().get(0).getNameAdmin()%></p>
-						<a class="nav-link dropdown-toggle color-menu"
+							style="margin: 0px; padding-left: 15px;">nome do admin</p> <a
+						class="nav-link dropdown-toggle color-menu"
 						style="padding-right: 10px;" data-toggle="dropdown" href="#"
 						role="button" aria-haspopup="true" aria-expanded="false">Painel
 							pessoal</a>
 						<div class="dropdown-menu dropdown-menu-right">
-							<a class="dropdown-item"
-								href="../my-admin_details/my_main-panel_delete.jsp">Deletar
-								meu cadastro</a> <a class="dropdown-item "
-								href="../my-admin_details/my_main-panel_query.jsp">Visualizar
+							<a class="dropdown-item "
+								href="my-admin_details/my_main-panel_query.jsp">Visualizar
 								meu cadastro </a> <a class="dropdown-item"
-								href="../my-admin_details/my_main-panel_update.jsp">Atualizar
-								meu cadastro </a>
+								href="my-admin_details/my_main-panel_delete.jsp">Deletar meu
+								cadastro</a>
 
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="../../main-admin/admin-panel_operation.jsp">Operações
-								gerais</a>
+							<a class="dropdown-item"
+								href="admin-panel_operation.jsp">Operações gerais</a>
 
 							<div class="dropdown-divider"></div>
 
-							<a class="dropdown-item" href="../../../admin/admin_closed.jsp">Sair</a>
+							<a class="dropdown-item" href="../admin_closed.jsp">Sair</a>
 						</div></li>
 				</ul>
 			</span>
 
-			<%--  fim do menu principal --%>
+			<!-- fim do menu principal -->
 
-			<%-- Painel lateral - administrador --%>
-
+			<!-- Painel lateral - administrador -->
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
 				style="max-width: 300px;" tabindex="-1"
 				id="offcanvasWithBothOptions"
@@ -114,29 +114,29 @@
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
 							de administradores</h5>
 
-						<li class="list-group-item">Para acessar os itens de cadastro
-							do administrador, basta dar um click no item <strong>
-								Administradores - operações cadastrais</strong>, o item está situado
-							neste menu, logo abaixo.
-						</li>
+						<li class="list-group-item">Abaixo estão disponíveis todas as
+							operações de cadastro, tanto para o administrador principal como
+							para os responsáveis pela manutenção dos recursos do site.</li>
 
+						
+						<li class="list-group-item"><a href="main-panel_query.jsp"
+							style="text-decoration: none;">Consultar dados</a></li>
+						<li class="list-group-item"><a href="main-panel_delete.jsp"
+							style="text-decoration: none;">Deletar dados</a></li>
 						<li class="list-group-item"><a
-							href="../admin-panel_operation.jsp"
-							style="text-decoration: none;">Administradores - operações
-								cadastrais </a></li>
+							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
+								- operações cadastrais </a></li>
 
 						<hr>
 					</ul>
 
 
-
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
 							dos clientes</h5>
-						<li class="list-group-item"><a
-							href="../client-management/client-query_basic.jsp"
+						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-
+						
 						<hr>
 
 					</ul>
@@ -150,7 +150,7 @@
 								de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.
 						</li>
 						<li class="list-group-item"><a
-							href="../../product/product-panel_operation.jsp"
+							href="../product/product-panel_operation.jsp"
 							style="text-decoration: none;">Produto e estoque- operações
 								cadastrais </a></li>
 
@@ -167,11 +167,13 @@
 
 	</div>
 
-	<%-- Fim do menu lateral --%>
+	<!-- Fim do menu lateral -->
 
 
-	<%-- formulario --%>
-
+	<!--------------------------formulario----------------------------------------------------------->
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 	<div class="largura-max-cadastro"
 		style="margin: auto auto; margin-top: 80px;">
 		<div class="largura-max-cadastro text-center">
@@ -179,11 +181,11 @@
 			<p>Abaixo estão todos os dados cadastrados do administrador</p>
 		</div>
 		<div class="borda-cor-cadastro">
-
+			
 			<%-- --%>
 			<form action="my_admin_update.jsp" id="admin_update" method="POST">
-
-				<%-- Neste trecho abre um campo imput para a entrada do código do administrador, desta forma é possível
+			
+			<%-- Neste trecho abre um campo imput para a entrada do código do administrador, desta forma é possível
 			confirmar às intenções da realização de alterações dos dados cadastrais--%>
 				<div class="borda-red"">
 					<p>Digite o mesmo código que aparece no campo (confirmação para
@@ -195,8 +197,7 @@
 
 						<label for="idadmin_update">Confirmação para atualização</label> <input
 							class="form-control" type="text" id="idadmin_update"
-							name="fidadmin_update"
-							placeholder=" Digite aqui este código: <%=adminRegistrationDao.getUniqueSelectResultAdmin_UPDATE_Dao().get(0).getIdAdmin()%>"></input>
+							name="fidadmin_update" placeholder=" Digite aqui este código: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"></input>
 					</div>
 				</div>
 
@@ -206,7 +207,7 @@
 				<div class="borda-cor-cadastro">
 					<div class="form-row">
 
-						<%-- --%>
+						<!------>
 
 
 
@@ -214,26 +215,25 @@
 							<label for="idadmin_update">Identificação de registro *</label> <input
 								class="form-control" type="text" id="idadmin_update"
 								name="fidadmin_update"
-								placeholder="Identificação: <%=adminRegistrationDao.getUniqueSelectResultAdmin_UPDATE_Dao().get(0).getIdAdmin()%>"
+								placeholder="Identificação: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"
 								disabled></input>
 						</div>
 
-
+						
 						<div class="form-group col-md-3">
-							<label for="adiminDateRegistration_update">Data do
+								<label for="adiminDateRegistration_update">Data do
 								cadastro *</label> <select id="adiminDateRegistration_update"
-								class="form-control" name="fadiminDateRegistration_update">
-								<option selected><%=adminRegistrationDao.getUniqueSelectResultAdmin_UPDATE_Dao().get(0).getAdiminDateRegistration()%>
-								</option>
-
-							</select>
-						</div>
-
+									class="form-control" name="fadiminDateRegistration_update">
+									<option selected><%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdiminDateRegistration()%></option>
+									
+								</select>
+							</div>
+						
 						<div class="form-group col-md-6">
 							<label for="nameAdmin_update">Nome admin *</label> <input
 								class="form-control" type="text" id="nameAdmin_update"
 								name="fnameAdmin_update"
-								placeholder="Nome admin: <%=adminRegistrationDao.getUniqueSelectResultAdmin_UPDATE_Dao().get(0).getNameAdmin()%>"></input>
+								placeholder="Nome admin: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getNameAdmin()%>"></input>
 						</div>
 
 
@@ -241,8 +241,7 @@
 							<label for="accessLevel_update">Nível de acesso *</label> <select
 								id="accessLevel_update" class="form-control"
 								name="faccessLevel_update">
-								<option selected>
-									<%=adminRegistrationDao.getUniqueSelectResultAdmin_UPDATE_Dao().get(0).getAccessLevel()%></option>
+								<option selected> <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAccessLevel()%></option>
 								<option>Manutenção</option>
 								<option>Administrativo</option>
 
@@ -256,7 +255,7 @@
 							<label for="emailAccess_update">Email *</label> <input
 								class="form-control" style="text-transform: lowercase;"
 								type="email" id="emailAccess_update" name="femailAccess_update"
-								placeholder="Email: <%=adminRegistrationDao.getUniqueSelectResultAdmin_UPDATE_Dao().get(0).getEmailAccess()%>"></input>
+								placeholder="Email: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getEmailAccess()%>"></input>
 						</div>
 
 
@@ -264,19 +263,18 @@
 							<label for="adminPassword_update">Senha *</label> <input
 								class="form-control" type="password" id="adminPassword_update"
 								name="fadminPassword_update"
-								placeholder="Senha:  <%=adminRegistrationDao.getUniqueSelectResultAdmin_UPDATE_Dao().get(0).getAdminPassword()%>"></input>
+								placeholder="Senha:  <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdminPassword()%>"></input>
 						</div>
 
 						<div class="form-group col-md-5">
 							<label for="phoneContact_update">Telefone cel * OBS.:
 								incluir o "zero" do DDD.</label> <input class="form-control" type="text"
 								id="phoneContact_update" name="fphoneContact_update"
-								placeholder="Telefone: <%=adminRegistrationDao.getUniqueSelectResultAdmin_UPDATE_Dao().get(0).getPhoneContact()%>"></input>
+								placeholder="Telefone: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getPhoneContact()%>"></input>
 						</div>
 
 					</div>
-
-					<%-- --%>
+					<!------>
 
 				</div>
 
@@ -328,7 +326,7 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
-	<script src="../../../js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
 
 
 	<script

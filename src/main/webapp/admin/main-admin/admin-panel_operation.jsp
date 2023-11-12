@@ -163,14 +163,11 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-							do cliente</h5>
-						<li class="list-group-item"><a href="#"
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+							dos clientes</h5>
+						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
+						
 						<hr>
 
 					</ul>

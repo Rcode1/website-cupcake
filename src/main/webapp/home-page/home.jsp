@@ -24,7 +24,7 @@
 	crossorigin="anonymous"></script>
 
 <!-- Required meta tags -->
-<meta charset="utf-8">
+
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -34,7 +34,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../css/css-personalizado/personalizacao.css">
 
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 
 <title>Insert title here</title>
 </head>
@@ -47,7 +47,7 @@
 	try {
 
 		//Este linha traz como resultado às informações contidas no DB de acordo com o usuário e senha
-		dao_client.resultSelectRegistration_Dao(request.getParameter("fuser-name").toLowerCase(),
+		dao_client.resultSelectRegistration_Dao(request.getParameter("fuser-name"),
 		request.getParameter("fpassword-access"));
 
 	} catch (Exception e) {
@@ -57,7 +57,7 @@
 
 	<div>
 
-		<div class="fundo-menu fixed-top"">
+		<div class="fundo-menu fixed-top">
 			<div class="  alinhamento-tamanho_max ">
 
 				<!-- Menu principal-->

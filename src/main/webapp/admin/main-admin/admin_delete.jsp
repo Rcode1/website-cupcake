@@ -25,12 +25,12 @@
 </head>
 <body>
 	<%
-	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	AdminRegistrationDao adminRegistration_delete_Dao = new AdminRegistrationDao();
 	AdministratorRegistration AdministratorRegistration_dto  = new AdministratorRegistration ();
 	
 	
-	AdministratorRegistration_dto.setIdAdmin(Integer.parseInt(request.getParameter("fidAdmin_delete")));
-	adminRegistrationDao.excludeadminRegistration_Dao(AdministratorRegistration_dto);
+	AdministratorRegistration_dto.setIdAdmin(Integer.parseInt(request.getParameter("fidadmin_delete")));
+	adminRegistration_delete_Dao.excludeadminRegistration_Dao(AdministratorRegistration_dto);
 	%>
 
 	<div class="center-div"
@@ -44,7 +44,7 @@
 					finalizar o processo de exclusão!</p>
 				<br> <a href="main-panel_delete.jsp" class="btn btn-primary"
 					style="text-decoration: none; margin: auto auto; margin-top: 5px;">Continuar
-					excluindo</a> <a href="../main-page_home.jsp" class="btn btn-secondary"
+					excluindo</a> <a href="main-page_home.jsp" class="btn btn-secondary"
 					style="text-decoration: none; margin: auto auto; margin-top: 5px;">Retornar
 					para a página principal</a> 
 

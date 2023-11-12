@@ -7,7 +7,7 @@
 <head>
 
 <!-- Required meta tags -->
-<meta charset="utf-8">
+
 
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +29,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 
@@ -75,7 +76,7 @@
 							<a class="dropdown-item "
 								href="my-admin_details/my_main-panel_query.jsp">Visualizar
 								meu cadastro </a> <a class="dropdown-item"
-								href="my-admin_details/my_main-panel_update.jsp">Atualizar
+								href="../main-admin/my-admin_details/my_main-panel_update.jsp">Atualizar
 								meu cadastro </a> <a class="dropdown-item"
 								href="my-admin_details/my_main-panel_delete.jsp">Deletar meu
 								cadastro</a>
@@ -125,7 +126,7 @@
 
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
-							dos cliente</h5>
+							dos clientes</h5>
 						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
 						

@@ -1,3 +1,4 @@
+<%@page import="java.lang.String" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -112,12 +113,7 @@
 							operações de cadastro, tanto para o administrador principal como
 							para os responsáveis pela manutenção dos recursos do site.</li>
 
-						<li class="list-group-item"><a href="main-panel_query.jsp"
-							style="text-decoration: none;">Consultar dados </a></li>
-						<li class="list-group-item"><a href="main-panel_update.jsp"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="main-panel_delete.jsp"
-							style="text-decoration: none;">Deletar dados</a></li>
+						
 						<li class="list-group-item"><a
 							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
 								- operações cadastrais </a></li>
@@ -126,15 +122,13 @@
 					</ul>
 
 
+					
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-							do cliente</h5>
-						<li class="list-group-item"><a href="#"
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+							dos clientes</h5>
+						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
+						
 						<hr>
 
 					</ul>
@@ -198,7 +192,7 @@
 						<div class="form-group col-md-6">
 							<label for="emailAccess_insert">Email de acesso *</label> <input
 								class="form-control" type="email" id="emailAccess_insert"
-								name="femailAccess_insert" placeholder="Acesso:" required></input>
+								name="femailAccess_insert" placeholder="E-mail:" required></input>
 						</div>
 
 
@@ -224,7 +218,7 @@
 						<div class="form-group col-md-5">
 							<label for="phone">Telefone cel * OBS.: incluir o "zero"
 								do DDD.</label> <input class="form-control" type="text" id="phone"
-								name="fphone" placeholder="Telefone:" required></input>
+								name="fphoneContact_insert" placeholder="Telefone:" required></input>
 						</div>
 
 					</div>

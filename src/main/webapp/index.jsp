@@ -12,7 +12,7 @@
 
 <head>
 
-<!-- Required meta tags -->
+<%-- Required meta tags --%>
 
 
 <%@ page language="java" errorPage="redirect_error.jsp"%>
@@ -42,6 +42,10 @@
 </head>
 
 <body>
+	<%
+	ProductData productData = new ProductData();
+	ProductDao productDao = new ProductDao();
+	%>
 
 	<div class=" fundo-menu fixed-top">
 		<div class=" alinhamento-tamanho_max " style="min-width: 800px;">
@@ -50,7 +54,7 @@
 
 
 
-			<!----------------------Menu principal------------------------------------>
+			<%----------------------Menu principal------------------------------------%>
 
 			<button class="btn btn-light float-left " type="button"
 				style="margin: 12px;" data-bs-toggle="offcanvas"
@@ -96,20 +100,6 @@
 
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Recheios
-							especiais</h5>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo1</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo2</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo3</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo4</a></li>
-						<hr>
-					</ul>
-
-					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Recheios
 							tradicionais</h5>
 						<li class="list-group-item"><a href="#"
 							style="text-decoration: none;">Modelo1</a></li>
@@ -122,6 +112,26 @@
 						<hr>
 
 					</ul>
+
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Recheios
+							especiais</h5>
+
+						<%
+						for (int i = 0; i < productDao.getResult_listProduct_Dao().size(); i++) {
+						%>
+
+						<li class="list-group-item"><a href="#"
+							style="text-decoration: none;"><%=productDao.getResult_listProduct_Dao().get(i).getProductName()%></a></li>
+
+						<%
+						}
+						%>
+
+						<hr>
+					</ul>
+
+
 				</div>
 			</div>
 			<br> <br> <br>
@@ -133,7 +143,7 @@
 	<br>
 
 
-	<!----------------- Carrocel de imagens ------------------------------------->
+	<%----------------- Carrocel de imagens -------------------------------------%>
 
 
 	<div class="alinhamento-tamanho_max margem-carrocel ">
@@ -166,17 +176,14 @@
 	<div class="alinhamento-tamanho_max margem-carrocel">
 
 
-		<!--------------------------Card com o produto----------------------------------->
+		<%--Card com o produto --%>
 		<div style="margin-bottom: 50px;">
 			<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
 				os nossos principais produtos!</h4>
 			<hr>
 
-			<!--  -->
+			<%--  --%>
 			<%
-			ProductData productData = new ProductData();
-			ProductDao productDao = new ProductDao();
-
 			// Lista com as informações do registro do produto 
 			ArrayList<ProductRegistration> productRegistration = new ArrayList<>();
 			productRegistration = productData.productRegistration_List();
@@ -185,8 +192,6 @@
 			%>
 
 			<div class="card float-left" style="width: 17rem; margin: 14px;">
-
-
 
 				<img
 					src="<%="img/"

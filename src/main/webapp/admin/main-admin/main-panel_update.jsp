@@ -7,7 +7,7 @@
 <head>
 
 <!-- Required meta tags -->
-<meta charset="utf-8">
+
 
 <%@ page language="java"
 	errorPage="error-redirection/error-redirection_admin-update.jsp"%>
@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
+
 <meta charset="utf-8">
 <title>Insert title here</title>
 
@@ -118,8 +118,7 @@
 							operações de cadastro, tanto para o administrador principal como
 							para os responsáveis pela manutenção dos recursos do site.</li>
 
-						<li class="list-group-item"><a href="main-panel_insert.jsp"
-							style="text-decoration: none;">Inserir dados </a></li>
+						
 						<li class="list-group-item"><a href="main-panel_query.jsp"
 							style="text-decoration: none;">Consultar dados</a></li>
 						<li class="list-group-item"><a href="main-panel_delete.jsp"
@@ -133,14 +132,11 @@
 
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-							do cliente</h5>
-						<li class="list-group-item"><a href="#"
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+							dos clientes</h5>
+						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
+						
 						<hr>
 
 					</ul>
@@ -185,7 +181,7 @@
 			<p>Abaixo estão todos os dados cadastrados do administrador</p>
 		</div>
 		<div class="borda-cor-cadastro">
-			<form action="#" id="main-admin_update" method="POST">
+			<form action="admin_update.jsp" id="admin_update" method="POST">
 				<!------>
 
 				<!---Neste trecho abre um campo imput para a entrada do código do administrador, desta forma é possível
@@ -200,7 +196,7 @@
 
 						<label for="idadmin_update">Confirmação para atualização</label> <input
 							class="form-control" type="text" id="idadmin_update"
-							name="fidadmin_update" placeholder=" Digite aqui este código: "></input>
+							name="fidadmin_update" placeholder=" Digite aqui este código: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"></input>
 					</div>
 				</div>
 
@@ -215,58 +211,64 @@
 
 
 						<div class="form-group col-md-3">
-							<label for="idAdmin_query">Identificação de registro *</label> <input
-								class="form-control" type="text" id="idAdmin_query"
-								name="fidAdmin_query"
-								placeholder="Identificação:<%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"
+							<label for="idadmin_update">Identificação de registro *</label> <input
+								class="form-control" type="text" id="idadmin_update"
+								name="fidadmin_update"
+								placeholder="Identificação: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"
 								disabled></input>
 						</div>
 
+						
 						<div class="form-group col-md-3">
-							<label for="adiminDateRegistration_query">Data do
-								cadastro *</label> <input class="form-control" type="text"
-								id="adiminDateRegistration_query"
-								name="fadiminDateRegistration_query"
-								placeholder="Data: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdiminDateRegistration()%>"></input>
-						</div>
-
+								<label for="adiminDateRegistration_update">Data do
+								cadastro *</label> <select id="adiminDateRegistration_update"
+									class="form-control" name="fadiminDateRegistration_update">
+									<option selected><%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdiminDateRegistration()%></option>
+									
+								</select>
+							</div>
+						
 						<div class="form-group col-md-6">
-							<label for="nameAdmin_query">Nome admin *</label> <input
-								class="form-control" type="text" id="nameAdmin_query"
-								name="fnameAdmin_query"
+							<label for="nameAdmin_update">Nome admin *</label> <input
+								class="form-control" type="text" id="nameAdmin_update"
+								name="fnameAdmin_update"
 								placeholder="Nome admin: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getNameAdmin()%>"></input>
 						</div>
 
 
+						<div class="form-group col-md-2">
+							<label for="accessLevel_update">Nível de acesso *</label> <select
+								id="accessLevel_update" class="form-control"
+								name="faccessLevel_update">
+								<option selected> <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAccessLevel()%></option>
+								<option>Manutenção</option>
+								<option>Administrativo</option>
 
-						<div class="form-group col-md-4">
-							<label for="accessLevel_query">Nível de acesso *</label> <input
-								class="form-control" type="text" id="accessLevel_query"
-								name="faccessLevel_query"
-								placeholder="Acesso: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAccessLevel()%>"></input>
+
+							</select>
 						</div>
 
 
 
-						<div class="form-group col-md-8">
-							<label for="emailAccess_query">Email *</label> <input
+						<div class="form-group col-md-10">
+							<label for="emailAccess_update">Email *</label> <input
 								class="form-control" style="text-transform: lowercase;"
-								type="email" id="emailAccess_query" name="femailAccess_query"
+								type="email" id="emailAccess_update" name="femailAccess_update"
 								placeholder="Email: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getEmailAccess()%>"></input>
 						</div>
 
 
 						<div class="form-group col-md-4">
-							<label for="adminPassword_query">Senha *</label> <input
-								class="form-control" type="password" id="adminPassword_query"
-								name="fadminPassword_query"
+							<label for="adminPassword_update">Senha *</label> <input
+								class="form-control" type="password" id="adminPassword_update"
+								name="fadminPassword_update"
 								placeholder="Senha:  <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdminPassword()%>"></input>
 						</div>
 
 						<div class="form-group col-md-5">
-							<label for="phoneContact_query">Telefone cel * OBS.:
+							<label for="phoneContact_update">Telefone cel * OBS.:
 								incluir o "zero" do DDD.</label> <input class="form-control" type="text"
-								id="phoneContact_query" name="fphoneContact_query"
+								id="phoneContact_update" name="fphoneContact_update"
 								placeholder="Telefone: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getPhoneContact()%>"></input>
 						</div>
 
@@ -323,7 +325,7 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
-	<script src="../../../js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
 
 
 	<script

@@ -115,8 +115,7 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 						<li class="list-group-item"> Abaixo estão disponíveis todas as operações de cadastro, tanto para o administrador principal como para os responsáveis pela 
 						manutenção dos recursos do site.</li>
 						
-						<li class="list-group-item"><a href="main-panel_insert.jsp"
-							style="text-decoration: none;">Inserir dados </a></li>
+						
 						<li class="list-group-item"><a href="main-panel_update.jsp"
 							style="text-decoration: none;">Alterar dados</a></li>
 						<li class="list-group-item"><a href="main-panel_delete.jsp"
@@ -130,14 +129,11 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-							do cliente</h5>
-						<li class="list-group-item"><a href="#"
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+							dos clientes</h5>
+						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
+						
 						<hr>
 
 					</ul>

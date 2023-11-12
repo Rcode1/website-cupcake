@@ -1,8 +1,5 @@
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@page import="br.com.dto.admin.AdministratorRegistration"%>
-
-
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
@@ -15,6 +12,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ page language="java"
+	errorPage="error-redirection/error-redirection_admin-insert.jsp"%>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="../../css/css-personalizado/personalizacao.css">
