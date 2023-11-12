@@ -39,9 +39,9 @@
 </head>
 
 <body>
-<%
-AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
-%>
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
@@ -82,7 +82,7 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 
 			<!-- Campo input para seleção de uma informação do db -->
 			<div class="  float-right" style="margin-right: 180px;">
-				
+
 				<form action="product_operation.jsp" id="product-panel_updade"
 					method="POST">
 
@@ -124,35 +124,28 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-						<li class="list-group-item">Neste painel só podem haver a inserção de produtos, item para inserção logo abaixo, para as demais operações é necessário 
-						selecionar o ID desejado do produto cadastrado e inserir no campo de entrada de texto, situado no cabeçalho, após a inserção basta finalizar a operação pressionando o botão (Acessar ID), situado ao lado.</li>
-						
+
+						<li class="list-group-item">Neste painel só podem haver a
+							inserção de produtos, item para inserção logo abaixo, para as
+							demais operações é necessário selecionar o ID desejado do produto
+							cadastrado e inserir no campo de entrada de texto, situado no
+							cabeçalho, após a inserção basta finalizar a operação
+							pressionando o botão (Acessar ID), situado ao lado.</li>
+
 						<li class="list-group-item"><a
 							href="product-panel_insert.jsp" style="text-decoration: none;">Inserir
 								dados do produto</a></li>
-						
-						<hr>
 
-					</ul>
-					
-					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações de cadadstro no estoque</h5>
-						<li class="list-group-item"><strong>O estoque sempre estará relacionado com o produto selecionado.</strong>
-						 Para acessar os itens de estoque e realizar as operações para consultar, atualizar, deletar ou inserir os dados basta
-						acessar o item abaixo.</li>
-						
-						<li class="list-group-item"><a href="stock-panel_operation.jsp"
-							style="text-decoration: none;">Operações
-							com estoques  </a></li>
-						
 						<hr>
 
 					</ul>
 
-										
+
+
+
 				</div>
 			</div>
 			<br> <br> <br>
@@ -218,7 +211,7 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 								placeholder="<%=list_productRegistration.get(i).getProductName()%>"
 								disabled></input>
 						</div>
-					
+
 					</div>
 				</form>
 

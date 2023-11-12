@@ -101,10 +101,9 @@
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-
 						<li class="list-group-item">O menu abaixo, referente ao
 							produto, traz a possibilidade de modificar ou deletar o produto
 							vigente, caso queira selecionar um outro produto basta acessar<strong>
@@ -127,10 +126,9 @@
 
 					</ul>
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						com estoques</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
-							com estoques</h5>
-
 						<li class="list-group-item">O menu abaixo, referente ao
 							estoque, traz a possibilidade de modificar ou deletar o item de
 							estoque vigente, caso queira selecionar um outro item do estoque
@@ -163,8 +161,11 @@
 		style="margin: auto auto; margin-top: 80px;">
 		<div class="largura-max-cadastro text-center">
 			<h3>Inserção dos dados para o estoque de produtos</h3>
-			<p>Abaixo estão os dados do produto e os campos para a inserção
-				do histórico de estoque, para concluir a operação basta dar umclick no botão <strong>Inserir dados</strong>.</p>
+			<p>
+				Abaixo estão os dados do produto e os campos para a inserção do
+				histórico de estoque, para concluir a operação basta dar umclick no
+				botão <strong>Inserir dados</strong>.
+			</p>
 		</div>
 		<div class="borda-cor-cadastro">
 			<div class="borda-cor-cadastro">
@@ -230,8 +231,8 @@
 
 			<!-- Formulário para manipular os dados de entrada e saída de produtos do estoque -->
 
-			<form action="stock_insert.jsp" id="stock_insert"
-				method="POST" style="margin-top: 10px;">
+			<form action="stock_insert.jsp" id="stock_insert" method="POST"
+				style="margin-top: 10px;">
 
 				<div class="borda-cor-cadastro">
 					<div class="form-row">
@@ -281,7 +282,8 @@
 
 					</div>
 
-					<button type="submit" class="btn btn-primary btn-sm ">Inserir dados</button>
+					<button type="submit" class="btn btn-primary btn-sm ">Inserir
+						dados</button>
 				</div>
 
 			</form>

@@ -38,6 +38,9 @@
 </head>
 
 <body>
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
@@ -72,8 +75,8 @@
 						<img style="width: 80px;" src="../../img/capaAdminA.png">
 					</div>
 					<li class="nav-item dropdown"><p
-							style="margin: 0px; padding-left: 15px;">nome do admin</p> <a
-						class="nav-link dropdown-toggle color-menu"
+							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getNameAdmin()%></p>
+						<a class="nav-link dropdown-toggle color-menu"
 						style="padding-right: 10px;" data-toggle="dropdown" href="#"
 						role="button" aria-haspopup="true" aria-expanded="false">Painel
 							pessoal</a>
@@ -85,8 +88,8 @@
 								cadastro</a>
 
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item"
-								href="admin-panel_operation.jsp">Operações gerais</a>
+							<a class="dropdown-item" href="admin-panel_operation.jsp">Operações
+								gerais</a>
 
 							<div class="dropdown-divider"></div>
 
@@ -110,15 +113,16 @@
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de administradores</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de administradores</h5>
+
 
 						<li class="list-group-item">Abaixo estão disponíveis todas as
 							operações de cadastro, tanto para o administrador principal como
 							para os responsáveis pela manutenção dos recursos do site.</li>
 
-						
+
 						<li class="list-group-item"><a href="main-panel_query.jsp"
 							style="text-decoration: none;">Consultar dados</a></li>
 						<li class="list-group-item"><a href="main-panel_delete.jsp"
@@ -130,21 +134,22 @@
 						<hr>
 					</ul>
 
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+						dos clientes</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
-							dos clientes</h5>
-						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
+
+						<li class="list-group-item"><a
+							href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						
+
 						<hr>
 
 					</ul>
 
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos e estoque</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos e estoque</h5>
+
 						<li class="list-group-item">Para acessar os itens de cadastro
 							do produto, basta dar um click no item <strong> Cadastro
 								de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.
@@ -170,10 +175,8 @@
 	<!-- Fim do menu lateral -->
 
 
-	<!--------------------------formulario----------------------------------------------------------->
-	<%
-	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
-	%>
+	<%--------------------------formulario----------------------------------------------------------%>
+
 	<div class="largura-max-cadastro"
 		style="margin: auto auto; margin-top: 80px;">
 		<div class="largura-max-cadastro text-center">
@@ -196,7 +199,8 @@
 
 						<label for="idadmin_update">Confirmação para atualização</label> <input
 							class="form-control" type="text" id="idadmin_update"
-							name="fidadmin_update" placeholder=" Digite aqui este código: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"></input>
+							name="fidadmin_update"
+							placeholder=" Digite aqui este código: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"></input>
 					</div>
 				</div>
 
@@ -218,16 +222,16 @@
 								disabled></input>
 						</div>
 
-						
+
 						<div class="form-group col-md-3">
-								<label for="adiminDateRegistration_update">Data do
+							<label for="adiminDateRegistration_update">Data do
 								cadastro *</label> <select id="adiminDateRegistration_update"
-									class="form-control" name="fadiminDateRegistration_update">
-									<option selected><%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdiminDateRegistration()%></option>
-									
-								</select>
-							</div>
-						
+								class="form-control" name="fadiminDateRegistration_update">
+								<option selected><%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdiminDateRegistration()%></option>
+
+							</select>
+						</div>
+
 						<div class="form-group col-md-6">
 							<label for="nameAdmin_update">Nome admin *</label> <input
 								class="form-control" type="text" id="nameAdmin_update"
@@ -240,7 +244,8 @@
 							<label for="accessLevel_update">Nível de acesso *</label> <select
 								id="accessLevel_update" class="form-control"
 								name="faccessLevel_update">
-								<option selected> <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAccessLevel()%></option>
+								<option selected>
+									<%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAccessLevel()%></option>
 								<option>Manutenção</option>
 								<option>Administrativo</option>
 

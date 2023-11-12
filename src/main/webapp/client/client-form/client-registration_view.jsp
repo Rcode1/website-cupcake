@@ -79,7 +79,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-12">
 								<label for="email">Email *</label> <input class="form-control"
-									style="text-transform: lowercase;" type="email" id="emaiL"
+									 type="email" id="emaiL"
 									name="femail" placeholder="Email:" required></input>
 							</div>
 							<!------>

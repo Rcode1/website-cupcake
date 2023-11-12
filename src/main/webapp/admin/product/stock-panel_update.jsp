@@ -99,10 +99,9 @@
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-
 						<li class="list-group-item">O menu abaixo, referente ao
 							produto, traz a possibilidade de modificar ou deletar o produto
 							vigente, caso queira selecionar um outro produto basta acessar<strong>
@@ -125,10 +124,9 @@
 
 					</ul>
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						com estoques</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
-							com estoques</h5>
-
 						<li class="list-group-item">O menu abaixo, referente ao
 							estoque, traz a possibilidade de modificar ou deletar o item de
 							estoque vigente, caso queira selecionar um outro item do estoque
@@ -141,7 +139,7 @@
 
 						<li class="list-group-item"><a href="stock-panel_insert.jsp"
 							style="text-decoration: none;">Inserir dados no estoque</a></li>
-						
+
 						<li class="list-group-item"><a href="stock-panel_delete.jsp"
 							style="text-decoration: none;">Deletar dados do estoque</a></li>
 						<hr>
@@ -234,9 +232,11 @@
 				<!---Neste trecho abre um campo imput para a entrada do código do estoque, desta forma é possível
 			confirmar às intenções de deletar os dados cadastrais--->
 				<div class="borda-red">
-					<p>Digite o mesmo código que aparece no campo (confirmação para
-						alteração) que está logo abaixo, em seguida click no botão
-						<strong>Alterar dados</strong>.</p>
+					<p>
+						Digite o mesmo código que aparece no campo (confirmação para
+						alteração) que está logo abaixo, em seguida click no botão <strong>Alterar
+							dados</strong>.
+					</p>
 
 					<div class="form-group col-md-4"
 						Style="margin-left: auto; margin-right: auto; text-align: center;">
@@ -320,7 +320,8 @@
 
 					</div>
 
-					<button type="submit" class="btn btn-primary btn-sm ">Alterar dados</button>
+					<button type="submit" class="btn btn-primary btn-sm ">Alterar
+						dados</button>
 				</div>
 
 			</form>

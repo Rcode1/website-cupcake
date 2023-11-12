@@ -1,4 +1,5 @@
-<%@page import="java.lang.String" %>
+<%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
+<%@page import="java.lang.String"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -37,6 +38,9 @@
 </head>
 
 <body>
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
@@ -65,8 +69,8 @@
 						<img style="width: 80px;" src="../../img/capaAdminA.png">
 					</div>
 					<li class="nav-item dropdown"><p
-							style="margin: 0px; padding-left: 15px;">nome do admin</p> <a
-						class="nav-link dropdown-toggle color-menu"
+							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getNameAdmin()%></p>
+						<a class="nav-link dropdown-toggle color-menu"
 						style="padding-right: 10px;" data-toggle="dropdown" href="#"
 						role="button" aria-haspopup="true" aria-expanded="false">Painel
 							pessoal</a>
@@ -80,8 +84,8 @@
 								cadastro</a>
 
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item"
-								href="admin-panel_operation.jsp">Operações gerais</a>
+							<a class="dropdown-item" href="admin-panel_operation.jsp">Operações
+								gerais</a>
 
 							<div class="dropdown-divider"></div>
 
@@ -105,15 +109,14 @@
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de administradores</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de administradores</h5>
-
 						<li class="list-group-item">Abaixo estão disponíveis todas as
 							operações de cadastro, tanto para o administrador principal como
 							para os responsáveis pela manutenção dos recursos do site.</li>
 
-						
+
 						<li class="list-group-item"><a
 							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
 								- operações cadastrais </a></li>
@@ -122,21 +125,20 @@
 					</ul>
 
 
-					
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+						dos clientes</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
-							dos clientes</h5>
-						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
+						<li class="list-group-item"><a
+							href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						
+
 						<hr>
 
 					</ul>
 
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos e estoque</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos e estoque</h5>
 						<li class="list-group-item">Para acessar os itens de cadastro
 							do produto, basta dar um click no item <strong> Cadastro
 								de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.

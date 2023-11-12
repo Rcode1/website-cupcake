@@ -29,12 +29,14 @@ public class ProductDao {
 
 // resultado do select realizado no DB.
 	static ArrayList<ProductRegistration> persistence_productVerification = new ArrayList<>();
+	static ArrayList<ProductRegistration> persistence_imagePathFolder = new ArrayList<>();
 
 // Armazenamento do resultado do select realizado no DB.
 	static ArrayList<ProductRegistration> persistence_productVerification_stock = new ArrayList<>();
 
 //	 Armazenamento do resultado do select realizado no DB.
 	static ArrayList<ProductImage> persistence_productImageVerification = new ArrayList<>();
+	static ArrayList<ProductImage> persistence_imagePathArchive = new ArrayList<>();
 
 //	 Armazenamento do resultado do select realizado no DB, referente a um ID do produto com suas imagens cadastradas.
 	//static ArrayList<ProductImage> persistence_productImageCollection = new ArrayList<>();
@@ -377,7 +379,7 @@ public class ProductDao {
 
 				// Item para deletar os arquivos
 				File file = new java.io.File(imageFolderAddress.imageFolderAddress()
-						+ String.valueOf(obj.getIdProduct()) + "//" + String.valueOf(obj.getIdProductImage()) + ".jpg");
+						+ String.valueOf(obj.getIdProduct()) + "/" + String.valueOf(obj.getIdProductImage()) + ".jpg");
 				if (file.exists()) {
 					file.delete();
 
@@ -445,6 +447,7 @@ public class ProductDao {
 // ****************************** Image parte 1 *************************************************
 // Métodos responsáveis por selecionar um item da lista de imagens e proparar no CRUD do produto.
 // OBS.: Os métodos foram empregados em product/product_operation.jsp, dentro da pasta admin do webapp
+	
 	public void result_listProductimage_Dao(Integer obj_idProductImage) {
 
 		for (int i = 0; i < select_productImage_dao().size(); i++) {
@@ -452,6 +455,7 @@ public class ProductDao {
 			if (select_productImage_dao().get(i).getIdProductImage() == (obj_idProductImage)) {
 
 				persistence_productImageVerification.add(0, select_productImage_dao().get(i));
+				persistence_imagePathArchive.add(0, select_productImage_dao().get(i));
 
 			}
 
@@ -469,6 +473,35 @@ public class ProductDao {
 		}
 
 	}
+	
+
+
+	// Para utilizar na formação do caminho da imagem
+	//Armazena o idProductImage para ser utilizado como parte do caminho de armazenamento da imagem e como
+		//sua própria identificação (nome).
+		public ArrayList<ProductImage> getResult_persistence_imagePathArchive() {
+			return persistence_imagePathArchive;
+		}
+		public ArrayList<ProductRegistration> getResult_persistence_imagePathFolder() {
+			return persistence_imagePathFolder;
+		}
+
+		public void removeResult_persistence_imagePath_Folder_Arquive() {
+			for (int i = 0; i < persistence_imagePathArchive.size(); i++) {
+				persistence_imagePathArchive.remove(i);
+			}
+			for (int i = 0; i < persistence_imagePathFolder.size(); i++) {
+				persistence_imagePathFolder.remove(i);
+			}
+
+		}
+	
+	
+	
+	
+	
+	
+	
 	// ****************************** Image parte 2
 	// *************************************************
 // Métodos responsáveis por selecionar varios itens de um produto.	
@@ -519,6 +552,7 @@ public class ProductDao {
 			if (select_productRegistration_dao().get(i).getIdProductRegistration() == (obj)) {
 
 				persistence_productVerification.add(0, select_productRegistration_dao().get(i));
+				persistence_imagePathFolder.add(0, select_productRegistration_dao().get(i));
 
 			}
 
@@ -536,6 +570,8 @@ public class ProductDao {
 		}
 
 	}
+	
+	
 
 // ***************************** Stock **************************************************
 // Métodos responsáveis por manipular os dados do estoque

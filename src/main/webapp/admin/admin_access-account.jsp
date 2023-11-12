@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ page language="java" errorPage="../error-redirection/error-redirection_admin-access.jsp"%>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="../css/css-personalizado/personalizacao.css">
@@ -52,7 +53,7 @@
 			<br>
 			<form action="admin_account.jsp" method="post">
 				<div class="center-div-text">
-					<input class="form-control" type="text" id="email_main-admin"
+					<input class="form-control" type="email" id="email_main-admin"
 						name="femail_main-admin" placeholder="Email do administrador:"
 						required></input><br> <input class="form-control"
 						type="password" id="main-admin-password"

@@ -50,6 +50,7 @@
 	ClientRegistration clientRegistration_obj = new ClientRegistration();
 	clientRegistration_obj.setIdClient(Integer.parseInt(request.getParameter("fidClient")));
 	clientDao.excludeClientRegistration_Dao(clientRegistration_obj);
+	clientDao.close_resultSelectRegistrationForAdmin_Dao();
 	
 
 

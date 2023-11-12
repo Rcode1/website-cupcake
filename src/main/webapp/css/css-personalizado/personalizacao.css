@@ -45,8 +45,8 @@
 
 
 .rodape {
-	min-height: 50px;
-	max-height: 50px;
+	min-height: 10px;
+	max-height: 10px;
 	background-color: #E0E0E0;
 }
 
@@ -73,7 +73,6 @@
 }
 
 
-
 .alinhamento-tamanho_max {
 	min-width: 600px;
 	max-width: 1200px;
@@ -97,6 +96,7 @@
 	
 	background-color: #E0E0E0;
 	height: 70px;
+	
 
 
 

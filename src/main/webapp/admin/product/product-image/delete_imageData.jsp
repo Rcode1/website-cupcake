@@ -35,7 +35,7 @@
 
 	<%
 	ImageFolderAddress imageFolderAddress = new ImageFolderAddress();
-	String folderName = "\\" + String.valueOf(productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration());
+	String folderName = "/" + String.valueOf(productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration());
 
 	manipulateFiles.deleteFolder(imageFolderAddress.imageFolderAddress(), folderName);
 	%>

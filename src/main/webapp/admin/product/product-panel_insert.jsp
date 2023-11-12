@@ -36,9 +36,9 @@
 </head>
 
 <body>
-<%
-AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
-%>
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 
 
 	<div class=" fixed-top fundo-menu "
@@ -80,11 +80,11 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 				data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
-				
-				<a href="product-panel_operation.jsp"><button
+
+			<a href="product-panel_operation.jsp"><button
 					class="btn btn-light  float-left " type="button"
 					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
-				
+
 
 
 
@@ -101,11 +101,9 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 				<div class="offcanvas-body">
 
 
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-
 						<li class="list-group-item">Abaixo estão os itens
 							relacionados com o ID do produto selecionado, caso queira
 							realizar uma operação em um outro produto basta retornar a
@@ -132,20 +130,23 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 
 					</ul>
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						de cadadstro no estoque</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações de cadadstro no estoque</h5>
-						<li class="list-group-item"><strong>O estoque sempre estará relacionado com o produto selecionado.</strong>
-						 Para acessar os itens de estoque e realizar as operações para consultar, atualizar, deletar ou inserir os dados basta
-						acessar o item abaixo.</li>
-						
-						<li class="list-group-item"><a href="stock-panel_operation.jsp"
-							style="text-decoration: none;">Operações
-							com estoques  </a></li>
-						
+						<li class="list-group-item"><strong>O estoque sempre
+								estará relacionado com o produto selecionado.</strong> Para acessar os
+							itens de estoque e realizar as operações para consultar,
+							atualizar, deletar ou inserir os dados basta acessar o item
+							abaixo.</li>
+
+						<li class="list-group-item"><a
+							href="stock-panel_operation.jsp" style="text-decoration: none;">Operações
+								com estoques </a></li>
+
 						<hr>
 
 					</ul>
-					
+
 				</div>
 				<br> <br> <br>
 
@@ -161,7 +162,10 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 			style="margin: auto auto; margin-top: 80px;">
 			<div class="largura-max-cadastro text-center">
 				<h3>Inserção dos dados do produto</h3>
-				<p>Formulario destinado a inserção dos dados do produto. Para concluir a insersão basta dar um click em <strong>Inserir dados</strong>. </p>
+				<p>
+					Formulario destinado a inserção dos dados do produto. Para concluir
+					a insersão basta dar um click em <strong>Inserir dados</strong>.
+				</p>
 			</div>
 			<div class="borda-cor-cadastro">
 				<form action="product_insert.jsp" id="product-panel_insert"
@@ -189,23 +193,25 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 
 							<div class="form-group col-md-12">
 								<label for="basicDescription_insert">Descrição básica *</label>
-								<textarea class="form-control" style="text-transform: lowercase;"
-									type="text" id="basicDescription_insert"
-									name="fbasicDescription_insert" minlength="20" maxlength="300"
+								<textarea class="form-control"
+									style="text-transform: lowercase;" type="text"
+									id="basicDescription_insert" name="fbasicDescription_insert"
+									minlength="20" maxlength="300"
 									placeholder="Descrição b.: Insira aqui a descrição simplificada, máximo 300 caracteres"
 									required></textarea>
 							</div>
 
-													
+
 							<div class="form-group col-md-12">
 								<label for="longDescription_insert">Descrição completa *</label>
-								
-								<textarea class="form-control" style="text-transform: lowercase;"
-									type="text" id="longDescription_insert"
-									name="flongDescription_insert" minlength="20" maxlength="1000"
+
+								<textarea class="form-control"
+									style="text-transform: lowercase;" type="text"
+									id="longDescription_insert" name="flongDescription_insert"
+									minlength="20" maxlength="1000"
 									placeholder="Descrição c.: Insira aqui a descrição completa, máximo 1000 caracteres"
 									required></textarea>
-								
+
 							</div>
 						</div>
 						<!------>

@@ -63,7 +63,7 @@
 
 
 	<script>
-		window.location.href = 'error-redirection/error-redirection_admin-access.jsp';
+		window.location.href = '../error-redirection/error-redirection_admin-access.jsp';
 	</script>
 
 	<%

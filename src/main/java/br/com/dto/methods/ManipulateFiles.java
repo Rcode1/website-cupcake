@@ -32,6 +32,8 @@ public class ManipulateFiles {
 
 			// Traz a opção de salvar a imagem com outro nome caso ja tenha o arquivo salvo
 			if (x == 0) {
+				File file = new File(imageFolderAddress + folderName);
+				file.mkdir();
 				Path pathTo = Paths.get(imageFolderAddress + folderName + imageName);
 				Files.write(pathTo, bytesArquivo);
 

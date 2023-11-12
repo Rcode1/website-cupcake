@@ -1,3 +1,4 @@
+<%@page import="br.com.dao.client.ClientDao"%>
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -35,11 +36,15 @@
 
 <body>
 	<%
+	ClientDao clientDao = new ClientDao();
 	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	if (!clientDao.clientListResultForAdmin_Dao().isEmpty()) {
+		clientDao.close_resultSelectRegistrationForAdmin_Dao();
+	}
 	%>
 
 	<div class=" fixed-top fundo-menu "
-		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
+		style="max-width: 1200px; min-width: 700px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
 
 
@@ -106,9 +111,9 @@
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de administradores</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de administradores</h5>
 
 						<li class="list-group-item">Para acessar os itens de cadastro
 							do administrador, basta dar um click no item <strong>
@@ -124,20 +129,21 @@
 					</ul>
 
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+						dos clientes</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
-							dos clientes</h5>
-						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
+						<li class="list-group-item"><a
+							href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						
+
 						<hr>
 
 					</ul>
 
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos e estoque</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos e estoque</h5>
+
 						<li class="list-group-item">Para acessar os itens de cadastro
 							do produto, basta dar um click no item <strong> Cadastro
 								de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.
@@ -146,6 +152,20 @@
 							href="../product/product-panel_operation.jsp"
 							style="text-decoration: none;">Produto e estoque- operações
 								cadastrais </a></li>
+
+						<hr>
+					</ul>
+					
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
+						do aplicativo</h5>
+					<ul class="list-group list-group-flush">
+
+						<li class="list-group-item">Esta área é destinada ao cadastro
+							das informações da empresa.</li>
+						<li class="list-group-item"><a
+							href="../app-information/app-information_view.jsp"
+							style="text-decoration: none;">Cadastro - informações da
+								empresa </a></li>
 
 						<hr>
 					</ul>
@@ -158,7 +178,7 @@
 		</div>
 
 	</div>
-<!-- Layout da tela principal- uma imagem com título -->
+	<!-- Layout da tela principal- uma imagem com título -->
 	<div class="center-div" style="max-width: 600px; text-align: center;">
 		<span> <img alt="" src="../../img/capaAdminA.png"
 			style="max-width: 100%;">

@@ -10,7 +10,7 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 
-<%@ page language="java" errorPage="redirect_query-error.jsp" %>
+<%@ page language="java" errorPage="redirect_query-error.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -94,10 +94,9 @@
 				<div class="offcanvas-body">
 
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-
 						<li class="list-group-item">O menu abaixo, referente ao
 							produto, traz a possibilidade de modificar ou deletar o produto
 							vigente, caso queira selecionar um outro produto basta acessar<strong>
@@ -120,10 +119,9 @@
 
 					</ul>
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						com estoques</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
-							com estoques</h5>
-
 						<li class="list-group-item">O menu abaixo, referente ao
 							estoque, traz a possibilidade de modificar ou deletar o item de
 							estoque vigente, caso queira selecionar um outro item do estoque

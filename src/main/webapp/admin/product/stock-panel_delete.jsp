@@ -100,10 +100,9 @@
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-
 						<li class="list-group-item">O menu abaixo, referente ao
 							produto, traz a possibilidade de modificar ou deletar o produto
 							vigente, caso queira selecionar um outro produto basta acessar<strong>
@@ -125,11 +124,9 @@
 						<hr>
 
 					</ul>
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						com estoques</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
-							com estoques</h5>
-
 						<li class="list-group-item">O menu abaixo, referente ao
 							estoque, traz a possibilidade de modificar ou deletar o item de
 							estoque vigente, caso queira selecionar um outro item do estoque
@@ -144,7 +141,7 @@
 							style="text-decoration: none;">Inserir dados no estoque</a></li>
 						<li class="list-group-item"><a href="stock-panel_update.jsp"
 							style="text-decoration: none;">Alterar dados do estoque</a></li>
-						
+
 						<hr>
 
 					</ul>
@@ -235,8 +232,11 @@
 				<!---Neste trecho abre um campo imput para a entrada do código do estoque, desta forma é possível
 			confirmar às intenções de deletar os dados cadastrais--->
 				<div class="borda-red">
-					<p>Digite o mesmo código que aparece no campo (confirmação para
-						exclusão) que está logo abaixo, em seguida click no botão <strong>Excluir dados</strong>.</p>
+					<p>
+						Digite o mesmo código que aparece no campo (confirmação para
+						exclusão) que está logo abaixo, em seguida click no botão <strong>Excluir
+							dados</strong>.
+					</p>
 
 					<div class="form-group col-md-4"
 						Style="margin-left: auto; margin-right: auto; text-align: center;">
@@ -327,7 +327,7 @@
 
 					</div>
 
-					<button type="submit" class="btn btn-primary btn-sm ">Deletar</button>
+					<button type="submit" class="btn btn-primary btn-sm ">Excluir cadastro</button>
 				</div>
 
 			</form>

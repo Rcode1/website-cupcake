@@ -78,8 +78,8 @@
 				data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
-				
-				<a href="product-panel_query.jsp"><button
+
+			<a href="product-panel_query.jsp"><button
 					class="btn btn-light  float-left " type="button"
 					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
 
@@ -97,10 +97,9 @@
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-
 						<li class="list-group-item">Abaixo estão os itens
 							relacionados com o ID do produto selecionado, caso queira
 							realizar uma operação em um outro produto basta retornar a
@@ -124,9 +123,9 @@
 
 					</ul>
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						de cadadstro no estoque</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
-							de cadadstro no estoque</h5>
 						<li class="list-group-item"><strong>O estoque sempre
 								estará relacionado com o produto selecionado.</strong> Para acessar os
 							itens de estoque e realizar as operações para consultar,
@@ -206,7 +205,7 @@
 
 						<div class="form-group col-md-12">
 							<label for="basicDescription">Descrição básica *</label>
-							<textarea class="form-control" style="text-transform: lowercase;"
+							<textarea class="form-control" 
 								type="text" id="basicDescription" name="fbasicDescriptionl"
 								placeholder="Descrição b.: "><%=productDao.getResult_listProduct_Dao().get(0).getBasicDescription()%></textarea>
 						</div>

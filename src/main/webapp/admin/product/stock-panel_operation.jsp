@@ -127,10 +127,9 @@
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-
 						<li class="list-group-item">O menu abaixo, referente ao
 							produto, traz a possibilidade de modificações ou deleção do
 							produto vigente, caso queira selecionar um outro produto basta
@@ -155,9 +154,9 @@
 
 					</ul>
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						com estoques</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
-							com estoques</h5>
 						<li class="list-group-item">Para inserir informações no
 							estoque, relacionadas a este produto, basta acessar o item <strong>
 								Inserir dados no estoque </strong>ou caso queira realizar as operações de
@@ -202,9 +201,12 @@
 				<%
 				ProductDao productDao_product = new ProductDao();
 				%>
+				<div style="text-align:center; background-color: #B0C4DE; margin: 5px;">
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Produto selecionado para trabalar com os dados do estoque.</h5>
+</div>
 				<div class="form-row"
 					style="border: 1px solid #E0E0E0; margin: 5px; background-color: #B0C4DE;">
-
+					
 					<div class="form-group col-md-2">
 						<label for="idProductRegistration">Id do produto *</label> <input
 							class="form-control " type="text" id="idProductRegistration"

@@ -46,203 +46,212 @@
 	ProductData productData = new ProductData();
 	ProductDao productDao = new ProductDao();
 	%>
-
-	<div class=" fundo-menu fixed-top">
-		<div class=" alinhamento-tamanho_max " style="min-width: 800px;">
-
-
-
-
-
-			<%----------------------Menu principal------------------------------------%>
-
-			<button class="btn btn-light float-left " type="button"
-				style="margin: 12px;" data-bs-toggle="offcanvas"
-				aria-controls="offcanvasWithBothOptions">Início</button>
+	<div>
+		<div class=" fundo-menu fixed-top">
+			<div class=" alinhamento-tamanho_max " style="min-width: 800px;">
 
 
 
 
-			<button class="btn btn-light  float-left " type="button"
-				style="margin: 12px; background-color: gainsboro; color: black;"
-				data-bs-toggle="offcanvas"
-				data-bs-target="#offcanvasWithBothOptions"
-				aria-controls="offcanvasWithBothOptions">||| Produtos</button>
 
-			<a href="access/access-account.jsp"><button
-					class="btn btn-light float-left  " type="button"
-					style="margin: 2px; margin-left: 12px; background-color: gainsboro;"
-					data-bs-toggle="offcanvas" aria-controls="offcanvasWithBothOptions">
-					<img class=" float-left" alt="" src="img/carrinho.png"
-						style="width: 65px;">
-					<p class=" float-left" style="margin-top: 10px;">Compras</p>
+				<%----------------------Menu principal------------------------------------%>
 
-				</button></a> <a href="access/access-account.jsp"><button
-					class="btn btn-light float-right " type="button"
-					style="margin: 12px; background-color: gainsboro;"
-					data-bs-toggle="offcanvas" aria-controls="offcanvasWithBothOptions">
-					<img src="img/usuario.png " style="width: 80px;"> Acessar
-					conta
-				</button></a>
+				<button class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button>
 
 
-			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
-				style="max-width: 300px;" tabindex="-1"
-				id="offcanvasWithBothOptions"
-				aria-labelledby="offcanvasWithBothOptionsLabel">
-				<div class="offcanvas-header">
-					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Listagem
-						de produtos</h4>
-					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-						aria-label="Close"></button>
+
+
+				<button class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;"
+					data-bs-toggle="offcanvas"
+					data-bs-target="#offcanvasWithBothOptions"
+					aria-controls="offcanvasWithBothOptions">||| Informações
+					gerais</button>
+
+				<a href="access/access-account.jsp"><button
+						class="btn btn-light float-left  " type="button"
+						style="margin: 2px; margin-left: 12px; background-color: gainsboro;"
+						data-bs-toggle="offcanvas"
+						aria-controls="offcanvasWithBothOptions">
+						<img class=" float-left" alt="" src="img/carrinho.png"
+							style="width: 65px;">
+						<p class=" float-left" style="margin-top: 10px;">Compras</p>
+					</button></a> <a href="access/access-account.jsp"><button
+						class="btn btn-light float-right " type="button"
+						style="margin: 12px; background-color: gainsboro;"
+						data-bs-toggle="offcanvas"
+						aria-controls="offcanvasWithBothOptions">
+						<img src="img/usuario.png " style="width: 80px;"> Acessar
+						conta
+					</button></a>
+				<%---------------------Inicio do menu Lateral------------------------------------%>
+
+				<div class="offcanvas offcanvas-start" data-bs-scroll="true"
+					style="max-width: 300px;" tabindex="-2"
+					id="offcanvasWithBothOptions"
+					aria-labelledby="offcanvasWithBothOptionsLabel">
+					<div class="offcanvas-header">
+
+
+						<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
+							gerais</h4>
+						<button type="button" class="btn-close"
+							data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body">
+
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Sobre
+							a empresa</h5>
+						<ul class="list-group list-group-flush">
+
+							<li class="list-group-item"><a
+								href="website-information/public-website-information.jsp"
+								style="text-decoration: none;">Informações do site</a></li>
+							<li class="list-group-item"><a
+								href="website-information/public-privacy-police.jsp"
+								style="text-decoration: none;">Política de privacidade</a></li>
+							<li class="list-group-item"><a
+								href="website-information/public-contact.jsp"
+								style="text-decoration: none;">Entre em contato conosco</a></li>
+							<li class="list-group-item"><a
+								href="website-information/public-site-navigation.jsp"
+								style="text-decoration: none;">Navegação do site</a></li>
+
+							<hr>
+
+						</ul>
+
+					</div>
 				</div>
-				<div class="offcanvas-body">
+				<br> <br> <br>
 
-					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Recheios
-							tradicionais</h5>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo1</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo2</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo3</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo4</a></li>
-						<hr>
-
-					</ul>
-
-					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Recheios
-							especiais</h5>
-
-						<%
-						for (int i = 0; i < productDao.getResult_listProduct_Dao().size(); i++) {
-						%>
-
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;"><%=productDao.getResult_listProduct_Dao().get(i).getProductName()%></a></li>
-
-						<%
-						}
-						%>
-
-						<hr>
-					</ul>
-
-
-				</div>
 			</div>
-			<br> <br> <br>
-
 		</div>
-	</div>
-	<br>
-	<br>
-	<br>
+
+		<br> <br> <br>
+		<%----------------------Fim do enu principal------------------------------------%>
+
+		<%----------------- Carrocel de imagens -------------------------------------%>
 
 
-	<%----------------- Carrocel de imagens -------------------------------------%>
-
-
-	<div class="alinhamento-tamanho_max margem-carrocel ">
-		<div id="carouselExampleControls" class="carousel slide"
-			data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="d-block w-100" src="img/1.jpg" alt="First slide">
+		<div class="alinhamento-tamanho_max margem-carrocel ">
+			<div id="carouselExampleControls" class="carousel slide"
+				data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="img/banner/banner1.jpg"
+							alt="First slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="img/banner/banner2.jpg"
+							alt="Second slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="img/banner/banner3.jpg"
+							alt="Third slide">
+					</div>
 				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="img/2.jpg" alt="Second slide">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="img/3.jpg" alt="Third slide">
-				</div>
+				<a class="carousel-control-prev" href="#carouselExampleControls"
+					role="button" data-slide="prev"> <span
+					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="sr-only">Previous</span>
+				</a> <a class="carousel-control-next" href="#carouselExampleControls"
+					role="button" data-slide="next"> <span
+					class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="sr-only">Next</span>
+				</a>
 			</div>
-			<a class="carousel-control-prev" href="#carouselExampleControls"
-				role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselExampleControls"
-				role="button" data-slide="next"> <span
-				class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="sr-only">Next</span>
-			</a>
 		</div>
-	</div>
 
 
-	<div class="alinhamento-tamanho_max margem-carrocel">
+		<div class="alinhamento-tamanho_max margem-carrocel">
 
 
-		<%--Card com o produto --%>
-		<div style="margin-bottom: 50px;">
-			<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
-				os nossos principais produtos!</h4>
-			<hr>
+			<%--Card com o produto --%>
+			<div style="margin-bottom: 50px;">
+				<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
+					os nossos principais produtos!</h4>
+				<hr>
 
-			<%--  --%>
-			<%
-			// Lista com as informações do registro do produto 
-			ArrayList<ProductRegistration> productRegistration = new ArrayList<>();
-			productRegistration = productData.productRegistration_List();
+				<%--  --%>
+				<%
+				// Lista com as informações do registro do produto 
+				ArrayList<ProductRegistration> productRegistration = new ArrayList<>();
+				productRegistration = productData.productRegistration_List();
 
-			for (int i = 0; i < productRegistration.size(); i++) {
-			%>
+				for (int i = 0; i < productRegistration.size(); i++) {
 
-			<div class="card float-left" style="width: 17rem; margin: 14px;">
+					if (productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+					.getIdProduct() != null
+					&& productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+							.getIdProductImage() != null) {
+				%>
+				<div class="card float-left" style="width: 17rem; margin: 14px;">
 
-				<img
-					src="<%="img/"
+					<img src="<%="img/"
 		+ productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
 				.getIdProduct()
 		+ "/" + productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
 				.getIdProductImage()
-		+ ".jpg"%>"
-					class="card-img-top"
-					style="margin-top: 10px; max-height: 300px; min-height: 200px;">
+		+ ".jpg"%>"	class="card-img-top"style="margin-top: 10px; max-height: 300px; min-height: 300px;">
 
-				<div class="card-body">
-					<h5 class="card-title"><%=productRegistration.get(i).getProductName()%></h5>
-					<p class="card-text"><%=productRegistration.get(i).getBasicDescription()%></p>
+					<div class="card-body">
+						<h5 class="card-title"><%=productRegistration.get(i).getProductName()%></h5>
+						<p class="card-text"><%=productRegistration.get(i).getBasicDescription()%></p>
+					</div>
+
+					<%
+					if (productData.productStock_List(productRegistration.get(i).getIdProductRegistration()) != null) {
+					%>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Preço: R$ <%=productData.productStock_List(productRegistration.get(i).getIdProductRegistration()).get(0).getProductPrice()%>
+						</li>
+
+					</ul>
+					<%
+					} else {
+					%>
+
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Valor indiponível!</li>
+
+					</ul>
+					<%
+					}
+					%>
+					<div class="card-body">
+						<a href="#" class="card-link">Verifique as condições para
+							entrega </a>
+
+					</div>
 				</div>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item">Preço: R$ <%=productData.productStock_List1(productRegistration.get(i).getIdProductRegistration()).get(0).getProductPrice()%>
-					</li>
 
-				</ul>
-				<div class="card-body">
-					<a href="#" class="card-link">Verifique as condições para
-						entrega </a>
+				<%
+				}
+				%>
+				<%
+				}
+				%>
 
-				</div>
+
+
 			</div>
-
-			<%
-			}
-			%>
-
-
-
 		</div>
 	</div>
 	<div style="min-height: 80px; clear: left;"></div>
 
-	<!-- Informações do rodapé do site-->
+
+	<%--Informações do rodapé do site --%>
 	<div class="rodape fixed-bottom">
-		<div class="  alinhamento-tamanho_max ">
-			<a href="#"><h6 class="card-title float-left"
-					style="margin: 10px;">° Entre em contato</h6></a> <a href="#"><h6
-					class="card-title float-left" style="margin: 10px;">° Quem
-					somos</h6></a> <a href="#"><h6 class="card-title float-left"
-					style="margin: 10px;">° Política de privacidade</h6></a> <a href="#"><h6
-					class="card-title float-left" style="margin: 10px;">°
-					Navegação no site</h6></a>
+		<div class="    alinhamento-tamanho_max ">
+
+			<P style="margin: 10px;">° Site desenvolvido por Rodrigo Braga -
+				Todos os direitos reservados
+			<p>
 		</div>
 	</div>
-
-
 
 
 

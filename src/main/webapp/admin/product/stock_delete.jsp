@@ -26,13 +26,17 @@
 	
 	ProductDao  productDao = new ProductDao();
 	ProductRegistration ProductRegistration_obj = new ProductRegistration();
-	ProductRegistration_obj.setIdProductStock(Integer.parseInt(request.getParameter("fidStock")));
-	productDao.excludeProductStok_Dao(ProductRegistration_obj);
-	//productDao.removeResult_stockProductList_Dao();
-
 	
-	%>
-
+	
+	if(productDao.getUniqueStockResultList_Dao().get(0).getIdProductStock()
+			.equals(Integer.parseInt(request.getParameter("fidStock")))){
+			
+		ProductRegistration_obj.setIdProductStock(Integer.parseInt(request.getParameter("fidStock")));
+		 productDao.excludeProductStok_Dao(ProductRegistration_obj);
+			
+			
+			%>
+	
 	<div class="center-div"
 		style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
 		<div
@@ -48,6 +52,37 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	<%
+	}else{%>
+	
+	<script>
+		window.location.href = '../../admin/admin_error/error_delete.jsp';
+	</script>
+	
+	
+	
+	<%
+	productDao.excludeProductStok_Dao(ProductRegistration_obj);}
+	
+	
+	%>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+
+	
 
 </body>
 </html>

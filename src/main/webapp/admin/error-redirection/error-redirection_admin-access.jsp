@@ -13,7 +13,7 @@
 
 
 	<script>
-		window.location.href = '../admin_error/error_admin-access.jsp';
+		window.location.href = 'admin_error/error_admin-access.jsp';
 	</script>
 
 	

@@ -25,8 +25,8 @@
 	<%
 	ManipulateFiles manipulateFiles = new ManipulateFiles();
 	ProductDao productDao = new ProductDao();
-	String folderName = "\\" + String.valueOf(productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration());
-	String imageName = "\\" + String.valueOf(productDao.getResult_productImageList_Dao().get(0).getIdProductImage())
+	String folderName =  String.valueOf(productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration());
+	String imageName = "/"+String.valueOf(productDao.getResult_persistence_imagePathArchive().get(0).getIdProductImage())
 			+ ".jpg";
 	ImageFolderAddress imageFolderAddress = new ImageFolderAddress();
 	

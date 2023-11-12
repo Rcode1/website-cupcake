@@ -25,10 +25,11 @@ public class ProductData {
 		return productRegistrationList;
 	}
 
-	public ArrayList<ProductRegistration> productStock_List1(Integer idProduct) throws ClassNotFoundException {
-
+	
+	public ArrayList<ProductRegistration> productStock_List(Integer idProduct) throws ClassNotFoundException {
+		 ArrayList<ProductRegistration> productStockList_last = new ArrayList<>();
 		ArrayList<ProductRegistration> productStockList = new ArrayList<>();
-		ArrayList<ProductRegistration> productStockList_last = new ArrayList<>();
+		
 
 		ProductDao productDao = new ProductDao();
 		Integer LastList;
@@ -41,15 +42,20 @@ public class ProductData {
 			}
 
 		}
+		
+		if(!productStockList.isEmpty()) {
+		
 		LastList = productStockList.size();
 		productStockList_last.add(productStockList.get(LastList - 1));
-
-		if (productStockList_last.isEmpty()) {
-			return null;
-		} else {
-
-		}
 		return productStockList_last;
+		
+		}else {
+			return null;
+		}
+		
+
+		
+		
 	}
 
 	public ArrayList<ProductRegistration> returnList() throws ClassNotFoundException {

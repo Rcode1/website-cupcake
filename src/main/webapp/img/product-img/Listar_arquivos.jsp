@@ -21,7 +21,7 @@
 
 <%
 
-String diretorio = "C:\\Users\\hoo\\Desktop\\WebCupcake\\src\\main\\webapp\\img";
+String diretorio = "WebCupcake24/rc/main/webapp/img/";
 ArrayList<Object> list = new ArrayList<>();
 
 File file = new File(diretorio);
@@ -29,7 +29,7 @@ File file = new File(diretorio);
 	int i = 0;
 	Object a;
 	
-	for (int j = afile.length; i < j; i++) {
+	for (int j= afile.length; i < j; i++) {
 		File arquivos = afile[i];
 		
 		

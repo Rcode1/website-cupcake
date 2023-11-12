@@ -50,13 +50,11 @@
 
 
 
-			<!----------------------Menu principal------------------------------------>
+			<%-- Menu principal --%>
 
 			<button class="btn btn-light float-left " type="button"
 				style="margin: 12px;" data-bs-toggle="offcanvas"
 				aria-controls="offcanvasWithBothOptions">Início</button>
-
-
 
 
 			<button class="btn btn-light  float-left " type="button"
@@ -90,6 +88,9 @@
 				</ul>
 			</span>
 
+			<%-- Fim do menu principal --%>
+			
+			<%-- Início do menu lateral --%>
 
 
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
@@ -116,6 +117,17 @@
 							href="../product/product-panel_operation.jsp"
 							style="text-decoration: none;">Produto e estoque - operações
 								cadastrais </a></li>
+
+						<hr>
+					</ul>
+					
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações do aplicativo </h5>
+						<li class="list-group-item">Esta área é destinada ao cadastro das informações da empresa.
+						</li>
+						<li class="list-group-item"><a
+							href="adimin-standard_app-information_view.jsp"
+							style="text-decoration: none;">Cadastro - informações da empresa  </a></li>
 
 						<hr>
 					</ul>

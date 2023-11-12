@@ -182,13 +182,14 @@ public class ClientDao {
 	// e autenticar todas as transações realizadas no site.
 
 	public ArrayList<ClientRegistration> resultSelectRegistration_Dao(String email, String password) {
+		
 		select_RegistrationClient_dao();
 		ArrayList<ClientRegistration> list = new ArrayList<>();
 		list = select_RegistrationClient_dao();
-		String emailLowerCase = email.toLowerCase();
+	
 		try {
 			for (int i = 0; i < list.size(); i++) {
-				if (list.get(i).getEmailRegistration().equals(emailLowerCase)) {
+				if (list.get(i).getEmailRegistration().equals(email)) {
 					if (list.get(i).getPassword().equals(password)) {
 						ClientRegistration clientResult = new ClientRegistration();
 
@@ -240,6 +241,70 @@ public class ClientDao {
 
 			// listResult.remove(i);
 			persistence_clientListResult.remove(i);
+		}
+
+	}
+	static ArrayList<ClientRegistration> listResultForAdmin = new ArrayList<>();	
+public void resultSelectRegistrationForAdmin_Dao(Integer IdClient) {
+		
+		select_RegistrationClient_dao();
+		ArrayList<ClientRegistration> list = new ArrayList<>();
+		list = select_RegistrationClient_dao();
+	
+		try {
+			for (int i = 0; i < list.size(); i++) {
+				if (list.get(i).getIdClient().equals(IdClient)) {
+					
+						ClientRegistration clientResult = new ClientRegistration();
+
+						clientResult.setIdClient(list.get(i).getIdClient());
+						clientResult.setDateRegistration(list.get(i).getDateRegistration());
+						clientResult.setName(list.get(i).getName());
+						clientResult.setBirthDate(list.get(i).getBirthDate());
+						clientResult.setDocumentCpf(list.get(i).getDocumentCpf());
+						clientResult.setEmailRegistration(list.get(i).getEmailRegistration());
+						clientResult.setPassword(list.get(i).getPassword());
+						clientResult.setPhone(list.get(i).getPhone());
+						clientResult.setStreet(list.get(i).getStreet());
+						clientResult.setComplement(list.get(i).getComplement());
+						clientResult.setHomeNumber(list.get(i).getHomeNumber());
+						clientResult.setNeighborhood(list.get(i).getNeighborhood());
+						clientResult.setCity(list.get(i).getCity());
+						clientResult.setState(list.get(i).getState());
+						clientResult.setZipCode(list.get(i).getZipCode());
+
+						listResultForAdmin.add(clientResult);
+
+					}
+				}
+			
+
+			// Carrega a lista no método "ClientDataPersistence()" para ser propagada nos
+			// demais recursos do site.
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+
+		
+
+	}
+
+//******************************************************************************
+	// Metodo que retorna os dados do cliente no site.
+//Os dados são utilizados nos recursos da conta do usuário. Após o acesso à conta, os dados ficarão disponíveis através deste método.
+	public ArrayList<ClientRegistration> clientListResultForAdmin_Dao() {
+		 
+		return listResultForAdmin;
+	}
+
+	// Método para remover os itens da lista
+	public void close_resultSelectRegistrationForAdmin_Dao() {
+
+		for (int i = 0; i <  listResultForAdmin .size(); i++) {
+
+			// listResult.remove(i);
+			listResultForAdmin .remove(i);
 		}
 
 	}

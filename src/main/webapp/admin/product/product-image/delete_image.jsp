@@ -25,10 +25,11 @@
 ProductDao productDao =  new ProductDao();
 ManipulateFiles manipulateFiles = new ManipulateFiles();
 ImageFolderAddress imageFolderAddress = new ImageFolderAddress();
-String folderName = "\\"+String.valueOf(productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration());
-String imageName = "\\"+String.valueOf(productDao.getResult_productImageList_Dao().get(0).getIdProductImage())+".jpg";
+String folderName = String.valueOf(productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration());
+String imageName = "/"+String.valueOf(productDao.getResult_productImageList_Dao().get(0).getIdProductImage())+".jpg";
 
 manipulateFiles.deleteFile(imageFolderAddress.imageFolderAddress(), folderName, imageName);
+manipulateFiles.deleteFolder(imageFolderAddress.imageFolderAddress(), folderName);
 
 
 

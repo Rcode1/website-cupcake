@@ -24,38 +24,11 @@ public class GeneralInformationDao {
 	}
 	
 	// Armazenamento do resultado do select realizado no DB.
-	static ArrayList<GeneralInformation> list_GeneralInformationtVerification = new ArrayList<>();
+	 ArrayList<GeneralInformation> list_GeneralInformationtVerification = new ArrayList<>();
 
 //***********************************************************************	
 	// Métodos responsáveis por manipular a tabela general_information
 
-	// Método para inserir o produto
-	public void generalInformation_Dao(GeneralInformation obj) {
-
-		try {
-			String sql = "INSERT INTO `db_cupcake_admin`.`general_information` (`website_information`, "
-					+ "'privacy_policy',`contact`, `about_us`, `site_navigation`, `website_image_path`) "
-					+ "VALUES (?,?,?,?,?,?);";
-
-			PreparedStatement stmt = con.prepareStatement(sql);
-
-			stmt.setString(1, obj.getWebsiteInformation()); // Insere a data automaticamente.
-			stmt.setString(2, obj.getPrivacyPolicy());
-			stmt.setString(3, obj.getContact());
-			stmt.setString(4, obj.getAboutUs());
-			stmt.setString(5, obj.getSiteNavigation());
-			stmt.setString(6, obj.getWebsiteImagePath());
-
-			stmt.execute();
-
-			stmt.close();
-
-		} catch (Exception error) {
-
-			error.printStackTrace();
-
-		}
-	}
 
 	// Método responsável por selecionar os dados do DB
 	public ArrayList<GeneralInformation> select_generalInformation_dao() {
@@ -91,7 +64,40 @@ public class GeneralInformationDao {
 
 	}
 
-	// Método para exclusão de dados do DB.
+
+
+	// Método para atualizar cadastro
+	public void updateGeneralInformation_Dao(GeneralInformation obj) {
+
+		try {
+			String sql = "UPDATE db_cupcake_admin.general_information SET website_information = ?, "
+					+ "privacy_policy = ?, contact = ?, about_us = ?, site_navigation = ?, "
+					+ "website_image_path = ? WHERE (id_information = 1);";
+
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, obj.getWebsiteInformation());
+			stmt.setString(2, obj.getPrivacyPolicy());
+			stmt.setString(3, obj.getContact());
+			stmt.setString(4, obj.getAboutUs());
+			stmt.setString(5, obj.getSiteNavigation());
+			stmt.setString(6, null);
+
+			stmt.execute();
+
+			stmt.close();
+
+		} catch (Exception error) {
+
+			error.printStackTrace();
+
+		}
+	}
+
+	// ********************************* Fim ********************//
+	
+	
+	/*	// Método para exclusão de dados do DB.
 	public void excludeGeneralInformation_Dao(GeneralInformation obj) {
 
 		try {
@@ -110,18 +116,20 @@ public class GeneralInformationDao {
 			error.printStackTrace();
 
 		}
-	}
+	}*/
 
-	// Método para atualizar cadastro
-	public void updateGeneralInformation_Dao(GeneralInformation obj) {
+
+	// Método para inserir o produto
+/*	public void generalInformation_Dao(GeneralInformation obj) {
 
 		try {
-			String sql = "UPDATE db_cupcake_admin.general_information SET (website_information=?,privacy_policy=?, "
-					+ "contact=?, about_us=?, site_navigation=?, website_image_path=?)" + "VALUES (?,?,?,?,?);";
+			String sql = "INSERT INTO `db_cupcake_admin`.`general_information` (`website_information`, "
+					+ "'privacy_policy',`contact`, `about_us`, `site_navigation`, `website_image_path`) "
+					+ "VALUES (?,?,?,?,?,?);";
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			stmt.setString(1, obj.getWebsiteInformation());
+			stmt.setString(1, obj.getWebsiteInformation()); // Insere a data automaticamente.
 			stmt.setString(2, obj.getPrivacyPolicy());
 			stmt.setString(3, obj.getContact());
 			stmt.setString(4, obj.getAboutUs());
@@ -137,8 +145,7 @@ public class GeneralInformationDao {
 			error.printStackTrace();
 
 		}
-	}
-
-	// ********************************* Fim ********************//
-
+	}*/
+	
+	
 }

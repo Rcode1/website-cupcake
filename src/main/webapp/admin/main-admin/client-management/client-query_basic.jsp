@@ -214,8 +214,7 @@
 				for (int i = 0; i < clientDao.select_RegistrationClient_dao().size(); i++) {
 				%>
 
-				<form action="admin_operation.jsp" id="admin_operation"
-					method="POST">
+				
 
 					<div class="form-row"
 						style="border: 1px solid #E0E0E0; margin: 5px;">
@@ -227,14 +226,14 @@
 								disabled></input>
 						</div>
 
-						<div class="form-group col-md-3">
+						<div class="form-group col-md-4">
 							<label for="nome_query">Nome</label> <input class="form-control"
 								type="password" id="nome_query" name="fnome_query"
 								placeholder="<%=clientDao.select_RegistrationClient_dao().get(i).getName()%>"
 								disabled></input>
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-3">
 							<label for="document_query">Documento CPF</label> <input
 								class="form-control" type="text" id="document_query"
 								name="fdocument_query"
@@ -242,7 +241,7 @@
 								disabled></input>
 						</div>
 
-						<div class="form-group col-md-2">
+						<div class="form-group col-md-4">
 							<label for="email">Email</label> <input class="form-control"
 								type="text" id="email" name="femail"
 								placeholder="<%=clientDao.select_RegistrationClient_dao().get(i).getEmailRegistration()%>"
@@ -250,7 +249,7 @@
 						</div>
 
 					</div>
-				</form>
+			
 
 				<%
 				}

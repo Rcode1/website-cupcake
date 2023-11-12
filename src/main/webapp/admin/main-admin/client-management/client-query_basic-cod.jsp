@@ -15,8 +15,6 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 
-
-<%@ page language="java" errorPage="../error-redirection/error-redirection_admin-query.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -44,20 +42,32 @@
 <body>
 
 	<%
-	
 	ClientDao clientDao = new ClientDao();
 
-//	 clientDao.removeUniqueSelectResultClient_Dao();
-//	 clientDao.uniqueSelectResultFoAdmin(Integer.parseInt(request.getParameter("fclient_query")));
-//
-
+	if (!request.getParameter("fclient_query").isEmpty()) {
+		clientDao.resultSelectRegistrationForAdmin_Dao(Integer.parseInt(request.getParameter("fclient_query")));
 	%>
-	
-	
+
 	<script>
 		window.location.href = 'client-query_full.jsp';
 	</script>
+
+	<%
+	} else {
+	%>
+
+	<script>
+		window.location.href = '../../../admin/admin_error/error_query.jsp';
+	</script>
+
+	<%
+	}
+	%>
+
 	
+
+
+
 
 
 </body>

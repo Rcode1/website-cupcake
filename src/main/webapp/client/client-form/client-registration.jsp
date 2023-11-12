@@ -23,11 +23,12 @@
 <body>
 	<%
 	ClientRegistration dto_registrationClient = new ClientRegistration();
-
+	
+	
 	dto_registrationClient.setName(request.getParameter("fname"));
 	dto_registrationClient.setBirthDate(request.getParameter("fbirthDate"));
 	dto_registrationClient.setDocumentCpf(request.getParameter("fdocument"));
-	dto_registrationClient.setEmailRegistration(request.getParameter("femail"));
+	dto_registrationClient.setEmailRegistration(request.getParameter("femail").toLowerCase());
 	dto_registrationClient.setPassword(request.getParameter("fpassword"));
 	dto_registrationClient.setPhone(request.getParameter("fphone"));
 	dto_registrationClient.setStreet(request.getParameter("fstreet"));

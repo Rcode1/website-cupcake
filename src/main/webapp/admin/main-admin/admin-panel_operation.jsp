@@ -13,7 +13,8 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 
-<%@ page language="java" errorPage="../error-redirection/error-redirection_admin-query.jsp"%>
+<%@ page language="java"
+	errorPage="../error-redirection/error-redirection_admin-query.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -40,9 +41,9 @@
 </head>
 
 <body>
-<%
-AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
-%>
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
@@ -63,11 +64,11 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 				data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
-				
-				<a href="main-page_home.jsp"><button class="btn btn-light  float-left " type="button"
-				style="margin: 12px; background-color: gainsboro; color: black;"
-				>Retornar</button></a>
-				
+
+			<a href="main-page_home.jsp"><button
+					class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
+
 
 
 			<!--  Início do menu principal -->
@@ -127,6 +128,7 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 					</div>
 				</form>
 			</div>
+		
 			<!-- Fim -->
 
 			<!--  Fim do menu principal -->
@@ -144,16 +146,18 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 						aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
-				
-				<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro de administradores</h5>
-						
-						<li class="list-group-item"> Para acessar os itens de cadastro do administrador, basta dar um click no item <strong>
-						Administradores	- operações cadastrais</strong>, o item está situado neste menu, logo abaixo.</li>
-						
-						<li class="list-group-item"><a
-							href="main-panel_insert.jsp" style="text-decoration: none;">Cadastrar administradores
-								</a></li>
+
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de administradores</h5>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Para acessar os itens de cadastro
+							do administrador, basta dar um click no item <strong>
+								Administradores - operações cadastrais</strong>, o item está situado
+							neste menu, logo abaixo.
+						</li>
+
+						<li class="list-group-item"><a href="main-panel_insert.jsp"
+							style="text-decoration: none;">Cadastrar administradores </a></li>
 						<li class="list-group-item"><a
 							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
 								- operações cadastrais </a></li>
@@ -161,35 +165,32 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 						<hr>
 					</ul>
 
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+						dos clientes</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
-							dos clientes</h5>
-						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
+						<li class="list-group-item"><a
+							href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						
+
 						<hr>
 
 					</ul>
-				
-				
-				
-				
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
 						<li class="list-group-item">Neste painel só podem haver a
-							inserção de produtos, para as
-							demais operações é necessário acessar o <strong>Cadastro
-							de produtos e estoque</strong>, item para inserção e operações em geral estão logo abaixo.</li>
+							inserção de produtos, para as demais operações é necessário
+							acessar o <strong>Cadastro de produtos e estoque</strong>, item
+							para inserção e operações em geral estão logo abaixo.
+						</li>
 
 						<li class="list-group-item"><a
 							href="../product/product-panel_operation.jsp"
-							style="text-decoration: none;">Produto e estoque- operações cadastrais
-						</a></li>
-						
-										
+							style="text-decoration: none;">Produto e estoque- operações
+								cadastrais </a></li>
+
+
 
 						<hr>
 
@@ -208,7 +209,7 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 	<!--Demonstrativo dos dados cadastrados(referente a um produto registrado-->
 
 	<div class="largura-max-cadastro"
-		style="margin: auto auto; margin-top: 80px;">
+		style="margin: auto auto; margin-top:80px;">
 		<div class="largura-max-cadastro text-center">
 			<h3>Identificação dos administradores registrados</h3>
 			<p>Abaixo estão todos os administradores registrados, basta
@@ -220,7 +221,6 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 
 
 				<%
-				
 				adminRegistrationDao.removeUniqueSelectResultAdmin_Dao();
 
 				ArrayList<AdministratorRegistration> list_adminRegistration = new ArrayList<>();
@@ -259,12 +259,12 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 								placeholder="<%=list_adminRegistration.get(i).getNameAdmin()%>"
 								disabled></input>
 						</div>
-						
+
 						<div class="form-group col-md-2">
 							<label for="accessLevel">Nível de acesso *</label> <input
 								class="form-control" type="text" id="accessLevel"
 								name="faccessLevel"
-								placeholder="<%=list_adminRegistration.get(i).getAccessLevel() %>"
+								placeholder="<%=list_adminRegistration.get(i).getAccessLevel()%>"
 								disabled></input>
 						</div>
 

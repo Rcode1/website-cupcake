@@ -1,4 +1,4 @@
-<%@page import="java.lang.String" %>
+<%@page import="java.lang.String"%>
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -107,10 +107,9 @@
 				</div>
 				<div class="offcanvas-body">
 
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de administradores</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de administradores</h5>
-
 						<li class="list-group-item">Abaixo estão disponíveis todas as
 							operações de cadastro, tanto para o administrador principal como
 							para os responsáveis pela manutenção dos recursos do site.</li>
@@ -126,10 +125,9 @@
 						<hr>
 					</ul>
 
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+						dos clientes</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
-							dos clientes</h5>
 						<li class="list-group-item"><a
 							href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
@@ -138,10 +136,9 @@
 
 					</ul>
 
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos e estoque</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos e estoque</h5>
 						<li class="list-group-item">Para acessar os itens de cadastro
 							do produto, basta dar um click no item <strong> Cadastro
 								de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.
@@ -185,7 +182,7 @@
 
 				<!---Neste trecho abre um campo imput para a entrada do código do main-admin, desta forma é possível
 			confirmar às intenções de deletar os dados cadastrais--->
-				
+
 				<div class="borda-red">
 					<p>Digite o mesmo código que aparece no campo (confirmação para
 						exclusão) que está logo abaixo, em seguida click no botão excluir.</p>
@@ -195,11 +192,12 @@
 
 						<label for="idadmin_delete">Confirmação para exclusão</label> <input
 							class="form-control" type="text" id="idadmin_delelte"
-							name="fidadmin_delete" placeholder=" Digite aqui este código: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"></input>
+							name="fidadmin_delete"
+							placeholder=" Digite aqui este código: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"></input>
 					</div>
 				</div>
-				
-				
+
+
 				<!------>
 				<div class="borda-cor-cadastro">
 					<div class="form-row">
@@ -212,7 +210,7 @@
 							<label for="idAdmin_delete">Identificação de registro *</label> <input
 								class="form-control" type="text" id="idAdmin_delete"
 								name="fidAdmin_delete"
-								placeholder="Identificação:<%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin() %>"
+								placeholder="Identificação:<%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"
 								disabled></input>
 						</div>
 

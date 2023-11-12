@@ -102,11 +102,9 @@
 				<div class="offcanvas-body">
 
 
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+						de produtos</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-
 						<li class="list-group-item">Abaixo estão os itens
 							relacionados com o ID do produto selecionado, caso queira
 							realizar uma operação em um outro produto basta retornar a
@@ -128,10 +126,9 @@
 						<hr>
 
 					</ul>
-
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						de cadadstro no estoque</h5>
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
-							de cadadstro no estoque</h5>
 						<li class="list-group-item"><strong>O estoque sempre
 								estará relacionado com o produto selecionado.</strong> Para acessar os
 							itens de estoque e realizar as operações para consultar,
@@ -232,8 +229,7 @@
 						</div>
 					</div>
 					<!------>
-					<button type="submit" class="btn btn-primary btn-sm ">Deletar
-						dados</button>
+					<button type="submit" class="btn btn-primary btn-sm ">Excluir cadastro</button>
 
 				</div>
 
