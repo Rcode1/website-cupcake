@@ -18,6 +18,7 @@
 	padding: 10px;
 	margin: auto auto;
 	max-width: 900px;
+	
 	/*border: 1px black solid;*/
 	background-color: #E0E0E0;
 }
@@ -36,8 +37,10 @@
 	margin: 10px 5px;
 }
 
-´.fundo{
-	background-color: white;
+
+
+.fundo{
+	background-color: rgb(255, 128, 128);
 }
 
 
@@ -64,7 +67,7 @@
 
 .center-div{
   margin: 0;
-  padding: 10;
+  padding: 10px;
     
     position: absolute;
     top: 50%;
@@ -76,7 +79,7 @@
 
 .alinhamento-tamanho_max{
 	max-width: 1200px;
-	position: relative;
+	
 	
 	margin: auto auto;
 	
@@ -88,15 +91,15 @@
 }
 
 .fundo-pagina{
-	background-color: #E0E0E0 ;
+	background-color: #E0E0E0;
+}
+.fundo-menu{
+	
+	background-color: #E0E0E0;
+	height: 70px;
+	margin-bottom: 10px;
+	
+	
 }
 
-.input-hidden{
-  height:0;
-  width:0;
-  visibility: hidden;
-  padding:0;
-  margin:0;
-  float:right;
-}
 

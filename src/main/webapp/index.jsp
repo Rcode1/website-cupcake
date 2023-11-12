@@ -1,8 +1,10 @@
-<!doctype html>
-<html lang="pt-br">
-
+<%@page import="br.com.dao.client.ClientDao"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
 <head>
-	<!-- Required meta tags -->
+<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,54 +13,60 @@
 	<link rel="stylesheet" href="css/css-personalizado/personalizacao.css">
 
 	<title>Home</title>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
-
 <body>
 
-	<div>
-		<div class=" fixed-top alinhamento-tamanho_max" id="fundo-menu">
+
+<div>
+		<div class=" fixed-top alinhamento-tamanho_max">
 
 			<!-- Menu principal-->
+
+			<!-----------------------Botıes b·sicos------------------------------------>
 			<ul class="nav nav-tabs menu-principal">
 				<li class="nav-item">
-					<a class="nav-link active " href="#">Home</a>
+					<a class="nav-link active " href="#">P·gina inicial</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link color-menu" href="client/client_form/client-registration_view.jsp">Cadastrar</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link color-menu" href="#">Disabled</a>
-				</li>
-
-				<!--  Botao do menu com sub menu      // botao com escolhas   -->
-				<!--    <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle color-menu" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
-       <div class="dropdown-menu">
-          <a class="dropdown-item "  href="html/client/client-registration-visitor.html">Visitante</a>
-          <a class="dropdown-item" href="html/client/client-registration-full.html">Pessoa fisica</a>
-          <a class="dropdown-item" href="html/client/client-registration-visitor.html">Pessoa Jur√≠dica</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
-        
-   </div>--> </li>
 			</ul>
 
-			<!--Botao para acessar o m√©todo cadastrar usu√°rio-->
 
+			<!------------------------ Botao do menu com sub menu ----------------------->
+			<span>
+				<ul class="nav nav menu-principal">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle color-menu" data-toggle="dropdown" href="#" role="button"
+							aria-haspopup="true" aria-expanded="false">Produtos</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item " href="#">Cupcake padr„o</a>
+							<a class="dropdown-item"#">Cupcake especiais</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Separated link</a>
+						</div>
+					</li>
+				</ul>
+			</span>
+
+			<!------------------------ Botao quem somos ----------------------->
+			<ul class="nav nav menu-principal">
+				<li class="nav-item">
+					<a class="nav-link color-menu" href="#">Quem somos</a>
+				</li>
+			</ul>
+
+
+			<!--------------------Bot„o acessar conta-------------------------------------------->
+			<!--Botao para acessar o mÈtodo cadastrar usu·rio-->
 			<a href="access/access-account.jsp"><button type="button" class="btn btn-secundary btn-sm float-right"
 					style="margin: 18px;">Acessar
 					conta!</button></a>
-			<span class=" float-right" style="margin: 21px;"> <label calss="form-control-sm"> Entre na sua conta
-				</label></span>
 			<br><br><br>
-
 		</div>
+	</div><br><br><br>
 
-	</div>
 
-
-	<!-- Carrocel de imagens -->
+	<!----------------- Carrocel de imagens ------------------------------------->
 	<div class="alinhamento-tamanho_max">
 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
@@ -80,15 +88,8 @@
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
-
 		</div>
-
-
 	</div>
-
-
-	</div>
-
 
 
 

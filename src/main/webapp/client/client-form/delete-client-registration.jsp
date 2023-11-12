@@ -12,16 +12,22 @@
 <%
 
 ClientRegistration dto_registrationClient = new ClientRegistration();
+ClientDao dao_client = new ClientDao();
+
+
+if(dao_client.clientDataPersistence().get(1).getIdClient().equals(Integer.parseInt(request.getParameter("fidClient")))){
 
 dto_registrationClient.setIdClient(Integer.parseInt(request.getParameter("fidClient")));
+dao_client.excludeClientRegistration_Dao(dto_registrationClient);
+}else{
+	out.print("não realizou a exclusão");
+}
 
-
-ClientDao dao_client = new ClientDao();
 
 //dto_registrationClient.setIdClient(dao_client.clientDataPersistence().get(1).getIdClient());
 
 
-dao_client.excludeClientRegistration_Dao(dto_registrationClient);
+
 
 
 %>

@@ -5,9 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="../css/css-personalizado/personalizacao.css">
+	href="../../../css/css-personalizado/personalizacao.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
@@ -35,9 +35,9 @@
 
 			<div class="center-div-text">
 				<div class="card-body">
-					<h5 class="card-title">Acesse a sua conta!</h5>
-					<p class="card-text">Aqui você acessará a sua conta, basta
-						informar o usuário e senha.</p>
+					<h5 class="card-title" style="background-color: rgb(255, 198, 199); padding: 5px;">Tente novamente!</h5>
+					<p class="card-text" >Alguma informação esta incorreta, por gentileza, informe novamente seu usuário e senha
+					para efetuar o acesso em sua conta.</p>
 				</div>
 
 
@@ -48,10 +48,10 @@
 					para validar o acesso!</label>
 			</div>
 			<br>
-			<form action="../home-page/home.jsp"
+			<form action="../../../home-page/home.jsp"
 				method="post">
 				<div class="center-div-text">
-					<input class="form-control" style="text-transform: lowercase;" type="text" id="user-name"
+					<input class="form-control" type="text" style="text-transform: lowercase;"id="user-name"
 						name="fuser-name" placeholder="Entre com o usuário!" required></input><br>
 					<input class="form-control" type="password" id="password-access"
 						name="fpassword-access" placeholder="Entre com a sua senha!" required></input>
@@ -61,9 +61,9 @@
 					<button type="submit" class="btn btn-primary btn-sm"
 						style="margin-right: 10px;">Acessar</button>
 
-					<a href="../index.html"><button type="button"
+					<a href="../../../index.html"><button type="button"
 							class="btn btn-secondary btn-sm">Página inicial</button></a> 
-							<a	href="../client/client_form/client-registration_view.jsp"><button type="button"
+							<a	href="../../client/client-form/client-registration_view.jsp"><button type="button"
 							class="btn btn-secondary btn-sm">Cadastrar</button></a>
 				</div>
 			</form>
