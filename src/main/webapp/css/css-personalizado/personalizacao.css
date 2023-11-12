@@ -7,6 +7,12 @@
 	border: 1px #A0A0A0 solid;
 	background-color: white ;
 }
+.borda-red{
+	padding: 10px; 
+	margin-bottom: 10px;
+	border: 1px  solid #FF3333;
+	background-color: rgb(255, 198, 199) ;
+}
 
 .largura-max-cadastro{
 	padding: 10px;

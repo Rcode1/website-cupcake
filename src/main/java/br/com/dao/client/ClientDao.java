@@ -179,5 +179,28 @@ public class ClientDao {
 		return list;
 
 	}
+	
+	// Método para exclusão de dados do DB.
+	public void excludeClientRegistration_Dao(ClientRegistration obj) {
+
+		try {
+			String sql =" DELETE FROM db_cupcake_client.client_registration WHERE (id_client = ?);";
+
+			
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setInt(1, obj.getIdClient());
+			
+
+			stmt.execute();
+
+			stmt.close();
+
+		} catch (Exception error) {
+
+			error.printStackTrace();
+
+		}
+	}
 
 }

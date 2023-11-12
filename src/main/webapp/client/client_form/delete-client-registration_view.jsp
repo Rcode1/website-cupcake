@@ -2,7 +2,7 @@
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dao.client.ClientDao"%>
-<%@ page import="java.lang.String" %>
+<%@ page import="java.lang.String"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="utf-8"%>
@@ -38,35 +38,26 @@
 
 </head>
 <body>
-<%@ page errorPage = "error-page.jsp" %> 
+	<%@ page errorPage="error-page.jsp"%><!-- Redireciona para uma página explicativa, referente ao erro  -->
 
 
 
 
-<%
+	<%
+	//ClientRegistration client_dto = new ClientRegistration();
+	ClientDao dao_client = new ClientDao();
+	ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
+	try {
 
-//ClientRegistration client_dto = new ClientRegistration();
-ClientDao dao_client = new ClientDao();
-ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
-try{
-	
-	
-	
-	
-	 
-	//Este lina traz como resultado às informações contidas no DB de acordo com o usuário e senha
-			//	 clientResultSelect = dao_client.resultSelectRegistration_Dao( "", "");
-		
-	 clientResultSelect = dao_client.clientDataPersistence();
-	
-			
-}catch(Exception e){
-	e.printStackTrace();
-}
-	
+		//Este lina traz como resultado às informações contidas no DB de acordo com o usuário e senha
+		//	 clientResultSelect = dao_client.resultSelectRegistration_Dao( "", "");
 
+		clientResultSelect = dao_client.clientDataPersistence();
 
-%>
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	%>
 
 
 	<div class="alinhamento-tamanho_max fundo">
@@ -108,43 +99,75 @@ try{
 		<!--------------------------formulario----------------------------------------------------------->
 
 		<div class="largura-max-cadastro">
-			<div class="largura-max-cadastro text-center"><h1>Área destinada a atualização ou exclusão dos dados cadastrais.</h1>
-			<p>Nesta área é possível realizar as alterações necessárias nos dados cadastrados, bem como, iniciar 
-			o processo de exclusão permanente da nossa base de dados.  </p>
-			
+			<div class="largura-max-cadastro text-center">
+				<h3>Área destinada a exclusão permanente dos dados cadastrais.</h3>
+				<p style="text-align: left;">Cuidado, suas informações serão excluidas permanentemente da
+					nossa base de dados, caso hajam dúvidas, entre em contato para obter
+					maiores esclarecimentos.</p>
+
 			</div>
 			<div class="borda-cor-cadastro">
-				<form action="client-registration.jsp"
-					id="registration-client-visitor" method="POST">
+				<form action="delete-client-registration.jsp" id="exclude"
+					method="post">
 					<!------>
 					<div class="borda-cor-cadastro">
+
+
+						<div class="borda-red"">
+							<p >Digite o mesmo código que
+								aparece no campo (confirmação para exclusão) que está logo
+								abaixo, em seguida click no botão excluir.</p>
+
+							<div class="form-group col-md-4"
+								Style="margin-left: auto; margin-right: auto; text-align: center;">
+
+								<label for="idClient">Confirmação para exclusão</label> <input
+									class="form-control" type="text" id="idClient" name="fidClient"
+									placeholder=" Digite aqui este código: <%=clientResultSelect.get(1).getIdClient()%>"></input>
+							</div>
+						</div>
+
+
+
+
+
 						<div class="form-row">
 
+
+
+
 							<!------>
-							<div class="form-group col-md-4">
-								<label for="nome">Data do cadastro *</label> <input
-									class="form-control" type="text" id="name" name="fname"
-									placeholder="Data: <%=clientResultSelect.get(1).getDateRegistration() %>" ></input>
+
+
+							<div class="form-group col-md-3">
+								<label for="nome">Data do cadastro </label> <input
+									class="form-control" type="text" id="date" name="fdate"
+									placeholder="<%=clientResultSelect.get(1).getDateRegistration()%>"
+									disabled></input>
 							</div>
 							<!------>
-							<div class="form-group col-md-8">
-								<label for="nome">Nome completo *</label> <input
+							<div class="form-group col-md-9">
+								<label for="nome">Nome completo </label> <input
 									class="form-control" type="text" id="name" name="fname"
-									placeholder="Nome completo:  <%=clientResultSelect.get(1).getName()%>" ></input>
+									placeholder="  <%=clientResultSelect.get(1).getName()%>"
+									disabled></input>
 							</div>
-                              <!------>
+							<!------>
 						</div>
 						<!------>
 						<div class="form-row">
 							<div class="form-group col-md-8">
-								<label for="email">Email *</label> <input class="form-control"
-									type="text" id="emaiL" name="femail" placeholder="Email: <%=clientResultSelect.get(1).getEmailRegistration()%>"></input>
+								<label for="email">Email </label> <input class="form-control"
+									type="text" id="emaiL" name="femail"
+									placeholder="Email: <%=clientResultSelect.get(1).getEmailRegistration()%>"
+									disabled></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-4">
-								<label for="senha">Senha *</label> <input class="form-control"
+								<label for="senha">Senha </label> <input class="form-control"
 									type="txt" id="password" name="fpassword"
-									placeholder="Senha: <%=clientResultSelect.get(1).getPassword()%>" ></input>
+									placeholder="<%=clientResultSelect.get(1).getPassword()%>"
+									disabled></input>
 							</div>
 						</div>
 
@@ -159,21 +182,25 @@ try{
 					<div class="borda-cor-cadastro">
 						<div class="form-row">
 							<div class="form-group col-md-3">
-								<label for="birthDate">Data de nascimento *</label> <input
+								<label for="birthDate">Data de nascimento </label> <input
 									class="form-control" type="text" id="birthDate"
-									name="fbirthDate" placeholder="Data: <%=clientResultSelect.get(1).getBirthDate()%>" ></input>
+									name="fbirthDate"
+									placeholder=" <%=clientResultSelect.get(1).getBirthDate()%>"
+									disabled></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-5">
-								<label for="document">Documento - CPF *</label> <input
+								<label for="document">Documento - CPF </label> <input
 									class="form-control" type="text" id="document" name="fdocument"
-									placeholder="Documento - CPF: <%=clientResultSelect.get(1).getDocumentCpf()%>"></input>
+									placeholder=" <%=clientResultSelect.get(1).getDocumentCpf()%>"
+									disabled></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-4">
-								<label for="phone">Telefone cel *
-									</label> <input class="form-control" type="text" id="phone"
-									name="fphone" placeholder="Telefone: <%=clientResultSelect.get(1).getPhone()%>"></input>
+								<label for="phone">Telefone cel </label> <input
+									class="form-control" type="text" id="phone" name="fphone"
+									placeholder=" <%=clientResultSelect.get(1).getPhone()%>"
+									disabled></input>
 							</div>
 						</div>
 					</div>
@@ -186,31 +213,39 @@ try{
 					<div class="borda-cor-cadastro ">
 
 						<div class="form-group">
-							<label for="street">Rua *</label> <input class="form-control"
-								type="text" id="street" name="fstreet" placeholder="Rua: <%=clientResultSelect.get(1).getStreet()%>"></input>
+							<label for="street">Rua </label> <input class="form-control"
+								type="text" id="street" name="fstreet"
+								placeholder="<%=clientResultSelect.get(1).getStreet()%>"
+								disabled></input>
 						</div>
 						<!------>
 
 						<div class="form-group ">
 							<label for="complement">Complemento </label> <input
 								class="form-control" type="text" id="complement"
-								name="fcomplement" placeholder="Complemento: <%=clientResultSelect.get(1).getComplement()%>"></input>
+								name="fcomplement"
+								placeholder=" <%=clientResultSelect.get(1).getComplement()%>"
+								disabled></input>
 						</div>
 						<!------>
 
 						<div class="form-row">
 							<div class="form-group col-md-2">
-								<label for="homeNumber">Numero*</label> <input
+								<label for="homeNumber">Numero</label> <input
 									class="form-control" type="text" id="homeNumber"
-									name="fhomeNumber" placeholder="N.°: <%=clientResultSelect.get(1).getHomeNumber()%>"></input>
+									name="fhomeNumber"
+									placeholder=" <%=clientResultSelect.get(1).getHomeNumber()%>"
+									disabled></input>
 							</div>
 
 							<!------>
 
 							<div class="form-group col-md-10">
-								<label for="neighborhood">Bairro*</label> <input
+								<label for="neighborhood">Bairro</label> <input
 									class="form-control" type="text" id="neighborhood"
-									name="fneighborhood" placeholder="Bairro: <%=clientResultSelect.get(1).getNeighborhood()%>"></input>
+									name="fneighborhood"
+									placeholder=" <%=clientResultSelect.get(1).getNeighborhood()%>"
+									disabled></input>
 							</div>
 						</div>
 
@@ -218,71 +253,45 @@ try{
 
 						<div class="form-row">
 							<div class="form-group col-md-8">
-								<label for="city">Cidade *</label> <input class="form-control"
-									type="text" id="city" name="fcity" placeholder="Cidade: <%=clientResultSelect.get(1).getCity()%>"></input>
+								<label for="city">Cidade </label> <input class="form-control"
+									type="text" id="city" name="fcity"
+									placeholder=" <%=clientResultSelect.get(1).getCity()%>"
+									disabled></input>
 							</div>
 							<!------>
-							
-							<div class="form-group col-md-4">
-								<label for="city">Estado atual *</label> <input class="form-control"
-									type="text" id="state_" name="fstate_" placeholder="Estado: <%=clientResultSelect.get(1).getState()%>" disabled></input>
-							</div>
-							
-							
-							<div class="form-group col-md-4">
-								<label for="state">Alterar estado *</label> <select id="state"
-									class="form-control" name="fstate" >
-									<option selected>Estado</option>
-									<option>Acre (AC)</option>
-									<option>Alagoas (AL)</option>
-									<option>Amapá (AP)</option>
-									<option>Amazonas (AM)</option>
-									<option>Bahia (BA)</option>
-									<option>Ceará (CE)</option>
-									<option>Distrito Federal (DF)</option>
-									<option>Espírito Santo (ES)</option>
-									<option>Goiás (GO)</option>
-									<option>Maranhão (MA)</option>
-									<option>Mato Grosso (MT)</option>
-									<option>Mato Grosso do Sul (MS)</option>
-									<option>Minas Gerais (MG)</option>
-									<option>Pará (PA)</option>
-									<option>Paraíba (PB)</option>
-									<option>Paraná (PR)</option>
-									<option>Pernambuco (PE)</option>
-									<option>Piauí (PI)</option>
-									<option>Rio de Janeiro (RJ)</option>
-									<option>Rio Grande do Norte (RN)</option>
-									<option>Rio Grande do Sul (RS)</option>
-									<option>Rondônia (RO)</option>
-									<option>Roraima (RR)</option>
-									<option>Santa Catarina (SC)</option>
-									<option>São Paulo (SP)</option>
-									<option>Sergipe (SE)</option>
-									<option>Tocantins (TO)</option>
 
-								</select>
+							<div class="form-group col-md-4">
+								<label for="city">Estado atual </label> <input
+									class="form-control" type="text" id="state_" name="fstate_"
+									placeholder=" <%=clientResultSelect.get(1).getState()%>"
+									disabled></input>
 							</div>
+
+
 
 							<div class="form-group col-md-3">
 								<label for="zipCode">Cep *</label> <input class="form-control"
-									type="text" id="zipCode" name="fzipCode" placeholder="Cep: <%=clientResultSelect.get(1).getZipCode()%>"></input>
+									type="text" id="zipCode" name="fzipCode"
+									placeholder="Cep: <%=clientResultSelect.get(1).getZipCode()%>"
+									disabled></input>
 							</div>
 						</div>
-						
+
 					</div>
 					<br> <br>
 
 
-					<button type="submit" class="btn btn-primary btn-sm ">Atualizar cadastro</button>
-					
-					
-					
-					<a href="../../index.html" class="float-right"><button type="button"
-							class="btn btn-secondary btn-sm ">Página inicial</button></a>
-							
-							<a href="delete-client-registration_view.jsp" class="float-right" Style="margin-right: 10px;"><button type="button"
-							class="btn btn-secondary btn-sm ">Excluir cadastro</button></a>
+					<button type="submit" class="btn btn-primary btn-sm ">Excluir
+						Cadastro</button>
+
+
+
+					<a href="../../index.html" class="float-right"><button
+							type="button" class="btn btn-secondary btn-sm ">Página
+							inicial</button></a> <a href="alterar-client-registration_view.jsp"
+						class="float-right" Style="margin-right: 10px;"><button
+							type="button" class="btn btn-secondary btn-sm ">Atualizar
+							cadastro</button></a>
 
 				</form>
 			</div>
