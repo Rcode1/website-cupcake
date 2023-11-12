@@ -29,6 +29,8 @@
 </head>
 <body>
 
+	
+
 	<div class="center-div">
 		<div class="card " style="width: 20rem;">
 
@@ -61,10 +63,12 @@
 					<button type="submit" class="btn btn-primary btn-sm"
 						style="margin-right: 10px;">Acessar</button>
 
-					<a href="../index.html"><button type="button"
-							class="btn btn-secondary btn-sm">Página inicial</button></a> 
-							<a	href="../client/client_form/client-registration_view.jsp"><button type="button"
+					 
+							<a	href="../client/client-form/client-registration_view.jsp"><button type="button"
 							class="btn btn-secondary btn-sm">Cadastrar</button></a>
+							
+							<a href="../index.jsp"><button type="button"
+							class="btn btn-secondary btn-sm">Início</button></a>
 				</div>
 			</form>
 

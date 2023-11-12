@@ -32,6 +32,8 @@ public class ClientDao {
 		this.con = new ConnectionFactory().getConnection_client();
 	}
 
+//*********************************************************************************
+
 	// Metodo para inserir o cliente no DB.
 	public void registrationClient_Dao(ClientRegistration obj) {
 
@@ -114,7 +116,95 @@ public class ClientDao {
 
 	}
 
-	// ....................................................//
+	// Método para exclusão de dados do DB.
+	public void excludeClientRegistration_Dao(ClientRegistration obj) {
+
+		try {
+			String sql = " DELETE FROM db_cupcake_client.client_registration WHERE (id_client = ?);";
+
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setInt(1, obj.getIdClient());
+
+			stmt.execute();
+
+			stmt.close();
+
+		} catch (Exception error) {
+
+			error.printStackTrace();
+
+		}
+	}
+
+	public void updateRegistrationClient_Dao(ClientRegistration obj) {
+
+		try {
+			String sql = "UPDATE db_cupcake_client.client_registration SET name = ?, birth_date = ?, "
+					+ "document_cpf = ?, email = ?, password = ?, phone = ?, street = ?, "
+					+ "complement = ?,	home_number = ?, neighborhood = ?, city = ?, "
+					+ "state = ?, zip_code = ? WHERE (id_client = ?);";
+
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, obj.getName());
+			stmt.setString(2, obj.getBirthDate());
+			stmt.setString(3, obj.getDocumentCpf());
+			stmt.setString(4, obj.getEmailRegistration());
+			stmt.setString(5, obj.getPassword());
+			stmt.setString(6, obj.getPhone());
+			stmt.setString(7, obj.getStreet());
+			stmt.setString(8, obj.getComplement());
+			stmt.setString(9, obj.getHomeNumber());
+			stmt.setString(10, obj.getNeighborhood());
+			stmt.setString(11, obj.getCity());
+			stmt.setString(12, obj.getState());
+			stmt.setString(13, obj.getZipCode());
+			stmt.setInt(14, obj.getIdClient());
+
+			stmt.execute();
+
+			stmt.close();
+
+		} catch (Exception error) {
+
+			error.printStackTrace();
+
+		}
+	}
+
+// ****************************************************************************
+
+	// Métodos responsáveis pela autenticação, disponibilidade dos dados
+	// para atender aos recursos e exclusão dos mesmos para o encerramento das
+	// atividades do cliente.
+
+	// Método para remover os itens da lista
+	public void close_resultSelectRegistration_Dao() {
+
+		for (int i = 0; i < listResult.size(); i++) {
+			// select_RegistrationClient_dao().remove(i);
+			listResult.remove(i);
+			clientDataPersistence().remove(i);
+		}
+
+	}
+
+	// Dados utilizado nos recursos da conta do usuário. Após o acesso à conta, os
+	// dados ficarão disponíveis através deste método.
+
+	public static ArrayList<ClientRegistration> clientDataPersistence() {
+		ArrayList<ClientRegistration> list = new ArrayList<>();
+		try {
+			list = listResult;
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+		return list;
+
+	}
 
 	// Esta seleção retorna a lista de um id do usuário do banco de dados. Os dados
 	// serão utilizados para acessar a própria conta
@@ -162,90 +252,6 @@ public class ClientDao {
 
 		return listResult;
 
-	}
-
-	// Método para remover os itens da lista
-	public void close_resultSelectRegistration_Dao() {
-
-		listResult.remove(0);
-	}
-
-	// Dados utilizado nos recursos da conta do usuário. Após o acesso à conta, os
-	// dados ficarão disponíveis através deste método.
-
-	public static ArrayList<ClientRegistration> clientDataPersistence() {
-		ArrayList<ClientRegistration> list = new ArrayList<>();
-		try {
-			list = listResult;
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-
-		return list;
-
-	}
-
-	// Método para exclusão de dados do DB.
-	public void excludeClientRegistration_Dao(ClientRegistration obj) {
-
-		try {
-			String sql = " DELETE FROM db_cupcake_client.client_registration WHERE (id_client = ?);";
-
-			PreparedStatement stmt = con.prepareStatement(sql);
-
-			stmt.setInt(1, obj.getIdClient());
-
-			stmt.execute();
-
-			stmt.close();
-
-		} catch (Exception error) {
-
-			error.printStackTrace();
-
-		}
-	}
-
-	// UPDATE `db_cupcake_client`.`client_registration` SET `date_registration` =
-	// 'ssss', `name` = 'ss', `birth_date` = 'sss', `document_cpf` = 'ssss', `email`
-	// = 'fff', `password` = 'fff', `phone` = 'ffff', `street` = 'fff', `complement`
-	// = 'fff', `home_number` = 'fff', `neighborhood` = 'fff', `city` = 'fff',
-	// `state` = 'ffff', `zip_code` = 'ffff' WHERE (`id_client` = '3');
-	public void updateRegistrationClient_Dao(ClientRegistration obj) {
-
-		try {
-			String sql = "UPDATE db_cupcake_client.client_registration SET name = ?, birth_date = ?, "
-					+ "document_cpf = ?, email = ?, password = ?, phone = ?, street = ?, "
-					+ "complement = ?,	home_number = ?, neighborhood = ?, city = ?, "
-					+ "state = ?, zip_code = ? WHERE (id_client = ?);";
-
-			PreparedStatement stmt = con.prepareStatement(sql);
-
-			stmt.setString(1, obj.getName());
-			stmt.setString(2, obj.getBirthDate());
-			stmt.setString(3, obj.getDocumentCpf());
-			stmt.setString(4, obj.getEmailRegistration());
-			stmt.setString(5, obj.getPassword());
-			stmt.setString(6, obj.getPhone());
-			stmt.setString(7, obj.getStreet());
-			stmt.setString(8, obj.getComplement());
-			stmt.setString(9, obj.getHomeNumber());
-			stmt.setString(10, obj.getNeighborhood());
-			stmt.setString(11, obj.getCity());
-			stmt.setString(12, obj.getState());
-			stmt.setString(13, obj.getZipCode());
-			stmt.setInt(14, obj.getIdClient());
-
-			stmt.execute();
-
-			stmt.close();
-
-		} catch (Exception error) {
-
-			error.printStackTrace();
-
-		}
 	}
 
 }

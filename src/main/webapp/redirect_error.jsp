@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Error_return-client-registration</title>
-
+<title>Insert title here</title>
 </head>
 <body>
-
 	<script>
-		window.location.href = 'error_registration/error_return.jsp';
+		window.location.href = 'index-configuration/error_index.jsp';
 	</script>
 
 </body>

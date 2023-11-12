@@ -1,28 +1,45 @@
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@page import="br.com.dao.client.ClientDao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
 
 	<%
-	//Nesta tela o método "resultSelectRegistration_Dao()" é acionado para deletar
+	//Nesta tela o mÃ©todo "resultSelectRegistration_Dao()" Ã© acionado para deletar
 	//os itens da lista.
 	ClientDao clientDao = new ClientDao();
 
 	clientDao.close_resultSelectRegistration_Dao();
+
+	//Teste para verificaÃ§Ã£o de lista, (vazia ou cheia)
+	if (clientDao.clientDataPersistence().isEmpty()) {
 	%>
-	
-	<!--  Após a remoção dos dados da listaresultSelectRegistration_Dao() 
-	a pagina é redirecionada para o index.jsp  -->
 	<script>
 		window.location.href = '../index.jsp';
 	</script>
+	<%
+	} else { %>
+	
+	<script>
+		window.location.href = '../index-configuration/error_index.jsp';
+	</script>
+	<% 
+	}
+	%>
+
+
+	<!--  ApÃ³s a remoÃ§Ã£o dos dados da listaresultSelectRegistration_Dao() 
+	a pagina Ã© redirecionada para o index.jsp  -->
+
+
+
+
 
 </body>
 </html>

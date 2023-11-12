@@ -1,7 +1,7 @@
 
 <%@page import="br.com.dao.client.ClientDao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +19,7 @@
 <script type="text/javascript" language="javascript"
 	src="jquery/jquery.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Documento sem tÌtulo</title>
+<title>Documento sem t√≠tulo</title>
 <link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet"
 	type="text/css">
 
@@ -35,9 +35,12 @@
 
 			<div class="center-div-text">
 				<div class="card-body">
-					<h5 class="card-title" style="background-color: rgb(255, 198, 199); padding: 5px;">Tente novamente!</h5>
-					<p class="card-text" >Alguma informaÁ„o esta incorreta, por gentileza, informe novamente seu usu·rio e senha
-					para efetuar o acesso em sua conta.</p>
+					<h5 class="card-title"
+						style="background-color: rgb(255, 198, 199); padding: 5px;">Tente
+						novamente!</h5>
+					<p class="card-text">Alguma informa√ß√£o esta incorreta, por
+						gentileza, informe novamente seu usu√°rio e senha para efetuar o
+						acesso em sua conta.</p>
 				</div>
 
 
@@ -48,23 +51,25 @@
 					para validar o acesso!</label>
 			</div>
 			<br>
-			<form action="../../../home-page/home.jsp"
-				method="post">
+			<form action="../../../home-page/home.jsp" method="post">
 				<div class="center-div-text">
-					<input class="form-control" type="text" style="text-transform: lowercase;"id="user-name"
-						name="fuser-name" placeholder="Entre com o usu·rio!" required></input><br>
+					<input class="form-control" type="text"
+						style="text-transform: lowercase;" id="user-name"
+						name="fuser-name" placeholder="Entre com o usu√°rio!" required></input><br>
 					<input class="form-control" type="password" id="password-access"
-						name="fpassword-access" placeholder="Entre com a sua senha!" required></input>
+						name="fpassword-access" placeholder="Entre com a sua senha!"
+						required></input>
 				</div>
 				<div class="center-div-text">
 
 					<button type="submit" class="btn btn-primary btn-sm"
 						style="margin-right: 10px;">Acessar</button>
 
-					<a href="../../../index.html"><button type="button"
-							class="btn btn-secondary btn-sm">P·gina inicial</button></a> 
-							<a	href="../../client/client-form/client-registration_view.jsp"><button type="button"
-							class="btn btn-secondary btn-sm">Cadastrar</button></a>
+
+					<a href="../../client/client-form/client-registration_view.jsp"><button
+							type="button" class="btn btn-secondary btn-sm">Cadastrar</button></a>
+					<a href="../../../index.jsp"><button type="button"
+							class="btn btn-secondary btn-sm">In√≠cio</button></a>
 				</div>
 			</form>
 

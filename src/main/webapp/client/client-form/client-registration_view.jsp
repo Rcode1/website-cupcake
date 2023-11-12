@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
 <%-- 
@@ -35,40 +35,20 @@
 
 
 
-	<div class="alinhamento-tamanho_max ">
+	<div >
 		<!--------------------Menu principal-------------------------------->
-		<div class="  alinhamento-tamanho_max fundo fixed-top fundo">
-			<ul class="nav nav-tabs menu-principal ">
+		<div class="fundo-pagina fixed-top" >
+		<div class="  largura-max-cadastro">
+			<ul class="nav nav-tabs  ">
 				<li class="nav-item"><a class="nav-link active "
-					href="../../index.html">Home</a></li>
-				<li class="nav-item"><a class="nav-link color-menu" href="#">Link</a>
+					href="../../home-page/home.jsp">Home</a></li>
+				
+			
 				</li>
-				<li class="nav-item"><a class="nav-link color-menu" href="#">Disabled</a>
-				</li>
 
-
-				<!--  Botao do menu com sub menu-->
-
-				<!-- 	<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle color-menu" data-toggle="dropdown"
-					href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item "
-							href="html/client/client-registration-visitor.html">Visitante</a>
-						<a class="dropdown-item"
-							href="html/client/client-registration-full.html">Pessoa
-							fisica</a> <a class="dropdown-item"
-							href="html/client/client-registration-visitor.html">Pessoa
-							Jurídica</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Separated link</a>
-					</div></li> -->
-				<!-- Este menu está desativado, (em comentário), para uso posterior -->
-			</ul>
+		</div>
 		</div>
 		<br> <br> <br>
-
-
 
 
 		<!--------------------------formulario----------------------------------------------------------->
@@ -97,7 +77,7 @@
 						<!------>
 						<div class="form-row">
 							<div class="form-group col-md-12">
-								<label for="email">Email *</label> <input class="form-control"
+								<label for="email">Email *</label> <input class="form-control" style="text-transform: lowercase;"
 									type="email" id="emaiL" name="femail" placeholder="Email:" required></input>
 							</div>
 							<!------>
@@ -229,8 +209,7 @@
 
 
 					<button type="submit" class="btn btn-primary btn-sm ">Cadastrar</button>
-					<a href="../../index.html"><button type="button"
-							class="btn btn-secondary btn-sm ">Página inicial</button></a>
+					
 
 				</form>
 			</div>

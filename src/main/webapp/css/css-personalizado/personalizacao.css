@@ -45,14 +45,9 @@
 
 
 .rodape{
-	min-height: 30px;
-	max-height: 30px;
-	
-	height:  bottom;
-
-   
+	min-height: 50px;
+	max-height: 50px;
 	background-color: #E0E0E0;
-
 }
 .center-div-text{
 
@@ -78,7 +73,10 @@
 }
 
 .alinhamento-tamanho_max{
+	min-width: 600px;
 	max-width: 1200px;
+	
+	
 	
 	
 	margin: auto auto;
@@ -97,9 +95,24 @@
 	
 	background-color: #E0E0E0;
 	height: 70px;
-	margin-bottom: 10px;
+	
 	
 	
 }
 
+.margem-carrocel{
+	margin-top: 10px;
+}
 
+.borda{
+	border: 1px #DCDCDC solid;
+}
+
+.acesso-usuario{
+  margin: 10px;
+  float: right;
+  background-color: #DCDCDC;
+  border: 1px solid white; 
+  border-radius: 5px;
+ 
+}

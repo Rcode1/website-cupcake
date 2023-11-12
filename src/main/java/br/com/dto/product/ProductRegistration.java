@@ -5,131 +5,120 @@ package br.com.dto.product;
  *
  * @author - Rodrigo Braga
  */
-public  class ProductRegistration {
+public class ProductRegistration {
 
-    private Integer idProduct;
-    private String productName;
-    private String productDescription;
-    private  Integer quantity;
-    private Double roductValue;
-    private String manufacturingDate;
-    private String imageAddress;
+	private Integer idProductRegistration;
+	private Integer idProductStock;
+	private String registrationDate;
+	private String productionDate;
+	private String productName;
+	private String basicDescription;
+	private String longDescription;
+	private String productImagePath;
+	private String entryDate;
+	private String departureDate;
+	private Integer quantityEntry;
+	private Integer quantityDeoartury;
 
-    public ProductRegistration() {
-    }
-
-   
-
-    public ProductRegistration(String productName, String productDescription, Integer quantity, Double roductValue,
-			String manufacturingDate, String imageAddress) {
-		super();
-		this.productName = productName;
-		this.productDescription = productDescription;
-		this.quantity = quantity;
-		this.roductValue = roductValue;
-		this.manufacturingDate = manufacturingDate;
-		this.imageAddress = imageAddress;
+	public ProductRegistration() {
 	}
 
-
-
-	public ProductRegistration(Integer idProduct, String productName, String productDescription, Integer quantity,
-			Double roductValue, String manufacturingDate, String imageAddress) {
-		super();
-		this.idProduct = idProduct;
-		this.productName = productName;
-		this.productDescription = productDescription;
-		this.quantity = quantity;
-		this.roductValue = roductValue;
-		this.manufacturingDate = manufacturingDate;
-		this.imageAddress = imageAddress;
+	public Integer getIdProductRegistration() {
+		return idProductRegistration;
 	}
 
-
-
-	public Integer getIdProduct() {
-		return idProduct;
+	public void setIdProductRegistration(Integer idProductRegistration) {
+		this.idProductRegistration = idProductRegistration;
 	}
 
-
-
-	public void setIdProduct(Integer idProduct) {
-		this.idProduct = idProduct;
+	public Integer getIdProductStock() {
+		return idProductStock;
 	}
 
+	public void setIdProductStock(Integer idProductStock) {
+		this.idProductStock = idProductStock;
+	}
 
+	public String getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(String registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+
+	public String getProductionDate() {
+		return productionDate;
+	}
+
+	public void setProductionDate(String productionDate) {
+		this.productionDate = productionDate;
+	}
 
 	public String getProductName() {
 		return productName;
 	}
 
-
-
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
-
-
-	public String getProductDescription() {
-		return productDescription;
+	public String getBasicDescription() {
+		return basicDescription;
 	}
 
-
-
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
+	public void setBasicDescription(String basicDescription) {
+		this.basicDescription = basicDescription;
 	}
 
-
-
-	public Integer getQuantity() {
-		return quantity;
+	public String getLongDescription() {
+		return longDescription;
 	}
 
-
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setLongDescription(String longDescription) {
+		this.longDescription = longDescription;
 	}
 
-
-
-	public Double getRoductValue() {
-		return roductValue;
+	public String getProductImagePath() {
+		return productImagePath;
 	}
 
-
-
-	public void setRoductValue(Double roductValue) {
-		this.roductValue = roductValue;
+	public void setProductImagePath(String productImagePath) {
+		this.productImagePath = productImagePath;
 	}
 
-
-
-	public String getManufacturingDate() {
-		return manufacturingDate;
+	public String getEntryDate() {
+		return entryDate;
 	}
 
-
-
-	public void setManufacturingDate(String manufacturingDate) {
-		this.manufacturingDate = manufacturingDate;
+	public void setEntryDate(String entryDate) {
+		this.entryDate = entryDate;
 	}
 
-
-
-	public String getImageAddress() {
-		return imageAddress;
+	public String getDepartureDate() {
+		return departureDate;
 	}
 
-
-
-	public void setImageAddress(String imageAddress) {
-		this.imageAddress = imageAddress;
+	public void setDepartureDate(String departureDate) {
+		this.departureDate = departureDate;
 	}
 
+	public Integer getQuantityEntry() {
+		return quantityEntry;
+	}
 
+	public void setQuantityEntry(Integer quantityEntry) {
+		this.quantityEntry = quantityEntry;
+	}
+
+	public Integer getQuantityDeoartury() {
+		return quantityDeoartury;
+	}
+
+	public void setQuantityDeoartury(Integer quantityDeoartury) {
+		this.quantityDeoartury = quantityDeoartury;
+	}
 
 	
+
 }

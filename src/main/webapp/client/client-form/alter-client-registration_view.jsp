@@ -4,7 +4,7 @@
 <%@page import="br.com.dao.client.ClientDao"%>
 <%@ page import="java.lang.String" %>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
 <%-- 
@@ -91,7 +91,7 @@ try{
 		<!--------------------------formulario----------------------------------------------------------->
 
 		<div class="largura-max-cadastro">
-			<div class="largura-max-cadastro text-center"><h1>Área destinada a atualização ou exclusão dos dados cadastrais.</h1>
+			<div class="largura-max-cadastro text-center"><h3>Área destinada a atualização ou exclusão dos dados cadastrais.</h3>
 			<p>Nesta área é possível realizar as alterações necessárias nos dados cadastrados, bem como, iniciar 
 			o processo de exclusão permanente da nossa base de dados.  </p>
 			
@@ -126,11 +126,11 @@ try{
 							<div class="form-group col-md-4">
 								<label for="nome">Data do cadastro *</label> <input
 									class="form-control" type="text" id="name" name="fname"
-									placeholder="Data: <%=clientResultSelect.get(1).getDateRegistration() %>" ></input>
+									placeholder="Data: <%=clientResultSelect.get(1).getDateRegistration() %>" disabled></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-8">
-								<label for="nome">Nome completo *</label> <input
+								<label for="name">Nome completo *</label> <input
 									class="form-control" type="text" id="name" name="fname"
 									placeholder="Nome completo:  <%=clientResultSelect.get(1).getName()%>" ></input>
 							</div>

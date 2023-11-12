@@ -1,74 +1,141 @@
-<%@page import="br.com.dao.client.ClientDao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/css-personalizado/personalizacao.css">
+<%@ page language="java" errorPage="redirect_error.jsp"%>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
 
-	<title>Home</title>
-<meta charset="ISO-8859-1">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+
+<title>Home</title>
+<meta charset="utf-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="css/css-personalizado/personalizacao.css">
 </head>
+
 <body>
 
-
-<div>
-		<div class=" fixed-top alinhamento-tamanho_max">
-
-			<!-- Menu principal-->
-
-			<!-----------------------Bot�es b�sicos------------------------------------>
-			<ul class="nav nav-tabs menu-principal">
-				<li class="nav-item">
-					<a class="nav-link active " href="#">P�gina inicial</a>
-				</li>
-			</ul>
+	<div class=" fundo-menu fixed-top">
+		<div class=" alinhamento-tamanho_max " style="min-width: 800px;">
 
 
-			<!------------------------ Botao do menu com sub menu ----------------------->
-			<span>
-				<ul class="nav nav menu-principal">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle color-menu" data-toggle="dropdown" href="#" role="button"
-							aria-haspopup="true" aria-expanded="false">Produtos</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item " href="#">Cupcake padr�o</a>
-							<a class="dropdown-item"#">Cupcake especiais</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Separated link</a>
-						</div>
-					</li>
-				</ul>
-			</span>
-
-			<!------------------------ Botao quem somos ----------------------->
-			<ul class="nav nav menu-principal">
-				<li class="nav-item">
-					<a class="nav-link color-menu" href="#">Quem somos</a>
-				</li>
-			</ul>
 
 
-			<!--------------------Bot�o acessar conta-------------------------------------------->
-			<!--Botao para acessar o m�todo cadastrar usu�rio-->
-			<a href="access/access-account.jsp"><button type="button" class="btn btn-secundary btn-sm float-right"
-					style="margin: 18px;">Acessar
-					conta!</button></a>
-			<br><br><br>
+
+			<!----------------------Menu principal------------------------------------>
+
+			<button class="btn btn-light float-left " type="button"
+				style="margin: 12px;" data-bs-toggle="offcanvas"
+				aria-controls="offcanvasWithBothOptions">Início</button>
+
+
+
+
+			<button class="btn btn-light  float-left " type="button"
+				style="margin: 12px; background-color: gainsboro; color: black;"
+				data-bs-toggle="offcanvas"
+				data-bs-target="#offcanvasWithBothOptions"
+				aria-controls="offcanvasWithBothOptions">||| Produtos</button>
+
+			<!-- <button class="btn btn-light float-left  " type="button"
+				style="margin: 12px; background-color: gainsboro;"
+				data-bs-toggle="offcanvas" aria-controls="offcanvasWithBothOptions">Compras</button>
+             <img alt="" src="img/carrinho.png" style="width: 50px;"> -->
+			<button class="btn btn-light float-left  " type="button"
+					style="margin: 2px; margin-left: 12px; background-color: gainsboro;"
+					data-bs-toggle="offcanvas" aria-controls="offcanvasWithBothOptions">
+					<img class=" float-left" alt="" src="img/carrinho.png"
+						style="width: 65px;">
+					<p class=" float-left" style="margin-top: 10px;">Compras</p>
+					
+				</button>
+
+			<a href="access/access-account.jsp"><button
+					class="btn btn-light float-right " type="button"
+					style="margin: 12px; background-color: gainsboro;"
+					data-bs-toggle="offcanvas" aria-controls="offcanvasWithBothOptions">
+					<img src="img/usuario.png " style="width: 80px;"> Acessar
+					conta
+				</button></a>
+
+
+			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
+				style="max-width: 300px;" tabindex="-1"
+				id="offcanvasWithBothOptions"
+				aria-labelledby="offcanvasWithBothOptionsLabel">
+				<div class="offcanvas-header">
+					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Listagem
+						de produtos</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+						aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Recheios
+							especiais</h5>
+						<li class="list-group-item"><a href="#"
+							style="text-decoration: none;">Modelo1</a></li>
+						<li class="list-group-item"><a href="#"
+							style="text-decoration: none;">Modelo2</a></li>
+						<li class="list-group-item"><a href="#"
+							style="text-decoration: none;">Modelo3</a></li>
+						<li class="list-group-item"><a href="#"
+							style="text-decoration: none;">Modelo4</a></li>
+						<hr>
+
+						<ul class="list-group list-group-flush">
+							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Recheios
+								tradicionais</h5>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Modelo1</a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Modelo2</a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Modelo3</a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Modelo4</a></li>
+							<hr>
+
+						</ul>
+				</div>
+			</div>
+			<br> <br> <br>
+
 		</div>
-	</div><br><br><br>
+	</div>
+	<br>
+	<br>
+	<br>
 
 
 	<!----------------- Carrocel de imagens ------------------------------------->
-	<div class="alinhamento-tamanho_max">
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+
+	<div class="alinhamento-tamanho_max margem-carrocel ">
+		<div id="carouselExampleControls" class="carousel slide"
+			data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img class="d-block w-100" src="img/1.jpg" alt="First slide">
@@ -80,18 +147,72 @@
 					<img class="d-block w-100" src="img/3.jpg" alt="Third slide">
 				</div>
 			</div>
-			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
+			<a class="carousel-control-prev" href="#carouselExampleControls"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleControls"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
 			</a>
 		</div>
 	</div>
 
 
+	<div class="alinhamento-tamanho_max margem-carrocel">
+
+
+		<!--------------------------Card com o produto----------------------------------->
+
+		<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
+			os nossos principais produtos!</h4>
+		<hr>
+
+		<!--  -->
+
+		<%
+		for (int i = 0; i < 8; i++) {
+		%>
+
+		<div class="card float-left" style="width: 17rem; margin: 14px;">
+
+			<img src=img/bolinho.png " class="card-img-top"
+				style="margin-top: 10px;">
+
+			<div class="card-body">
+				<h5 class="card-title">Bolinho cupcake</h5>
+				<p class="card-text">Este bolinho tem um suave aroma acompanhado
+					de um sabor inigualável</p>
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">Preço</li>
+
+			</ul>
+			<div class="card-body">
+				<a href="#" class="card-link">Verifique as condições para
+					entrega </a>
+
+			</div>
+		</div>
+
+		<%
+		}
+		%>
+
+
+
+	</div>
+	
+	<!-- Informações do rodapé do site-->
+<div class="rodape fixed-bottom" >
+		<div class="  alinhamento-tamanho_max ">
+			<a href="#"><h6 class="card-title float-left" style="margin:10px;">° Entre em contato</h6></a>
+			<a href="#"><h6 class="card-title float-left" style="margin:10px;">° Quem somos</h6></a>
+			<a href="#"><h6 class="card-title float-left" style="margin:10px;">° Política de privacidade</h6></a>
+			<a href="#"><h6 class="card-title float-left" style="margin:10px;">° Navegação no site</h6></a>
+		</div>
+	</div>
 
 
 
@@ -113,7 +234,8 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
 	<script src="js/bootstrap.min.js"></script>

@@ -4,7 +4,7 @@
 <%@page import="br.com.dao.client.ClientDao"%>
 <%@ page import="java.lang.String"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
 <%-- 
@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<%@ page language="java" errorPage="return_redirect-view.jsp"%>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="../../css/css-personalizado/personalizacao.css">
@@ -32,12 +32,11 @@
 	src="jquery/jquery.js"></script>
 
 <title>Cadastro do cliente</title>
-<link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet"
-	type="text/css">
 
 
+<meta charset="utf-8">
 <title>Insert title here</title>
-<%@ page language="java" errorPage="return_redirect-view.jsp"%>
+
 </head>
 <body>
 
@@ -69,7 +68,7 @@
 				<li class="nav-item"><a class="nav-link active "
 					href="../../home-page/home.jsp">Home</a></li>
 				<li class="nav-item"><a class="nav-link color-menu" href="#">Visualizar cadastro</a>
-				<li class="nav-item"><a class="nav-link color-menu" href="delete-client-registration_view.jsp">Atualizar cadastro</a>
+				<li class="nav-item"><a class="nav-link color-menu" href="alter-client-registration_view.jsp">Atualizar cadastro</a>
 				<li class="nav-item"><a class="nav-link color-menu" href="delete-client-registration_view.jsp">Excluir cadastro</a>
 			
 				</li>
@@ -85,7 +84,7 @@
 
 		<div class="largura-max-cadastro">
 			<div class="largura-max-cadastro text-center">
-				<h1>Demonstrativo do cadastro realizado.</h1>
+				<h3>Demonstrativo do cadastro realizado.</h3>
 				<p>As opções para a realização de alterações no cadastro estão
 					logo abaixo do conteúdo cadastrado.</p>
 

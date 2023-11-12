@@ -1,13 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page import="br.com.dao.client.ClientDao"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="../../../css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="../../../css/css-personalizado/personalizacao.css">
-<meta charset="ISO-8859-1">
-<%@ page language="java" errorPage="error_registration/error.jsp" %>
+<meta charset="utf-8">
+<%@ page language="java" errorPage="error_registration/error.jsp"%>
 <title>Error</title>
 </head>
 <body>
@@ -19,10 +20,14 @@
 				<h5 class="card-title ">Erro de retorno do cadastro.</h5>
 				<p class="card-text">Houve um problena no retorno dos dados
 					cadastrais, por gentileza, pedimos que tente acessar novamente este
-					conteúdo, caso não consiga entre em contato conosco!</p>
+					conteÃºdo, caso nÃ£o consiga visualizar seu cadastro entre em contato conosco!</p>
 				<a href="../../../index.jsp" class="btn btn-secondary"
-					style="text-decoration: none; margin: auto auto;">Retornar para
-					página principal</a>
+					style="text-decoration: none; margin: auto auto;">
+					<%
+					ClientDao clientDao = new ClientDao();
+					clientDao.close_resultSelectRegistration_Dao();
+					%>Retornar para pÃ¡gina principal
+				</a>
 			</div>
 		</div>
 	</div>

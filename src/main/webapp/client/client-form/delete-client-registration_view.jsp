@@ -4,7 +4,7 @@
 <%@page import="br.com.dao.client.ClientDao"%>
 <%@ page import="java.lang.String"%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
 <%-- 

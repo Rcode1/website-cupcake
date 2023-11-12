@@ -5,45 +5,22 @@ package br.com.dto.admin;
  *
  * @author - Rodrigo Braga
  */
-import br.com.dto.enums.AdministratorType;
+
 
 
 public class AdministratorRegistration {
 
     private Integer idAdmin; // Para realizar a Interação com a chave primaria DB (pesquisa).
-    private String dateRegistrationAdmin;
+    private String adiminDateRegistration;
     private String nameAdmin;
-    private AdministratorType accessLevel;
-    private String email;
-    private String phone;
-    private String password;
+    private String accessLevel;
+    private String emailAccess;
+    private String phoneContact;
+    private String adminPassword;
     
     //Construtores
     public AdministratorRegistration() {
     }
-
-	public AdministratorRegistration(String dateRegistrationAdmin, String nameAdmin, AdministratorType accessLevel,
-			String email, String phone, String password) {
-		super();
-		this.dateRegistrationAdmin = dateRegistrationAdmin;
-		this.nameAdmin = nameAdmin;
-		this.accessLevel = accessLevel;
-		this.email = email;
-		this.phone = phone;
-		this.password = password;
-	}
-
-	public AdministratorRegistration(Integer idAdmin, String dateRegistrationAdmin, String nameAdmin,
-			AdministratorType accessLevel, String email, String phone, String password) {
-		super();
-		this.idAdmin = idAdmin;
-		this.dateRegistrationAdmin = dateRegistrationAdmin;
-		this.nameAdmin = nameAdmin;
-		this.accessLevel = accessLevel;
-		this.email = email;
-		this.phone = phone;
-		this.password = password;
-	}
 
 	public Integer getIdAdmin() {
 		return idAdmin;
@@ -53,12 +30,12 @@ public class AdministratorRegistration {
 		this.idAdmin = idAdmin;
 	}
 
-	public String getDateRegistrationAdmin() {
-		return dateRegistrationAdmin;
+	public String getAdiminDateRegistration() {
+		return adiminDateRegistration;
 	}
 
-	public void setDateRegistrationAdmin(String dateRegistrationAdmin) {
-		this.dateRegistrationAdmin = dateRegistrationAdmin;
+	public void setAdiminDateRegistration(String adiminDateRegistration) {
+		this.adiminDateRegistration = adiminDateRegistration;
 	}
 
 	public String getNameAdmin() {
@@ -69,38 +46,38 @@ public class AdministratorRegistration {
 		this.nameAdmin = nameAdmin;
 	}
 
-	public AdministratorType getAccessLevel() {
+	public String getAccessLevel() {
 		return accessLevel;
 	}
 
-	public void setAccessLevel(AdministratorType accessLevel) {
+	public void setAccessLevel(String accessLevel) {
 		this.accessLevel = accessLevel;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getEmailAccess() {
+		return emailAccess;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailAccess(String emailAccess) {
+		this.emailAccess = emailAccess;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getPhoneContact() {
+		return phoneContact;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhoneContact(String phoneContact) {
+		this.phoneContact = phoneContact;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getAdminPassword() {
+		return adminPassword;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setAdminPassword(String adminPassword) {
+		this.adminPassword = adminPassword;
 	}
 
-   
+	
    
 }
