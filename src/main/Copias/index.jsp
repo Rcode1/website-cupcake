@@ -4,7 +4,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@page import="java.lang.String"%>
-
+<%@page import="br.com.dto.methods.ProductData_Lixo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 <head>
 
 <!-- Required meta tags -->
-
+<meta charset="utf-8">
 
 <%@ page language="java" errorPage="redirect_error.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,14 +31,14 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+
+<title>Home</title>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
 <link rel="stylesheet" type="text/css"
 	href="css/css-personalizado/personalizacao.css">
-
-
-<meta charset="utf-8">
-<title>Home</title>
-
-
 </head>
 
 <body>
@@ -106,22 +106,21 @@
 						<li class="list-group-item"><a href="#"
 							style="text-decoration: none;">Modelo4</a></li>
 						<hr>
-					</ul>
 
-					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Recheios
-							tradicionais</h5>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo1</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo2</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo3</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Modelo4</a></li>
-						<hr>
+						<ul class="list-group list-group-flush">
+							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Recheios
+								tradicionais</h5>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Modelo1</a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Modelo2</a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Modelo3</a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Modelo4</a></li>
+							<hr>
 
-					</ul>
+						</ul>
 				</div>
 			</div>
 			<br> <br> <br>
@@ -175,28 +174,38 @@
 			<!--  -->
 			<%
 			ProductData productData = new ProductData();
-			ProductDao productDao = new ProductDao();
-
-			// Lista com as informações do registro do produto 
 			ArrayList<ProductRegistration> productRegistration = new ArrayList<>();
 			productRegistration = productData.productRegistration_List();
 
+			ProductDao productDao = new ProductDao();
+			ArrayList<ProductImage> selectProductDao = new ArrayList<>();
+			selectProductDao = productDao.select_productImage_dao();
+
+			ArrayList<ProductImage> result_selectProductDao = new ArrayList<>();
+
+		//	int a = 0;
+		//	for (int i = 0; i < selectProductDao.size(); i++) {
+
+			//	if (productRegistration.get(a).getIdProductRegistration().equals(selectProductDao.get(i).getIdProduct())) {
+				//	result_selectProductDao.add(selectProductDao.get(i));
+
+			//	}
+
+		//	}
+			%>
+
+
+			<%
 			for (int i = 0; i < productRegistration.size(); i++) {
+			//	a = productRegistration.get(i).getIdProductRegistration();
 			%>
 
 			<div class="card float-left" style="width: 17rem; margin: 14px;">
 
-
-
 				<img
-					src="<%="img/"
-		+ productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
-				.getIdProduct()
-		+ "/" + productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
-				.getIdProductImage()
-		+ ".jpg"%>"
-					class="card-img-top"
-					style="margin-top: 10px; max-height: 300px; min-height: 200px;">
+					src="<%="img/" + productRegistration.get(i).getIdProductRegistration() + "/"
+		+selectProductDao.get(i).getIdProductImage()+".jpg"%>"
+					class="card-img-top" style="margin-top: 10px; max-height:200px;min-height:200px;">
 
 				<div class="card-body">
 					<h5 class="card-title"><%=productRegistration.get(i).getProductName()%></h5>

@@ -19,7 +19,7 @@
 	ClientRegistration dto_registrationClient = new ClientRegistration();
 	ClientDao dao_client = new ClientDao();
 
-	if (dao_client.clientDataPersistence().get(1).getIdClient()
+	if (dao_client.clientListResult().get(1).getIdClient()
 			.equals(Integer.parseInt(request.getParameter("fidClient")))) {
 
 		dto_registrationClient.setIdClient(Integer.parseInt(request.getParameter("fidClient")));

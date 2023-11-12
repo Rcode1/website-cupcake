@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import br.com.dto.admin.AdministratorRegistration;
 import br.com.dto.client.ClientRegistration;
 
 import br.com.dto.methods.InsertDate;
@@ -22,13 +21,14 @@ public class ClientDao {
 	ResultSet rs;
 	PreparedStatement stmt;
 	// Armazenamento do resultado do select
-																		// realizado no DB.
+	// realizado no DB.
 	static ArrayList<ClientRegistration> listResult = new ArrayList<>();// Lista referente ao resultado do select
 																		// realizado ao
-	
-	static  ArrayList<ClientRegistration>persistence_selectionResult_for_Admin_dao = new ArrayList<>();
+
+	static ArrayList<ClientRegistration> persistence_clientListResult = new ArrayList<>();
 	// acessar o site.
-	InsertDate insertDate = new InsertDate();// Método que retorna uma data automática para ser armazenada no DB. A
+	InsertDate insertDate = new InsertDate();// Instância do método que retorna uma data automática para ser armazenada
+												// no DB. A
 												// classe está no pacote Methods.
 
 	public ClientDao() throws ClassNotFoundException {
@@ -177,38 +177,6 @@ public class ClientDao {
 	}
 
 // ****************************************************************************
-
-	// Métodos responsáveis pela autenticação, disponibilidade dos dados
-	// para atender aos recursos e exclusão dos mesmos para o encerramento das
-	// atividades do cliente.
-
-	// Método para remover os itens da lista
-	public void close_resultSelectRegistration_Dao() {
-
-		for (int i = 0; i < listResult.size(); i++) {
-			// select_RegistrationClient_dao().remove(i);
-			listResult.remove(i);
-			clientDataPersistence().remove(i);
-		}
-
-	}
-
-	// Dados utilizado nos recursos da conta do usuário. Após o acesso à conta, os
-	// dados ficarão disponíveis através deste método.
-
-	public static ArrayList<ClientRegistration> clientDataPersistence() {
-		ArrayList<ClientRegistration> list = new ArrayList<>();
-		try {
-			list = listResult;
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-
-		return list;
-
-	}
-
 	// Esta seleção retorna a lista de um id do usuário do banco de dados. Os dados
 	// serão utilizados para acessar a própria conta
 	// e autenticar todas as transações realizadas no site.
@@ -241,7 +209,6 @@ public class ClientDao {
 						clientResult.setZipCode(list.get(i).getZipCode());
 
 						listResult.add(clientResult);
-						clientDataPersistence();
 
 					}
 				}
@@ -256,33 +223,25 @@ public class ClientDao {
 		return listResult;
 
 	}
-	
+
 //******************************************************************************
-	
-//Métodos para selecionar, retornar e remover apenas um único administrador	
-	public void uniqueSelectResultFoAdmin(Integer obj) {
+	// Metodo que retorna os dados do cliente no site.
+//Os dados são utilizados nos recursos da conta do usuário. Após o acesso à conta, os dados ficarão disponíveis através deste método.
+	public ArrayList<ClientRegistration> clientListResult() {
 
-		for (int i = 0; i < select_RegistrationClient_dao().size(); i++) {
+		persistence_clientListResult = listResult;
+		return persistence_clientListResult;
+	}
 
-			if (select_RegistrationClient_dao().get(i).getIdClient() == (obj)) {
+	// Método para remover os itens da lista
+	public void close_resultSelectRegistration_Dao() {
 
-				persistence_selectionResult_for_Admin_dao.add(0, select_RegistrationClient_dao().get(i));
+		for (int i = 0; i < clientListResult().size(); i++) {
 
-			}
-
+			// listResult.remove(i);
+			persistence_clientListResult.remove(i);
 		}
 
 	}
 
-	public ArrayList<ClientRegistration> getUniqueSelectResultClient_Dao() {
-		return persistence_selectionResult_for_Admin_dao;
-	}
-
-	public void removeUniqueSelectResultClient_Dao() {
-		for (int i = 0; i < persistence_selectionResult_for_Admin_dao.size(); i++) {
-			persistence_selectionResult_for_Admin_dao.remove(i);
-		}
-
-	}
 }
-

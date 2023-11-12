@@ -35,18 +35,19 @@
 
 
 
-	<div >
+	<div>
 		<!--------------------Menu principal-------------------------------->
-		<div class="fundo-pagina fixed-top" >
-		<div class="  largura-max-cadastro">
-			<ul class="nav nav-tabs  ">
-				<li class="nav-item"><a class="nav-link active "
-					href="../../home-page/home.jsp">Home</a></li>
-				
-			
-				</li>
+		<div class="fundo-pagina fixed-top">
+			<div class="  largura-max-cadastro">
+				<ul class="nav nav-tabs  ">
+					<li class="nav-item"><a class="nav-link active "
+						href="../../home-page/home.jsp">Home</a></li>
 
-		</div>
+
+				</ul>
+
+			</div>
+
 		</div>
 		<br> <br> <br>
 
@@ -54,10 +55,11 @@
 		<!--------------------------formulario----------------------------------------------------------->
 
 		<div class="largura-max-cadastro">
-			<div class="largura-max-cadastro text-center"><h1>Formulário de cadastro.</h1>
-			<p>Abaixo estão todos os itens necessários, relativos aos dados cadastrais, 
-			para a realização de compras, personalização de conteúdo e obtenção exclusiva 
-			de cupons para descontos, aproveite!</p>
+			<div class="largura-max-cadastro text-center">
+				<h1>Formulário de cadastro.</h1>
+				<p>Abaixo estão todos os itens necessários, relativos aos dados
+					cadastrais, para a realização de compras, personalização de
+					conteúdo e obtenção exclusiva de cupons para descontos, aproveite!</p>
 			</div>
 			<div class="borda-cor-cadastro">
 				<form action="client-registration.jsp"
@@ -77,8 +79,9 @@
 						<!------>
 						<div class="form-row">
 							<div class="form-group col-md-12">
-								<label for="email">Email *</label> <input class="form-control" style="text-transform: lowercase;"
-									type="email" id="emaiL" name="femail" placeholder="Email:" required></input>
+								<label for="email">Email *</label> <input class="form-control"
+									style="text-transform: lowercase;" type="email" id="emaiL"
+									name="femail" placeholder="Email:" required></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-4">
@@ -111,8 +114,8 @@
 							</div>
 							<!------>
 							<div class="form-group col-md-5">
-								<label for="phone">Telefone cel * OBS.: incluir o "zero" do
-									DDD.</label> <input class="form-control" type="text" id="phone"
+								<label for="phone">Telefone cel * OBS.: incluir o "zero"
+									do DDD.</label> <input class="form-control" type="text" id="phone"
 									name="fphone" placeholder="Telefone:" required></input>
 							</div>
 						</div>
@@ -127,7 +130,8 @@
 
 						<div class="form-group">
 							<label for="street">Rua *</label> <input class="form-control"
-								type="text" id="street" name="fstreet" placeholder="Rua:" required></input>
+								type="text" id="street" name="fstreet" placeholder="Rua:"
+								required></input>
 						</div>
 						<!------>
 
@@ -159,7 +163,8 @@
 						<div class="form-row">
 							<div class="form-group col-md-8">
 								<label for="city">Cidade *</label> <input class="form-control"
-									type="text" id="city" name="fcity" placeholder="Cidade:" required></input>
+									type="text" id="city" name="fcity" placeholder="Cidade:"
+									required></input>
 							</div>
 							<!------>
 
@@ -201,7 +206,8 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label for="zipCode">Cep *</label> <input class="form-control"
-									type="text" id="zipCode" name="fzipCode" placeholder="Cep:" required></input>
+									type="text" id="zipCode" name="fzipCode" placeholder="Cep:"
+									required></input>
 							</div>
 						</div>
 					</div>
@@ -209,7 +215,7 @@
 
 
 					<button type="submit" class="btn btn-primary btn-sm ">Cadastrar</button>
-					
+
 
 				</form>
 			</div>
@@ -237,8 +243,8 @@
 	<!--Mascaras dos campos de cadastro-->
 	<script type="text/javascript">
 		$(document).ready(function() {
-		//	$("#birthDate").mask('00/00/0000', {
-		//		reverse : true
+			//	$("#birthDate").mask('00/00/0000', {
+			//		reverse : true
 			//});
 			$("#document").mask('000.000.000-00', {
 				reverse : true

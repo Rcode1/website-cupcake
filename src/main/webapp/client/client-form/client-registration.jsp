@@ -41,7 +41,7 @@
 	dao_client.registrationClient_Dao(dto_registrationClient);
 	%>
 	<%
-	ClientDao dao_client1 = new ClientDao();
+	//ClientDao dao_client1 = new ClientDao();
 	//ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
 	//Este linha traz como resultado às informações contidas no DB de acordo com o usuário e senha
 	dao_client.resultSelectRegistration_Dao(dto_registrationClient.getEmailRegistration(),

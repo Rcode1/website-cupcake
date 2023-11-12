@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ page language="java" errorPage="access_redirect-view.jsp"%>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="../css/css-personalizado/personalizacao.css">
@@ -53,8 +54,8 @@
 			<form action="../home-page/home.jsp"
 				method="post">
 				<div class="center-div-text">
-					<input class="form-control" style="text-transform: lowercase;" type="text" id="user-name"
-						name="fuser-name" placeholder="Entre com o usuário!" required></input><br>
+					<input class="form-control"  type="text" id="user-name"
+						name="fuser-name" placeholder="Entre com o email cadastrado!" required></input><br>
 					<input class="form-control" type="password" id="password-access"
 						name="fpassword-access" placeholder="Entre com a sua senha!" required></input>
 				</div>

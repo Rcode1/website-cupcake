@@ -18,7 +18,7 @@
 	clientDao.close_resultSelectRegistration_Dao();
 
 	//Teste para verificação de lista, (vazia ou cheia)
-	if (clientDao.clientDataPersistence().isEmpty()) {
+	if (clientDao.clientListResult().isEmpty()) {
 	%>
 	<script>
 		window.location.href = '../index.jsp';

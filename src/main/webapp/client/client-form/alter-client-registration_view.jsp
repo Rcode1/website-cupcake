@@ -1,4 +1,3 @@
-
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dao.client.ClientDao"%>
@@ -16,6 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ page language="java" errorPage="update_redirect-view.jsp" %>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="../../css/css-personalizado/personalizacao.css">
@@ -35,7 +35,7 @@
 	type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
-<%@ page language="java" errorPage="update_redirect-view.jsp" %>
+
 </head>
 <body>
 
@@ -56,7 +56,7 @@ try{
 	//Este lina traz como resultado às informações contidas no DB de acordo com o usuário e senha
 			//	 clientResultSelect = dao_client.resultSelectRegistration_Dao( "", "");
 		
-	 clientResultSelect = dao_client.clientDataPersistence();
+	 clientResultSelect = dao_client.clientListResult();
 	
 			
 }catch(Exception e){
@@ -80,7 +80,7 @@ try{
 				<li class="nav-item"><a class="nav-link color-menu" href="delete-client-registration_view.jsp">Excluir cadastro</a>
 			
 				</li>
-
+</ul>
 		</div>
 		</div>
 		<br> <br> <br>
@@ -104,7 +104,7 @@ try{
 					
 						<!--  -->
 						
-						<div class="borda-red"">
+						<div class="borda-red">
 							<p >Digite o mesmo código que
 								aparece no campo (confirmação para atualização) que está logo
 								abaixo, em seguida click no botão "Atualizar cadastro".</p>
@@ -114,7 +114,7 @@ try{
 
 								<label for="idClient">Confirmação para atualização</label> <input
 									class="form-control" type="text" id="idClient" name="fidClient"
-									placeholder=" Digite aqui este código: <%=clientResultSelect.get(1).getIdClient()%>"></input>
+									placeholder=" Digite aqui este código: <%=clientResultSelect.get(0).getIdClient()%>"></input>
 							</div>
 						</div>
 					
@@ -126,13 +126,13 @@ try{
 							<div class="form-group col-md-4">
 								<label for="nome">Data do cadastro *</label> <input
 									class="form-control" type="text" id="name" name="fname"
-									placeholder="Data: <%=clientResultSelect.get(1).getDateRegistration() %>" disabled></input>
+									placeholder="Data: <%=clientResultSelect.get(0).getDateRegistration() %>" disabled></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-8">
 								<label for="name">Nome completo *</label> <input
 									class="form-control" type="text" id="name" name="fname"
-									placeholder="Nome completo:  <%=clientResultSelect.get(1).getName()%>" ></input>
+									placeholder="Nome completo:  <%=clientResultSelect.get(0).getName()%>" ></input>
 							</div>
                               <!------>
 						</div>
@@ -140,13 +140,13 @@ try{
 						<div class="form-row">
 							<div class="form-group col-md-8">
 								<label for="email">Email *</label> <input class="form-control"
-									type="text" id="emaiL" name="femail" placeholder="Email: <%=clientResultSelect.get(1).getEmailRegistration()%>"></input>
+									type="text" id="emaiL" name="femail" placeholder="Email: <%=clientResultSelect.get(0).getEmailRegistration()%>"></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-4">
 								<label for="senha">Senha *</label> <input class="form-control"
-									type="txt" id="password" name="fpassword"
-									placeholder="Senha: <%=clientResultSelect.get(1).getPassword()%>" ></input>
+									type="text" id="password" name="fpassword"
+									placeholder="Senha: <%=clientResultSelect.get(0).getPassword()%>" ></input>
 							</div>
 						</div>
 
@@ -163,19 +163,19 @@ try{
 							<div class="form-group col-md-3">
 								<label for="birthDate">Data de nascimento *</label> <input
 									class="form-control" type="date" id="birthDate"
-									name="fbirthDate" placeholder="Data: <%=clientResultSelect.get(1).getBirthDate()%>" ></input>
+									name="fbirthDate" placeholder="Data: <%=clientResultSelect.get(0).getBirthDate()%>" ></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-5">
 								<label for="document">Documento - CPF *</label> <input
 									class="form-control" type="text" id="document" name="fdocument"
-									placeholder="Documento - CPF: <%=clientResultSelect.get(1).getDocumentCpf()%>"></input>
+									placeholder="Documento - CPF: <%=clientResultSelect.get(0).getDocumentCpf()%>"></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-4">
 								<label for="phone">Telefone cel *
 									</label> <input class="form-control" type="text" id="phone"
-									name="fphone" placeholder="Telefone: <%=clientResultSelect.get(1).getPhone()%>"></input>
+									name="fphone" placeholder="Telefone: <%=clientResultSelect.get(0).getPhone()%>"></input>
 							</div>
 						</div>
 					</div>
@@ -189,14 +189,14 @@ try{
 
 						<div class="form-group">
 							<label for="street">Rua *</label> <input class="form-control"
-								type="text" id="street" name="fstreet" placeholder="Rua: <%=clientResultSelect.get(1).getStreet()%>"></input>
+								type="text" id="street" name="fstreet" placeholder="Rua: <%=clientResultSelect.get(0).getStreet()%>"></input>
 						</div>
 						<!------>
 
 						<div class="form-group ">
 							<label for="complement">Complemento </label> <input
 								class="form-control" type="text" id="complement"
-								name="fcomplement" placeholder="Complemento: <%=clientResultSelect.get(1).getComplement()%>"></input>
+								name="fcomplement" placeholder="Complemento: <%=clientResultSelect.get(0).getComplement()%>"></input>
 						</div>
 						<!------>
 
@@ -204,7 +204,7 @@ try{
 							<div class="form-group col-md-2">
 								<label for="homeNumber">Numero*</label> <input
 									class="form-control" type="text" id="homeNumber"
-									name="fhomeNumber" placeholder="N.°: <%=clientResultSelect.get(1).getHomeNumber()%>"></input>
+									name="fhomeNumber" placeholder="N.°: <%=clientResultSelect.get(0).getHomeNumber()%>"></input>
 							</div>
 
 							<!------>
@@ -212,7 +212,7 @@ try{
 							<div class="form-group col-md-10">
 								<label for="neighborhood">Bairro*</label> <input
 									class="form-control" type="text" id="neighborhood"
-									name="fneighborhood" placeholder="Bairro: <%=clientResultSelect.get(1).getNeighborhood()%>"></input>
+									name="fneighborhood" placeholder="Bairro: <%=clientResultSelect.get(0).getNeighborhood()%>"></input>
 							</div>
 						</div>
 
@@ -221,13 +221,13 @@ try{
 						<div class="form-row">
 							<div class="form-group col-md-8">
 								<label for="city">Cidade *</label> <input class="form-control"
-									type="text" id="city" name="fcity" placeholder="Cidade: <%=clientResultSelect.get(1).getCity()%>"></input>
+									type="text" id="city" name="fcity" placeholder="Cidade: <%=clientResultSelect.get(0).getCity()%>"></input>
 							</div>
 							<!------>
 							
 							<div class="form-group col-md-4">
 								<label for="city">Estado atual *</label> <input class="form-control"
-									type="text" id="state_" name="fstate_" placeholder="Estado: <%=clientResultSelect.get(1).getState()%>" disabled></input>
+									type="text" id="state_" name="fstate_" placeholder="Estado: <%=clientResultSelect.get(0).getState()%>" disabled></input>
 							</div>
 							
 							
@@ -268,7 +268,7 @@ try{
 
 							<div class="form-group col-md-3">
 								<label for="zipCode">Cep *</label> <input class="form-control"
-									type="text" id="zipCode" name="fzipCode" placeholder="Cep: <%=clientResultSelect.get(1).getZipCode()%>"></input>
+									type="text" id="zipCode" name="fzipCode" placeholder="Cep: <%=clientResultSelect.get(0).getZipCode()%>"></input>
 							</div>
 						</div>
 						

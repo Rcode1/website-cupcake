@@ -1,3 +1,6 @@
+<%@page import="br.com.dto.product.ProductRegistration"%>
+<%@page import="br.com.dao.product.ProductDao"%>
+<%@page import="br.com.dto.methods.ProductData"%>
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dao.client.ClientDao"%>
@@ -6,6 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ page language="java" errorPage="access_redirect-view.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -31,7 +35,7 @@
 	href="../css/css-personalizado/personalizacao.css">
 
 <meta charset="ISO-8859-1">
-<%@ page language="java" errorPage="access_redirect-view.jsp"%>
+
 <title>Insert title here</title>
 </head>
 
@@ -39,7 +43,7 @@
 <body>
 	<%
 	ClientDao dao_client = new ClientDao();
-	//ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
+	ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
 	try {
 
 		//Este linha traz como resultado às informações contidas no DB de acordo com o usuário e senha
@@ -98,7 +102,7 @@
 							<img style="width: 80px;" src="../img/usuario.png">
 						</div>
 						<li class="nav-item dropdown"><p
-								style="margin: 0px; padding-left: 15px;"><%=dao_client.clientDataPersistence().get(1).getName()%></p>
+								style="margin: 0px; padding-left: 15px;"><%=dao_client.clientListResult().get(0).getName()%></p>
 							<a class="nav-link dropdown-toggle color-menu"
 							style="padding-right: 10px;" data-toggle="dropdown" href="#"
 							role="button" aria-haspopup="true" aria-expanded="false">Painel
@@ -199,87 +203,69 @@
 
 	</div>
 
-	<!--------------------------Card com o produto - lançamentos----------------------------------->
+	
+		<!--------------------------Card com o produto----------------------------------->
+		<div class="alinhamento-tamanho_max">
+		<div style="margin-bottom: 50px;">
+			<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
+				os nossos principais produtos!</h4>
+			<hr>
 
-	<div class="alinhamento-tamanho_max margem-carrocel">
+			<!--  -->
+			<%
+			ProductData productData = new ProductData();
+			ProductDao productDao = new ProductDao();
 
-		<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
-			os nossos Lançamentos!</h4>
-		<hr>
+			// Lista com as informações do registro do produto 
+			ArrayList<ProductRegistration> productRegistration = new ArrayList<>();
+			productRegistration = productData.productRegistration_List();
 
-		<!--  -->
+			for (int i = 0; i < productRegistration.size(); i++) {
+			%>
 
-		<%
-		for (int i = 0; i < 4; i++) {
-		%>
+			<div class="card float-left" style="width: 17rem; margin: 14px;">
 
-		<div class="card float-left" style="width: 17rem; margin: 14px;">
 
-			<img src="../img/bolinho.png " class="card-img-top"
-				style="margin-top: 10px;">
 
-			<div class="card-body">
-				<h5 class="card-title">Bolinho cupcake</h5>
-				<p class="card-text">Este bolinho tem um suave aroma acompanhado
-					de um sabor inigualável</p>
+				<img
+					src="<%="../img/"
+		+ productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+				.getIdProduct()
+		+ "/" + productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+				.getIdProductImage()
+		+ ".jpg"%>"
+					class="card-img-top"
+					style="margin-top: 10px; max-height: 300px; min-height: 200px;">
+
+				<div class="card-body">
+					<h5 class="card-title"><%=productRegistration.get(i).getProductName()%></h5>
+					<p class="card-text"><%=productRegistration.get(i).getBasicDescription()%></p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Preço: R$ <%=productData.productStock_List1(productRegistration.get(i).getIdProductRegistration()).get(0).getProductPrice()%>
+					</li>
+
+				</ul>
+				<div class="card-body">
+					<a href="#" class="card-link">Verifique as condições para
+						entrega </a>
+
+				</div>
 			</div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item">Preço</li>
 
-			</ul>
-			<div class="card-body">
-				<a href="#" class="card-link">Verifique as condições para
-					entrega </a>
-
-			</div>
-		</div>
-
-		<%
-		}
-		%>
+			<%
+			}
+			%>
 
 	</div>
+	<div style="clear:left; min-height: 80px;"></div>
 
 
 	<!--------------------------Card com o produto - Promocionais----------------------------------->
 
-	<div class="alinhamento-tamanho_max">
+	
 
 
-		<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
-			as nossas Promoções!</h4>
-		<hr>
-
-		<!--  -->
-
-		<%
-		for (int i = 0; i < 4; i++) {
-		%>
-
-		<div class="card float-left" style="width: 17rem; margin: 14px;">
-
-			<img src="../img/bolinho.png " class="card-img-top"
-				style="margin-top: 10px;">
-
-			<div class="card-body">
-				<h5 class="card-title">Bolinho cupcake</h5>
-				<p class="card-text">Este bolinho tem um suave aroma acompanhado
-					de um sabor inigualável</p>
-			</div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item">Preço</li>
-
-			</ul>
-			<div class="card-body">
-				<a href="#" class="card-link">Verifique as condições para
-					entrega </a>
-
-			</div>
-		</div>
-
-		<%
-		}
-		%>
 
 	</div>
 	

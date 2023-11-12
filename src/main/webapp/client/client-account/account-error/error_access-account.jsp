@@ -66,7 +66,7 @@
 						style="margin-right: 10px;">Acessar</button>
 
 
-					<a href="../../client/client-form/client-registration_view.jsp"><button
+					<a href="../../../client/client-form/client-registration_view.jsp"><button
 							type="button" class="btn btn-secondary btn-sm">Cadastrar</button></a>
 					<a href="../../../index.jsp"><button type="button"
 							class="btn btn-secondary btn-sm">Início</button></a>
