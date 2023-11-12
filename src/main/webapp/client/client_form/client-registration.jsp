@@ -18,7 +18,7 @@
 <body>
 <%
 	ClientRegistration dto_registrationClient = new ClientRegistration();
-	
+
 	dto_registrationClient.setName(request.getParameter("fname"));
 	dto_registrationClient.setBirthDate(request.getParameter("fbirthDate"));
 	dto_registrationClient.setDocumentCpf(request.getParameter("fdocument"));

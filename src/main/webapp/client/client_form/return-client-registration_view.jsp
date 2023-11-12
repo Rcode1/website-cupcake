@@ -1,3 +1,9 @@
+<%@page import="br.com.dto.methods.DataPersistence"%>
+<%@page import="br.com.dto.client.ClientRegistration"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.com.dao.client.ClientDao"%>
+<%@ page import="java.lang.String" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="utf-8"%>
 
@@ -29,8 +35,32 @@
 	type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+
 </head>
 <body>
+<%@ page errorPage = "error-page.jsp" %> 
+
+
+<%
+
+//ClientRegistration client_dto = new ClientRegistration();
+ClientDao dao_client = new ClientDao();
+ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
+try{
+	
+	
+	 
+	//Este lina traz como resultado às informações contidas no DB de acordo com o usuário e senha
+				 clientResultSelect = dao_client.resultSelectRegistration_Dao(request.getParameter("fuser-name"), request.getParameter("fpassword-access"));
+		
+			
+}catch(Exception e){
+	e.printStackTrace();
+}
+	
+
+
+%>
 
 
 
@@ -74,34 +104,43 @@
 		<!--------------------------formulario----------------------------------------------------------->
 
 		<div class="largura-max-cadastro">
-			<div class="largura-max-cadastro text-center">Acesso ao
-				conteúdo do site sem a possibilidade de realizar compras.</div>
+			<div class="largura-max-cadastro text-center"><h1>Demonstrativo do cadastro realizado.</h1>
+			<p>As opções para a realização de alterações no cadastro estão logo abaixo do conteúdo cadastrado.  </p>
+			
+			</div>
 			<div class="borda-cor-cadastro">
-				<form action="client-registration.jsp"
-					id="registration-client-visitor" method="POST">
+				
 					<!------>
 					<div class="borda-cor-cadastro">
 						<div class="form-row">
 
 							<!------>
-							<div class="form-group col-md-10">
+							<div class="form-group col-md-4">
+								<label for="nome">Data do cadastro *</label> <input
+									class="form-control" type="text" id="name" name="fname"
+									placeholder="Data: <%=clientResultSelect.get(1).getDateRegistration() %>" Disabled></input>
+							</div>
+							<!------>
+							<form action="alter-client-registration_view.jsp" method="post">
+							<div class="form-group col-md-8">
 								<label for="nome">Nome completo *</label> <input
 									class="form-control" type="text" id="name" name="fname"
-									placeholder="Nome completo:"></input>
+									placeholder="Nome completo:  <%=clientResultSelect.get(1).getName()%>" Disabled></input>
 							</div>
-
+                              <!------>
 						</div>
 						<!------>
+						
 						<div class="form-row">
-							<div class="form-group col-md-10">
+							<div class="form-group col-md-8">
 								<label for="email">Email *</label> <input class="form-control"
-									type="text" id="emaiL" name="femail" placeholder="Email:"></input>
+									type="text" id="emaiL" name="femail" placeholder="Email: <%=clientResultSelect.get(1).getEmailRegistration()%>" Disabled></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-4">
 								<label for="senha">Senha *</label> <input class="form-control"
 									type="password" id="password" name="fpassword"
-									placeholder="Senha"></input>
+									placeholder="Senha: <%=clientResultSelect.get(1).getPassword()%>" Disabled></input>
 							</div>
 						</div>
 
@@ -118,19 +157,19 @@
 							<div class="form-group col-md-3">
 								<label for="birthDate">Data de nascimento *</label> <input
 									class="form-control" type="text" id="birthDate"
-									name="fbirthDate" placeholder="Data:"></input>
-							</div>
-							<!------>
-							<div class="form-group col-md-4">
-								<label for="document">Documento - CPF *</label> <input
-									class="form-control" type="text" id="document" name="fdocument"
-									placeholder="Documento - CPF:"></input>
+									name="fbirthDate" placeholder="Data: <%=clientResultSelect.get(1).getBirthDate()%>" Disabled></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-5">
-								<label for="phone">Telefone * OBS.: incluir o "zero" do
-									DDD.</label> <input class="form-control" type="text" id="phone"
-									name="fphone" placeholder="Telefone:"></input>
+								<label for="document">Documento - CPF *</label> <input
+									class="form-control" type="text" id="document" name="fdocument"
+									placeholder="Documento - CPF: <%=clientResultSelect.get(1).getDocumentCpf()%>"Disabled></input>
+							</div>
+							<!------>
+							<div class="form-group col-md-4">
+								<label for="phone">Telefone cel *
+									</label> <input class="form-control" type="text" id="phone"
+									name="fphone" placeholder="Telefone: <%=clientResultSelect.get(1).getPhone()%>"Disabled></input>
 							</div>
 						</div>
 					</div>
@@ -144,14 +183,14 @@
 
 						<div class="form-group">
 							<label for="street">Rua *</label> <input class="form-control"
-								type="text" id="street" name="fstreet" placeholder="Rua:"></input>
+								type="text" id="street" name="fstreet" placeholder="Rua: <%=clientResultSelect.get(1).getStreet()%>"Disabled></input>
 						</div>
 						<!------>
 
 						<div class="form-group ">
 							<label for="complement">Complemento </label> <input
 								class="form-control" type="text" id="complement"
-								name="fcomplement" placeholder="Complemento:"></input>
+								name="fcomplement" placeholder="Complemento: <%=clientResultSelect.get(1).getComplement()%>"Disabled></input>
 						</div>
 						<!------>
 
@@ -159,7 +198,7 @@
 							<div class="form-group col-md-2">
 								<label for="homeNumber">Numero*</label> <input
 									class="form-control" type="text" id="homeNumber"
-									name="fhomeNumber" placeholder="Numero:"></input>
+									name="fhomeNumber" placeholder="N.°: <%=clientResultSelect.get(1).getHomeNumber()%>"Disabled></input>
 							</div>
 
 							<!------>
@@ -167,7 +206,7 @@
 							<div class="form-group col-md-10">
 								<label for="neighborhood">Bairro*</label> <input
 									class="form-control" type="text" id="neighborhood"
-									name="fneighborhood" placeholder="Bairro:"></input>
+									name="fneighborhood" placeholder="Bairro: <%=clientResultSelect.get(1).getNeighborhood()%>"Disabled></input>
 							</div>
 						</div>
 
@@ -176,60 +215,41 @@
 						<div class="form-row">
 							<div class="form-group col-md-8">
 								<label for="city">Cidade *</label> <input class="form-control"
-									type="text" id="city" name="fcity" placeholder="Cidade:"></input>
+									type="text" id="city" name="fcity" placeholder="Cidade: <%=clientResultSelect.get(1).getCity()%>"Disabled></input>
+							</div>
+							<!------>
+							<div class="form-group col-md-4">
+								<label for="state">Estado *</label> <input class="form-control"
+									type="text" id="city" name="fstate" placeholder="Estado: <%=clientResultSelect.get(1).getState()%>"Disabled></input>
 							</div>
 							<!------>
 
-							<div class="form-group col-md-4">
-								<label for="state">Estado *</label> <select id="state"
-									class="form-control" name="fstate" placeholder="Estado:">
-									<option selected>Estado</option>
-									<option>Acre (AC)</option>
-									<option>Alagoas (AL)</option>
-									<option>Amapá (AP)</option>
-									<option>Amazonas (AM)</option>
-									<option>Bahia (BA)</option>
-									<option>Ceará (CE)</option>
-									<option>Distrito Federal (DF)</option>
-									<option>Espírito Santo (ES)</option>
-									<option>Goiás (GO)</option>
-									<option>Maranhão (MA)</option>
-									<option>Mato Grosso (MT)</option>
-									<option>Mato Grosso do Sul (MS)</option>
-									<option>Minas Gerais (MG)</option>
-									<option>Pará (PA)</option>
-									<option>Paraíba (PB)</option>
-									<option>Paraná (PR)</option>
-									<option>Pernambuco (PE)</option>
-									<option>Piauí (PI)</option>
-									<option>Rio de Janeiro (RJ)</option>
-									<option>Rio Grande do Norte (RN)</option>
-									<option>Rio Grande do Sul (RS)</option>
-									<option>Rondônia (RO)</option>
-									<option>Roraima (RR)</option>
-									<option>Santa Catarina (SC)</option>
-									<option>São Paulo (SP)</option>
-									<option>Sergipe (SE)</option>
-									<option>Tocantins (TO)</option>
-
-								</select>
-							</div>
+							
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label for="zipCode">Cep *</label> <input class="form-control"
-									type="text" id="zipCode" name="fzipCode" placeholder="Cep:"></input>
+									type="text" id="zipCode" name="fzipCode" placeholder="Cep: <%=clientResultSelect.get(1).getZipCode()%>"Disabled></input>
 							</div>
 						</div>
 					</div>
 					<br> <br>
-
-
-					<button type="submit" class="btn btn-primary btn-sm ">Cadastrar</button>
+					
+					
+					
+					
+					
+					
+					<button type="submit"class="btn btn-secondary btn-sm ">Alterar dados</button>
+							
+							
+					
+					
 					<a href="../../index.html"><button type="button"
 							class="btn btn-secondary btn-sm ">Página inicial</button></a>
+							
 
-				</form>
+				
 			</div>
 
 		</div>

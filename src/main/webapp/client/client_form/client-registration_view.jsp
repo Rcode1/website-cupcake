@@ -1,6 +1,3 @@
-<%@page import="br.com.dto.client.ClientRegistration"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="br.com.dao.client.ClientDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="utf-8"%>
 
@@ -13,9 +10,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="../css/css-personalizado/personalizacao.css">
+	href="../../css/css-personalizado/personalizacao.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
@@ -32,11 +29,10 @@
 	type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
-
-
-
 </head>
 <body>
+
+
 
 
 	<div class="alinhamento-tamanho_max fundo">
@@ -78,8 +74,11 @@
 		<!--------------------------formulario----------------------------------------------------------->
 
 		<div class="largura-max-cadastro">
-			<div class="largura-max-cadastro text-center">Acesso ao
-				conteúdo do site sem a possibilidade de realizar compras.</div>
+			<div class="largura-max-cadastro text-center"><h1>Formulário de cadastro.</h1>
+			<p>Abaixo estão todos os itens necessários, relativos aos dados cadastrais, 
+			para a realização de compras, personalização de conteúdo e obtenção exclusiva 
+			de cupons para descontos, aproveite!</p>
+			</div>
 			<div class="borda-cor-cadastro">
 				<form action="client-registration.jsp"
 					id="registration-client-visitor" method="POST">
@@ -88,31 +87,24 @@
 						<div class="form-row">
 
 							<!------>
-
-							<div class="form-group col-md-4">
-								<label for="date">Data do cadastro *</label> <input
-									class="form-control" type="text" id="date" name="fdate"
-									placeholder="Data: "></input>
-							</div>
-
-							<div class="form-group col-md-8">
+							<div class="form-group col-md-12">
 								<label for="nome">Nome completo *</label> <input
 									class="form-control" type="text" id="name" name="fname"
-									placeholder="Nome completo: "></input>
+									placeholder="Nome completo:" required></input>
 							</div>
 
 						</div>
 						<!------>
 						<div class="form-row">
-							<div class="form-group col-md-8">
+							<div class="form-group col-md-12">
 								<label for="email">Email *</label> <input class="form-control"
-									type="text" id="emaiL" name="femail" placeholder="Email:  "></input>
+									type="email" id="emaiL" name="femail" placeholder="Email:" required></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-4">
 								<label for="senha">Senha *</label> <input class="form-control"
 									type="password" id="password" name="fpassword"
-									placeholder="Senha: "></input>
+									placeholder="Senha" required></input>
 							</div>
 						</div>
 
@@ -129,19 +121,19 @@
 							<div class="form-group col-md-3">
 								<label for="birthDate">Data de nascimento *</label> <input
 									class="form-control" type="text" id="birthDate"
-									name="fbirthDate" placeholder="Data:  "></input>
+									name="fbirthDate" placeholder="Data:" required></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-4">
 								<label for="document">Documento - CPF *</label> <input
 									class="form-control" type="text" id="document" name="fdocument"
-									placeholder="Documento - CPF:  "></input>
+									placeholder="Documento - CPF:" required></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-5">
-								<label for="phone">Telefone * OBS.: incluir o "zero" do
+								<label for="phone">Telefone cel * OBS.: incluir o "zero" do
 									DDD.</label> <input class="form-control" type="text" id="phone"
-									name="fphone" placeholder="Telefone:  "></input>
+									name="fphone" placeholder="Telefone:" required></input>
 							</div>
 						</div>
 					</div>
@@ -155,14 +147,14 @@
 
 						<div class="form-group">
 							<label for="street">Rua *</label> <input class="form-control"
-								type="text" id="street" name="fstreet" placeholder="Rua: "></input>
+								type="text" id="street" name="fstreet" placeholder="Rua:" required></input>
 						</div>
 						<!------>
 
 						<div class="form-group ">
 							<label for="complement">Complemento </label> <input
 								class="form-control" type="text" id="complement"
-								name="fcomplement" placeholder="Complemento: "></input>
+								name="fcomplement" placeholder="Complemento:"></input>
 						</div>
 						<!------>
 
@@ -170,7 +162,7 @@
 							<div class="form-group col-md-2">
 								<label for="homeNumber">Numero*</label> <input
 									class="form-control" type="text" id="homeNumber"
-									name="fhomeNumber" placeholder="Numero: "></input>
+									name="fhomeNumber" placeholder="Numero:" required></input>
 							</div>
 
 							<!------>
@@ -178,7 +170,7 @@
 							<div class="form-group col-md-10">
 								<label for="neighborhood">Bairro*</label> <input
 									class="form-control" type="text" id="neighborhood"
-									name="fneighborhood" placeholder="Bairro: "></input>
+									name="fneighborhood" placeholder="Bairro:" required></input>
 							</div>
 						</div>
 
@@ -187,13 +179,13 @@
 						<div class="form-row">
 							<div class="form-group col-md-8">
 								<label for="city">Cidade *</label> <input class="form-control"
-									type="text" id="city" name="fcity" placeholder="Cidade:  "></input>
+									type="text" id="city" name="fcity" placeholder="Cidade:" required></input>
 							</div>
 							<!------>
 
 							<div class="form-group col-md-4">
 								<label for="state">Estado *</label> <select id="state"
-									class="form-control" name="fstate" placeholder="Estado:  ">
+									class="form-control" name="fstate" placeholder="Estado:">
 									<option selected>Estado</option>
 									<option>Acre (AC)</option>
 									<option>Alagoas (AL)</option>
@@ -229,7 +221,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label for="zipCode">Cep *</label> <input class="form-control"
-									type="text" id="zipCode" name="fzipCode" placeholder="Cep:  "></input>
+									type="text" id="zipCode" name="fzipCode" placeholder="Cep:" required></input>
 							</div>
 						</div>
 					</div>

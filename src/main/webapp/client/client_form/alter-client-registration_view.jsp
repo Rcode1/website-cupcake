@@ -1,6 +1,9 @@
+
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dao.client.ClientDao"%>
+<%@ page import="java.lang.String" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="utf-8"%>
 
@@ -13,9 +16,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="../css/css-personalizado/personalizacao.css">
+	href="../../css/css-personalizado/personalizacao.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
@@ -33,10 +36,37 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 
-
-
 </head>
 <body>
+<%@ page errorPage = "error-page.jsp" %> 
+
+
+
+
+<%
+
+//ClientRegistration client_dto = new ClientRegistration();
+ClientDao dao_client = new ClientDao();
+ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
+try{
+	
+	
+	
+	
+	 
+	//Este lina traz como resultado às informações contidas no DB de acordo com o usuário e senha
+			//	 clientResultSelect = dao_client.resultSelectRegistration_Dao( "", "");
+		
+	 clientResultSelect = dao_client.clientDataPersistence();
+	
+			
+}catch(Exception e){
+	e.printStackTrace();
+}
+	
+
+
+%>
 
 
 	<div class="alinhamento-tamanho_max fundo">
@@ -78,8 +108,10 @@
 		<!--------------------------formulario----------------------------------------------------------->
 
 		<div class="largura-max-cadastro">
-			<div class="largura-max-cadastro text-center">Acesso ao
-				conteúdo do site sem a possibilidade de realizar compras.</div>
+			<div class="largura-max-cadastro text-center"><h1>Área para a realização de alteração nos dados cadastrais.</h1>
+			<p>Nesta área é possível realizar as alterações necessárias, ou até mesmo, excluir a sua conta.  </p>
+			
+			</div>
 			<div class="borda-cor-cadastro">
 				<form action="client-registration.jsp"
 					id="registration-client-visitor" method="POST">
@@ -88,31 +120,30 @@
 						<div class="form-row">
 
 							<!------>
-
 							<div class="form-group col-md-4">
-								<label for="date">Data do cadastro *</label> <input
-									class="form-control" type="text" id="date" name="fdate"
-									placeholder="Data: "></input>
+								<label for="nome">Data do cadastro *</label> <input
+									class="form-control" type="text" id="name" name="fname"
+									placeholder="Data: <%=clientResultSelect.get(1).getDateRegistration() %>" ></input>
 							</div>
-
+							<!------>
 							<div class="form-group col-md-8">
 								<label for="nome">Nome completo *</label> <input
 									class="form-control" type="text" id="name" name="fname"
-									placeholder="Nome completo: "></input>
+									placeholder="Nome completo:  <%=clientResultSelect.get(1).getName()%>" ></input>
 							</div>
-
+                              <!------>
 						</div>
 						<!------>
 						<div class="form-row">
 							<div class="form-group col-md-8">
 								<label for="email">Email *</label> <input class="form-control"
-									type="text" id="emaiL" name="femail" placeholder="Email:  "></input>
+									type="text" id="emaiL" name="femail" placeholder="Email: <%=clientResultSelect.get(1).getEmailRegistration()%>"></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-4">
 								<label for="senha">Senha *</label> <input class="form-control"
-									type="password" id="password" name="fpassword"
-									placeholder="Senha: "></input>
+									type="txt" id="password" name="fpassword"
+									placeholder="Senha: <%=clientResultSelect.get(1).getPassword()%>" ></input>
 							</div>
 						</div>
 
@@ -129,19 +160,19 @@
 							<div class="form-group col-md-3">
 								<label for="birthDate">Data de nascimento *</label> <input
 									class="form-control" type="text" id="birthDate"
-									name="fbirthDate" placeholder="Data:  "></input>
-							</div>
-							<!------>
-							<div class="form-group col-md-4">
-								<label for="document">Documento - CPF *</label> <input
-									class="form-control" type="text" id="document" name="fdocument"
-									placeholder="Documento - CPF:  "></input>
+									name="fbirthDate" placeholder="Data: <%=clientResultSelect.get(1).getBirthDate()%>" ></input>
 							</div>
 							<!------>
 							<div class="form-group col-md-5">
-								<label for="phone">Telefone * OBS.: incluir o "zero" do
-									DDD.</label> <input class="form-control" type="text" id="phone"
-									name="fphone" placeholder="Telefone:  "></input>
+								<label for="document">Documento - CPF *</label> <input
+									class="form-control" type="text" id="document" name="fdocument"
+									placeholder="Documento - CPF: <%=clientResultSelect.get(1).getDocumentCpf()%>"></input>
+							</div>
+							<!------>
+							<div class="form-group col-md-4">
+								<label for="phone">Telefone cel *
+									</label> <input class="form-control" type="text" id="phone"
+									name="fphone" placeholder="Telefone: <%=clientResultSelect.get(1).getPhone()%>"></input>
 							</div>
 						</div>
 					</div>
@@ -155,14 +186,14 @@
 
 						<div class="form-group">
 							<label for="street">Rua *</label> <input class="form-control"
-								type="text" id="street" name="fstreet" placeholder="Rua: "></input>
+								type="text" id="street" name="fstreet" placeholder="Rua: <%=clientResultSelect.get(1).getStreet()%>"></input>
 						</div>
 						<!------>
 
 						<div class="form-group ">
 							<label for="complement">Complemento </label> <input
 								class="form-control" type="text" id="complement"
-								name="fcomplement" placeholder="Complemento: "></input>
+								name="fcomplement" placeholder="Complemento: <%=clientResultSelect.get(1).getComplement()%>"></input>
 						</div>
 						<!------>
 
@@ -170,7 +201,7 @@
 							<div class="form-group col-md-2">
 								<label for="homeNumber">Numero*</label> <input
 									class="form-control" type="text" id="homeNumber"
-									name="fhomeNumber" placeholder="Numero: "></input>
+									name="fhomeNumber" placeholder="N.°: <%=clientResultSelect.get(1).getHomeNumber()%>"></input>
 							</div>
 
 							<!------>
@@ -178,7 +209,7 @@
 							<div class="form-group col-md-10">
 								<label for="neighborhood">Bairro*</label> <input
 									class="form-control" type="text" id="neighborhood"
-									name="fneighborhood" placeholder="Bairro: "></input>
+									name="fneighborhood" placeholder="Bairro: <%=clientResultSelect.get(1).getNeighborhood()%>"></input>
 							</div>
 						</div>
 
@@ -187,13 +218,19 @@
 						<div class="form-row">
 							<div class="form-group col-md-8">
 								<label for="city">Cidade *</label> <input class="form-control"
-									type="text" id="city" name="fcity" placeholder="Cidade:  "></input>
+									type="text" id="city" name="fcity" placeholder="Cidade: <%=clientResultSelect.get(1).getCity()%>"></input>
 							</div>
 							<!------>
-
+							
 							<div class="form-group col-md-4">
-								<label for="state">Estado *</label> <select id="state"
-									class="form-control" name="fstate" placeholder="Estado:  ">
+								<label for="city">Estado *</label> <input class="form-control"
+									type="text" id="state_" name="fstate_" placeholder="Estado: <%=clientResultSelect.get(1).getState()%>" disabled></input>
+							</div>
+							
+							
+							<div class="form-group col-md-4">
+								<label for="state">Alterar estado *</label> <select id="state"
+									class="form-control" name="fstate" >
 									<option selected>Estado</option>
 									<option>Acre (AC)</option>
 									<option>Alagoas (AL)</option>
@@ -225,18 +262,18 @@
 
 								</select>
 							</div>
-						</div>
-						<div class="form-row">
+
 							<div class="form-group col-md-3">
 								<label for="zipCode">Cep *</label> <input class="form-control"
-									type="text" id="zipCode" name="fzipCode" placeholder="Cep:  "></input>
+									type="text" id="zipCode" name="fzipCode" placeholder="Cep: <%=clientResultSelect.get(1).getZipCode()%>"></input>
 							</div>
 						</div>
+						
 					</div>
 					<br> <br>
 
 
-					<button type="submit" class="btn btn-primary btn-sm ">Cadastrar</button>
+					<button type="submit" class="btn btn-primary btn-sm ">Alterar</button>
 					<a href="../../index.html"><button type="button"
 							class="btn btn-secondary btn-sm ">Página inicial</button></a>
 

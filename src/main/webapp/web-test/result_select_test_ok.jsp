@@ -24,7 +24,7 @@ ClientDao dao_client = new ClientDao();
 try{
 	
 	
-	 
+	 //Este teste traz como resultado às informações contidas no DB de acordo com o usuário e senha
 	 ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
 	 clientResultSelect = dao_client.resultSelectRegistration_Dao("rodrigo.braga29@hotmail.com","123");
 	
@@ -50,7 +50,7 @@ try{
 
 
 }catch(Exception e){
-	
+	e.printStackTrace();
 }
 	
 %>
