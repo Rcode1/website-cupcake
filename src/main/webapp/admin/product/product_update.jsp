@@ -51,25 +51,19 @@
 	}
 	%>
 
+	
 	<div class="center-div"
 		style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
 		<div
 			style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
 			<img style="max-width: 100%" src="../../img/cadastro.png">
 			<div class="card-body" style="margin: auto auto;">
-				<h5 class="card-title ">Os dados foram alterados com sucesso.</h5>
-				<p class="card-text">Selecione abaixo o botão desejado para
-					finalizar as alterações!</p>
-				<br> <a href="product-panel_update.jsp" class="btn btn-primary"
-					style="text-decoration: none; margin: auto auto; margin-top: 5px;">Continuar
-					alterando</a> <a href="../main-page_home.jsp" class="btn btn-secondary"
-					style="text-decoration: none; margin: auto auto; margin-top: 5px;">Retornar
-					para a página principal</a> <a href="product-panel_operation.jsp"
-					class="btn btn-secondary"
-					style="text-decoration: none; margin: auto auto; margin-top: 5px;">Retornar
-					para o painel de operações</a>
-
-
+				<h5 class="card-title ">Seu cadastro foi alterado com sucesso.</h5>
+				<p class="card-text">Sua sessão será reinicializada automaticamente,
+				basta dar um click no botão situado logo abaixo!</p><br>
+				<a href="product-panel_operation.jsp" class="btn btn-secondary"
+					style="text-decoration: none; margin: auto auto;">Retornar para a
+					consulta de produtos</a>
 			</div>
 		</div>
 	</div>

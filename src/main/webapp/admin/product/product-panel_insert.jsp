@@ -80,6 +80,11 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 				data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
+				
+				<a href="product-panel_operation.jsp"><button
+					class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
+				
 
 
 

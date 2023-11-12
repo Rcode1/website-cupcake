@@ -83,11 +83,9 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
-			<button class="btn btn-light  float-left " type="button"
-				style="margin: 12px; background-color: gainsboro; color: black;">
-				<a href="stock-panel_query.jsp"
-					style="text-decoration: none; color: black;">Retornar</a>
-			</button>
+			<a href="stock-panel_operation.jsp"><button
+					class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
 
 
 
@@ -232,7 +230,7 @@
 
 			<!-- Formulário para manipular os dados de entrada e saída de produtos do estoque -->
 
-			<form action="stock_insert.jsp" id="registration-client-visitor"
+			<form action="stock_insert.jsp" id="stock_insert"
 				method="POST" style="margin-top: 10px;">
 
 				<div class="borda-cor-cadastro">

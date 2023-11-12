@@ -29,6 +29,7 @@
 	
 	
 	
+	
 	dto_productRegistration.setProductionDate((request.getParameter("fproductionDate")));
 	dto_productRegistration.setEntryDate((request.getParameter("fentryDate")));
 	dto_productRegistration.setDepartureDate((request.getParameter("fdepartureDate")));
@@ -41,6 +42,7 @@
 	
 	ProductDao productDao = new ProductDao();
 	productDao.stockProductregistration_Dao(dto_productRegistration);
+	//productDao.removeResult_stockProductList_Dao();
 	%>
 	
 
@@ -50,12 +52,12 @@
 			style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
 			<img style="max-width: 100%" src="../../img/cadastro.png">
 			<div class="card-body" style="margin: auto auto;">
-				<h5 class="card-title ">Seu cadastro foi realizado com sucesso.</h5>
-				<p class="card-text">Sua sessão será inicializada automaticamente,
+				<h5 class="card-title ">Seu cadastro foi inserido com sucesso.</h5>
+				<p class="card-text">Sua sessão será reinicializada automaticamente,
 				basta dar um click no botão situado logo abaixo!</p><br>
-				<a href="../../home-page/home.jsp" class="btn btn-secondary"
+				<a href="stock-panel_operation.jsp" class="btn btn-secondary"
 					style="text-decoration: none; margin: auto auto;">Retornar para a
-					página principal</a>
+					consulta de estoque</a>
 			</div>
 		</div>
 	</div>

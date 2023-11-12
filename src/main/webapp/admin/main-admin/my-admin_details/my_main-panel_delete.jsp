@@ -50,13 +50,12 @@
 
 			<!----------------------Menu principal------------------------------------>
 
-			<button class="btn btn-light float-left " type="button"
-				style="margin: 12px;" data-bs-toggle="offcanvas"
-				aria-controls="offcanvasWithBothOptions">Início</button>
-
-
-
-
+			<a href="../main-page_home.jsp"><button
+					class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button></a>
+			
+			
 			<button class="btn btn-light  float-left " type="button"
 				style="margin: 12px; background-color: gainsboro; color: black;"
 				data-bs-toggle="offcanvas"
@@ -70,7 +69,7 @@
 
 				<ul class="nav nav menu-principal">
 					<div style="width: 80px;">
-						<img style="width: 80px;" src="../../../img/usuario.png">
+						<img style="width: 80px;" src="../../../img/capaAdminA.png">
 					</div>
 					<li class="nav-item dropdown"><p
 							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getNameAdmin()%></p>
@@ -82,7 +81,7 @@
 							<a class="dropdown-item "
 								href="../my-admin_details/my_main-panel_query.jsp">Visualizar
 								meu cadastro </a> <a class="dropdown-item"
-								href="../my-admin_details/my_main-panel_update.jsp">Atualizar
+								href="../../main-admin/admin-panel_operation.jsp">Atualizar
 								meu cadastro </a>
 
 							<div class="dropdown-divider"></div>
@@ -99,14 +98,14 @@
 			</span>
 
 
-
+<!-- Painel lateral - administrador -->
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
 				style="max-width: 300px;" tabindex="-1"
 				id="offcanvasWithBothOptions"
 				aria-labelledby="offcanvasWithBothOptionsLabel">
 				<div class="offcanvas-header">
-					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Painel
-						de operações</h4>
+					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						cadastrais</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 						aria-label="Close"></button>
 				</div>
@@ -114,9 +113,16 @@
 
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos e estoque</h5>
+							de administradores</h5>
+
+						<li class="list-group-item">Para acessar os itens de cadastro
+							do administrador, basta dar um click no item <strong>
+								Administradores - operações cadastrais</strong>, o item está situado neste
+							menu, logo abaixo.
+						</li>
+
 						<li class="list-group-item"><a
-							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
+							href="../admin-panel_operation.jsp" style="text-decoration: none;">Administradores
 								- operações cadastrais </a></li>
 
 						<hr>
@@ -136,32 +142,33 @@
 
 					</ul>
 
+
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
 							de produtos e estoque</h5>
+						<li class="list-group-item">Para acessar os itens de cadastro
+							do produto, basta dar um click no item <strong> Cadastro
+								de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.
+						</li>
 						<li class="list-group-item"><a
 							href="../product/product-panel_operation.jsp"
-							style="text-decoration: none;">Produto - operações cadastrais
-						</a></li>
+							style="text-decoration: none;">Produto e estoque- operações
+								cadastrais </a></li>
 
 						<hr>
 					</ul>
 
 				</div>
 			</div>
+			<!-- Painel lateral - administrador -->
 			<br> <br> <br>
-
-		</div>
-
-
-	</div>
 
 	<!--------------------------formulario----------------------------------------------------------->
 
 	<div class="largura-max-cadastro"
 		style="margin: auto auto; margin-top: 80px;">
 		<div class="largura-max-cadastro text-center">
-			<h3>Deletar os dados do administrador</h3>
+			<h3>Deletar dados do administrador</h3>
 			<p>Abaixo estão os dados cadastrais, inerentes à conta do
 				administrador, selecionado para deletar.</p>
 		</div>

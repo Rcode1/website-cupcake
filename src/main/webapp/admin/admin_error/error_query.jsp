@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="../../../css/css-personalizado/personalizacao.css">
+	href="../../css/css-personalizado/personalizacao.css">
 <meta charset="utf-8">
 <%@ page language="java" errorPage="error_registration/error.jsp"%>
 <title>Error</title>
@@ -15,14 +15,14 @@
 	<div class="center-div"
 		style="border: 1px solid #C4C3C3; max-width: 500px; padding: 10px;">
 		<div>
-			<img style="max-width: 100%" src="../../../img/erro.jpeg">
+			<img style="max-width: 100%" src="../../img/erro.jpeg">
 			<div class="card-body" style="margin: auto auto;">
 				<h5 class="card-title ">Erro de retorno do cadastro.</h5>
 				<p class="card-text">Houve um problena no retorno dos dados
 					cadastrais, por gentileza, pedimos que tente acessar novamente este
 					conteúdo, caso não consiga visualizar seu cadastro entre em contato
 					conosco!</p>
-				<a href="../main-page_home.jsp" class="btn btn-secondary"
+				<a href="../main-admin/main-page_home.jsp" class="btn btn-secondary"
 					style="text-decoration: none; margin: auto auto;"> Retornar
 					para página principal </a>
 			</div>

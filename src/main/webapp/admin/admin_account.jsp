@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ page language="java" errorPage="error-redirection/error-redirection_admin-access.jsp"%>
+<%@ page language="java"
+	errorPage="error-redirection/error-redirection_admin-access.jsp"%>
 <meta charset="utf-8">
 <title>Insert title here</title>
 </head>
@@ -51,7 +52,23 @@
 	}
 	%>
 
+	<%
+	if (adminRegistrationDao.returnAccess_Administrator_dao().get(0)
+			.getEmailAccess() != (administratorRegistration.getEmailAccess()))
+		if (adminRegistrationDao.returnAccess_Administrator_dao().get(0)
+		.getAdminPassword() != (administratorRegistration.getAdminPassword()))
+			if (adminRegistrationDao.returnAccess_Administrator_dao().get(0)
+			.getAccessLevel() != (administratorRegistration.getAccessLevel())) {
+	%>
 
+
+	<script>
+		window.location.href = 'error-redirection/error-redirection_admin-access.jsp';
+	</script>
+
+	<%
+	}
+	%>
 
 </body>
 </html>

@@ -1,3 +1,10 @@
+<%@page import="br.com.dto.product.ProductImage"%>
+<%@page import="br.com.dto.methods.ProductData"%>
+<%@page import="br.com.dto.product.ProductRegistration"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.com.dao.product.ProductDao"%>
+<%@page import="java.lang.String"%>
+<%@page import="br.com.dto.methods.ProductData_Lixo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -58,20 +65,15 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Produtos</button>
 
-			<!-- <button class="btn btn-light float-left  " type="button"
-				style="margin: 12px; background-color: gainsboro;"
-				data-bs-toggle="offcanvas" aria-controls="offcanvasWithBothOptions">Compras</button>
-             <img alt="" src="img/carrinho.png" style="width: 50px;"> -->
-			<button class="btn btn-light float-left  " type="button"
+			<a href="access/access-account.jsp"><button
+					class="btn btn-light float-left  " type="button"
 					style="margin: 2px; margin-left: 12px; background-color: gainsboro;"
 					data-bs-toggle="offcanvas" aria-controls="offcanvasWithBothOptions">
 					<img class=" float-left" alt="" src="img/carrinho.png"
 						style="width: 65px;">
 					<p class=" float-left" style="margin-top: 10px;">Compras</p>
-					
-				</button>
 
-			<a href="access/access-account.jsp"><button
+				</button></a> <a href="access/access-account.jsp"><button
 					class="btn btn-light float-right " type="button"
 					style="margin: 12px; background-color: gainsboro;"
 					data-bs-toggle="offcanvas" aria-controls="offcanvasWithBothOptions">
@@ -164,53 +166,83 @@
 
 
 		<!--------------------------Card com o produto----------------------------------->
+		<div style="margin-bottom: 50px;">
+			<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
+				os nossos principais produtos!</h4>
+			<hr>
 
-		<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
-			os nossos principais produtos!</h4>
-		<hr>
+			<!--  -->
+			<%
+			ProductData productData = new ProductData();
+			ArrayList<ProductRegistration> productRegistration = new ArrayList<>();
+			productRegistration = productData.productRegistration_List();
 
-		<!--  -->
+			ProductDao productDao = new ProductDao();
+			ArrayList<ProductImage> selectProductDao = new ArrayList<>();
+			selectProductDao = productDao.select_productImage_dao();
 
-		<%
-		for (int i = 0; i < 8; i++) {
-		%>
+			ArrayList<ProductImage> result_selectProductDao = new ArrayList<>();
 
-		<div class="card float-left" style="width: 17rem; margin: 14px;">
+		//	int a = 0;
+		//	for (int i = 0; i < selectProductDao.size(); i++) {
 
-			<img src=img/bolinho.png " class="card-img-top"
-				style="margin-top: 10px;">
+			//	if (productRegistration.get(a).getIdProductRegistration().equals(selectProductDao.get(i).getIdProduct())) {
+				//	result_selectProductDao.add(selectProductDao.get(i));
 
-			<div class="card-body">
-				<h5 class="card-title">Bolinho cupcake</h5>
-				<p class="card-text">Este bolinho tem um suave aroma acompanhado
-					de um sabor inigualável</p>
+			//	}
+
+		//	}
+			%>
+
+
+			<%
+			for (int i = 0; i < productRegistration.size(); i++) {
+			//	a = productRegistration.get(i).getIdProductRegistration();
+			%>
+
+			<div class="card float-left" style="width: 17rem; margin: 14px;">
+
+				<img
+					src="<%="img/" + productRegistration.get(i).getIdProductRegistration() + "/"
+		+selectProductDao.get(i).getIdProductImage()+".jpg"%>"
+					class="card-img-top" style="margin-top: 10px; max-height:200px;min-height:200px;">
+
+				<div class="card-body">
+					<h5 class="card-title"><%=productRegistration.get(i).getProductName()%></h5>
+					<p class="card-text"><%=productRegistration.get(i).getBasicDescription()%></p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Preço: R$ <%=productData.productStock_List1(productRegistration.get(i).getIdProductRegistration()).get(0).getProductPrice()%>
+					</li>
+
+				</ul>
+				<div class="card-body">
+					<a href="#" class="card-link">Verifique as condições para
+						entrega </a>
+
+				</div>
 			</div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item">Preço</li>
 
-			</ul>
-			<div class="card-body">
-				<a href="#" class="card-link">Verifique as condições para
-					entrega </a>
+			<%
+			}
+			%>
 
-			</div>
+
+
 		</div>
-
-		<%
-		}
-		%>
-
-
-
 	</div>
-	
+	<div style="min-height: 80px; clear: left;"></div>
+
 	<!-- Informações do rodapé do site-->
-<div class="rodape fixed-bottom" >
+	<div class="rodape fixed-bottom">
 		<div class="  alinhamento-tamanho_max ">
-			<a href="#"><h6 class="card-title float-left" style="margin:10px;">° Entre em contato</h6></a>
-			<a href="#"><h6 class="card-title float-left" style="margin:10px;">° Quem somos</h6></a>
-			<a href="#"><h6 class="card-title float-left" style="margin:10px;">° Política de privacidade</h6></a>
-			<a href="#"><h6 class="card-title float-left" style="margin:10px;">° Navegação no site</h6></a>
+			<a href="#"><h6 class="card-title float-left"
+					style="margin: 10px;">° Entre em contato</h6></a> <a href="#"><h6
+					class="card-title float-left" style="margin: 10px;">° Quem
+					somos</h6></a> <a href="#"><h6 class="card-title float-left"
+					style="margin: 10px;">° Política de privacidade</h6></a> <a href="#"><h6
+					class="card-title float-left" style="margin: 10px;">°
+					Navegação no site</h6></a>
 		</div>
 	</div>
 

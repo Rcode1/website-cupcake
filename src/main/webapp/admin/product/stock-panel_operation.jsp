@@ -1,3 +1,4 @@
+<%@page import="br.com.dto.methods.ReturnStock"%>
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@page import="br.com.dto.product.ProductRegistration"%>
@@ -12,7 +13,7 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 
-
+<%@ page language="java" errorPage="redirect_query-error.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -39,9 +40,9 @@
 </head>
 
 <body>
-<%
-AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
-%>
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
@@ -50,7 +51,7 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 
 
 
-			<!----------------------Menu principal------------------------------------>
+			<%-- --------------------Menu principal---------------------------------- --%>
 
 			<!-- Início do botão: "Início" ( Painel do administrador) -->
 			<%
@@ -71,13 +72,17 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 			<%
 			}
 			%>
-			<!-- Fim do botão: "Início" ( Painel do administrador) -->
+			<%--Fim do botão: "Início" ( Painel do administrador) --%>
 
 			<button class="btn btn-light  float-left " type="button"
 				style="margin: 12px; background-color: gainsboro; color: black;"
 				data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
+
+			<a href="product-panel_query.jsp"><button
+					class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
 
 			<!--  -->
 			<div class="  float-right" style="margin-right: 180px;">
@@ -105,7 +110,7 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 				</form>
 			</div>
 
-			<!--  -->
+			<%-- Fim --%>
 
 
 
@@ -125,13 +130,16 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
 							de produtos</h5>
-							
-							<li class="list-group-item">O menu abaixo, referente ao produto, traz a possibilidade de modificações 
-							ou deleção do produto vigente, caso queira selecionar um outro produto basta acessar<strong> Escolher novo produto</strong> 
-							</li>
-						
-						<li class="list-group-item"><a href="product-panel_operation.jsp"
-							style="text-decoration: none;">Escolher novo produto</a></li>
+
+						<li class="list-group-item">O menu abaixo, referente ao
+							produto, traz a possibilidade de modificações ou deleção do
+							produto vigente, caso queira selecionar um outro produto basta
+							acessar<strong> Escolher novo produto</strong>
+						</li>
+
+						<li class="list-group-item"><a
+							href="product-panel_operation.jsp" style="text-decoration: none;">Escolher
+								novo produto</a></li>
 						<li class="list-group-item"><a
 							href="product-panel_insert.jsp" style="text-decoration: none;">Inserir
 								dados</a></li>
@@ -141,8 +149,8 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 						<li class="list-group-item"><a
 							href="product-panel_delete.jsp" style="text-decoration: none;">Deletar
 								dados</a></li>
-								
-								
+
+
 						<hr>
 
 					</ul>
@@ -150,21 +158,23 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
 							com estoques</h5>
-						<li class="list-group-item">Para inserir informações no estoque, relacionadas a este produto, basta acessar o item 
-						<strong> Inserir dados no estoque </strong>ou caso queira realizar as operações de estoque neste ou em outros produtos cadastrados basta 
-						selecionar o produto de interece na telaprincipal no item: <strong>Operações cadastrais do estoque de produtos</strong> 
-							</li>
-						
-						
-						
+						<li class="list-group-item">Para inserir informações no
+							estoque, relacionadas a este produto, basta acessar o item <strong>
+								Inserir dados no estoque </strong>ou caso queira realizar as operações de
+							estoque neste ou em outros produtos cadastrados basta selecionar
+							o produto de interece na telaprincipal no item: <strong>Operações
+								cadastrais do estoque de produtos</strong>
+						</li>
+
+
+
 						<li class="list-group-item"><a href="stock-panel_insert.jsp"
 							style="text-decoration: none;">Inserir dados no estoque</a></li>
-						
+
 						<hr>
 
 					</ul>
 
-					
 				</div>
 			</div>
 			<br> <br> <br>
@@ -174,80 +184,76 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 	</div>
 
 
-	<!--Demonstrativo dos dados cadastrados(referente a um produto registrado-->
+	<%--Demonstrativo dos dados cadastrados(referente a um produto registrado--%>
 
 	<div class="largura-max-cadastro"
 		style="margin: auto auto; margin-top: 80px;">
 		<div class="largura-max-cadastro text-center">
 			<h3>Operações cadastrais do estoque de produtos</h3>
-			<p>Abaixo estão todos os registros de estoque referentes a um produto, basta selecionar
-				um registro através do seu ID - (identificação do produto no estoque)</p>
+			<p>Abaixo estão todos os registros de estoque referentes a um
+				produto, basta selecionar um registro através do seu ID -
+				(identificação do produto no estoque)</p>
 		</div>
 		<div class="borda-cor-cadastro">
 			<div class="borda-cor-cadastro" Style="margin-bottom: 10px;">
 
-			
-			<!-- Início - Produto em evidência-->
-			<%
-			ProductDao productDao_product = new ProductDao();
-			
-			%>
-			<div class="form-row"
-						style="border: 1px solid #E0E0E0; margin: 5px; background-color: #B0C4DE;">
 
-						<div class="form-group col-md-2">
-							<label for="idProductRegistration">Id do produto *</label> <input
-								class="form-control " type="text" id="idProductRegistration"
-								name="fidProductRegistration"
-								placeholder=" <%=productDao_product.getResult_listProduct_Dao().get(0).getIdProductRegistration() %>"
-								disabled></input>
-						</div>
+				<%-- Início - Produto em evidência--%>
+				<%
+				ProductDao productDao_product = new ProductDao();
+				%>
+				<div class="form-row"
+					style="border: 1px solid #E0E0E0; margin: 5px; background-color: #B0C4DE;">
 
-						<div class="form-group col-md-3">
-							<label for="registrationDate_query">Data de registro *</label> <input
-								class="form-control" type="password" id="registrationDate_query"
-								name="fregistrationDate_query"
-								placeholder="<%=productDao_product.getResult_listProduct_Dao().get(0).getRegistrationDate() %>"
-								disabled></input>
-						</div>
-
-						<div class="form-group col-md-7">
-							<label for="productName_query">Nome do produto *</label> <input
-								class="form-control" type="text" id="productName_query"
-								name="fproductNamee_query"
-								placeholder="<%=productDao_product.getResult_listProduct_Dao().get(0).getProductName() %>"
-								disabled></input>
-						</div>
-					
+					<div class="form-group col-md-2">
+						<label for="idProductRegistration">Id do produto *</label> <input
+							class="form-control " type="text" id="idProductRegistration"
+							name="fidProductRegistration"
+							placeholder=" <%=productDao_product.getResult_listProduct_Dao().get(0).getIdProductRegistration()%>"
+							disabled></input>
 					</div>
-			
-				
-			<!-- Fim -->	
-				
-								
-				
+
+					<div class="form-group col-md-3">
+						<label for="registrationDate_query">Data de registro *</label> <input
+							class="form-control" type="password" id="registrationDate_query"
+							name="fregistrationDate_query"
+							placeholder="<%=productDao_product.getResult_listProduct_Dao().get(0).getRegistrationDate()%>"
+							disabled></input>
+					</div>
+
+					<div class="form-group col-md-7">
+						<label for="productName_query">Nome do produto *</label> <input
+							class="form-control" type="text" id="productName_query"
+							name="fproductNamee_query"
+							placeholder="<%=productDao_product.getResult_listProduct_Dao().get(0).getProductName()%>"
+							disabled></input>
+					</div>
+
+				</div>
+
+
+				<%-- Fim --%>
+
+				<%-- Início da pesquisa de estoque --%>
 				<%
 				ProductDao productDao_stock = new ProductDao();
-				
+
+				//Método que retorna uma lista de estoque contendo apenas o produto selecionado;
+				ReturnStock returnStock = new ReturnStock();
 				ArrayList<ProductRegistration> list_productStock = new ArrayList<>();
-			
-				list_productStock = productDao_stock.select_productStock_dao();
-				
-			
+				list_productStock = returnStock.returnList();
 
 				for (int i = 0; i < list_productStock.size(); i++) {
 				%>
 
-				<form action="#" id="product-panel_updade"
-					method="POST">
+				<form action="#" id="product-panel_updade" method="POST">
 
 					<div class="form-row"
 						style="border: 1px solid #E0E0E0; margin: 5px;">
 
 						<div class="form-group col-md-2">
 							<label for="stockId">Id do estoque*</label> <input
-								class="form-control " type="text" id="stockId"
-								name="fstockId"
+								class="form-control " type="text" id="stockId" name="fstockId"
 								placeholder=" <%=list_productStock.get(i).getIdProductStock()%>"
 								disabled></input>
 						</div>
@@ -256,39 +262,37 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 							<label for="productId_query">Id do produto *</label> <input
 								class="form-control" type="text" id="productId_query"
 								name="fproductId_query"
-								placeholder="<%=list_productStock.get(i).getIdProductRegistration() %>"
+								placeholder="<%=list_productStock.get(i).getIdProductRegistration()%>"
 								disabled></input>
 						</div>
 
 						<div class="form-group col-md-8">
-							<label for="registrationDate_query">Data de registro no estoque*</label> <input
-								class="form-control" type="text" id="registrationDate_query"
-								name="fregistrationDate_query"
-								placeholder="<%=list_productStock.get(i).getProductionDate() %>"
+							<label for="registrationDate_query">Data de registro no
+								estoque*</label> <input class="form-control" type="text"
+								id="registrationDate_query" name="fregistrationDate_query"
+								placeholder="<%=list_productStock.get(i).getProductionDate()%>"
 								disabled></input>
 						</div>
-					
+
 					</div>
 				</form>
 
 				<%
 				}
+				//for (int i = 0; i < list_productStock.size(); i++)
+				//list_productStock.remove(i);
+				productDao_stock.removeUniqueStockResultList_Dao();
 				%>
 
 			</div>
 
-
-
 		</div>
-
-
 
 		<br>
 
-
 	</div>
 
-
+	<%-- Fim da pesquisa de estoque--%>
 
 
 

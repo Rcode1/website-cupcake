@@ -20,7 +20,7 @@
 				<h5 class="card-title ">Acesso não permitido.</h5>
 				<p class="card-text">Houve um problema ao tentar acessar este conteúdo, por gentileza, 
 				tente novamente!</p>
-				<a href="admin_access-account.jsp" class="btn btn-secondary"
+				<a href="../main-admin/main-page_home.jsp" class="btn btn-secondary"
 					style="text-decoration: none; margin: auto auto;"> Retornar. 
 				</a>
 			</div>

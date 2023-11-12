@@ -25,12 +25,11 @@
 	<%
 	
 	ProductDao  productDao = new ProductDao();
-	
 	ProductRegistration ProductRegistration_obj = new ProductRegistration();
-	
 	ProductRegistration_obj.setIdProductStock(Integer.parseInt(request.getParameter("fidStock")));
-	
 	productDao.excludeProductStok_Dao(ProductRegistration_obj);
+	//productDao.removeResult_stockProductList_Dao();
+
 	
 	%>
 
@@ -40,12 +39,12 @@
 			style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
 			<img style="max-width: 100%" src="../../img/cadastro.png">
 			<div class="card-body" style="margin: auto auto;">
-				<h5 class="card-title ">Seu cadastro foi realizado com sucesso.</h5>
-				<p class="card-text">Sua sessão será inicializada automaticamente,
+				<h5 class="card-title ">Seu cadastro foi deletado com sucesso.</h5>
+				<p class="card-text">Sua sessão será reinicializada automaticamente,
 				basta dar um click no botão situado logo abaixo!</p><br>
-				<a href="../../home-page/home.jsp" class="btn btn-secondary"
+				<a href="stock-panel_operation.jsp" class="btn btn-secondary"
 					style="text-decoration: none; margin: auto auto;">Retornar para a
-					página principal</a>
+					consulta de estoque</a>
 			</div>
 		</div>
 	</div>

@@ -10,7 +10,7 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 
-
+<%@ page language="java" errorPage="redirect_query-error.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -37,9 +37,9 @@
 </head>
 
 <body>
-<%
-AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
-%>
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
@@ -81,6 +81,9 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
+			<a href="product-panel_operation.jsp"><button
+					class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
 
 
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
@@ -98,11 +101,14 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
 							de produtos</h5>
-						
-						<li class="list-group-item"> Abaixo estão os itens relacionados com o ID do produto selecionado, caso queira realizar uma operação
-						em um outro produto basta retornar a consulta, o link de acesso é: (Retornar a consulta de dados), situado neste menu.</li>
-						
-						
+
+						<li class="list-group-item">Abaixo estão os itens
+							relacionados com o ID do produto selecionado, caso queira
+							realizar uma operação em um outro produto basta retornar a
+							consulta, o link de acesso é: (Retornar a consulta de dados),
+							situado neste menu.</li>
+
+
 						<li class="list-group-item"><a
 							href="product-panel_insert.jsp" style="text-decoration: none;">Inserir
 								dados</a></li>
@@ -112,24 +118,45 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 						<li class="list-group-item"><a
 							href="product-panel_delete.jsp" style="text-decoration: none;">Deletar
 								dados</a></li>
-								
+
 						<li class="list-group-item"><a
-							href="product-panel_operation.jsp" style="text-decoration: none;">Retornar a consulta de
-								dados</a></li>
+							href="product-panel_operation.jsp" style="text-decoration: none;">Retornar
+								a consulta de dados</a></li>
 						<hr>
 
 					</ul>
 
-						<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações de cadadstro no estoque</h5>
-						<li class="list-group-item"><strong>O estoque sempre estará relacionado com o produto selecionado.</strong>
-						 Para acessar os itens de estoque e realizar as operações para consultar, atualizar, deletar ou inserir os dados basta
-						acessar o item abaixo.</li>
-						
-						<li class="list-group-item"><a href="stock-panel_operation.jsp"
-							style="text-decoration: none;">Operações
-							com estoques  </a></li>
-						
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+							de cadadstro das imagens</h5>
+						<li class="list-group-item"><strong>As imagens
+								sempre estarão relacionadas com o produto selecionado.</strong> Para
+							acessar os itens da imagem e realizar as operações para
+							consultar, atualizar, deletar ou inserir os dados basta acessar o
+							item abaixo.</li>
+
+						<li class="list-group-item"><a
+							href="product-image/query_image-registration-view.jsp"
+							style="text-decoration: none;">Operações com imagens </a></li>
+
+						<hr>
+
+					</ul>
+
+
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+							de cadadstro no estoque</h5>
+						<li class="list-group-item"><strong>O estoque sempre
+								estará relacionado com o produto selecionado.</strong> Para acessar os
+							itens de estoque e realizar as operações para consultar,
+							atualizar, deletar ou inserir os dados basta acessar o item
+							abaixo.</li>
+
+						<li class="list-group-item"><a
+							href="stock-panel_operation.jsp" style="text-decoration: none;">Operações
+								com estoques </a></li>
+
 						<hr>
 
 					</ul>
@@ -143,67 +170,83 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 
 	</div>
 
-<!--Demonstrativo dos dados cadastrados(referente a um produto registrado-->
+	<!--Demonstrativo dos dados cadastrados(referente a um produto registrado-->
 
-                   <%
-					ProductDao productDao = new ProductDao();
-										
-					%>
+	<%
+	ProductDao productDao = new ProductDao();
+	%>
 
 	<div class="largura-max-cadastro"
 		style="margin: auto auto; margin-top: 80px;">
 		<div class="largura-max-cadastro text-center">
 			<h3>Consulta dos dados do produto</h3>
-			<p>Abaixo estão os dados do produto, bem como, a identificação no banco de dados e a sua data de registro</p>
+			<p>Abaixo estão os dados do produto, bem como, a identificação no
+				banco de dados e a sua data de registro</p>
 		</div>
-		<div class="borda-cor-cadastro" >
+		<div class="borda-cor-cadastro">
 			<div class="borda-cor-cadastro" Style="margin-bottom: 10px;">
 				<div class="form-row">
 
 					<!------>
 					<div class="form-group col-md-4">
 						<label for="idProductRegistration_query">Identificação *</label> <input
-							class="form-control" type="password" id="idProductRegistration_query"
-							name="fidProductRegistration_quer" placeholder="Identificação <%=productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration() %>" disabled></input>
+							class="form-control" type="password"
+							id="idProductRegistration_query"
+							name="fidProductRegistration_quer"
+							placeholder="Identificação <%=productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration()%>"
+							disabled></input>
 					</div>
 
 					<div class="form-group col-md-4">
 						<label for="registrationDate_query">Data de registro *</label> <input
 							class="form-control" type="password" id="registrationDate_query"
-							name="fregistrationDate_query" placeholder="D.registro <%=productDao.getResult_listProduct_Dao().get(0).getRegistrationDate() %>" disabled></input>
+							name="fregistrationDate_query"
+							placeholder="D.registro <%=productDao.getResult_listProduct_Dao().get(0).getRegistrationDate()%>"
+							disabled></input>
 					</div>
 
 					<div class="form-group col-md-4">
 						<label for="creationDate_query">Data de criação *</label> <input
-							class="form-control" type="text" id="creationDate_query" name="fcreationDate_query"
-							placeholder="D. criação: <%=productDao.getResult_listProduct_Dao().get(0).getCreationDate() %>" disabled></input>
+							class="form-control" type="text" id="creationDate_query"
+							name="fcreationDate_query"
+							placeholder="D. criação: <%=productDao.getResult_listProduct_Dao().get(0).getCreationDate()%>"
+							disabled></input>
 					</div>
 
 
 					<div class="form-group col-md-12">
 						<label for="productName_query">Nome do produto *</label> <input
-							class="form-control" type="text" id="productName_query" name="fproductNamee_query"
-							placeholder="N.produto:<%=productDao.getResult_listProduct_Dao().get(0).getProductName() %>" disabled></input>
+							class="form-control" type="text" id="productName_query"
+							name="fproductNamee_query"
+							placeholder="N.produto:<%=productDao.getResult_listProduct_Dao().get(0).getProductName()%>"
+							disabled></input>
 					</div>
 
 
 					<div class="form-group col-md-12">
-						<label for="basicDescription_query">Descrição básica *</label> <textarea
-							class="form-control" style="text-transform: lowercase;"
-							type="text" id="basicDescription_query" name="fbasicDescription_query" placeholder="Descrição b.: <%=productDao.getResult_listProduct_Dao().get(0).getBasicDescription() %>"
+						<label for="basicDescription_query">Descrição básica *</label>
+						<textarea class="form-control" style="text-transform: lowercase;"
+							type="text" id="basicDescription_query"
+							name="fbasicDescription_query"
+							placeholder="Descrição b.: <%=productDao.getResult_listProduct_Dao().get(0).getBasicDescription()%>"
 							disabled></textarea>
 					</div>
 
 					<div class="form-group col-md-12">
-						<label for="longDescription_query">Descrição completa *</label> <textarea
-							class="form-control" style="text-transform: lowercase;"
-							type="text" id="longDescription_query" name="flongDescription_query" placeholder="Descrição c.: <%=productDao.getResult_listProduct_Dao().get(0).getLongDescription() %>"
+						<label for="longDescription_query">Descrição completa *</label>
+						<textarea class="form-control" style="text-transform: lowercase;"
+							type="text" id="longDescription_query"
+							name="flongDescription_query"
+							placeholder="Descrição c.: <%=productDao.getResult_listProduct_Dao().get(0).getLongDescription()%>"
 							disabled></textarea>
 					</div>
+
 
 				</div>
 
 			</div>
+
+
 
 		</div>
 		<br>

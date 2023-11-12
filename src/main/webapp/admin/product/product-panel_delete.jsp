@@ -83,6 +83,10 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
+			<a href="product-panel_query.jsp"><button
+					class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
+
 
 
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
@@ -126,15 +130,18 @@
 					</ul>
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações de cadadstro no estoque</h5>
-						<li class="list-group-item"><strong>O estoque sempre estará relacionado com o produto selecionado.</strong>
-						 Para acessar os itens de estoque e realizar as operações para consultar, atualizar, deletar ou inserir os dados basta
-						acessar o item abaixo.</li>
-						
-						<li class="list-group-item"><a href="stock-panel_operation.jsp"
-							style="text-decoration: none;">Operações
-							com estoques  </a></li>
-						
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+							de cadadstro no estoque</h5>
+						<li class="list-group-item"><strong>O estoque sempre
+								estará relacionado com o produto selecionado.</strong> Para acessar os
+							itens de estoque e realizar as operações para consultar,
+							atualizar, deletar ou inserir os dados basta acessar o item
+							abaixo.</li>
+
+						<li class="list-group-item"><a
+							href="stock-panel_operation.jsp" style="text-decoration: none;">Operações
+								com estoques </a></li>
+
 						<hr>
 
 					</ul>
@@ -171,8 +178,11 @@
 
 
 				<div class="borda-red"">
-					<p>Digite o mesmo código que aparece no campo (confirmação para
-						exclusão) que está logo abaixo, em seguida click no botão <strong>Excluir dados</strong> .</p>
+					<p>
+						Digite o mesmo código que aparece no campo (confirmação para
+						exclusão) que está logo abaixo, em seguida click no botão <strong>Excluir
+							dados</strong> .
+					</p>
 
 					<div class="form-group col-md-4"
 						Style="margin-left: auto; margin-right: auto; text-align: center;">
@@ -206,16 +216,16 @@
 
 
 						<div class="form-group col-md-12">
-							<label for="basicDescription">Descrição básica *</label> <textarea
-								class="form-control" style="text-transform: lowercase;"
+							<label for="basicDescription">Descrição básica *</label>
+							<textarea class="form-control" style="text-transform: lowercase;"
 								type="text" id="basicDescription" name="fbasicDescriptionl"
 								placeholder="Descrição b.: <%=productDao.getResult_listProduct_Dao().get(0).getBasicDescription()%> "
 								disabled></textarea>
 						</div>
 
 						<div class="form-group col-md-12">
-							<label for="longDescription">Descrição completa *</label> <textarea
-								class="form-control" style="text-transform: lowercase;"
+							<label for="longDescription">Descrição completa *</label>
+							<textarea class="form-control" style="text-transform: lowercase;"
 								type="text" id="longDescription" name="flongDescription"
 								placeholder="Descrição c.: <%=productDao.getResult_listProduct_Dao().get(0).getLongDescription()%> "
 								disabled></textarea>

@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import br.com.dto.admin.AdministratorRegistration;
 import br.com.dto.client.ClientRegistration;
 
 import br.com.dto.methods.InsertDate;
@@ -20,10 +21,12 @@ public class ClientDao {
 	private Connection con;
 	ResultSet rs;
 	PreparedStatement stmt;
-	ArrayList<ClientRegistration> list_verification = new ArrayList<>();// Armazenamento do resultado do select
+	// Armazenamento do resultado do select
 																		// realizado no DB.
 	static ArrayList<ClientRegistration> listResult = new ArrayList<>();// Lista referente ao resultado do select
 																		// realizado ao
+	
+	static  ArrayList<ClientRegistration>persistence_selectionResult_for_Admin_dao = new ArrayList<>();
 	// acessar o site.
 	InsertDate insertDate = new InsertDate();// Método que retorna uma data automática para ser armazenada no DB. A
 												// classe está no pacote Methods.
@@ -76,7 +79,7 @@ public class ClientDao {
 	// utilizado na área administrativa.
 	// para consultas e manutenção.
 	public ArrayList<ClientRegistration> select_RegistrationClient_dao() {
-
+		ArrayList<ClientRegistration> list_verification = new ArrayList<>();
 		try {
 
 			String sql = "SELECT * from `db_cupcake_client`.`client_registration`; ";
@@ -253,5 +256,33 @@ public class ClientDao {
 		return listResult;
 
 	}
+	
+//******************************************************************************
+	
+//Métodos para selecionar, retornar e remover apenas um único administrador	
+	public void uniqueSelectResultFoAdmin(Integer obj) {
 
+		for (int i = 0; i < select_RegistrationClient_dao().size(); i++) {
+
+			if (select_RegistrationClient_dao().get(i).getIdClient() == (obj)) {
+
+				persistence_selectionResult_for_Admin_dao.add(0, select_RegistrationClient_dao().get(i));
+
+			}
+
+		}
+
+	}
+
+	public ArrayList<ClientRegistration> getUniqueSelectResultClient_Dao() {
+		return persistence_selectionResult_for_Admin_dao;
+	}
+
+	public void removeUniqueSelectResultClient_Dao() {
+		for (int i = 0; i < persistence_selectionResult_for_Admin_dao.size(); i++) {
+			persistence_selectionResult_for_Admin_dao.remove(i);
+		}
+
+	}
 }
+

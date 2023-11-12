@@ -69,7 +69,7 @@
 
 				<ul class="nav nav menu-principal">
 					<div style="width: 80px;">
-						<img style="width: 80px;" src="../../img/usuario.png">
+						<img style="width: 80px;" src="../../img/capaAdmin.png">
 					</div>
 					<li class="nav-item dropdown"><p
 							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getNameAdmin()%></p>
@@ -80,13 +80,11 @@
 						<div class="dropdown-menu dropdown-menu-right">
 							<a class="dropdown-item"
 								href="standard-page_home.jsp">Retornar </a>
+							
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item"
-								href="main-admin/admin-panel_operation.jsp">Operações gerais</a>
-
 							<div class="dropdown-divider"></div>
 
-							<a class="dropdown-item" href="close_account.jsp">Sair</a>
+							<a class="dropdown-item" href="../../admin/admin_closed.jsp">Sair</a>
 
 						</div></li>
 				</ul>

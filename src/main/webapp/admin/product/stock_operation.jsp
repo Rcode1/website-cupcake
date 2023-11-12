@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 
 
-<%@ page language="java" errorPage="error_query-return.jsp" %>
+<%@ page language="java" errorPage="redirect_query-error.jsp" %>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -44,7 +44,7 @@
 
 ProductDao productDao = new ProductDao();
 productDao.uniqueStockResult_Dao(Integer.parseInt(request.getParameter("fidStockProductRegistration_query")));
-productDao.removeResult_stockProductList_Dao();
+//productDao.removeResult_stockProductList_Dao();
 	%>
 	
 	

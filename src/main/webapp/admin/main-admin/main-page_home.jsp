@@ -29,16 +29,13 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-
 <title>Insert title here</title>
-
-
 </head>
 
 <body>
-<%
-AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
-%>
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
@@ -66,11 +63,11 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 			<span class="acesso-usuario">
 				<ul class="nav nav menu-principal">
 					<div style="width: 80px;">
-						<img style="width: 80px;" src="../../img/usuario.png">
+						<img style="width: 80px;" src="../../img/capaAdminA.png">
 					</div>
 					<li class="nav-item dropdown"><p
-							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getNameAdmin() %></p> <a
-						class="nav-link dropdown-toggle color-menu"
+							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getNameAdmin()%></p>
+						<a class="nav-link dropdown-toggle color-menu"
 						style="padding-right: 10px;" data-toggle="dropdown" href="#"
 						role="button" aria-haspopup="true" aria-expanded="false">Painel
 							pessoal</a>
@@ -84,35 +81,40 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 								cadastro</a>
 
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item"
-								href="main-admin/admin-panel_operation.jsp">Operações gerais</a>
+							<a class="dropdown-item" href="admin-panel_operation.jsp">Operações
+								gerais</a>
 
 							<div class="dropdown-divider"></div>
 
-							<a class="dropdown-item" href="../admin_access-account.jsp">Sair</a>
+							<a class="dropdown-item" href="../admin_closed.jsp">Sair</a>
 						</div></li>
 				</ul>
 			</span>
 
 
-
+			<!-- Painel lateral - administrador -->
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
 				style="max-width: 300px;" tabindex="-1"
 				id="offcanvasWithBothOptions"
 				aria-labelledby="offcanvasWithBothOptionsLabel">
 				<div class="offcanvas-header">
-					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações cadastrais</h4>
+					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						cadastrais</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 						aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro de administradores</h5>
-						
-						<li class="list-group-item"> Para acessar os itens de cadastro do administrador, basta dar um click no item <strong>
-						Administradores	- operações cadastrais</strong>, ele está situado neste menu, logo abaixo.</li>
-						
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+							de administradores</h5>
+
+						<li class="list-group-item">Para acessar os itens de cadastro
+							do administrador, basta dar um click no item <strong>
+								Administradores - operações cadastrais</strong>, o item está situado
+							neste menu, logo abaixo.
+						</li>
+
 						<li class="list-group-item"><a
 							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
 								- operações cadastrais </a></li>
@@ -122,41 +124,47 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-							do cliente</h5>
-						<li class="list-group-item"><a href="#"
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
+							dos cliente</h5>
+						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
+						
 						<hr>
 
 					</ul>
 
-										
+
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
 							de produtos e estoque</h5>
-							<li class="list-group-item"> Para acessar os itens de cadastro do produto, basta dar um click no item <strong>
-						Cadastro de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.</li>
+						<li class="list-group-item">Para acessar os itens de cadastro
+							do produto, basta dar um click no item <strong> Cadastro
+								de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.
+						</li>
 						<li class="list-group-item"><a
 							href="../product/product-panel_operation.jsp"
-							style="text-decoration: none;">Produto e estoque- operações cadastrais
-						</a></li>
+							style="text-decoration: none;">Produto e estoque- operações
+								cadastrais </a></li>
 
 						<hr>
 					</ul>
 
 				</div>
 			</div>
+			<!-- Painel lateral - administrador -->
 			<br> <br> <br>
 
 		</div>
 
-
-
 	</div>
+<!-- Layout da tela principal- uma imagem com título -->
+	<div class="center-div" style="max-width: 600px; text-align: center;">
+		<span> <img alt="" src="../../img/capaAdminA.png"
+			style="max-width: 100%;">
+			<h1 class="offcanvas-title ">Administrador Principal</h1>
+		</span>
+	</div>
+
 
 
 

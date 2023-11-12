@@ -22,9 +22,18 @@ public class ProductRegistration {
 	private Double productPrice;
 	private Double productDiscount;
 
+	
+	
+	public ProductRegistration(Integer idProductRegistration) {
+		this.idProductRegistration = idProductRegistration;
+	}
+	
 	public ProductRegistration() {
 	}
 
+	
+	
+	
 	public Integer getIdProductRegistration() {
 		return idProductRegistration;
 	}

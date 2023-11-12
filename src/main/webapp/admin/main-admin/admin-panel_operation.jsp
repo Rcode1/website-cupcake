@@ -13,7 +13,7 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 
-
+<%@ page language="java" errorPage="../error-redirection/error-redirection_admin-query.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -63,6 +63,11 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 				data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
+				
+				<a href="main-page_home.jsp"><button class="btn btn-light  float-left " type="button"
+				style="margin: 12px; background-color: gainsboro; color: black;"
+				>Retornar</button></a>
+				
 
 
 			<!--  Início do menu principal -->
@@ -70,7 +75,7 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 			<span class="acesso-usuario">
 				<ul class="nav nav menu-principal">
 					<div style="width: 80px;">
-						<img style="width: 80px;" src="../../img/usuario.png">
+						<img style="width: 80px;" src="../../img/capaAdminA.png">
 					</div>
 					<li class="nav-item dropdown"><p
 							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getNameAdmin()%></p>
@@ -144,8 +149,11 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro de administradores</h5>
 						
 						<li class="list-group-item"> Para acessar os itens de cadastro do administrador, basta dar um click no item <strong>
-						Administradores	- operações cadastrais</strong>, ele está situado neste menu, logo abaixo.</li>
+						Administradores	- operações cadastrais</strong>, o item está situado neste menu, logo abaixo.</li>
 						
+						<li class="list-group-item"><a
+							href="main-panel_insert.jsp" style="text-decoration: none;">Cadastrar administradores
+								</a></li>
 						<li class="list-group-item"><a
 							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
 								- operações cadastrais </a></li>
@@ -184,10 +192,7 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 							style="text-decoration: none;">Produto e estoque- operações cadastrais
 						</a></li>
 						
-						<li class="list-group-item"><a
-							href="product-panel_insert.jsp" style="text-decoration: none;">Inserir
-								dados do produto</a></li>
-						
+										
 
 						<hr>
 
@@ -250,11 +255,19 @@ AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 								disabled></input>
 						</div>
 
-						<div class="form-group col-md-8">
+						<div class="form-group col-md-6">
 							<label for="nameAdmin_query">Nome do administrador *</label> <input
 								class="form-control" type="text" id="nameAdmin_query"
 								name="fnameAdmin_query"
 								placeholder="<%=list_adminRegistration.get(i).getNameAdmin()%>"
+								disabled></input>
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label for="accessLevel">Nível de acesso *</label> <input
+								class="form-control" type="text" id="accessLevel"
+								name="faccessLevel"
+								placeholder="<%=list_adminRegistration.get(i).getAccessLevel() %>"
 								disabled></input>
 						</div>
 

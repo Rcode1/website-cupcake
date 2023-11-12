@@ -8,7 +8,8 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 
-
+<%@ page language="java"
+	errorPage="error-redirection/error-redirection_admin-insert.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no ">
@@ -53,10 +54,14 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
+			<a href="main-panel_query.jsp"><button
+					class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
+
 			<span class="acesso-usuario">
 				<ul class="nav nav menu-principal">
 					<div style="width: 80px;">
-						<img style="width: 80px;" src="../../img/usuario.png">
+						<img style="width: 80px;" src="../../img/capaAdminA.png">
 					</div>
 					<li class="nav-item dropdown"><p
 							style="margin: 0px; padding-left: 15px;">nome do admin</p> <a
@@ -75,72 +80,93 @@
 
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item"
-								href="main-admin/admin-panel_operation.jsp">Operações gerais</a>
+								href="admin-panel_operation.jsp">Operações gerais</a>
 
 							<div class="dropdown-divider"></div>
 
-							<a class="dropdown-item" href="../admin_access-account.jsp">Sair</a>
+							<a class="dropdown-item" href="../admin_closed.jsp">Sair</a>
 						</div></li>
 				</ul>
 			</span>
 
 			<!-- fim do menu principal -->
-			
-			<!--  Início do menu lateral -->
 
+			<!-- Painel lateral - administrador -->
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
 				style="max-width: 300px;" tabindex="-1"
 				id="offcanvasWithBothOptions"
 				aria-labelledby="offcanvasWithBothOptionsLabel">
 				<div class="offcanvas-header">
-					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Listagem
-						de produtos</h4>
+					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+						cadastrais</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 						aria-label="Close"></button>
 				</div>
-
-
 				<div class="offcanvas-body">
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações cadastrais</h5>
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+							de administradores</h5>
+
+						<li class="list-group-item">Abaixo estão disponíveis todas as
+							operações de cadastro, tanto para o administrador principal como
+							para os responsáveis pela manutenção dos recursos do site.</li>
+
 						<li class="list-group-item"><a href="main-panel_query.jsp"
-							style="text-decoration: none;">consultar dados</a></li>
+							style="text-decoration: none;">Consultar dados </a></li>
 						<li class="list-group-item"><a href="main-panel_update.jsp"
 							style="text-decoration: none;">Alterar dados</a></li>
 						<li class="list-group-item"><a href="main-panel_delete.jsp"
 							style="text-decoration: none;">Deletar dados</a></li>
-						<hr>
-
-						<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos e estoque</h5>
 						<li class="list-group-item"><a
-							href="../product/product-panel_operation.jsp"
-							style="text-decoration: none;">Produto - operações cadastrais
-						</a></li>
+							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
+								- operações cadastrais </a></li>
 
 						<hr>
 					</ul>
 
-						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-								do cliente</h5>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">consultar dados </a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Alterar dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Deletar dados</a></li>
-							<hr>
 
-						</ul>
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
+							do cliente</h5>
+						<li class="list-group-item"><a href="#"
+							style="text-decoration: none;">consultar dados </a></li>
+						<li class="list-group-item"><a href="#"
+							style="text-decoration: none;">Alterar dados</a></li>
+						<li class="list-group-item"><a href="#"
+							style="text-decoration: none;">Deletar dados</a></li>
+						<hr>
+
+					</ul>
+
+
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+							de produtos e estoque</h5>
+						<li class="list-group-item">Para acessar os itens de cadastro
+							do produto, basta dar um click no item <strong> Cadastro
+								de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.
+						</li>
+						<li class="list-group-item"><a
+							href="../product/product-panel_operation.jsp"
+							style="text-decoration: none;">Produto e estoque- operações
+								cadastrais </a></li>
+
+						<hr>
+					</ul>
+
 				</div>
 			</div>
 			<br> <br> <br>
+
 		</div>
+
+
+
 	</div>
+
 	<!-- Fim do menu lateral -->
+
 	<!--------------------------formulario----------------------------------------------------------->
 
 	<div class="largura-max-cadastro"
@@ -169,9 +195,9 @@
 
 
 
-						<div class="form-group col-md-4">
+						<div class="form-group col-md-6">
 							<label for="emailAccess_insert">Email de acesso *</label> <input
-								class="form-control" type="text" id="emailAccess_insert"
+								class="form-control" type="email" id="emailAccess_insert"
 								name="femailAccess_insert" placeholder="Acesso:" required></input>
 						</div>
 
@@ -196,10 +222,9 @@
 						</div>
 
 						<div class="form-group col-md-5">
-							<label for="phoneContact_insert">Telefone cel * OBS.:
-								incluir o "zero" do DDD.</label> <input class="form-control" type="text"
-								id="phoneContact_insert" name="fphoneContact_insert"
-								placeholder="Telefone:" required></input>
+							<label for="phone">Telefone cel * OBS.: incluir o "zero"
+								do DDD.</label> <input class="form-control" type="text" id="phone"
+								name="fphone" placeholder="Telefone:" required></input>
 						</div>
 
 					</div>
@@ -234,6 +259,24 @@
 
 
 
+	<!--Mascaras dos campos de cadastro-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#birthDate").mask('00/00/0000', {
+				reverse : true
+			});
+			$("#document").mask('000.000.000-00', {
+				reverse : true
+			});
+			$("#phone").mask('(00) 00000-0000', {
+				reverse : true
+			});
+			$("#zipCode").mask('00.000.000', {
+				reverse : true
+
+			});
+		});
+	</script>
 
 
 
@@ -250,7 +293,7 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
-	<script src="../../../js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
 
 
 	<script
