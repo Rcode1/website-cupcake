@@ -1,3 +1,4 @@
+<%@page import="java.lang.String" %>
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dao.client.ClientDao"%>
@@ -23,9 +24,9 @@ ClientDao dao_client = new ClientDao();
 try{
 	
 	
-	ArrayList<ClientRegistration> list = dao_client.preparedlist();
+	ArrayList<ClientRegistration> list = dao_client.select_RegistrationClient_dao();
 
-	String a = "rodrigo.braga29@hotmail.com";
+	String a = "k";
 	
 	for(int i=0; i<list.size(); i++){
 		if(list.get(i).getEmailRegistration().equals(a)){	// filtro para a seleção
@@ -57,10 +58,10 @@ try{
 }catch(Exception e){
 	
 }
-	
+	String b="kkk";
 %>
 
-
+<%=b %>
 
 </body>
 </html>

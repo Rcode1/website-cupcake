@@ -69,7 +69,8 @@ public class ClientDao {
 
 	
 	 
-// Metodo para selecionar os cliente cadastrados no DB.
+    // Metodo para selecionar os cliente cadastrados no DB. Este método será utilizado na área administrativa.
+	//para consultas e manutenção.
 	public ArrayList<ClientRegistration> select_RegistrationClient_dao() {
 
 		try {
@@ -83,29 +84,31 @@ public class ClientDao {
 					while (rs.next()) {
 				
 
-							ClientRegistration obj_RegistrationClient_dto = new ClientRegistration();
+							ClientRegistration obj_RegistrationClient = new ClientRegistration();
 							
-							obj_RegistrationClient_dto.setIdClient(rs.getInt("id_client"));
-							obj_RegistrationClient_dto.setDateRegistration(rs.getString("date_registration"));    
-							obj_RegistrationClient_dto.setName(rs.getString("name"));
-							obj_RegistrationClient_dto.setBirthDate(rs.getString("birth_date"));
-							obj_RegistrationClient_dto.setDocumentCpf(rs.getString("document_cpf"));
-							obj_RegistrationClient_dto.setEmailRegistration(rs.getString("email"));
-							obj_RegistrationClient_dto.setPassword(rs.getString("password"));
-							obj_RegistrationClient_dto.setPhone(rs.getString("phone"));
-							obj_RegistrationClient_dto.setStreet(rs.getString("street"));
-							obj_RegistrationClient_dto.setComplement(rs.getString("complement"));
-							obj_RegistrationClient_dto.setHomeNumber(rs.getString("home_number"));
-							obj_RegistrationClient_dto.setNeighborhood(rs.getString("neighborhood"));
-							obj_RegistrationClient_dto.setCity(rs.getString("city"));
-							obj_RegistrationClient_dto.setState(rs.getString("state"));
-							obj_RegistrationClient_dto.setZipCode(rs.getString("zip_code"));
+							obj_RegistrationClient.setIdClient(rs.getInt("id_client"));
+							obj_RegistrationClient.setDateRegistration(rs.getString("date_registration"));    
+							obj_RegistrationClient.setName(rs.getString("name"));
+							obj_RegistrationClient.setBirthDate(rs.getString("birth_date"));
+							obj_RegistrationClient.setDocumentCpf(rs.getString("document_cpf"));
+							obj_RegistrationClient.setEmailRegistration(rs.getString("email"));
+							obj_RegistrationClient.setPassword(rs.getString("password"));
+							obj_RegistrationClient.setPhone(rs.getString("phone"));
+							obj_RegistrationClient.setStreet(rs.getString("street"));
+							obj_RegistrationClient.setComplement(rs.getString("complement"));
+							obj_RegistrationClient.setHomeNumber(rs.getString("home_number"));
+							obj_RegistrationClient.setNeighborhood(rs.getString("neighborhood"));
+							obj_RegistrationClient.setCity(rs.getString("city"));
+							obj_RegistrationClient.setState(rs.getString("state"));
+							obj_RegistrationClient.setZipCode(rs.getString("zip_code"));
 
-							 list_verification.add(obj_RegistrationClient_dto);
+							 list_verification.add(obj_RegistrationClient);
 
 							
 
 						}
+					
+					
 					} catch (Exception e) {
 			e.printStackTrace();
 
@@ -114,48 +117,62 @@ public class ClientDao {
 
 	}
 	
-	ArrayList<ClientRegistration> list = new ArrayList<>();
 	
-	public ArrayList<ClientRegistration> preparedlist(){ 
+	
+	//....................................................//
+	
+	//Esta seleção retorna a lista de um id do usuário do banco de dados. Os dados serão utilizados para acessar a sua conta
+	//e autenticar todas as transações realizadas no site.
+	
+	String teste_list ="rodrigo.braga29@hotmail.com";// String para testar a lista
+	
+	public ArrayList<ClientRegistration> resultSelectRegistration_Dao(String email, String password){
 		select_RegistrationClient_dao();
-		try{
-				
-			list =  new  ClientDao().select_RegistrationClient_dao();
-
-			String a = "rodrigo.braga29@hotmail.com";
-			
-			for(int i=0; i<list.size(); i++){
-				if(list.get(i).getEmailRegistration().equals(a)){	// filtro para a seleção
-				
-				list.get(i).getIdClient();
-				list.get(i).getDateRegistration();
-		    	list.get(i).getName();
-				list.get(i).getBirthDate();
-			    list.get(i).getDocumentCpf();
-				list.get(i).getEmailRegistration();
-				list.get(i).getPassword();
-				list.get(i).getPhone();
-				list.get(i).getStreet();
-				list.get(i).getComplement();
-				list.get(i).getHomeNumber();
-				list.get(i).getNeighborhood();
-				list.get(i).getCity();
-				list.get(i).getState();
-				list.get(i).getZipCode();
+		ArrayList<ClientRegistration> list = new ArrayList<>();
+		list = select_RegistrationClient_dao();
+		ArrayList<ClientRegistration> listResult = new ArrayList<>();
+		
+		try {
+			for (int i=0; i<list.size(); i++) {
+				if(list.get(i).getEmailRegistration().equals(email)) {
+					if(list.get(i).getPassword().equals(password)) {
+					ClientRegistration clientResult = new ClientRegistration();
+					
+					clientResult.setIdClient(list.get(i).getIdClient());
+					clientResult.setDateRegistration(list.get(i).getDateRegistration());    
+					clientResult.setName(list.get(i).getName());
+					clientResult.setBirthDate(list.get(i).getBirthDate());
+					clientResult.setDocumentCpf(list.get(i).getDocumentCpf());
+					clientResult.setEmailRegistration(list.get(i).getEmailRegistration());
+					clientResult.setPassword(list.get(i).getPassword());
+					clientResult.setPhone(list.get(i).getPhone());
+					clientResult.setStreet(list.get(i).getStreet());
+					clientResult.setComplement(list.get(i).getComplement());
+					clientResult.setHomeNumber(list.get(i).getHomeNumber());
+					clientResult.setNeighborhood(list.get(i).getNeighborhood());
+					clientResult.setCity(list.get(i).getCity());
+					clientResult.setState(list.get(i).getState());
+					clientResult.setZipCode(list.get(i).getZipCode());
+					
+					listResult.add(clientResult);
+					}}
 				}
-				 
-						
-			}
+					
 			
-
-
-		}catch(Exception e){
+		} catch (Exception e) {
 			
 		}
-		return list;
+		
+		
+		return listResult;	
+				
+				
+			}
+		
+		
+		
+		
 	}
 	
-	
-	
 
-}
+

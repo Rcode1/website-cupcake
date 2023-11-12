@@ -1,5 +1,7 @@
 package br.com.dto.client;
 
+import java.util.ArrayList;
+
 /**
  * year 2023 title Cupcake Store
  *
@@ -15,6 +17,9 @@ public class ClientRegistration extends RegistrationAddress {
 	private String emailRegistration;
 	private String password;
 	private String phone;
+	private ArrayList<ClientRegistration> listDTO =new ArrayList<>();
+	private String checkEmail;
+	private String checkPassword;
 	
 
 	
@@ -100,5 +105,39 @@ public class ClientRegistration extends RegistrationAddress {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+
+	public String getCheckEmail() {
+		return checkEmail;
+	}
+
+
+	public void setCheckEmail(String checkEmail) {
+		this.checkEmail = checkEmail;
+	}
+
+
+	public String getCheckPassword() {
+		return checkPassword;
+	}
+
+
+	public void setCheckPassword(String checkPassword) {
+		this.checkPassword = checkPassword;
+	}
+
+
+	public ArrayList<ClientRegistration> getListDTO() {
+		
+		
+		return listDTO;
+	}
+
+
+	public void setListDTO(ArrayList<ClientRegistration> listDTO) {
+		this.listDTO = listDTO;
+	}
+	
+	
 
 }
