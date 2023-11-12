@@ -1,3 +1,4 @@
+<%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@page import="br.com.dto.product.ProductRegistration"%>
 <%@page import="java.util.ArrayList"%>
@@ -31,15 +32,16 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
-<meta charset="utf-8">
+
 <title>Insert title here</title>
 
 
 </head>
 
 <body>
-
+<%
+AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+%>
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
@@ -50,10 +52,27 @@
 
 			<!----------------------Menu principal------------------------------------>
 
-			<a href="main-page_home.jsp"><button
+			<!-- Início do botão: "Início" ( Painel do administrador) -->
+			<%
+			if (adminRegistrationDao.returnAccess_Administrator_dao().get(0).getAccessLevel().equals("Manutenção")) {
+			%><a href="../standard-admin/standard-page_home.jsp"><button
 					class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
 					aria-controls="offcanvasWithBothOptions">Início</button></a>
+			<%
+			} else {
+			%>
+
+			<a href="../main-admin/main-page_home.jsp"><button
+					class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button></a>
+
+			<%
+			}
+			%>
+			<!-- Fim do botão: "Início" ( Painel do administrador) -->
+
 
 			<button class="btn btn-light  float-left " type="button"
 				style="margin: 12px; background-color: gainsboro; color: black;"
@@ -61,8 +80,9 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
-			<!--  -->
+			<!-- Campo input para seleção de uma informação do db -->
 			<div class="  float-right" style="margin-right: 180px;">
+				
 				<form action="product_operation.jsp" id="product-panel_updade"
 					method="POST">
 
@@ -87,7 +107,7 @@
 				</form>
 			</div>
 
-			<!--  -->
+			<!-- Fim -->
 
 
 
@@ -107,48 +127,32 @@
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
 							de produtos</h5>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">consultar dados</a></li>
+						<li class="list-group-item">Neste painel só podem haver a inserção de produtos, item para inserção logo abaixo, para as demais operações é necessário 
+						selecionar o ID desejado do produto cadastrado e inserir no campo de entrada de texto, situado no cabeçalho, após a inserção basta finalizar a operação pressionando o botão (Acessar ID), situado ao lado.</li>
+						
 						<li class="list-group-item"><a
 							href="product-panel_insert.jsp" style="text-decoration: none;">Inserir
-								dados</a></li>
-						<li class="list-group-item"><a
-							href="product-panel_update.jsp" style="text-decoration: none;">Alterar
-								dados</a></li>
-						<li class="list-group-item"><a
-							href="product-panel_delete.jsp" style="text-decoration: none;">Deletar
-								dados</a></li>
+								dados do produto</a></li>
+						
 						<hr>
 
 					</ul>
-
+					
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de produtos</h5>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">consultar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Inserir dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações de cadadstro no estoque</h5>
+						<li class="list-group-item"><strong>O estoque sempre estará relacionado com o produto selecionado.</strong>
+						 Para acessar os itens de estoque e realizar as operações para consultar, atualizar, deletar ou inserir os dados basta
+						acessar o item abaixo.</li>
+						
+						<li class="list-group-item"><a href="stock-panel_operation.jsp"
+							style="text-decoration: none;">Operações
+							com estoques  </a></li>
+						
 						<hr>
 
 					</ul>
 
-					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-							do cliente</h5>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">consultar dados </a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
-						<hr>
-
-					</ul>
+										
 				</div>
 			</div>
 			<br> <br> <br>
@@ -165,8 +169,8 @@
 		<div class="largura-max-cadastro text-center">
 			<h3>Identificação dos produtos registrados</h3>
 			<p>Abaixo estão todos os produtos registrados, basta selecionar
-				um registro e introduzir seu id no campo de texto para ter acesso a
-				suas funcionalidade</p>
+				um registro e introduzir seu id no campo de texto para ter acesso às
+				suas funcionalidades</p>
 		</div>
 		<div class="borda-cor-cadastro">
 			<div class="borda-cor-cadastro" Style="margin-bottom: 10px;">
@@ -174,6 +178,9 @@
 
 				<%
 				ProductDao productDao = new ProductDao();
+				productDao.removeResult_listProduct_Dao();
+				productDao.removeResult_stockProductList_Dao();
+				productDao.removeUniqueStockResultList_Dao();
 
 				ArrayList<ProductRegistration> list_productRegistration = new ArrayList<>();
 

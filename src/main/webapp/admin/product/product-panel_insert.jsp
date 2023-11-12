@@ -1,3 +1,4 @@
+<%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -28,14 +29,17 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
-<meta charset="utf-8">
-<title>Insert title here</title>
+
+<title>Inserir dados do produto</title>
 
 
 </head>
 
 <body>
+<%
+AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+%>
+
 
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
@@ -47,10 +51,26 @@
 
 			<!----------------------Menu principal------------------------------------>
 
-			<a href="main-page_home.jsp"><button
+			<!-- Início do botão: "Início" ( Painel do administrador) -->
+			<%
+			if (adminRegistrationDao.returnAccess_Administrator_dao().get(0).getAccessLevel().equals("Manutenção")) {
+			%><a href="../standard-admin/standard-page_home.jsp"><button
 					class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
 					aria-controls="offcanvasWithBothOptions">Início</button></a>
+			<%
+			} else {
+			%>
+
+			<a href="../main-admin/main-page_home.jsp"><button
+					class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button></a>
+
+			<%
+			}
+			%>
+			<!-- Fim do botão: "Início" ( Painel do administrador) -->
 
 
 
@@ -75,116 +95,126 @@
 				</div>
 				<div class="offcanvas-body">
 
+
+
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de administradores</h5>
-						<li class="list-group-item"><a href="main-panel_query.jsp"
-							style="text-decoration: none;">consultar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Inserir dados</a></li>
-						<li class="list-group-item"><a href="main-panel_update.jsp"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="main-panel_delete.jsp"
-							style="text-decoration: none;">Deletar dados</a></li>
-						<hr>
-
-						<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
 							de produtos</h5>
-						<li class="list-group-item"><a
-							href="product-panel_query.jsp" style="text-decoration: none;">consultar
-								dados</a></li>
-						<li class="list-group-item"><a
-							href="#" style="text-decoration: none;">Inserir
-								dados</a></li>
+
+						<li class="list-group-item">Abaixo estão os itens
+							relacionados com o ID do produto selecionado, caso queira
+							realizar uma operação em um outro produto basta retornar a
+							consulta, o link de acesso é: (Retornar a consulta de dados),
+							situado neste menu.</li>
+
+
+
 						<li class="list-group-item"><a
 							href="product-panel_update.jsp" style="text-decoration: none;">Alterar
 								dados</a></li>
+
+
 						<li class="list-group-item"><a
 							href="product-panel_delete.jsp" style="text-decoration: none;">Deletar
 								dados</a></li>
+
+
+						<li class="list-group-item"><a
+							href="product-panel_operation.jsp" style="text-decoration: none;">Retornar
+								a consulta de dados</a></li>
+
 						<hr>
 
 					</ul>
 
-						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-								do cliente</h5>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">consultar dados </a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Alterar dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Deletar dados</a></li>
-							<hr>
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações de cadadstro no estoque</h5>
+						<li class="list-group-item"><strong>O estoque sempre estará relacionado com o produto selecionado.</strong>
+						 Para acessar os itens de estoque e realizar as operações para consultar, atualizar, deletar ou inserir os dados basta
+						acessar o item abaixo.</li>
+						
+						<li class="list-group-item"><a href="stock-panel_operation.jsp"
+							style="text-decoration: none;">Operações
+							com estoques  </a></li>
+						
+						<hr>
 
-						</ul>
+					</ul>
+					
 				</div>
+				<br> <br> <br>
+
 			</div>
-			<br> <br> <br>
+
+
 
 		</div>
 
+		<!--Formulario destinado a inserção dos dados do produto-->
 
-
-	</div>
-
-	<!--Formulario destinado a inserção dos dados do produto-->
-
-	<div class="largura-max-cadastro"
-		style="margin: auto auto; margin-top: 80px;">
-		<div class="largura-max-cadastro text-center">
-			<h3>Inserção dos dados do produto</h3>
-			<p>Formulario destinado a inserção dos dados do produto</p>
-		</div>
-		<div class="borda-cor-cadastro">
-			<form action="product_insert.jsp"
-				id="product-panel_insert" method="POST">
-				<!------>
-				<div class="borda-cor-cadastro">
-					<div class="form-row">
-
-						<!------>
-
-						<div class="form-group col-md-4">
-							<label for="productionDate_insert">Data de produção *</label> <input
-								class="form-control" type="date" id="productionDate_insert" name="fproductionDate_insert"
-								placeholder="D. produção:" required></input>
-						</div>
-
-
-						<div class="form-group col-md-8">
-							<label for="productName">Nome do produto *</label> <input
-								class="form-control" type="text" id="productName" name="fproductName"
-								placeholder="N.completo:" required></input>
-						</div>
-
-
-						<div class="form-group col-md-12">
-							<label for="basicDescription_insert">Descrição básica *</label> <input
-								class="form-control" style="text-transform: lowercase;"
-								type="text" id="basicDescription_insert" name="fbasicDescription_insert" placeholder="Descrição b.:"
-								required></input>
-						</div>
-
-						<div class="form-group col-md-12">
-							<label for="longDescription_insert">Descrição completa *</label> <input
-								class="form-control" style="text-transform: lowercase;"
-								type="text" id="longDescription_insert" name="flongDescription_insert" placeholder="Descrição c.:"
-								required></input>
-						</div>
-					</div>
+		<div class="largura-max-cadastro"
+			style="margin: auto auto; margin-top: 80px;">
+			<div class="largura-max-cadastro text-center">
+				<h3>Inserção dos dados do produto</h3>
+				<p>Formulario destinado a inserção dos dados do produto. Para concluir a insersão basta dar um click em <strong>Inserir dados</strong>. </p>
+			</div>
+			<div class="borda-cor-cadastro">
+				<form action="product_insert.jsp" id="product-panel_insert"
+					method="POST">
 					<!------>
-					<button type="submit" class="btn btn-primary btn-sm ">Cadastrar</button>
+					<div class="borda-cor-cadastro">
+						<div class="form-row">
 
-				</div>
+							<!------>
 
-			</form>
+							<div class="form-group col-md-4">
+								<label for="creationDate_insert">Data da criação do
+									produto *</label> <input class="form-control" type="date"
+									id="creationDate_insert" name="fcreationDate_insert"
+									placeholder="D. criação: " required></input>
+							</div>
+
+
+							<div class="form-group col-md-8">
+								<label for="productName">Nome do produto *</label> <input
+									class="form-control" type="text" id="productName"
+									name="fproductName" placeholder="N.produto: " required></input>
+							</div>
+
+
+							<div class="form-group col-md-12">
+								<label for="basicDescription_insert">Descrição básica *</label>
+								<textarea class="form-control" style="text-transform: lowercase;"
+									type="text" id="basicDescription_insert"
+									name="fbasicDescription_insert" minlength="20" maxlength="300"
+									placeholder="Descrição b.: Insira aqui a descrição simplificada, máximo 300 caracteres"
+									required></textarea>
+							</div>
+
+													
+							<div class="form-group col-md-12">
+								<label for="longDescription_insert">Descrição completa *</label>
+								
+								<textarea class="form-control" style="text-transform: lowercase;"
+									type="text" id="longDescription_insert"
+									name="flongDescription_insert" minlength="20" maxlength="1000"
+									placeholder="Descrição c.: Insira aqui a descrição completa, máximo 1000 caracteres"
+									required></textarea>
+								
+							</div>
+						</div>
+						<!------>
+						<button type="submit" class="btn btn-primary btn-sm ">Inserir
+							dados</button>
+
+					</div>
+
+				</form>
+
+			</div>
+			<br>
 
 		</div>
-		<br>
-
-	</div>
 
 
 
@@ -215,16 +245,16 @@
 
 
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-		crossorigin="anonymous"></script>
-	<script src="js/bootstrap.min.js"></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+			integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+			crossorigin="anonymous"></script>
+		<script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

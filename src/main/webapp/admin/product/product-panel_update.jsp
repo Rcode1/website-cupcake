@@ -1,3 +1,5 @@
+<%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
+<%@page import="br.com.dao.product.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -28,15 +30,16 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
-<meta charset="utf-8">
-<title>Insert title here</title>
+<title>Alterar dados do produto</title>
 
 
 </head>
 
 <body>
-
+	<%
+	ProductDao productDao = new ProductDao();
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
@@ -47,12 +50,27 @@
 
 			<!----------------------Menu principal------------------------------------>
 
-			<a href="main-page_home.jsp"><button
+
+			<!-- Início do botão: "Início" ( Painel do administrador) -->
+			<%
+			if (adminRegistrationDao.returnAccess_Administrator_dao().get(0).getAccessLevel().equals("Manutenção")) {
+			%><a href="../standard-admin/standard-page_home.jsp"><button
+					class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button></a>
+			<%
+			} else {
+			%>
+
+			<a href="../main-admin/main-page_home.jsp"><button
 					class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
 					aria-controls="offcanvasWithBothOptions">Início</button></a>
 
-
+			<%
+			}
+			%>
+			<!-- Fim do botão: "Início" ( Painel do administrador) -->
 
 
 			<button class="btn btn-light  float-left " type="button"
@@ -75,27 +93,49 @@
 				</div>
 				<div class="offcanvas-body">
 
-					
-						<ul class="list-group list-group-flush">
+					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
 							de produtos</h5>
-						<li class="list-group-item"><a
-							href="product-panel_query.jsp" style="text-decoration: none;">consultar
-								dados</a></li>
+
+						<li class="list-group-item">Abaixo estão os itens
+							relacionados com o ID do produto selecionado, caso queira
+							realizar uma operação em um outro produto basta retornar a
+							consulta, o link de acesso é: (Retornar a consulta de dados),
+							situado neste menu.</li> <
 						<li class="list-group-item"><a
 							href="product-panel_insert.jsp" style="text-decoration: none;">Inserir
 								dados</a></li>
-						<li class="list-group-item"><a
-							href="#" style="text-decoration: none;">Alterar
-								dados</a></li>
+
+
 						<li class="list-group-item"><a
 							href="product-panel_delete.jsp" style="text-decoration: none;">Deletar
 								dados</a></li>
+
+
+						<li class="list-group-item"><a
+							href="product-panel_operation.jsp" style="text-decoration: none;">Retornar
+								a consulta de dados</a></li>
+
 						<hr>
 
 					</ul>
 
-						
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+							de cadadstro no estoque</h5>
+						<li class="list-group-item"><strong>O estoque sempre
+								estará relacionado com o produto selecionado.</strong> Para acessar os
+							itens de estoque e realizar as operações para consultar,
+							atualizar, deletar ou inserir os dados basta acessar o item
+							abaixo.</li>
+
+						<li class="list-group-item"><a
+							href="stock-panel_operation.jsp" style="text-decoration: none;">Operações
+								com estoques </a></li>
+
+						<hr>
+
+					</ul>
 				</div>
 			</div>
 			<br> <br> <br>
@@ -111,64 +151,71 @@
 	<div class="largura-max-cadastro"
 		style="margin: auto auto; margin-top: 80px;">
 		<div class="largura-max-cadastro text-center">
-			<h3>Atualização dos dados do produto</h3>
-			<p>Formulario destinado a atualização dos dados do produto</p>
+			<h3>Alteração dos dados do produto</h3>
+			<p>Formulario destinado a alteração dos dados do produto</p>
 		</div>
 		<div class="borda-cor-cadastro">
-			<form action="#"
-				id="product-panel_updade" method="POST">
+			<form action="product_update.jsp" id="product-panel_updade"
+				method="POST">
 				<!------>
-				
+
 				<!---Neste trecho abre um campo imput para a entrada do código do produto, desta forma é possível
 			confirmar às intenções da realização de alterações dos dados cadastrais--->
-					<div class="borda-red"">
-							<p >Digite o mesmo código que
-								aparece no campo (confirmação para atualização) que está logo
-								abaixo, em seguida click no botão "Atualizar cadastro".</p>
+				<div class="borda-red"">
+					<p>
+						Digite o mesmo código que aparece no campo (confirmação para
+						alteração) que está logo abaixo, em seguida click no botão
+						<storng> Alterar cadastro</storng>
+						.
+					</p>
 
-							<div class="form-group col-md-4"
-								Style="margin-left: auto; margin-right: auto; text-align: center;">
+					<div class="form-group col-md-4"
+						Style="margin-left: auto; margin-right: auto; text-align: center;">
 
-								<label for="idProductRegistration_update">Confirmação para atualização</label> <input
-									class="form-control" type="text" id="idProductRegistration_update" name="fidProductRegistration_update"
-									placeholder=" Digite aqui este código: "></input>
-							</div>
-						</div>
+						<label for="idProductRegistration_update">Confirmação para
+							alteração</label> <input class="form-control" type="text"
+							id="idProductRegistration_update"
+							name="fidProductRegistration_update"
+							placeholder=" Digite este código aqui: <%=productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration()%>"></input>
+					</div>
+				</div>
 				<div class="borda-cor-cadastro">
 					<div class="form-row">
 
 						<!------>
 
 						<div class="form-group col-md-4">
-							<label for="productionDate">Data de produção *</label> <input
-								class="form-control" type="date" id="productionDate" name="fproductionDate"
-								placeholder="D. produção:" required></input>
+							<label for="creationDate">Data de criação do produto *</label> <input
+								class="form-control" type="text" id="creationDate"
+								name="fcreationDate"
+								placeholder="D. criação: <%=productDao.getResult_listProduct_Dao().get(0).getCreationDate()%>"></input>
 						</div>
 
 
 						<div class="form-group col-md-8">
 							<label for="productName">Nome do produto *</label> <input
-								class="form-control" type="text" id="productName" name="fproductName"
-								placeholder="N.completo:" required></input>
+								class="form-control" type="text" id="productName"
+								name="fproductName"
+								placeholder="N.produto: <%=productDao.getResult_listProduct_Dao().get(0).getProductName()%>"></input>
 						</div>
 
 
 						<div class="form-group col-md-12">
-							<label for="basicDescription">Descrição básica *</label> <input
-								class="form-control" style="text-transform: lowercase;"
-								type="text" id="basicDescription" name="fbasicDescriptionl" placeholder="Descrição b.:"
-								required></input>
+							<label for="basicDescription">Descrição básica *</label>
+							<textarea class="form-control" style="text-transform: lowercase;"
+								type="text" id="basicDescription" name="fbasicDescriptionl"
+								placeholder="Descrição b.: "><%=productDao.getResult_listProduct_Dao().get(0).getBasicDescription()%></textarea>
 						</div>
 
 						<div class="form-group col-md-12">
-							<label for="longDescription">Descrição completa *</label> <input
-								class="form-control" style="text-transform: lowercase;"
-								type="text" id="longDescription" name="flongDescription" placeholder="Descrição c.:"
-								required></input>
+							<label for="longDescription">Descrição completa *</label>
+							<textarea class="form-control" type="text" id="longDescription"
+								name="flongDescription" placeholder="Descrição b.:"><%=productDao.getResult_listProduct_Dao().get(0).getLongDescription()%></textarea>
 						</div>
 					</div>
 					<!------>
-					<button type="submit" class="btn btn-primary btn-sm ">Cadastrar</button>
+					<button type="submit" class="btn btn-primary btn-sm ">Alterar
+						dados</button>
 
 				</div>
 

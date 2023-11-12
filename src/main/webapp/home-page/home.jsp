@@ -1,8 +1,8 @@
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dao.client.ClientDao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +42,7 @@
 	//ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
 	try {
 
-		//Este linha traz como resultado às informações contidas no DB de acordo com o usuário e senha
+		//Este linha traz como resultado Ã s informaÃ§Ãµes contidas no DB de acordo com o usuÃ¡rio e senha
 		dao_client.resultSelectRegistration_Dao(request.getParameter("fuser-name").toLowerCase(),
 		request.getParameter("fpassword-access"));
 
@@ -63,7 +63,7 @@
 
 				<button class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
-					aria-controls="offcanvasWithBothOptions">Início</button>
+					aria-controls="offcanvasWithBothOptions">InÃ­cio</button>
 
 
 
@@ -85,7 +85,7 @@
 					<img class=" float-left" alt="" src="../img/carrinho.png"
 						style="width: 65px;">
 					<p class=" float-left" style="margin-top: 10px;">Itens</p>
-					<p class=" float-left" style="margin-top: 10px;">: N.° 0</p>
+					<p class=" float-left" style="margin-top: 10px;">: N.Â° 0</p>
 				</button>
 
 
@@ -199,12 +199,12 @@
 
 	</div>
 
-	<!--------------------------Card com o produto - lançamentos----------------------------------->
+	<!--------------------------Card com o produto - lanÃ§amentos----------------------------------->
 
 	<div class="alinhamento-tamanho_max margem-carrocel">
 
 		<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
-			os nossos Lançamentos!</h4>
+			os nossos LanÃ§amentos!</h4>
 		<hr>
 
 		<!--  -->
@@ -221,14 +221,14 @@
 			<div class="card-body">
 				<h5 class="card-title">Bolinho cupcake</h5>
 				<p class="card-text">Este bolinho tem um suave aroma acompanhado
-					de um sabor inigualável</p>
+					de um sabor inigualÃ¡vel</p>
 			</div>
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item">Preço</li>
+				<li class="list-group-item">PreÃ§o</li>
 
 			</ul>
 			<div class="card-body">
-				<a href="#" class="card-link">Verifique as condições para
+				<a href="#" class="card-link">Verifique as condiÃ§Ãµes para
 					entrega </a>
 
 			</div>
@@ -247,7 +247,7 @@
 
 
 		<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
-			as nossas Promoções!</h4>
+			as nossas PromoÃ§Ãµes!</h4>
 		<hr>
 
 		<!--  -->
@@ -264,14 +264,14 @@
 			<div class="card-body">
 				<h5 class="card-title">Bolinho cupcake</h5>
 				<p class="card-text">Este bolinho tem um suave aroma acompanhado
-					de um sabor inigualável</p>
+					de um sabor inigualÃ¡vel</p>
 			</div>
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item">Preço</li>
+				<li class="list-group-item">PreÃ§o</li>
 
 			</ul>
 			<div class="card-body">
-				<a href="#" class="card-link">Verifique as condições para
+				<a href="#" class="card-link">Verifique as condiÃ§Ãµes para
 					entrega </a>
 
 			</div>
@@ -283,16 +283,16 @@
 
 	</div>
 	
-	<!-- Informações do rodapé do site-->
+	<!-- InformaÃ§Ãµes do rodapÃ© do site-->
 	<div class="rodape fixed-bottom">
 		<div class="  alinhamento-tamanho_max ">
 			<a href="#"><h6 class="card-title float-left"
-					style="margin: 10px;">° Entre em contato</h6></a> <a href="#"><h6
-					class="card-title float-left" style="margin: 10px;">° Quem
+					style="margin: 10px;">Â° Entre em contato</h6></a> <a href="#"><h6
+					class="card-title float-left" style="margin: 10px;">Â° Quem
 					somos</h6></a> <a href="#"><h6 class="card-title float-left"
-					style="margin: 10px;">° Política de privacidade</h6></a> <a href="#"><h6
-					class="card-title float-left" style="margin: 10px;">°
-					Navegação no site</h6></a>
+					style="margin: 10px;">Â° PolÃ­tica de privacidade</h6></a> <a href="#"><h6
+					class="card-title float-left" style="margin: 10px;">Â°
+					NavegaÃ§Ã£o no site</h6></a>
 		</div>
 	</div>
 

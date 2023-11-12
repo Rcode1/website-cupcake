@@ -1,3 +1,4 @@
+<%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -29,15 +30,16 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
-<meta charset="utf-8">
-<title>Insert title here</title>
+
+<title>Consulta dos dados do produto</title>
 
 
 </head>
 
 <body>
-
+<%
+AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+%>
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
@@ -48,10 +50,27 @@
 
 			<!----------------------Menu principal------------------------------------>
 
-			<a href="main-page_home.jsp"><button
+			<!-- Início do botão: "Início" ( Painel do administrador) -->
+			<%
+			if (adminRegistrationDao.returnAccess_Administrator_dao().get(0).getAccessLevel().equals("Manutenção")) {
+			%><a href="../standard-admin/standard-page_home.jsp"><button
 					class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
 					aria-controls="offcanvasWithBothOptions">Início</button></a>
+			<%
+			} else {
+			%>
+
+			<a href="../main-admin/main-page_home.jsp"><button
+					class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button></a>
+
+			<%
+			}
+			%>
+			<!-- Fim do botão: "Início" ( Painel do administrador) -->
+
 
 
 
@@ -79,9 +98,11 @@
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
 							de produtos</h5>
-						<li class="list-group-item"><a
-							href="#" style="text-decoration: none;">consultar
-								dados</a></li>
+						
+						<li class="list-group-item"> Abaixo estão os itens relacionados com o ID do produto selecionado, caso queira realizar uma operação
+						em um outro produto basta retornar a consulta, o link de acesso é: (Retornar a consulta de dados), situado neste menu.</li>
+						
+						
 						<li class="list-group-item"><a
 							href="product-panel_insert.jsp" style="text-decoration: none;">Inserir
 								dados</a></li>
@@ -91,37 +112,29 @@
 						<li class="list-group-item"><a
 							href="product-panel_delete.jsp" style="text-decoration: none;">Deletar
 								dados</a></li>
+								
+						<li class="list-group-item"><a
+							href="product-panel_operation.jsp" style="text-decoration: none;">Retornar a consulta de
+								dados</a></li>
 						<hr>
 
 					</ul>
 
 						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-								de produtos</h5>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">consultar dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Inserir dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Alterar dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Deletar dados</a></li>
-							<hr>
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações de cadadstro no estoque</h5>
+						<li class="list-group-item"><strong>O estoque sempre estará relacionado com o produto selecionado.</strong>
+						 Para acessar os itens de estoque e realizar as operações para consultar, atualizar, deletar ou inserir os dados basta
+						acessar o item abaixo.</li>
+						
+						<li class="list-group-item"><a href="stock-panel_operation.jsp"
+							style="text-decoration: none;">Operações
+							com estoques  </a></li>
+						
+						<hr>
 
-						</ul>
+					</ul>
 
-						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-								do cliente</h5>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">consultar dados </a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Alterar dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Deletar dados</a></li>
-							<hr>
 
-						</ul>
 				</div>
 			</div>
 			<br> <br> <br>
@@ -161,9 +174,9 @@
 					</div>
 
 					<div class="form-group col-md-4">
-						<label for="productionDate_query">Data de produção *</label> <input
-							class="form-control" type="text" id="productionDate_query" name="fproductionDate_query"
-							placeholder="D. produção: <%=productDao.getResult_listProduct_Dao().get(0).getProductionDate() %>" disabled></input>
+						<label for="creationDate_query">Data de criação *</label> <input
+							class="form-control" type="text" id="creationDate_query" name="fcreationDate_query"
+							placeholder="D. criação: <%=productDao.getResult_listProduct_Dao().get(0).getCreationDate() %>" disabled></input>
 					</div>
 
 
@@ -175,17 +188,17 @@
 
 
 					<div class="form-group col-md-12">
-						<label for="basicDescription_query">Descrição básica *</label> <input
+						<label for="basicDescription_query">Descrição básica *</label> <textarea
 							class="form-control" style="text-transform: lowercase;"
 							type="text" id="basicDescription_query" name="fbasicDescription_query" placeholder="Descrição b.: <%=productDao.getResult_listProduct_Dao().get(0).getBasicDescription() %>"
-							disabled></input>
+							disabled></textarea>
 					</div>
 
 					<div class="form-group col-md-12">
-						<label for="longDescription_query">Descrição completa *</label> <input
+						<label for="longDescription_query">Descrição completa *</label> <textarea
 							class="form-control" style="text-transform: lowercase;"
 							type="text" id="longDescription_query" name="flongDescription_query" placeholder="Descrição c.: <%=productDao.getResult_listProduct_Dao().get(0).getLongDescription() %>"
-							disabled></input>
+							disabled></textarea>
 					</div>
 
 				</div>

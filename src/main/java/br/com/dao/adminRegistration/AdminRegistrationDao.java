@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 import br.com.dto.admin.AdministratorRegistration;
 
-
 import br.com.dto.methods.InsertDate;
+import br.com.dto.product.ProductRegistration;
 import br.com.jdbc.ConnectionFactory;
 
 public class AdminRegistrationDao {
@@ -21,26 +21,23 @@ public class AdminRegistrationDao {
 	private Connection con;
 	ResultSet rs;
 	PreparedStatement stmt;
-	ArrayList<AdministratorRegistration> list_adminVerification = new ArrayList<>();// Armazenamento do resultado do
-																					// select
-	// realizado no DB.
-	static ArrayList<AdministratorRegistration> listResult = new ArrayList<>();// Lista referente ao resultado do select
-	// realizado ao
-	// acessar o site.
+
+	// static ArrayList<AdministratorRegistration>
+	// resultSelect_administratorRegistration_dao = new ArrayList<>();
+	static ArrayList<AdministratorRegistration> persistence_administratorRegistration_dao = new ArrayList<>();
+	// static ArrayList<AdministratorRegistration> listResult = new ArrayList<>();
+
 	InsertDate insertDate = new InsertDate();// Método que retorna uma data automática para ser armazenada no DB. A
 												// classe está no pacote Methods.
 
-	
-	
 	public AdminRegistrationDao() throws ClassNotFoundException {
 		this.con = new ConnectionFactory().getConnection_admin();
 	}
 
-	
 //*********************************************************************************************	
-	
+
 	// Metodo para inserir o administrador no DB.
-	public void adminRegistration_Dao(AdministratorRegistration obj) {
+	public void insertAdminRegistration_Dao(AdministratorRegistration obj) {
 
 		try {
 			String sql = "INSERT INTO `db_cupcake_admin`.`administrator_registration` (`admin_date_registration`, "
@@ -71,7 +68,7 @@ public class AdminRegistrationDao {
 	// Metodo para selecionar os administradores cadastrados no DB. Este método será
 	// utilizado na área administrativa.
 	public ArrayList<AdministratorRegistration> select_AdministratorRegistration_dao() {
-
+		ArrayList<AdministratorRegistration> list_adminVerification = new ArrayList<>();
 		try {
 
 			String sql = "SELECT * from `db_cupcake_admin`.`administrator_registration`; ";
@@ -92,6 +89,7 @@ public class AdminRegistrationDao {
 				obj_administratorRegistration.setAdminPassword(rs.getString("admin_password"));
 
 				list_adminVerification.add(obj_administratorRegistration);
+				// resultSelect_administratorRegistration_dao.add(obj_administratorRegistration);
 
 			}
 
@@ -103,8 +101,7 @@ public class AdminRegistrationDao {
 
 	}
 
-		
-	// Método para exclusão de dados do DB.
+// Método para exclusão de dados do DB.
 	public void excludeadminRegistration_Dao(AdministratorRegistration obj) {
 
 		try {
@@ -151,79 +148,63 @@ public class AdminRegistrationDao {
 		}
 	}
 
-	
 //********************************************************************************	
-	
-// Métodos responsáveis pela autenticação, disponibilidade dos dados
-// para atender aos recursos e exclusão dos mesmos para o encerramento das
-// atividades administrativas.
 
+//Métodos para selecionar, retornar e remover apenas um único administrador	
+	public void uniqueSelectResultAdmin_Dao(Integer obj) {
 
-	// Dados utilizado nos recursos da conta do administrador. Após o acesso à
-	// conta, os dados ficarão disponíveis através deste método.
+		for (int i = 0; i < select_AdministratorRegistration_dao().size(); i++) {
 
-	public static ArrayList<AdministratorRegistration> adminDataPersistence() {
-		ArrayList<AdministratorRegistration> list = new ArrayList<>();
-		try {
-			list = listResult;
-		} catch (Exception e) {
+			if (select_AdministratorRegistration_dao().get(i).getIdAdmin() == (obj)) {
 
-			e.printStackTrace();
-		}
+				persistence_administratorRegistration_dao.add(0, select_AdministratorRegistration_dao().get(i));
 
-		return list;
-
-	}
-
-	// Método para remover os itens da lista
-	public void close_resultSelectRegistration_Dao() {
-
-		for (int i = 0; i < listResult.size(); i++) {
-			// select_RegistrationClient_dao().remove(i);
-			listResult.remove(i);
-			adminDataPersistence().remove(i);
-		}
-
-	}
-
-	
-	// Este método retorna a lista de um id do usuário do banco de dados. Os dados
-		// serão utilizados para acessar a própria conta
-		// e autenticar todas as consultas ou modificações realizadas no site.
-	public ArrayList<AdministratorRegistration> resultSelectRegistration_Dao(String email, String password) {
-		select_AdministratorRegistration_dao();
-		ArrayList<AdministratorRegistration> list = new ArrayList<>();
-		list = select_AdministratorRegistration_dao();
-
-		try {
-			for (int i = 0; i < list.size(); i++) {
-				if (list.get(i).getEmailAccess().equals(email)) {
-					if (list.get(i).getAdminPassword().equals(password)) {
-						AdministratorRegistration admintResult = new AdministratorRegistration();
-
-						admintResult.setIdAdmin(list.get(i).getIdAdmin());
-						admintResult.setAdiminDateRegistration(list.get(i).getAdiminDateRegistration());
-						admintResult.setNameAdmin(list.get(i).getNameAdmin());
-						admintResult.setAccessLevel(list.get(i).getAccessLevel());
-						admintResult.setEmailAccess(list.get(i).getEmailAccess());
-						admintResult.setPhoneContact(list.get(i).getPhoneContact());
-						admintResult.setAdminPassword(list.get(i).getAdminPassword());
-
-						listResult.add(admintResult);
-						adminDataPersistence();
-
-					}
-				}
 			}
 
-			
-		} catch (Exception e) {
-
 		}
-		//Carrega a lista no método "adminDataPersistence()" para ser propagada nos
-		// demais recursos da área do administrador.
-		return listResult;
 
 	}
 
+	public ArrayList<AdministratorRegistration> getUniqueSelectResultAdmin_Dao() {
+		return persistence_administratorRegistration_dao;
+	}
+
+	public void removeUniqueSelectResultAdmin_Dao() {
+		for (int i = 0; i < persistence_administratorRegistration_dao.size(); i++) {
+			persistence_administratorRegistration_dao.remove(i);
+		}
+
+	}
+	
+//********************************************************************************
+// Verificação de login e senha do administrador
+		static public ArrayList<AdministratorRegistration> AccessVerification_Administrator_dao = new ArrayList<>();
+
+		public void access_Administrator_dao(String email, String password, String access_level) {
+			select_AdministratorRegistration_dao();
+			for (int i = 0; i < select_AdministratorRegistration_dao().size(); i++) {
+
+				if (select_AdministratorRegistration_dao().get(i).getEmailAccess().equals(email))
+					if (select_AdministratorRegistration_dao().get(i).getAdminPassword().equals(password))
+						if (select_AdministratorRegistration_dao().get(i).getAccessLevel().equals(access_level)) {
+
+							AccessVerification_Administrator_dao.add(0, select_AdministratorRegistration_dao().get(i));
+
+						}
+			}
+		}
+
+		static public ArrayList<AdministratorRegistration> returnAccess_Administrator_dao() {
+			return AccessVerification_Administrator_dao;
+		}
+
+		static public void deleteAccess_Administrator_dao() {
+			for (int i = 0; i < AccessVerification_Administrator_dao.size(); i++) {
+				AccessVerification_Administrator_dao.remove(i);
+			}
+		}
+	
+
 }
+
+

@@ -1,3 +1,4 @@
+<%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -28,14 +29,16 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
-<meta charset="utf-8">
+
 <title>Insert title here</title>
 
 
 </head>
 
 <body>
+<%
+AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+%>
 
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
@@ -60,6 +63,37 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
+			<span class="acesso-usuario">
+				<ul class="nav nav menu-principal">
+					<div style="width: 80px;">
+						<img style="width: 80px;" src="../../img/usuario.png">
+					</div>
+					<li class="nav-item dropdown"><p
+							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getNameAdmin() %></p> <a
+						class="nav-link dropdown-toggle color-menu"
+						style="padding-right: 10px;" data-toggle="dropdown" href="#"
+						role="button" aria-haspopup="true" aria-expanded="false">Painel
+							pessoal</a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item "
+								href="my-admin_details/my_main-panel_query.jsp">Visualizar
+								meu cadastro </a> <a class="dropdown-item"
+								href="my-admin_details/my_main-panel_update.jsp">Atualizar
+								meu cadastro </a> <a class="dropdown-item"
+								href="my-admin_details/my_main-panel_delete.jsp">Deletar meu
+								cadastro</a>
+
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item"
+								href="main-admin/admin-panel_operation.jsp">Operações gerais</a>
+
+							<div class="dropdown-divider"></div>
+
+							<a class="dropdown-item" href="../admin_access-account.jsp">Sair</a>
+						</div></li>
+				</ul>
+			</span>
+
 
 
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
@@ -67,28 +101,26 @@
 				id="offcanvasWithBothOptions"
 				aria-labelledby="offcanvasWithBothOptionsLabel">
 				<div class="offcanvas-header">
-					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Listagem
-						de produtos</h4>
+					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações cadastrais</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 						aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de administradores</h5>
-						<li class="list-group-item"><a href="main-panel_query.jsp"
-							style="text-decoration: none;">consultar dados</a></li>
-						<li class="list-group-item"><a href="main-panel_insert.jsp"
-							style="text-decoration: none;">Inserir dados</a></li>
-						<li class="list-group-item"><a href="main-panel_update.jsp"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="main-panel_delete.jsp"
-							style="text-decoration: none;">Deletar dados</a></li>
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro de administradores</h5>
+						
+						<li class="list-group-item"> Para acessar os itens de cadastro do administrador, basta dar um click no item <strong>
+						Administradores	- operações cadastrais</strong>, ele está situado neste menu, logo abaixo.</li>
+						
+						<li class="list-group-item"><a
+							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
+								- operações cadastrais </a></li>
+
 						<hr>
 					</ul>
-					
-					
+
+
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
 							do cliente</h5>
@@ -101,12 +133,18 @@
 						<hr>
 
 					</ul>
-					
+
+										
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro de produtos e estoque</h5>
-						<li class="list-group-item"><a href="../product/product-panel_operation.jsp"
-							style="text-decoration: none;">Operações cadastrais</a></li>
-						
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+							de produtos e estoque</h5>
+							<li class="list-group-item"> Para acessar os itens de cadastro do produto, basta dar um click no item <strong>
+						Cadastro de produtos e estoque</strong>, ele está situado neste menu, logo abaixo.</li>
+						<li class="list-group-item"><a
+							href="../product/product-panel_operation.jsp"
+							style="text-decoration: none;">Produto e estoque- operações cadastrais
+						</a></li>
+
 						<hr>
 					</ul>
 
@@ -158,7 +196,13 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 </body>
 
 </html>

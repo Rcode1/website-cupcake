@@ -58,6 +58,19 @@
 					<input class="form-control" type="password"
 						id="main-admin-password" name="fmain-admin-password"
 						placeholder="Entre com a sua senha!" required></input>
+						
+						
+							<div class="form-group col-md-8" style="margin:10px;">
+								<label for="accessLevel_insert">Nível de acesso *</label> <select id="accessLevel_insert"
+									class="form-control" name="faccessLevel_insert">
+									<option selected>Acesso:</option>
+									<option>Manutenção</option>
+									<option>Administrativo</option>
+
+
+								</select>
+							</div>
+						
 
 
 					<div style="margin-top: 10px;">

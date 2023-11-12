@@ -24,27 +24,31 @@ public class ProductDao {
 		this.con = new ConnectionFactory().getConnection_admin();
 	}
 
-	static ArrayList<ProductRegistration> persistence_productVerification = new ArrayList<>(); // resultado do select
-	// realizado no DB.
-	static ArrayList<ProductRegistration> list_productVerification_stock = new ArrayList<>();// Armazenamento do
-																								// resultado do select
-	// realizado no DB.
+// resultado do select realizado no DB.
+	static ArrayList<ProductRegistration> persistence_productVerification = new ArrayList<>();
 
-	// ****** Métodos responsáveis por manipular a tabela product_registrration
-	// ***********************//
+// Armazenamento do resultado do select realizado no DB.
+	static ArrayList<ProductRegistration> persistence_productVerification_stock = new ArrayList<>();
 
-	// Método para inserir o produto
+//Armazenamento de apenas um item registrado na tabela estoque- (item referente a um único produto)	
+	static ArrayList<ProductRegistration> persistence_uniqueStockResultList = new ArrayList<>();
+
+//***************************************************************************
+
+// Métodos responsáveis por manipular a tabela product_registrration
+
+// Método para inserir o produto
 	public void productRegistration_Dao(ProductRegistration obj) {
 
 		try {
 			String sql = "INSERT INTO db_cupcake_admin.product_registration (registration_date, "
-					+ "production_date,product_name, basic_description, long_description) " + "VALUES (?,?,?,?,?);";
+					+ "creation_date,product_name, basic_description, long_description) " + "VALUES (?,?,?,?,?);";
 
 			InsertDate insertDate = new InsertDate();
 			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setString(1, insertDate.getDate()); // Insere a data automaticamente.
-			stmt.setString(2, obj.getProductionDate());
+			stmt.setString(2, obj.getCreationDate());
 			stmt.setString(3, obj.getProductName());
 			stmt.setString(4, obj.getBasicDescription());
 			stmt.setString(5, obj.getLongDescription());
@@ -60,7 +64,7 @@ public class ProductDao {
 		}
 	}
 
-	// Método responsável por selecionar os dados do DB
+// Método responsável por selecionar os dados do DB
 	public ArrayList<ProductRegistration> select_productRegistration_dao() {
 		ArrayList<ProductRegistration> listProduct = new ArrayList<>();
 
@@ -77,7 +81,7 @@ public class ProductDao {
 
 				productRegistration_obj.setIdProductRegistration(rs.getInt("id_product_registration"));
 				productRegistration_obj.setRegistrationDate(rs.getString("registration_date"));
-				productRegistration_obj.setProductionDate(rs.getString("production_date"));
+				productRegistration_obj.setCreationDate(rs.getString("creation_date"));
 				productRegistration_obj.setProductName(rs.getString("product_name"));
 				productRegistration_obj.setBasicDescription(rs.getString("basic_description"));
 				productRegistration_obj.setLongDescription(rs.getString("long_description"));
@@ -94,7 +98,7 @@ public class ProductDao {
 
 	}
 
-	// Método para exclusão de dados do DB.
+// Método para exclusão de dados do DB.
 	public void excludeProductRegistration_Dao(ProductRegistration obj) {
 
 		try {
@@ -115,19 +119,20 @@ public class ProductDao {
 		}
 	}
 
-	// Método para atualizar cadastro
+// Método para atualizar cadastro
 	public void updateProductRegistration_Dao(ProductRegistration obj) {
 
 		try {
-			String sql = "UPDATE db_cupcake_admin.product_registration SET (production_date=?,product_name=?, "
-					+ "basic_description=?, long_description=?, product_image_path=?)" + "VALUES (?,?,?,?);";
+			String sql = "UPDATE db_cupcake_admin.product_registration SET creation_date=?, product_name=?, "
+					+ "basic_description=?, long_description=? WHERE (id_product_registration = ?);";
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			stmt.setString(1, obj.getProductionDate());
+			stmt.setString(1, obj.getCreationDate());
 			stmt.setString(2, obj.getProductName());
 			stmt.setString(3, obj.getBasicDescription());
 			stmt.setString(4, obj.getLongDescription());
+			stmt.setInt(5, obj.getIdProductRegistration());
 
 			stmt.execute();
 
@@ -140,25 +145,28 @@ public class ProductDao {
 		}
 	}
 
-	// *************************************************************************
+// *************************************************************************
 
-	// Início dos métodos responsáveis por manipular a tabela product_stock
+// Início dos métodos responsáveis por manipular a tabela product_stock
 
-	public void Productregistration_Dao(ProductRegistration obj) {
+	public void stockProductregistration_Dao(ProductRegistration obj) {
 
 		try {
-			String sql = "INSERT INTO `db_cupcake_admin`.`product_stock` (`product_registration_id_product_registration`, "
-					+ "'entry_date',`departure_date`, `quantity_entry`, `quantity_departury` VALUES (?,?,?,?,?,?);";
 
-			InsertDate insertDate = new InsertDate();
+			String sql = "INSERT INTO db_cupcake_admin.product_stock (product_registration_id_product_registration, "
+					+ "production_date, entry_date, departure_date, quantity_entry, quantity_departury, product_price, "
+					+ "product_discount) VALUES (?,?,?,?,?,?,?,?);";
+
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			stmt.setString(1, insertDate.getDate()); // Insere a data automaticamente.
-			// stmt.setString(2, obj.); inserir o id do produto
-			stmt.setString(3, obj.getProductionDate());
-			stmt.setString(4, obj.getProductName());
-			stmt.setString(5, obj.getBasicDescription());
-			stmt.setString(6, obj.getLongDescription());
+			stmt.setInt(1, getResult_listProduct_Dao().get(0).getIdProductRegistration());
+			stmt.setString(2, obj.getProductionDate());
+			stmt.setString(3, obj.getEntryDate());
+			stmt.setString(4, obj.getDepartureDate());
+			stmt.setInt(5, obj.getQuantityEntry());
+			stmt.setInt(6, obj.getQuantityDepartury());
+			stmt.setDouble(7, obj.getProductPrice());
+			stmt.setDouble(8, obj.getProductDiscount());
 
 			stmt.execute();
 
@@ -171,12 +179,12 @@ public class ProductDao {
 		}
 	}
 
-	// Método responsável por selecionar os dados do DB
+// Método responsável por selecionar os dados do DB
 	public ArrayList<ProductRegistration> select_productStock_dao() {
 		ArrayList<ProductRegistration> listStock = new ArrayList<>();
 		try {
 
-			String sql = "SELECT * from `db_cupcake_admin`.`produt_registration`; ";
+			String sql = "SELECT * FROM db_cupcake_admin.product_stock; ";
 
 			stmt = con.prepareStatement(sql);
 			rs = stmt.executeQuery(sql);
@@ -187,10 +195,13 @@ public class ProductDao {
 
 				productRegistration_obj.setIdProductStock(rs.getInt("id_product_stock"));
 				productRegistration_obj.setIdProductRegistration(rs.getInt("product_registration_id_product_registration"));
+				productRegistration_obj.setProductionDate(rs.getString("production_date"));
 				productRegistration_obj.setEntryDate(rs.getString("entry_date"));
 				productRegistration_obj.setDepartureDate(rs.getString("departure_date"));
 				productRegistration_obj.setQuantityEntry(rs.getInt("quantity_entry"));
 				productRegistration_obj.setQuantityDepartury(rs.getInt("quantity_departury"));
+				productRegistration_obj.setProductPrice(Double.valueOf(rs.getString("product_price")));
+				productRegistration_obj.setProductDiscount(Double.valueOf(rs.getString("product_discount")));
 
 				listStock.add(productRegistration_obj);
 
@@ -204,16 +215,17 @@ public class ProductDao {
 
 	}
 
-	// Método para exclusão de dados do DB.
+// Método para exclusão de dados do DB.
 	public void excludeProductStok_Dao(ProductRegistration obj) {
 
 		try {
-			String sql = " DELETE FROM db_cupcake_admin.product_stok WHERE (id_product_stok = ?);";
+			String sql ="DELETE FROM db_cupcake_admin.product_stock WHERE (id_product_stock = ?); ";
+			
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			stmt.setInt(1, obj.getIdProductRegistration());
-
+			stmt.setInt(1, obj.getIdProductStock());
+			
 			stmt.execute();
 
 			stmt.close();
@@ -225,20 +237,30 @@ public class ProductDao {
 		}
 	}
 
-	// Método para atualizar cadastro
+// Método para atualizar cadastro
 	public void updateProductStock_Dao(ProductRegistration obj) {
 
 		try {
-			String sql = "UPDATE db_cupcake_admin.product_stock SET (entry_date=?,departure_date=?, "
-					+ "quantity_entry=?, quantity_departury=?)" + "VALUES (?,?,?,?);";
+						
+			String sql =	"UPDATE db_cupcake_admin.product_stock SET production_date = ?, "
+					+ "entry_date = ?, departure_date = ?, quantity_entry = ?, quantity_departury = ?, "
+					+ "product_price = ?, product_discount = ? WHERE (id_product_stock = ?) and (product_registration_id_product_registration = ?);";
+			
+			
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			stmt.setString(1, obj.getEntryDate());
-			stmt.setString(2, obj.getDepartureDate());
-			stmt.setInt(3, obj.getQuantityEntry());
-			stmt.setInt(4, obj.getQuantityDepartury());
-
+			
+			stmt.setString(1, obj.getProductionDate());
+			stmt.setString(2, obj.getEntryDate());
+			stmt.setString(3, obj.getDepartureDate());
+			stmt.setInt(4, obj.getQuantityEntry());
+			stmt.setInt(5, obj.getQuantityDepartury());
+			stmt.setDouble(6, obj.getProductPrice());
+			stmt.setDouble(7, obj.getProductDiscount());
+			stmt.setInt(8, obj.getIdProductStock());
+			stmt.setInt(9, obj.getIdProductRegistration());		
+			
 			stmt.execute();
 
 			stmt.close();
@@ -250,29 +272,24 @@ public class ProductDao {
 		}
 
 	}
-
+	
+	
 // *******************************************************************************	
 
 //Métodos responsáveis por selecionar um item da lista e proparar no CRUD do produto.
 //OBS.: Os métodos foram empregados em product/product_operation.jsp, dentro da pasta adim do webapp
 	public void result_listProduct_Dao(Integer obj) {
-		ArrayList<ProductRegistration> list = new ArrayList<>();
+	
 		for (int i = 0; i < select_productRegistration_dao().size(); i++) {
 
 			if (select_productRegistration_dao().get(i).getIdProductRegistration() == (obj)) {
 
-				list.add(0, select_productRegistration_dao().get(i));
+				persistence_productVerification.add(0, select_productRegistration_dao().get(i));
 
 			}
 
 		}
 
-		setResult_listProduct_Dao(list);
-
-	}
-
-	public void setResult_listProduct_Dao(ArrayList<ProductRegistration> id) {
-		persistence_productVerification.addAll(id);
 	}
 
 	public ArrayList<ProductRegistration> getResult_listProduct_Dao() {
@@ -285,5 +302,72 @@ public class ProductDao {
 		}
 
 	}
+
+// *******************************************************************************
+// Métodos responsáveis por manipular os dados do estoque
+
+// Metodos para criar uma lista contendo todos os cadastros do estoque referentes a um produto.
+	public void result_stockProductList_Dao(Integer obj) {
+		
+		for (int i = 0; i < select_productStock_dao().size(); i++) {
+
+			if (select_productStock_dao().get(i).getIdProductRegistration() == (obj)) {
+
+				persistence_productVerification_stock.add(select_productRegistration_dao().get(i));
+
+			}
+
+		}
+
+		
+	}
+
+
+	public ArrayList<ProductRegistration> getResult_stockProductList_Dao() {
+		return persistence_productVerification_stock;
+	}
+	
+	public void removeResult_stockProductList_Dao() {
+		for (int i = 0; i < persistence_productVerification_stock.size(); i++) {
+			persistence_productVerification_stock.remove(i);
+		}
+
+	}
+
+//**********************************************************************	
+
+// Metodos para criar uma lista contendo um único cadastro do estoque referentes a um produto.
+
+	
+
+		
+	
+	public void uniqueStockResult_Dao(Integer obj) {
+		
+		for (int i = 0; i < select_productStock_dao().size(); i++) {
+
+			if (select_productStock_dao().get(i).getIdProductStock() == (obj)) {
+
+				persistence_uniqueStockResultList.add(select_productStock_dao().get(i));
+
+			}
+
+		}
+
+	}
+
+	
+	public ArrayList<ProductRegistration> getUniqueStockResultList_Dao() {
+		return persistence_uniqueStockResultList;
+	}
+	
+	public void removeUniqueStockResultList_Dao() {
+		for (int i = 0; i < persistence_uniqueStockResultList.size(); i++) {
+			persistence_uniqueStockResultList.remove(i);
+		}
+
+	}
+
+//************************************************************************	
 
 }

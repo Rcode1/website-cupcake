@@ -11,6 +11,7 @@ public class ProductRegistration {
 	private Integer idProductStock;
 	private String registrationDate;
 	private String productionDate;
+	private String creationDate;
 	private String productName;
 	private String basicDescription;
 	private String longDescription;
@@ -18,6 +19,8 @@ public class ProductRegistration {
 	private String departureDate;
 	private Integer quantityEntry;
 	private Integer quantityDepartury;
+	private Double productPrice;
+	private Double productDiscount;
 
 	public ProductRegistration() {
 	}
@@ -54,6 +57,14 @@ public class ProductRegistration {
 		this.productionDate = productionDate;
 	}
 
+	public String getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+
 	public String getProductName() {
 		return productName;
 	}
@@ -78,7 +89,6 @@ public class ProductRegistration {
 		this.longDescription = longDescription;
 	}
 
-	
 	public String getEntryDate() {
 		return entryDate;
 	}
@@ -107,10 +117,27 @@ public class ProductRegistration {
 		return quantityDepartury;
 	}
 
-	public void setQuantityDepartury(Integer quantityDeoartury) {
-		this.quantityDepartury = quantityDeoartury;
+	public void setQuantityDepartury(Integer quantityDepartury) {
+		this.quantityDepartury = quantityDepartury;
 	}
 
+	public Double getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(Double productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public Double getProductDiscount() {
+		return productDiscount;
+	}
+
+	public void setProductDiscount(Double productDiscount) {
+		this.productDiscount = productDiscount;
+	}
+
+	
 	
 
 }

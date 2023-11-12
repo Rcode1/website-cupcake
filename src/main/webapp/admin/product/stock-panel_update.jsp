@@ -1,3 +1,5 @@
+<%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
+<%@page import="br.com.dao.product.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -28,14 +30,17 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
-<meta charset="utf-8">
+
 <title>Insert title here</title>
 
 
 </head>
 
 <body>
+	<%
+	ProductDao productDao = new ProductDao();
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
 
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
@@ -47,10 +52,26 @@
 
 			<!----------------------Menu principal------------------------------------>
 
-			<a href="main-page_home.jsp"><button
+			<!-- Início do botão: "Início" ( Painel do administrador) -->
+			<%
+			if (adminRegistrationDao.returnAccess_Administrator_dao().get(0).getAccessLevel().equals("Manutenção")) {
+			%><a href="../standard-admin/standard-page_home.jsp"><button
 					class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
 					aria-controls="offcanvasWithBothOptions">Início</button></a>
+			<%
+			} else {
+			%>
+
+			<a href="../main-admin/main-page_home.jsp"><button
+					class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button></a>
+
+			<%
+			}
+			%>
+			<!-- Fim do botão: "Início" ( Painel do administrador) -->
 
 
 
@@ -60,6 +81,12 @@
 				data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
+
+			<button class="btn btn-light  float-left " type="button"
+				style="margin: 12px; background-color: gainsboro; color: black;">
+				<a href="stock-panel_query.jsp"
+					style="text-decoration: none; color: black;">Retornar</a>
+			</button>
 
 
 
@@ -77,44 +104,52 @@
 
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-							de administradores</h5>
-						<li class="list-group-item"><a href="main-panel_query.jsp"
-							style="text-decoration: none;">consultar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Inserir dados</a></li>
-						<li class="list-group-item"><a href="main-panel_update.jsp"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="main-panel_delete.jsp"
-							style="text-decoration: none;">Deletar dados</a></li>
+							de produtos</h5>
+
+						<li class="list-group-item">O menu abaixo, referente ao
+							produto, traz a possibilidade de modificar ou deletar o produto
+							vigente, caso queira selecionar um outro produto basta acessar<strong>
+								Escolher novo produto</strong>
+						</li>
+
+						<li class="list-group-item"><a
+							href="product-panel_operation.jsp" style="text-decoration: none;">Escolher
+								novo produto</a></li>
+						<li class="list-group-item"><a
+							href="product-panel_insert.jsp" style="text-decoration: none;">Inserir
+								dados</a></li>
+						<li class="list-group-item"><a
+							href="product-panel_update.jsp" style="text-decoration: none;">Alterar
+								dados</a></li>
+						<li class="list-group-item"><a
+							href="product-panel_delete.jsp" style="text-decoration: none;">Deletar
+								dados</a></li>
 						<hr>
 
-						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
-								de produtos</h5>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">consultar dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Inserir dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Alterar dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Deletar dados</a></li>
-							<hr>
+					</ul>
 
-						</ul>
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
+							com estoques</h5>
 
-						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
-								do cliente</h5>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">consultar dados </a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Alterar dados</a></li>
-							<li class="list-group-item"><a href="#"
-								style="text-decoration: none;">Deletar dados</a></li>
-							<hr>
+						<li class="list-group-item">O menu abaixo, referente ao
+							estoque, traz a possibilidade de modificar ou deletar o item de
+							estoque vigente, caso queira selecionar um outro item do estoque
+							basta acessar<strong> Escolher outro item de estoque</strong>
+						</li>
 
-						</ul>
+						<li class="list-group-item"><a
+							href="stock-panel_operation.jsp" style="text-decoration: none;">Escolher
+								outro item de estoque</a></li>
+
+						<li class="list-group-item"><a href="stock-panel_insert.jsp"
+							style="text-decoration: none;">Inserir dados no estoque</a></li>
+						
+						<li class="list-group-item"><a href="stock-panel_delete.jsp"
+							style="text-decoration: none;">Deletar dados do estoque</a></li>
+						<hr>
+
+					</ul>
 				</div>
 			</div>
 			<br> <br> <br>
@@ -128,9 +163,9 @@
 	<div class="largura-max-cadastro"
 		style="margin: auto auto; margin-top: 80px;">
 		<div class="largura-max-cadastro text-center">
-			<h3>Atualização dos dados para o estoque de produtos</h3>
-			<p>Abaixo estão os dados do produto e os campos para a atualização
-				dos dados cadastrados no estoque</p>
+			<h3>Alterar os dados cadastrais do estoque de produtos</h3>
+			<p>Abaixo estão os dados do produto e os dados do estoque para
+				alterações.</p>
 		</div>
 		<div class="borda-cor-cadastro">
 			<div class="borda-cor-cadastro">
@@ -139,28 +174,36 @@
 					<!------>
 					<div class="form-group col-md-4">
 						<label for="idProductRegistration_query">Identificação *</label> <input
-							class="form-control" type="text" id="idProductRegistration_query"
-							name="fidProductRegistration_quer" placeholder="Identificação"
+							class="form-control" type="password"
+							id="idProductRegistration_query"
+							name="fidProductRegistration_quer"
+							placeholder="Identificação <%=productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration()%>"
 							disabled></input>
 					</div>
 
 					<div class="form-group col-md-4">
 						<label for="registrationDate_query">Data de registro *</label> <input
-							class="form-control" type="text" id="registrationDate_query"
-							name="fregistrationDate_query" placeholder="D.registro" disabled></input>
+							class="form-control" type="password" id="registrationDate_query"
+							name="fregistrationDate_query"
+							placeholder="D.registro <%=productDao.getResult_listProduct_Dao().get(0).getRegistrationDate()%>"
+							disabled></input>
 					</div>
 
 					<div class="form-group col-md-4">
-						<label for="productionDate_query">Data de produção *</label> <input
-							class="form-control" type="date" id="productionDate_query"
-							name="fproductionDate_query" placeholder="D. produção:" disabled></input>
+						<label for="creationDate_query">Data de criação *</label> <input
+							class="form-control" type="text" id="creationDate_query"
+							name="fcreationDate_query"
+							placeholder="D. criação: <%=productDao.getResult_listProduct_Dao().get(0).getCreationDate()%>"
+							disabled></input>
 					</div>
 
 
 					<div class="form-group col-md-12">
 						<label for="productName_query">Nome do produto *</label> <input
 							class="form-control" type="text" id="productName_query"
-							name="fproductNamee_query" placeholder="N.produto:" disabled></input>
+							name="fproductNamee_query"
+							placeholder="N.produto:<%=productDao.getResult_listProduct_Dao().get(0).getProductName()%>"
+							disabled></input>
 					</div>
 
 
@@ -168,7 +211,8 @@
 						<label for="basicDescription_query">Descrição básica *</label> <input
 							class="form-control" style="text-transform: lowercase;"
 							type="text" id="basicDescription_query"
-							name="fbasicDescription_query" placeholder="Descrição b.:"
+							name="fbasicDescription_query"
+							placeholder="Descrição b.: <%=productDao.getResult_listProduct_Dao().get(0).getBasicDescription()%>"
 							disabled></input>
 					</div>
 
@@ -176,10 +220,10 @@
 						<label for="longDescription_query">Descrição completa *</label> <input
 							class="form-control" style="text-transform: lowercase;"
 							type="text" id="longDescription_query"
-							name="flongDescription_query" placeholder="Descrição c.:"
+							name="flongDescription_query"
+							placeholder="Descrição c.: <%=productDao.getResult_listProduct_Dao().get(0).getLongDescription()%>"
 							disabled></input>
 					</div>
-
 				</div>
 
 			</div>
@@ -187,57 +231,99 @@
 
 			<!-- Formulário para manipular os dados de entrada e saída de produtos do estoque -->
 
-			<form action="client-registration.jsp"
-				id="registration-client-visitor" method="POST"
+			<form action="stock_update.jsp" id="stock_update" method="POST"
 				style="margin-top: 10px;">
 
 				<!---Neste trecho abre um campo imput para a entrada do código do estoque, desta forma é possível
-			confirmar às intenções da realização de alterações dos dados cadastrais--->
-					<div class="borda-red"">
-							<p >Digite o mesmo código que
-								aparece no campo (confirmação para atualização) que está logo
-								abaixo, em seguida click no botão "Atualizar cadastro".</p>
+			confirmar às intenções de deletar os dados cadastrais--->
+				<div class="borda-red">
+					<p>Digite o mesmo código que aparece no campo (confirmação para
+						alteração) que está logo abaixo, em seguida click no botão
+						<strong>Alterar dados</strong>.</p>
 
-							<div class="form-group col-md-4"
-								Style="margin-left: auto; margin-right: auto; text-align: center;">
+					<div class="form-group col-md-4"
+						Style="margin-left: auto; margin-right: auto; text-align: center;">
 
-								<label for="idProductRegistration_update">Confirmação para atualização</label> <input
-									class="form-control" type="text" id="idProductRegistration_update" name="fidProductRegistration_update"
-									placeholder=" Digite aqui este código: "></input>
-							</div>
-						</div>
+						<label for="idStock">Confirmação para alteraçãoo</label> <input
+							class="form-control" type="text" id="idStock" name="fidStock"
+							placeholder=" Digite aqui este código: <%=productDao.getUniqueStockResultList_Dao().get(0).getIdProductStock()%>"></input>
+					</div>
+
+
+				</div>
 
 				<div class="borda-cor-cadastro">
 					<div class="form-row">
 
 						<div class="form-group col-md-3">
-							<label for="senha">Data de entrada *</label> <input
-								class="form-control" type="date" id="password" name="fpassword"
-								placeholder="D.entrada" required></input>
+							<label for="idProductStock">Identificação do estoque *</label> <input
+								class="form-control" type="text" id="idProductStock"
+								name="fidProductStock"
+								placeholder="Id.estoque: <%=productDao.getUniqueStockResultList_Dao().get(0).getIdProductStock()%>"
+								disabled></input>
 						</div>
 
 						<div class="form-group col-md-3">
-							<label for="senha">Data de saida*</label> <input
-								class="form-control" type="date" id="password" name="fpassword"
-								placeholder="D.saída" required></input>
+							<label for="idProductRegistration">Identificação do
+								produto *</label> <input class="form-control" type="text"
+								id="idProductRegistration" name="fidProductRegistration"
+								placeholder="Id.produção: <%=productDao.getUniqueStockResultList_Dao().get(0).getIdProductRegistration()%>"
+								disabled></input>
 						</div>
 
 						<div class="form-group col-md-3">
-							<label for="senha">Quantidade de entrada *</label> <input
-								class="form-control" type="password" id="password"
-								name="fpassword" placeholder="Q.entrada:" required></input>
+							<label for="productionDate">Data de produção *</label> <input
+								class="form-control" type="text" id="productionDate"
+								name="fproductionDate"
+								placeholder="D.produção: <%=productDao.getUniqueStockResultList_Dao().get(0).getProductionDate()%>"></input>
 						</div>
 
 						<div class="form-group col-md-3">
-							<label for="senha">Quantidade de saída *</label> <input
-								class="form-control" type="password" id="password"
-								name="fpassword" placeholder="Q.saída" required></input>
+							<label for="entryDate">Data de entrada </label> <input
+								class="form-control" type="text" id="entryDate"
+								name="fentryDate"
+								placeholder="D.entrada: <%=productDao.getUniqueStockResultList_Dao().get(0).getEntryDate()%>"></input>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="departureDate">Data de saida</label> <input
+								class="form-control" type="text" id="departureDate"
+								name="fdepartureDate"
+								placeholder="D.saída: <%=productDao.getUniqueStockResultList_Dao().get(0).getDepartureDate()%>"></input>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="quantityEntry">Quantidade de entrada </label> <input
+								class="form-control" type="text" id="quantityEntry"
+								name="fquantityEntry"
+								placeholder="Q.entrada: <%=productDao.getUniqueStockResultList_Dao().get(0).getQuantityEntry()%>"></input>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="quantityDepartury">Quantidade de saída </label> <input
+								class="form-control" type="text" id="quantityDepartury"
+								name="fquantityDepartury"
+								placeholder="Q.saída: <%=productDao.getUniqueStockResultList_Dao().get(0).getQuantityDepartury()%>"></input>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="productPrice">Valor do produto *</label> <input
+								class="form-control" type="text" id="productPrice"
+								name="fproductPrice"
+								placeholder="V. produto: <%=productDao.getUniqueStockResultList_Dao().get(0).getProductPrice()%> "></input>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="productDiscount">Valor do desconto *</label> <input
+								class="form-control" type="text" id="productDiscount"
+								name="fproductDiscount"
+								placeholder="V. desconto: <%=productDao.getUniqueStockResultList_Dao().get(0).getProductDiscount()%>"></input>
 						</div>
 
 
 					</div>
 
-					<button type="submit" class="btn btn-primary btn-sm ">Cadastrar</button>
+					<button type="submit" class="btn btn-primary btn-sm ">Alterar dados</button>
 				</div>
 
 			</form>

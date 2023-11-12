@@ -28,8 +28,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Home</title>
-<meta charset="utf-8">
+
 <title>Insert title here</title>
 
 
@@ -37,22 +36,16 @@
 
 <body>
 
-	<div class=" fixed-top fundo-menu " style=" max-width: 1200px; height:65px; margin: auto auto; background-color:#DCDCDC;">
-		<div class=" alinhamento-tamanho_max "
-			>
+	<div class=" fixed-top fundo-menu "
+		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
+		<div class=" alinhamento-tamanho_max ">
 
+			<!--  Início do menu principal -->
 
-
-
-
-			<!----------------------Menu principal------------------------------------>
-
-			<a href="main-page_home.jsp"><button class="btn btn-light float-left " type="button"
-				style="margin: 12px;" data-bs-toggle="offcanvas"
-				aria-controls="offcanvasWithBothOptions">Início</button></a>
-
-
-
+			<a href="main-page_home.jsp"><button
+					class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button></a>
 
 			<button class="btn btn-light  float-left " type="button"
 				style="margin: 12px; background-color: gainsboro; color: black;"
@@ -60,8 +53,41 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
+			<span class="acesso-usuario">
+				<ul class="nav nav menu-principal">
+					<div style="width: 80px;">
+						<img style="width: 80px;" src="../../img/usuario.png">
+					</div>
+					<li class="nav-item dropdown"><p
+							style="margin: 0px; padding-left: 15px;">nome do admin</p> <a
+						class="nav-link dropdown-toggle color-menu"
+						style="padding-right: 10px;" data-toggle="dropdown" href="#"
+						role="button" aria-haspopup="true" aria-expanded="false">Painel
+							pessoal</a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item "
+								href="my-admin_details/my_main-panel_query.jsp">Visualizar
+								meu cadastro </a> <a class="dropdown-item"
+								href="my-admin_details/my_main-panel_update.jsp">Atualizar
+								meu cadastro </a> <a class="dropdown-item"
+								href="my-admin_details/my_main-panel_delete.jsp">Deletar meu
+								cadastro</a>
 
-		
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item"
+								href="main-admin/admin-panel_operation.jsp">Operações gerais</a>
+
+							<div class="dropdown-divider"></div>
+
+							<a class="dropdown-item" href="../admin_access-account.jsp">Sair</a>
+						</div></li>
+				</ul>
+			</span>
+
+			<!-- fim do menu principal -->
+			
+			<!--  Início do menu lateral -->
+
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
 				style="max-width: 300px;" tabindex="-1"
 				id="offcanvasWithBothOptions"
@@ -72,14 +98,14 @@
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 						aria-label="Close"></button>
 				</div>
+
+
 				<div class="offcanvas-body">
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro de administradores</h5>
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações cadastrais</h5>
 						<li class="list-group-item"><a href="main-panel_query.jsp"
 							style="text-decoration: none;">consultar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Inserir dados</a></li>
 						<li class="list-group-item"><a href="main-panel_update.jsp"
 							style="text-decoration: none;">Alterar dados</a></li>
 						<li class="list-group-item"><a href="main-panel_delete.jsp"
@@ -87,115 +113,110 @@
 						<hr>
 
 						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro de produtos</h5>
-							<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">consultar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Inserir dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
-						<hr>
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+							de produtos e estoque</h5>
+						<li class="list-group-item"><a
+							href="../product/product-panel_operation.jsp"
+							style="text-decoration: none;">Produto - operações cadastrais
+						</a></li>
 
-						</ul>
-						
-						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações do cliente</h5>
-							<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">consultar dados </a></li>
-							<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
 						<hr>
+					</ul>
+
+						<ul class="list-group list-group-flush">
+							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
+								do cliente</h5>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">consultar dados </a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Alterar dados</a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Deletar dados</a></li>
+							<hr>
 
 						</ul>
 				</div>
 			</div>
 			<br> <br> <br>
-
 		</div>
-		
-	
-				
 	</div>
-	
-<!--------------------------formulario----------------------------------------------------------->
+	<!-- Fim do menu lateral -->
+	<!--------------------------formulario----------------------------------------------------------->
 
-		<div class="largura-max-cadastro" style="margin: auto auto; margin-top: 80px;" >
-			<div class="largura-max-cadastro text-center">
-				<h3>Inserção dos dados do administrador</h3>
-				<p>Abaixo estão todos os itens necessários, relativos aos dados
-					cadastrais, para o cadastro do administrador padrão</p>
-			</div>
-			<div class="borda-cor-cadastro">
-				<form action="#"
-					id="main-admin_insert" method="POST">
-					<!------>
-					<div class="borda-cor-cadastro">
-						<div class="form-row">
+	<div class="largura-max-cadastro"
+		style="margin: auto auto; margin-top: 80px;">
+		<div class="largura-max-cadastro text-center">
+			<h3>Inserção dos dados do administrador</h3>
+			<p>Abaixo estão todos os itens necessários, relativos aos dados
+				cadastrais, para o cadastro do administrador</p>
+		</div>
+		<div class="borda-cor-cadastro">
+			<form action="admin_insert.jsp" id="main-admin_insert" method="POST">
+				<!------>
+				<div class="borda-cor-cadastro">
+					<div class="form-row">
 
-							<!------>
-							<div class="form-group col-md-6">
-								<label for="nameAdmin_insert">Nome admin *</label> <input
-									class="form-control" type="text" id="nameAdmin_insert" name="fnameAdmin_insert"
-									placeholder="Nome admin:" disabled></input>
-							</div>
-
-
-							
-							<div class="form-group col-md-4">
-								<label for="accessLevel_insert">Nível de acesso *</label> <input class="form-control"
-									type="text" id="accessLevel_insert" name="faccessLevel_insert"
-									placeholder="Acesso:" disabled></input>
-							</div>
-
-
-
-							<div class="form-group col-md-3">
-								<label for="accessLevel_insert">Nível de acesso *</label> <select id="accessLevel_insert"
-									class="form-control" name="faccessLevel_insert">
-									<option selected>Acesso:</option>
-									<option>Manutenção</option>
-									<option>Administrativo</option>
-
-
-								</select>
-							</div>
-
-							<div class="form-group col-md-3">
-								<label for="adminPassword">Senha *</label> <input class="form-control"
-									type="password" id="adminPassword" name="fadminPassword"
-									placeholder="Senha" required></input>
-							</div>
-
-							<div class="form-group col-md-5">
-								<label for="phoneContact_insert">Telefone cel * OBS.: incluir o "zero"
-									do DDD.</label> <input class="form-control" type="text" id="phoneContact_insert"
-									name="fphoneContact_insert" placeholder="Telefone:" required></input>
-							</div>
-
-						</div>
 						<!------>
 
 
-					</div>
 
-					<div style="margin: 10px;">
-						<button type="submit" class="btn btn-primary btn-sm ">Cadastrar</button>
-					</div>
-				</form>
-			</div>
-			<br>
 
+						<div class="form-group col-md-6">
+							<label for="nameAdmin_insert">Nome admin *</label> <input
+								class="form-control" type="text" id="nameAdmin_insert"
+								name="fnameAdmin_insert" placeholder="Nome admin:" required></input>
+						</div>
+
+
+
+						<div class="form-group col-md-4">
+							<label for="emailAccess_insert">Email de acesso *</label> <input
+								class="form-control" type="text" id="emailAccess_insert"
+								name="femailAccess_insert" placeholder="Acesso:" required></input>
+						</div>
+
+
+
+						<div class="form-group col-md-3">
+							<label for="accessLevel_insert">Nível de acesso *</label> <select
+								id="accessLevel_insert" class="form-control"
+								name="faccessLevel_insert">
+								<option selected>Acesso:</option>
+								<option>Manutenção</option>
+								<option>Administrativo</option>
+
+
+							</select>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="adminPassword">Senha *</label> <input
+								class="form-control" type="password" id="adminPassword"
+								name="fadminPassword" placeholder="Senha" required></input>
+						</div>
+
+						<div class="form-group col-md-5">
+							<label for="phoneContact_insert">Telefone cel * OBS.:
+								incluir o "zero" do DDD.</label> <input class="form-control" type="text"
+								id="phoneContact_insert" name="fphoneContact_insert"
+								placeholder="Telefone:" required></input>
+						</div>
+
+					</div>
+					<!------>
+
+
+				</div>
+
+				<div style="margin: 10px;">
+					<button type="submit" class="btn btn-primary btn-sm ">Inserir
+						dados</button>
+				</div>
+			</form>
 		</div>
+		<br>
 
-
-
-
-
-
+	</div>
 
 
 
@@ -229,7 +250,13 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../../../js/bootstrap.min.js"></script>
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 </body>
 
 </html>

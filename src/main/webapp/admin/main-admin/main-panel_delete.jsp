@@ -1,3 +1,4 @@
+<%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -37,22 +38,16 @@
 
 <body>
 
-	<div class=" fixed-top fundo-menu " style=" max-width: 1200px; height:65px; margin: auto auto; background-color:#DCDCDC;">
-		<div class=" alinhamento-tamanho_max "
-			>
+	<div class=" fixed-top fundo-menu "
+		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
+		<div class=" alinhamento-tamanho_max ">
 
+			<!--  Início do menu principal -->
 
-
-
-
-			<!----------------------Menu principal------------------------------------>
-
-			<a href="main-page_home.jsp"><button class="btn btn-light float-left " type="button"
-				style="margin: 12px;" data-bs-toggle="offcanvas"
-				aria-controls="offcanvasWithBothOptions">Início</button></a>
-
-
-
+			<a href="main-page_home.jsp"><button
+					class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button></a>
 
 			<button class="btn btn-light  float-left " type="button"
 				style="margin: 12px; background-color: gainsboro; color: black;"
@@ -60,170 +55,210 @@
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
+			<span class="acesso-usuario">
+				<ul class="nav nav menu-principal">
+					<div style="width: 80px;">
+						<img style="width: 80px;" src="../../img/usuario.png">
+					</div>
+					<li class="nav-item dropdown"><p
+							style="margin: 0px; padding-left: 15px;">nome do admin</p> <a
+						class="nav-link dropdown-toggle color-menu"
+						style="padding-right: 10px;" data-toggle="dropdown" href="#"
+						role="button" aria-haspopup="true" aria-expanded="false">Painel
+							pessoal</a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item "
+								href="my-admin_details/my_main-panel_query.jsp">Visualizar
+								meu cadastro </a> <a class="dropdown-item"
+								href="my-admin_details/my_main-panel_update.jsp">Atualizar
+								meu cadastro </a>
 
-		
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item"
+								href="main-admin/admin-panel_operation.jsp">Operações gerais</a>
+
+							<div class="dropdown-divider"></div>
+
+							<a class="dropdown-item" href="../admin_access-account.jsp">Sair</a>
+						</div></li>
+				</ul>
+			</span>
+
+			<!-- fim do menu principal -->
+
+			<!--  Início do menu lateral -->
+
 			<div class="offcanvas offcanvas-start" data-bs-scroll="true"
 				style="max-width: 300px;" tabindex="-1"
 				id="offcanvasWithBothOptions"
 				aria-labelledby="offcanvasWithBothOptionsLabel">
 				<div class="offcanvas-header">
-					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Listagem
-						de produtos</h4>
+					<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações cadastrais</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 						aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
 
 					<ul class="list-group list-group-flush">
-						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro de administradores</h5>
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+							de administradores</h5>
 						<li class="list-group-item"><a href="main-panel_query.jsp"
 							style="text-decoration: none;">consultar dados</a></li>
 						<li class="list-group-item"><a href="main-panel_insert.jsp"
 							style="text-decoration: none;">Inserir dados</a></li>
 						<li class="list-group-item"><a href="main-panel_update.jsp"
 							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
-						<hr>
-
-						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro de produtos</h5>
-							<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">consultar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Inserir dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
-						<hr>
-
-						</ul>
 						
-						<ul class="list-group list-group-flush">
-							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações do cliente</h5>
-							<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">consultar dados </a></li>
-							<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Alterar dados</a></li>
-						<li class="list-group-item"><a href="#"
-							style="text-decoration: none;">Deletar dados</a></li>
 						<hr>
+
+						<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+							de produtos e estoque</h5>
+						<li class="list-group-item"><a
+							href="../product/product-panel_operation.jsp"
+							style="text-decoration: none;">Produto - operações cadastrais
+						</a></li>
+
+						<hr>
+					</ul>
+
+						<ul class="list-group list-group-flush">
+							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
+								do cliente</h5>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">consultar dados </a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Alterar dados</a></li>
+							<li class="list-group-item"><a href="#"
+								style="text-decoration: none;">Deletar dados</a></li>
+							<hr>
 
 						</ul>
 				</div>
 			</div>
 			<br> <br> <br>
-
 		</div>
-		
-	
-				
 	</div>
-	
-<!--------------------------formulario----------------------------------------------------------->
 
-		<div class="largura-max-cadastro" style="margin: auto auto; margin-top: 80px;" >
-			<div class="largura-max-cadastro text-center">
-				<h3>Deletar os dados do administrador</h3>
-				<p>Abaixo estão os dados cadastrais, inerentes à conta do 
+	<!--  Fim do menu lateral -->
+
+	<!--------------------------formulario----------------------------------------------------------->
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
+	<div class="largura-max-cadastro"
+		style="margin: auto auto; margin-top: 80px;">
+		<div class="largura-max-cadastro text-center">
+			<h3>Deletar os dados do administrador</h3>
+			<p>Abaixo estão os dados cadastrais, inerentes à conta do
 				administrador, selecionado para deletar.</p>
-			</div>
-			<div class="borda-cor-cadastro">
-			
-			<form action="#" id="main-admin_delete"
-					method="post">
-			
-			<!---Neste trecho abre um campo imput para a entrada do código do main-admin, desta forma é possível
+		</div>
+		<div class="borda-cor-cadastro">
+
+			<form action="#" id="main-admin_delete" method="post">
+
+				<!---Neste trecho abre um campo imput para a entrada do código do main-admin, desta forma é possível
 			confirmar às intenções de deletar os dados cadastrais--->
-			<div class="borda-red"">
-							<p >Digite o mesmo código que
-								aparece no campo (confirmação para exclusão) que está logo
-								abaixo, em seguida click no botão excluir.</p>
+				<div class="borda-red"">
+					<p>Digite o mesmo código que aparece no campo (confirmação para
+						exclusão) que está logo abaixo, em seguida click no botão excluir.</p>
 
-							<div class="form-group col-md-4"
-								Style="margin-left: auto; margin-right: auto; text-align: center;">
+					<div class="form-group col-md-4"
+						Style="margin-left: auto; margin-right: auto; text-align: center;">
 
-								<label for="idAdmin_">Confirmação para exclusão</label> <input
-									class="form-control" type="text" id="idAdmin_" name="fidAdmin_"
-									placeholder=" Digite aqui este código:"></input>
-							</div>
-						</div>
-			
-			
-			
-				
-					<!------>
-					<div class="borda-cor-cadastro">
-						<div class="form-row">
-
-							<!------>
-							
-							
-							
-							<div class="form-group col-md-3">
-								<label for="idAdmin_delete">Identificação de registro *</label> <input
-									class="form-control" type="text" id="idAdmin_delete" name="fidAdmin_delete"
-									placeholder="Identificação:" disabled></input>
-							</div>
-							
-							<div class="form-group col-md-3">
-								<label for="adiminDateRegistration_delete">Data do cadastro *</label> <input
-									class="form-control" type="text" id="adiminDateRegistration_delete" name="fadiminDateRegistration_delete"
-									placeholder="Data:"disabled></input>
-							</div>
-							
-							<div class="form-group col-md-6">
-								<label for="nameAdmin_delete">Nome admin *</label> <input
-									class="form-control" type="text" id="nameAdmin_delete" name="fnameAdmin_delete"
-									placeholder="Nome admin:" disabled></input>
-							</div>
+						<label for="idAdmin_delete">Confirmação para exclusão</label> <input
+							class="form-control" type="text" id="idAdmin_delete"
+							name="fidAdmin_delete" placeholder=" Digite aqui este código:"></input>
+					</div>
+				</div>
 
 
-							
-							<div class="form-group col-md-4">
-								<label for="accessLevel_delete">Nível de acesso *</label> <input class="form-control"
-									type="text" id="accessLevel_delete" name="faccessLevel_delete"
-									placeholder="Acesso:" disabled></input>
-							</div>
-							
-							
-							
-							<div class="form-group col-md-8">
-								<label for="emailAccess_delete">Email *</label> <input class="form-control"
-									style="text-transform: lowercase;" type="email" id="emailAccess_delete"
-									name="femailAccess_delete" placeholder="Email:" disabled></input>
-							</div>
 
 
-							<div class="form-group col-md-4">
-								<label for="adminPassword_delete">Senha *</label> <input class="form-control"
-									type="password" id="adminPassword_delete" name="fadminPassword_delete"
-									placeholder="Senha" disabled></input>
-							</div>
+				<!------>
+				<div class="borda-cor-cadastro">
+					<div class="form-row">
 
-							<div class="form-group col-md-5">
-								<label for="phoneContact_delete">Telefone cel * OBS.: incluir o "zero"
-									do DDD.</label> <input class="form-control" type="text" id="phoneContact_delete"
-									name="fphoneContact_delete" placeholder="Telefone:" disabled></input>
-							</div>
-
-						</div>
 						<!------>
 
 
-					</div>
 
-					<div style="margin: 10px;">
-						
-					</div>
-					<button type="submit" class="btn btn-primary btn-sm ">Excluir
-						Cadastro</button>
-				</form>
-			</div>
-			<br>
+						<div class="form-group col-md-3">
+							<label for="idAdmin_query">Identificação de registro *</label> <input
+								class="form-control" type="text" id="idAdmin_query"
+								name="fidAdmin_query"
+								placeholder="Identificação:<%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"
+								disabled></input>
+						</div>
 
+						<div class="form-group col-md-3">
+							<label for="adiminDateRegistration_query">Data do
+								cadastro *</label> <input class="form-control" type="text"
+								id="adiminDateRegistration_query"
+								name="fadiminDateRegistration_query"
+								placeholder="Data: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdiminDateRegistration()%>"
+								disabled></input>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="nameAdmin_query">Nome admin *</label> <input
+								class="form-control" type="text" id="nameAdmin_query"
+								name="fnameAdmin_query"
+								placeholder="Nome admin: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getNameAdmin()%>"
+								disabled></input>
+						</div>
+
+
+
+						<div class="form-group col-md-4">
+							<label for="accessLevel_query">Nível de acesso *</label> <input
+								class="form-control" type="text" id="accessLevel_query"
+								name="faccessLevel_query"
+								placeholder="Acesso: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAccessLevel()%>"
+								disabled></input>
+						</div>
+
+
+
+						<div class="form-group col-md-8">
+							<label for="emailAccess_query">Email *</label> <input
+								class="form-control" style="text-transform: lowercase;"
+								type="email" id="emailAccess_query" name="femailAccess_query"
+								placeholder="Email: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getEmailAccess()%>"
+								disabled></input>
+						</div>
+
+
+						<div class="form-group col-md-4">
+							<label for="adminPassword_query">Senha *</label> <input
+								class="form-control" type="password" id="adminPassword_query"
+								name="fadminPassword_query"
+								placeholder="Senha:  <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdminPassword()%>"
+								disabled></input>
+						</div>
+
+						<div class="form-group col-md-5">
+							<label for="phoneContact_query">Telefone cel * OBS.:
+								incluir o "zero" do DDD.</label> <input class="form-control" type="text"
+								id="phoneContact_query" name="fphoneContact_query"
+								placeholder="Telefone: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getPhoneContact()%>"
+								disabled></input>
+						</div>
+
+					</div>
+					<!------>
+
+
+				</div>
+
+				<div style="margin: 10px;"></div>
+				<button type="submit" class="btn btn-primary btn-sm ">Excluir
+					Cadastro</button>
+			</form>
 		</div>
+		<br>
+
+	</div>
 
 
 
@@ -263,7 +298,13 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../../../js/bootstrap.min.js"></script>
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 </body>
 
 </html>
