@@ -1,4 +1,3 @@
-<%@page import="br.com.dao.generalInformation.GeneralInformationDao"%>
 <%@page import="br.com.dto.product.ProductRegistration"%>
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@page import="br.com.dto.methods.ProductData"%>
@@ -7,14 +6,6 @@
 <%@page import="br.com.dao.client.ClientDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	
-<%-- 
-* year 2023 title Cupcake Store
-* 
-* @author - Rodrigo Braga
---%>
-	
-	
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,16 +36,27 @@
 
 <meta charset="utf-8">
 
-<title>Informações do site</title>
+<title>Insert title here</title>
 </head>
 
 
 <body>
 	<%
 	ClientDao dao_client = new ClientDao();
+	ProductData productData = new ProductData();
 	ArrayList<ClientRegistration> clientResultSelect = new ArrayList<>();
-	%>
+	try {
 
+		//Este linha traz como resultado às informações contidas no DB de acordo com o usuário e senha
+		if (dao_client.clientListResult().isEmpty()) {
+			dao_client.resultSelectRegistration_Dao(request.getParameter("fuser-name").toLowerCase(),
+			request.getParameter("fpassword-access"));
+		}
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	%>
 
 	<div>
 
@@ -64,13 +66,13 @@
 				<!-- Menu principal-->
 
 
+				<%---------------------Menu principal------------------------------------%>
 
-				<!----------------------Menu principal------------------------------------>
+				<button class="btn btn-light float-left " type="button"
+					style="margin: 12px;" data-bs-toggle="offcanvas"
+					aria-controls="offcanvasWithBothOptions">Início</button>
 
-				<a href="../home-page/home.jsp"><button
-						class="btn btn-light float-left " type="button"
-						style="margin: 12px;" data-bs-toggle="offcanvas"
-						aria-controls="offcanvasWithBothOptions">Início</button></a>
+
 
 
 				<button class="btn btn-light  float-left " type="button"
@@ -79,6 +81,9 @@
 					data-bs-target="#offcanvasWithBothOptions"
 					aria-controls="offcanvasWithBothOptions">||| Informações
 					gerais</button>
+
+
+
 
 
 
@@ -93,8 +98,6 @@
 
 
 				<span class="acesso-usuario">
-
-
 
 					<ul class="nav nav menu-principal">
 						<div style="width: 80px;">
@@ -119,14 +122,16 @@
 
 								<div class="dropdown-divider"></div>
 
-								<a class="dropdown-item" href="../home-page/close_account.jsp">Sair</a>
+								<a class="dropdown-item" href="close_account.jsp">Sair</a>
 
 							</div></li>
 					</ul>
 
-				</span> <br> <br> <br>
+				</span>
 			</div>
 		</div>
+		<%---------------------Fim do menu principal------------------------------------%>
+
 
 		<%---------------------Inicio do menu Lateral------------------------------------%>
 
@@ -135,15 +140,16 @@
 			style="max-width: 300px;" tabindex="-1" id="offcanvasWithBothOptions"
 			aria-labelledby="offcanvasWithBothOptionsLabel">
 			<div class="offcanvas-header">
+
 				<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Informações
 					gerais</h4>
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
 					aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
+
 				<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Sobre
 					a empresa</h5>
-
 				<ul class="list-group list-group-flush">
 
 					<li class="list-group-item"><a
@@ -167,55 +173,123 @@
 
 			</div>
 		</div>
-		<br> <br> <br> <br>
+		<br> <br> <br>
 
-		<%---------------------Fim do menu lateral------------------------------------%>
+	</div>
 
-		<%---------------------Início do conteúdo------------------------------------%>
+	<%---------------------Fim do menu lateral------------------------------------%>
 
-		<%
-		GeneralInformationDao generalInformationDao = new GeneralInformationDao();
-		%>
-
-
-
-		<div class="  alinhamento-tamanho_max ">
-
-			<div>
-				<h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Formas
-					de contato</h3>
+	<!----------------- Carrocel de imagens ------------------------------------->
+	<div class="alinhamento-tamanho_max margem-carrocel ">
+		<div id="carouselExampleControls" class="carousel slide"
+			data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="d-block w-100" src="../img/banner/banner1.jpg"
+						alt="First slide">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="../img/banner/banner2.jpg"
+						alt="Second slide">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="../img/banner/banner3.jpg"
+						alt="Third slide">
+				</div>
 			</div>
-
-
+			<a class="carousel-control-prev" href="#carouselExampleControls"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleControls"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
 		</div>
+	</div>
 
 
-		<div class="  alinhamento-tamanho_max " Style="text-align: center;">
+	<div class="alinhamento-tamanho_max margem-carrocel">
 
+		<%--------------------------Card com o produto-----------------------------------%>
+		<div style="margin-bottom: 50px;">
+			<h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Confiram
+				os nossos principais produtos!</h4>
+			<hr>
 
-			<div Style="margin-top: 20px;">
-				<img Style="max-width: 800px;"
-					src="../img/contact/contact.jpg
-					">
+			<%--  --%>
+			<%
+			// Lista com as informações do registro do produto 
+			ArrayList<ProductRegistration> productRegistration = new ArrayList<>();
+			productRegistration = productData.productRegistration_List();
 
-				<div Style="margin-top: 90px;">
-					<p><%=generalInformationDao.select_generalInformation_dao().get(0).getContact()%></p>
+			for (int i = 0; i < productRegistration.size(); i++) {
 
+				if (productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+				.getIdProduct() != null
+				&& productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+						.getIdProductImage() != null) {
+			%>
+			<div class="card float-left" style="width: 17rem; margin: 14px;">
+
+				<img
+					src="<%="../img/"
+		+ productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+				.getIdProduct()
+		+ "/" + productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+				.getIdProductImage()
+		+ ".jpg"%>"	class="card-img-top"style="margin-top: 10px; max-height: 300px; min-height: 300px;">
+
+				<div class="card-body">
+					<h5 class="card-title"><%=productRegistration.get(i).getProductName()%></h5>
+					<p class="card-text"><%=productRegistration.get(i).getBasicDescription()%></p>
+				</div>
+
+				<%
+				if (productData.productStock_List(productRegistration.get(i).getIdProductRegistration()) != null) {
+				%>
+				<ul class="list-group list-group-flush">
+						<li class="list-group-item">Quantidade disponível: <%=productData.productStock_List(productRegistration.get(i)
+								.getIdProductRegistration()).get(0).getQuantityEntry() - productData.productStock_List(productRegistration.get(i)
+								.getIdProductRegistration()).get(0).getQuantityDepartury()%>
+						</li>
+						<h>
+						<li class="list-group-item">Preço: R$ <%=productData.productStock_List(productRegistration.get(i)
+								.getIdProductRegistration()).get(0).getProductPrice()%>
+						</li>
+
+					</ul>
+				<%
+				} else {
+				%>
+					<ul class="list-group list-group-flush">
+					<li class="list-group-item">Produto não disponível!</li>
+					<h>
+						<li class="list-group-item">Valor indiponível!</li>
+
+					</ul>
+				<%
+				}
+				%>
+				<div class="card-body">
+					<a href="#" class="card-link">Verifique as condições para
+						entrega </a>
 
 				</div>
 			</div>
 
+			<%
+			}
+			%>
+			<%
+			}
+			%>
 		</div>
-
-		<%---------------------Fim do conteúdo------------------------------------%>
-
 		<div style="clear: left; min-height: 80px;"></div>
 
 	</div>
 
-	<br>
-	<br>
-	<br>
 
 	<%--Informações do rodapé do site --%>
 	<div class="rodape fixed-bottom">

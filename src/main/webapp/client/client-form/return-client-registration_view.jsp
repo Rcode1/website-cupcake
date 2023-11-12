@@ -1,9 +1,7 @@
-
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dao.client.ClientDao"%>
 <%@ page import="java.lang.String"%>
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
@@ -35,7 +33,7 @@
 
 
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Cupcake website</title>
 
 </head>
 <body>

@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ page language="java" errorPage="delete_redirect-view.jsp" %>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="../../css/css-personalizado/personalizacao.css">
@@ -33,8 +34,8 @@
 <link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet"
 	type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
-<%@ page language="java" errorPage="delete_redirect-view.jsp" %>
+
+<title>Cupcake website</title>
 </head>
 <body>
 	

@@ -2,6 +2,14 @@
 <%@page import="br.com.dto.generalInformation.GeneralInformation"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    
+   <%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +19,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Standard admin</title>
 </head>
 <body>
 <%

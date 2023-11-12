@@ -4,6 +4,14 @@
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 
@@ -40,10 +48,8 @@
 	<%
 	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 	ImageFolderAddress imageFolderAddress = new ImageFolderAddress();
-	
+
 	ProductDao productDao = new ProductDao();
-	
-	
 	%>
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
@@ -85,11 +91,11 @@
 				data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
-				
-				<a href="../product-panel_query.jsp"><button
+
+			<a href="../product-panel_query.jsp"><button
 					class="btn btn-light  float-left " type="button"
 					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
-				
+
 
 
 
@@ -258,9 +264,8 @@
 
 				<%
 				for (int i = 0; i < productDao.select_productImage_dao().size(); i++) {
-				   if(productDao.select_productImage_dao().get(i).getIdProduct().equals
-						   ( productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration())){
-					 
+					if (productDao.select_productImage_dao().get(i).getIdProduct()
+					.equals(productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration())) {
 				%>
 
 
@@ -272,25 +277,24 @@
 
 
 							<div class="form-group col-md-4">
-								<label for="idProductImage">Identificação da imagem</label> <select
-									style="background: #DCDCDC;" id="idProductImage"
-									class="form-control" name="fidProductImage" >
-									<option selected><%=productDao.select_productImage_dao().get(i).getIdProductImage()%></option>
-
-								</select>
-
-
-							</div>
-
-
-
-							<div class="form-group col-md-4">
 								<label for="idProduct">Identificação do produto *</label> <input
 									class="form-control" type="text" id="idProduct"
 									name="fidProduct"
 									placeholder="ID: <%=productDao.select_productImage_dao().get(i).getIdProduct()%> "
 									disabled></input>
 							</div>
+
+
+							<div class="form-group col-md-4">
+								<label for="idProductImage">Identificação da imagem</label> <select
+									style="background: #DCDCDC;" id="idProductImage"
+									class="form-control" name="fidProductImage">
+									<option selected><%=productDao.select_productImage_dao().get(i).getIdProductImage()%></option>
+								</select>
+
+
+							</div>
+
 
 							<div class="form-group col-md-4">
 								<label for="idCategory">Categoria *</label> <input

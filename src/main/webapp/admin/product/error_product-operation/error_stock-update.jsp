@@ -1,6 +1,14 @@
 <%@page import="br.com.dao.client.ClientDao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8""
+	pageEncoding="utf-8""%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,14 +27,14 @@
 			<div class="card-body" style="margin: auto auto;">
 				<h5 class="card-title ">Erro ao tentar atualizar o cadastro.</h5>
 				<p class="card-text">
-					Houve um problena na atualização dos dados cadastrais, pode ter sido a
-					ausência da <strong> confirmação para atualização</strong> , por
-					gentileza, pedimos que acesse novamente o conteúdo e reinicie este
-					procedimento de atualização do cadastro,  acrescentando o 
-					o item já mencionado, caso não consiga atualizar entre em contato conosco!
+					Houve um problena na atualizaÃ§Ã£o dos dados cadastrais, pode ter sido a
+					ausÃªncia da <strong> confirmaÃ§Ã£o para atualizaÃ§Ã£o</strong> , por
+					gentileza, pedimos que acesse novamente o conteÃºdo e reinicie este
+					procedimento de atualizaÃ§Ã£o do cadastro,  acrescentando o 
+					o item jÃ¡ mencionado, caso nÃ£o consiga atualizar entre em contato conosco!
 				</p>
 				<a href="../stock-panel_update.jsp" class="btn btn-secondary"
-					style="text-decoration: none; margin: auto auto;"> Retornar para a atualização de cadastro
+					style="text-decoration: none; margin: auto auto;"> Retornar para a atualizaÃ§Ã£o de cadastro
 				</a>
 
 

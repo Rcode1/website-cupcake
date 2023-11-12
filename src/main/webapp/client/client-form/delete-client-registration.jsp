@@ -2,6 +2,14 @@
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +20,7 @@
 <meta charset="utf-8">
 
 
-<title>Insert title here</title>
+<title>Cupcake website</title>
 </head>
 <body>
 	<%
@@ -33,7 +41,7 @@
 		style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
 		<div
 			style="border: 1px solid #C4C3C3; max-width: 400px; padding: 10px;">
-			<img style="max-width: 100%" src="../../img/deletado.png">
+			<img style="max-width: 100%" src="../../img/atualizar.png">
 			<div class="card-body" style="margin: auto auto;">
 				<h5 class="card-title ">Cadastro deletado com sucesso.</h5>
 				<p class="card-text">Seu registro foi deletado da nossa base de

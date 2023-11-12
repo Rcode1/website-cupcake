@@ -1,15 +1,8 @@
+
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	
-<%-- 
-* year 2023 title Cupcake Store
-* 
-* @author - Rodrigo Braga
---%>
-	
-	
 <!DOCTYPE html>
 <html>
 
@@ -46,7 +39,6 @@
 	<%
 	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
 	ProductDao productDao = new ProductDao();
-	
 	%>
 	<div class=" fixed-top fundo-menu "
 		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
@@ -61,7 +53,7 @@
 			<!-- Início do botão: "Início" ( Painel do administrador) -->
 			<%
 			if (adminRegistrationDao.returnAccess_Administrator_dao().get(0).getAccessLevel().equals("Manutenção")) {
-			%><a href="../standard-admin/standard-page_home.jsp"><button
+			%><a href="../../standard-admin/standard-page_home.jsp"><button
 					class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
 					aria-controls="offcanvasWithBothOptions">Início</button></a>
@@ -69,7 +61,7 @@
 			} else {
 			%>
 
-			<a href="../main-admin/main-page_home.jsp"><button
+			<a href="../../main-admin/main-page_home.jsp"><button
 					class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
 					aria-controls="offcanvasWithBothOptions">Início</button></a>
@@ -122,21 +114,48 @@
 
 
 						<li class="list-group-item"><a
-							href="product-panel_insert.jsp" style="text-decoration: none;">Inserir
+							href="../product-panel_insert.jsp" style="text-decoration: none;">Inserir
 								dados</a></li>
 						<li class="list-group-item"><a
-							href="product-panel_update.jsp" style="text-decoration: none;">Alterar
+							href="../product-panel_update.jsp" style="text-decoration: none;">Alterar
 								dados</a></li>
 						<li class="list-group-item"><a
-							href="product-panel_delete.jsp" style="text-decoration: none;">Deletar
+							href="../product-panel_delete.jsp" style="text-decoration: none;">Deletar
 								dados</a></li>
 
 						<li class="list-group-item"><a
-							href="product-panel_operation.jsp" style="text-decoration: none;">Retornar
-								a consulta de dados</a></li>
+							href="../product-panel_operation.jsp"
+							style="text-decoration: none;">Retornar a consulta de dados</a></li>
 						<hr>
 
 					</ul>
+
+					<ul class="list-group list-group-flush">
+						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cadastro
+							de imagens</h5>
+
+						<li class="list-group-item">Abaixo está disponível o item
+							para inserir os dados da imagem, estes dados estão relacionados
+							com o ID do produto selecionado.Para adicionar a imagem e acessar
+							as opções de cadastro basta dar um click no botao situado abaixo
+							de cada lista, disponível na tela principal.</li>
+
+
+						<li class="list-group-item"><a
+							href="insert_data-image-view.jsp" style="text-decoration: none;">Inserir
+								dados</a></li>
+
+						<li class="list-group-item"><a
+							href="update_image-registration-view.jsp"
+							style="text-decoration: none;">alterar dados</a></li>
+
+						<li class="list-group-item"><a
+							href="../product-panel_operation.jsp"
+							style="text-decoration: none;">Retornar a consulta de dados</a></li>
+						<hr>
+
+					</ul>
+
 
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Operações
@@ -148,8 +167,8 @@
 							abaixo.</li>
 
 						<li class="list-group-item"><a
-							href="stock-panel_operation.jsp" style="text-decoration: none;">Operações
-								com estoques </a></li>
+							href="../stock-panel_operation.jsp"
+							style="text-decoration: none;">Operações com estoques </a></li>
 
 						<hr>
 
@@ -212,7 +231,6 @@
 							disabled></input>
 					</div>
 
-
 				</div>
 
 			</div>
@@ -222,67 +240,70 @@
 
 	</div>
 
-
-
-
-	<!--  -->
-	<!--Formulario destinado a inserção dos dados do produto-->
+	<!-- Rrgistro das imagens -->
 
 	<div class="largura-max-cadastro"
-		style="margin: auto auto; margin-top: 20px;">
+		style="margin: auto auto; margin-top: 20px; margin-bottom: 20px;">
 		<div class="largura-max-cadastro text-center">
-			<h3>Inserção das imagens do produto</h3>
-			<p>Verificação da criação da base de dados, bem como, os dados
-				cadastrados das imagem</p>
-			<div class="borda-cor-cadastro">
-				<form action="insert_data-image.jsp" method="POST">
-					<!------>
-					<div class="borda-cor-cadastro">
-						<div class="form-row">
+			<h3>Informações referente a uma imagem</h3>
+			<p>As informações são referentes a uma imagem de um produto
+				selecionado.</p>
+		</div>
+		<div class="borda-cor-cadastro">
 
-							<!------>
+			<div class="borda-cor-cadastro" Style="margin-bottom: 10px;">
 
-														
-							<div class="form-group col-md-4">
-								<label for="idProductRegistration">Identificação do produto</label> <select style="background: #DCDCDC;"
-									id="fdProductRegistration" class="form-control" name="fidProductRegistration">
-									<option selected><%=productDao.getResult_listProduct_Dao().get(0).getIdProductRegistration()%></option>
-									
-								</select>
+				<%--Consulta dos dados cadastrados no DB --%>
 
+				<form action="update_image-registration.jsp" method="Post">
+					<div class="form-row"
+						style="border: 1px solid #E0E0E0; margin: 5px;">
 
-							</div>
+						<div class="form-group col-md-2">
+							<label for="idProductImage">ID da imagem *</label> <input
+								class="form-control" type="text" id="idProductImage"
+								name="fidProductImage"
+								placeholder="ID: <%=productDao.getResult_productImageList_Dao().get(0).getIdProductImage()%> "
+								disabled></input>
+						</div>
 
-							<div class="form-group col-md-8">
-								<label for="category">Selecione uma categoria*</label> <select
-									id="category" class="form-control" name="fcategory">
-									<option></option>
-									<option>Principal</option>
-									<option>Secundaria</option>
-								</select>
-
-
-							</div>
-							<button type="submit" class="btn btn-primary btn-sm float-right"
-								style="margin-left: 5px;">Inserir dados</button>
+						<div class="form-group col-md-4">
+							<label for="idProduct">Identificação do produto *</label> <input
+								class="form-control" type="text" id="idProduct"
+								name="fidProduct"
+								placeholder="ID: <%=productDao.getResult_productImageList_Dao().get(0).getIdProduct()%> "
+								disabled></input>
+						</div>
 
 
+						<div class="form-group col-md-6">
+							<label for="category">Categoria atual selecionada*</label> <select
+								id="category" class="form-control" name="fCategory">
+								<option > <%=productDao.getResult_productImageList_Dao().get(0).getImageCategory()%></option>
+								<option>Principal</option>
+								<option>Secundaria</option>
+							</select>
 
 						</div>
-						<!------>
+						
+							
 
-
-					</div>
-
+						<button type="submit" class="btn btn-primary btn-sm "
+							style="margin-left: 5px; margin-bottom: 5px">Atualizar
+							categoria</button>
 				</form>
+				<a href="insert_image.jsp" ><button type="button"
+						class="btn btn-primary btn-sm "
+						style="margin-left: 5px; margin-bottom: 5px">Carregar e salvar
+						imagem</button></a> <a href="delete_image.jsp"><button type="button"
+						class="btn btn-primary btn-sm "
+						style="margin-left: 5px; margin-bottom: 5px">Excluir
+						imagem</button></a> <a href="delete_imageData.jsp"><button
+						type="button" class="btn btn-primary btn-sm "
+						style="margin-left: 5px; margin-bottom: 5px">Excluir
+						este conteúdo</button></a>
+						
 				
-				
-								
-
-			</div>
-			<br>
-
-		</div>
 
 
 
@@ -294,39 +315,16 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-			integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-			crossorigin="anonymous"></script>
-		<script src="../../../js/bootstrap.min.js"></script>
+				<!-- Optional JavaScript -->
+				<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+					integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+					crossorigin="anonymous"></script>
+				<script
+					src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+					integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+					crossorigin="anonymous"></script>
+				<script src="../../../js/bootstrap.min.js"></script>
 </body>
 
 </html>

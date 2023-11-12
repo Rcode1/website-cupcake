@@ -3,10 +3,19 @@
 <%@page import="br.com.dto.client.ClientRegistration"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
-
+<%@ page language="java"
+	errorPage="update_redirect-view.jsp"%>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="../../css/css-personalizado/personalizacao.css">

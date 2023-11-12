@@ -1,10 +1,16 @@
 <%@page import="br.com.dto.product.ProductRegistration"%>
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@page import="java.util.ArrayList"%>
-
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>

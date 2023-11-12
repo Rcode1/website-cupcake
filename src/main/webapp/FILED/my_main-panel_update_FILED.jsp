@@ -1,15 +1,6 @@
-<%@page import="br.com.dao.generalInformation.GeneralInformationDao"%>
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	
-<%-- 
-* year 2023 title Cupcake Store
-* 
-* @author - Rodrigo Braga
---%>
-	
-	
 <!DOCTYPE html>
 <html>
 
@@ -47,22 +38,20 @@
 </head>
 
 <body>
-<%
-GeneralInformationDao generalInformationDao = new GeneralInformationDao();
-AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
-generalInformationDao.select_generalInformation_dao();
-
-%>
 
 	<div class=" fixed-top fundo-menu "
-		style="max-width: 1200px; max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
+		style="max-width: 1200px; height: 65px; margin: auto auto; background-color: #DCDCDC;">
 		<div class=" alinhamento-tamanho_max ">
 
 
 
-			<%----------------------Menu principal------------------------------------%>
 
-			<a href="../main-admin/main-page_home.jsp"><button
+
+			<!----------------------Menu principal------------------------------------>
+
+			<!--  Início do menu principal -->
+
+			<a href="main-page_home.jsp"><button
 					class="btn btn-light float-left " type="button"
 					style="margin: 12px;" data-bs-toggle="offcanvas"
 					aria-controls="offcanvasWithBothOptions">Início</button></a>
@@ -73,36 +62,39 @@ generalInformationDao.select_generalInformation_dao();
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
 
+			<a href="main-panel_query.jsp"><button
+					class="btn btn-light  float-left " type="button"
+					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
+
 			<span class="acesso-usuario">
 				<ul class="nav nav menu-principal">
 					<div style="width: 80px;">
 						<img style="width: 80px;" src="../../img/capaAdminA.png">
 					</div>
 					<li class="nav-item dropdown"><p
-							style="margin: 0px; padding-left: 15px;"><%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getNameAdmin()%></p> <a
+							style="margin: 0px; padding-left: 15px;">nome do admin</p> <a
 						class="nav-link dropdown-toggle color-menu"
 						style="padding-right: 10px;" data-toggle="dropdown" href="#"
 						role="button" aria-haspopup="true" aria-expanded="false">Painel
 							pessoal</a>
 						<div class="dropdown-menu dropdown-menu-right">
 							<a class="dropdown-item "
-								href="../main-admin/my-admin_details/my_main-panel_query.jsp">Visualizar
+								href="my-admin_details/my_main-panel_query.jsp">Visualizar
 								meu cadastro </a> <a class="dropdown-item"
-								href="../main-admin/my-admin_details/my_main-panel_update.jsp">Atualizar
-								meu cadastro </a> <a class="dropdown-item"
-								href="../main-admin/my-admin_details/my_main-panel_delete.jsp">Deletar meu
+								href="my-admin_details/my_main-panel_delete.jsp">Deletar meu
 								cadastro</a>
 
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item"
-								href="../main-admin/admin-panel_operation.jsp">Operações gerais</a>
+								href="admin-panel_operation.jsp">Operações gerais</a>
 
 							<div class="dropdown-divider"></div>
 
-							<a class="dropdown-item" href="../../admin/admin_closed.jsp">Sair</a>
+							<a class="dropdown-item" href="../admin_closed.jsp">Sair</a>
 						</div></li>
 				</ul>
 			</span>
+
 			<!-- fim do menu principal -->
 
 			<!-- Painel lateral - administrador -->
@@ -127,8 +119,12 @@ generalInformationDao.select_generalInformation_dao();
 							para os responsáveis pela manutenção dos recursos do site.</li>
 
 						
+						<li class="list-group-item"><a href="main-panel_query.jsp"
+							style="text-decoration: none;">Consultar dados</a></li>
+						<li class="list-group-item"><a href="main-panel_delete.jsp"
+							style="text-decoration: none;">Deletar dados</a></li>
 						<li class="list-group-item"><a
-							href="../main-admin/admin-panel_operation.jsp" style="text-decoration: none;">Administradores
+							href="admin-panel_operation.jsp" style="text-decoration: none;">Administradores
 								- operações cadastrais </a></li>
 
 						<hr>
@@ -138,7 +134,7 @@ generalInformationDao.select_generalInformation_dao();
 					<ul class="list-group list-group-flush">
 						<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Gerenciamento
 							dos clientes</h5>
-						<li class="list-group-item"><a href="../main-admin/client-management/client-query_basic.jsp"
+						<li class="list-group-item"><a href="client-management/client-query_basic.jsp"
 							style="text-decoration: none;">consultar dados </a></li>
 						
 						<hr>
@@ -174,89 +170,123 @@ generalInformationDao.select_generalInformation_dao();
 	<!-- Fim do menu lateral -->
 
 
-
-<%--------------------------------------formulario--------------------------------------------%>
-
-<div class="largura-max-cadastro"
+	<!--------------------------formulario----------------------------------------------------------->
+	<%
+	AdminRegistrationDao adminRegistrationDao = new AdminRegistrationDao();
+	%>
+	<div class="largura-max-cadastro"
 		style="margin: auto auto; margin-top: 80px;">
 		<div class="largura-max-cadastro text-center">
-			<h3 style="margin-top: 20px;">Área destinada à inserção dos dados da empresa</h3>
-			<p>Abaixo estão todos os campos necessários para inserir os dados da empresa, bem como, seu limite de caracteres.</p>
+			<h3>Alteração dos dados do administrador</h3>
+			<p>Abaixo estão todos os dados cadastrados do administrador</p>
 		</div>
 		<div class="borda-cor-cadastro">
+			
+			<%-- --%>
+			<form action="my_admin_update.jsp" id="admin_update" method="POST">
+			
+			<%-- Neste trecho abre um campo imput para a entrada do código do administrador, desta forma é possível
+			confirmar às intenções da realização de alterações dos dados cadastrais--%>
+				<div class="borda-red"">
+					<p>Digite o mesmo código que aparece no campo (confirmação para
+						atualização) que está logo abaixo, em seguida click no botão
+						"Atualizar cadastro".</p>
 
-			<form action="app-information.jsp" id="app-information" method="POST">
+					<div class="form-group col-md-4"
+						Style="margin-left: auto; margin-right: auto; text-align: center;">
+
+						<label for="idadmin_update">Confirmação para atualização</label> <input
+							class="form-control" type="text" id="idadmin_update"
+							name="fidadmin_update" placeholder=" Digite aqui este código: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"></input>
+					</div>
+				</div>
+
 
 
 
 				<div class="borda-cor-cadastro">
 					<div class="form-row">
 
-						<div class="form-group col-md-12">
-							<label for="website_information">Informações do site </label>
-							<textarea class="form-control" style="text-transform: lowercase;"
-								type="text" id="website_information" name="fwebsite_information"
-								minlength="20" maxlength="500"
-								placeholder="Informações do site: Insira aqui as informações pertinentes ao assunto, máximo 500 caracteres."
-								required><%= generalInformationDao.select_generalInformation_dao().get(0).getWebsiteInformation()%></textarea>
+						<!------>
+
+
+
+						<div class="form-group col-md-3">
+							<label for="idadmin_update">Identificação de registro *</label> <input
+								class="form-control" type="text" id="idadmin_update"
+								name="fidadmin_update"
+								placeholder="Identificação: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getIdAdmin()%>"
+								disabled></input>
 						</div>
+
 						
-						<div class="form-group col-md-12">
-							<label for="privacy_policy">Políticas de privacidade*</label>
-							<textarea class="form-control" style="text-transform: lowercase;"
-								type="text" id="privacy_policy" name="fprivacy_policy"
-								minlength="20" maxlength="500"
-								placeholder="Informações da política de privacidade: Insira aqui as informações pertinentes ao assunto, máximo 500 caracteres"
-								required><%= generalInformationDao.select_generalInformation_dao().get(0).getPrivacyPolicy()%></textarea>
-						</div>
+						<div class="form-group col-md-3">
+								<label for="adiminDateRegistration_update">Data do
+								cadastro *</label> <select id="adiminDateRegistration_update"
+									class="form-control" name="fadiminDateRegistration_update">
+									<option selected><%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdiminDateRegistration()%></option>
+									
+								</select>
+							</div>
 						
-						<div class="form-group col-md-12">
-							<label for="contact">Formas de contato</label>
-							<textarea class="form-control" style="text-transform: lowercase;"
-								type="text" id="contact" name="fcontact"
-								minlength="20" maxlength="400"
-								placeholder="Informações de contato: Insira aqui as informações pertinentes ao assunto, máximo 400 caracteres"
-								required><%= generalInformationDao.select_generalInformation_dao().get(0).getContact()%></textarea>
+						<div class="form-group col-md-6">
+							<label for="nameAdmin_update">Nome admin *</label> <input
+								class="form-control" type="text" id="nameAdmin_update"
+								name="fnameAdmin_update"
+								placeholder="Nome admin: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getNameAdmin()%>"></input>
 						</div>
-						
-						<div class="form-group col-md-12">
-							<label for="about_us">Sobre a empresa</label>
-							<textarea class="form-control" style="text-transform: lowercase;"
-								type="text" id="about_us" name="fabout_us"
-								minlength="20" maxlength="1000"
-								placeholder="Informações sobre a empresa: Insira aqui as informações pertinentes ao assunto, máximo 1000 caracteres"
-								required><%= generalInformationDao.select_generalInformation_dao().get(0).getAboutUs()%></textarea>
+
+
+						<div class="form-group col-md-2">
+							<label for="accessLevel_update">Nível de acesso *</label> <select
+								id="accessLevel_update" class="form-control"
+								name="faccessLevel_update">
+								<option selected> <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAccessLevel()%></option>
+								<option>Manutenção</option>
+								<option>Administrativo</option>
+
+
+							</select>
 						</div>
-						
-						<div class="form-group col-md-12">
-							<label for="site_navigation">Navegação do site</label>
-							<textarea class="form-control" style="text-transform: lowercase;"
-								type="text" id="site_navigation" name="fsite_navigation"
-								minlength="20" maxlength="500"
-								placeholder="Informações sobre a empresa: Insira aqui as informações pertinentes ao assunto, máximo 500 caracteres"
-								required><%= generalInformationDao.select_generalInformation_dao().get(0).getSiteNavigation()%></textarea>
+
+
+
+						<div class="form-group col-md-10">
+							<label for="emailAccess_update">Email *</label> <input
+								class="form-control" style="text-transform: lowercase;"
+								type="email" id="emailAccess_update" name="femailAccess_update"
+								placeholder="Email: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getEmailAccess()%>"></input>
 						</div>
-					
+
+
+						<div class="form-group col-md-4">
+							<label for="adminPassword_update">Senha *</label> <input
+								class="form-control" type="password" id="adminPassword_update"
+								name="fadminPassword_update"
+								placeholder="Senha:  <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getAdminPassword()%>"></input>
+						</div>
+
+						<div class="form-group col-md-5">
+							<label for="phoneContact_update">Telefone cel * OBS.:
+								incluir o "zero" do DDD.</label> <input class="form-control" type="text"
+								id="phoneContact_update" name="fphoneContact_update"
+								placeholder="Telefone: <%=adminRegistrationDao.getUniqueSelectResultAdmin_Dao().get(0).getPhoneContact()%>"></input>
+						</div>
+
 					</div>
-					<%-- --%>
+					<!------>
 
 				</div>
 
 				<div style="margin: 10px;">
 					<button type="submit" class="btn btn-primary btn-sm ">Atualizar
-						dados do site</button>
+						cadastro</button>
 				</div>
 			</form>
 		</div>
 		<br>
 
 	</div>
-
-
-
-
-
-
 
 
 

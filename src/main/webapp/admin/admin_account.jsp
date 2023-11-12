@@ -2,13 +2,21 @@
 <%@page import="br.com.dto.admin.AdministratorRegistration"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
 <%@ page language="java"
 	errorPage="error-redirection/error-redirection_admin-access.jsp"%>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Admin access</title>
 </head>
 <body>
 	<%

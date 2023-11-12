@@ -1,7 +1,5 @@
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@page import="br.com.dto.product.ProductRegistration"%>
-
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 

@@ -1,6 +1,14 @@
 <%@page import="br.com.dao.client.ClientDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,12 +27,11 @@
 <script type="text/javascript" language="javascript"
 	src="jquery/jquery.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Documento sem título</title>
 <link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet"
 	type="text/css">
 
 
-<title>Insert title here</title>
+<title>Admin access</title>
 
 </head>
 <body>

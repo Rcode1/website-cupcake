@@ -2,6 +2,14 @@
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +24,6 @@
 	<%
 	ProductDao productDao = new ProductDao();
 	ProductImage productImageUpdate_obj = new ProductImage();
-	
-	%>
-
-	<%
-	
 	productImageUpdate_obj.setIdProductImage(productDao.getResult_productImageList_Dao().get(0).getIdProductImage());
 	productImageUpdate_obj.setImageCategory(request.getParameter("fCategory"));
 	productDao.updateProductImage_Dao(productImageUpdate_obj);

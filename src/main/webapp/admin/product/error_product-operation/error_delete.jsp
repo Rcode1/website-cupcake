@@ -1,6 +1,14 @@
 <%@page import="br.com.dao.client.ClientDao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8""
+	pageEncoding="utf-8""%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +26,11 @@
 			<img style="max-width: 100%" src="../../../img/erro.jpeg">
 			<div class="card-body" style="margin: auto auto;">
 				<h5 class="card-title ">Erro ao tentar deletar o cadastro.</h5>
-				<p class="card-text">Houve um problena na ·rea destinada a
-					deletar os dados cadastrais, talves tenha sido a ausÍncia da
-					<strong>confirmaÁ„o para exclus„o</strong>, por gentileza, pedimos que acesse
+				<p class="card-text">Houve um problena na √°rea destinada a
+					deletar os dados cadastrais, talves tenha sido a aus√™ncia da
+					<strong>confirma√ß√£o para exclus√£o</strong>, por gentileza, pedimos que acesse
 					novamente esta area e realize o mesmo procedimento, acrescentando o 
-					o item j· mencionado, caso n„o consiga deletar entre em contato conosco!</p>
+					o item j√° mencionado, caso n√£o consiga deletar entre em contato conosco!</p>
 				<a href="../product-panel_delete.jsp" class="btn btn-secondary"
 					style="text-decoration: none; margin: auto auto;"> Retornar ao processo. 
 				</a>

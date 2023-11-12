@@ -7,6 +7,13 @@
 <%@page import="br.com.dao.client.ClientDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,8 +43,7 @@
 	href="../css/css-personalizado/personalizacao.css">
 
 <meta charset="utf-8">
-
-<title>Insert title here</title>
+<title>Informações do site</title>
 </head>
 
 

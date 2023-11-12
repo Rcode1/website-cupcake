@@ -30,11 +30,11 @@
 <script type="text/javascript" language="javascript"
 	src="jquery/jquery.js"></script>
 
-<title>Cadastro do cliente</title>
+
 <link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet"
 	type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>Cupcake website</title>
 
 </head>
 <body>

@@ -4,13 +4,21 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 
 <head>
 
 <!-- Required meta tags -->
-<meta charset="utf-8">
+
 
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +40,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-
+<meta charset="utf-8">
 <title>Insert title here</title>
 
 

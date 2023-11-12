@@ -2,6 +2,14 @@
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 
@@ -33,7 +41,7 @@
 
 
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Standard admin</title>
 
 
 </head>
@@ -54,9 +62,10 @@ generalInformationDao.select_generalInformation_dao();
 
 			<%-- Menu principal --%>
 
+			<a href="standard-page_home.jsp">
 			<button class="btn btn-light float-left " type="button"
 				style="margin: 12px;" data-bs-toggle="offcanvas"
-				aria-controls="offcanvasWithBothOptions">Início</button>
+				aria-controls="offcanvasWithBothOptions">Início</button></a>
 
 
 			<button class="btn btn-light  float-left " type="button"

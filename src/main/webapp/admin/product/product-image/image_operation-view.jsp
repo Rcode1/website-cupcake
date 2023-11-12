@@ -3,6 +3,14 @@
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 
@@ -80,11 +88,11 @@
 				data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasWithBothOptions"
 				aria-controls="offcanvasWithBothOptions">||| Menu</button>
-				
-				<a href="query_image-registration-view.jsp"><button
+
+			<a href="query_image-registration-view.jsp"><button
 					class="btn btn-light  float-left " type="button"
 					style="margin: 12px; background-color: gainsboro; color: black;">Retornar</button></a>
-				
+
 
 
 
@@ -259,7 +267,15 @@
 					<div class="form-row"
 						style="border: 1px solid #E0E0E0; margin: 5px;">
 
-						<div class="form-group col-md-2">
+						<div class="form-group col-md-3">
+							<label for="idProduct">ID do produto *</label> <input
+								class="form-control" type="text" id="idProduct"
+								name="fidProduct"
+								placeholder="ID: <%=productDao.getResult_productImageList_Dao().get(0).getIdProduct()%> "
+								disabled></input>
+						</div>
+
+						<div class="form-group col-md-3">
 							<label for="idProductImage">ID da imagem *</label> <input
 								class="form-control" type="text" id="idProductImage"
 								name="fidProductImage"
@@ -267,43 +283,44 @@
 								disabled></input>
 						</div>
 
-						<div class="form-group col-md-4">
-							<label for="idProduct">Identificação do produto *</label> <input
-								class="form-control" type="text" id="idProduct"
-								name="fidProduct"
-								placeholder="ID: <%=productDao.getResult_productImageList_Dao().get(0).getIdProduct()%> "
-								disabled></input>
-						</div>
-
 
 						<div class="form-group col-md-6">
 							<label for="category">Categoria atual selecionada*</label> <select
 								id="category" class="form-control" name="fCategory">
-								<option >Categoria atual: <%=productDao.getResult_productImageList_Dao().get(0).getImageCategory()%></option>
+								<option>
+									<%=productDao.getResult_productImageList_Dao().get(0).getImageCategory()%></option>
 								<option>Principal</option>
 								<option>Secundaria</option>
 							</select>
-
-						</div>
-						
+							
 							
 
-						<button type="submit" class="btn btn-primary btn-sm "
-							style="margin-left: 5px; margin-bottom: 5px">Atualizar
-							categoria</button>
-				</form>
-				<a href="insert_image.jsp" ><button type="button"
+						</div>
+
+					</div>
+					<button type="submit" class="btn btn-primary btn-sm"
+						style="margin-left: 5px; margin-bottom: 5px" ">Atualizar
+						categoria</button>
+
+					
+					<%-- <a href="insert_image.jsp" ><button type="button"
 						class="btn btn-primary btn-sm "
 						style="margin-left: 5px; margin-bottom: 5px">Carregar e salvar
 						imagem</button></a> <a href="delete_image.jsp"><button type="button"
 						class="btn btn-primary btn-sm "
 						style="margin-left: 5px; margin-bottom: 5px">Excluir
-						imagem</button></a> <a href="delete_imageData.jsp"><button
-						type="button" class="btn btn-primary btn-sm "
-						style="margin-left: 5px; margin-bottom: 5px">Excluir
-						este conteúdo</button></a>
-						
-				
+						imagem</button></a> --%>
+					<a href="delete_imageData.jsp"><button type="button"
+							class="btn btn-primary btn-sm "
+							style="margin-left: 5px; margin-bottom: 5px">Excluir
+							este conteúdo</button></a>
+
+
+				</form>
+
+
+			</div>
+		</div>
 
 
 
@@ -315,16 +332,16 @@
 
 
 
-				<!-- Optional JavaScript -->
-				<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-					integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-					crossorigin="anonymous"></script>
-				<script
-					src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-					integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-					crossorigin="anonymous"></script>
-				<script src="../../../js/bootstrap.min.js"></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+			integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+			crossorigin="anonymous"></script>
+		<script src="../../../js/bootstrap.min.js"></script>
 </body>
 
 </html>

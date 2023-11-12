@@ -4,20 +4,17 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.dao.product.ProductDao"%>
 <%@page import="java.lang.String"%>
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	
-<%-- 
-* year 2023 title Cupcake Store
-* 
-* @author - Rodrigo Braga
---%>
-	
 <!DOCTYPE html>
 <html>
 
 <head>
+
 <%-- Required meta tags --%>
+
+
 <%@ page language="java" errorPage="redirect_error.jsp"%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -39,7 +36,7 @@
 
 
 <meta charset="utf-8">
-<title>Cupcake website</title>
+<title>Home</title>
 
 
 </head>
@@ -185,13 +182,22 @@
 				productRegistration = productData.productRegistration_List();
 
 				for (int i = 0; i < productRegistration.size(); i++) {
-			
+					
+					//Boolean verification = productData.Verification_listProductimage_Dao( productRegistration.get(i).getIdProductRegistration());
+
+					if (!productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+					.getIdProduct().equals(false)
+					&& !productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+							.getIdProductImage().equals(false)) {
 				%>
 				<div class="card float-left" style="width: 17rem; margin: 14px;">
 
-					<img src="img/1000/1000.jpg"
-		
-			class="card-img-top"style="margin-top: 10px; max-height: 300px; min-height: 300px;">
+					<img src="<%="img/"
+		+ productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+				.getIdProduct()
+		+ "/" + productData.list_productImage(productRegistration.get(i).getIdProductRegistration(), "Principal").get(i)
+				.getIdProductImage()
+		+ ".jpg"%>"	class="card-img-top"style="margin-top: 10px; max-height: 300px; min-height: 300px;">
 
 					<div class="card-body">
 						<h5 class="card-title"><%=productRegistration.get(i).getProductName()%></h5>
@@ -235,7 +241,9 @@
 				<%
 				}
 				%>
-				
+				<%
+				}
+				%>
 
 
 

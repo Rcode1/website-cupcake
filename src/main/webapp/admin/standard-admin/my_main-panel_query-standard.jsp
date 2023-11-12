@@ -1,6 +1,14 @@
 <%@page import="br.com.dao.adminRegistration.AdminRegistrationDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%-- 
+* year 2023 title Cupcake Store
+* 
+* @author - Rodrigo Braga
+--%>
+	
+	
 <!DOCTYPE html>
 <html>
 
@@ -29,7 +37,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/css-personalizado/personalizacao.css">
 
-<title>Insert title here</title>
+<title>Standard admin</title>
 
 
 </head>
@@ -149,17 +157,17 @@
 
 
 
-					<div class="form-group col-md-3">
-						<label for="idAdmin_query">Identificação de registro *</label> <input
+					<div class="form-group col-md-2">
+						<label for="idAdmin_query">ID. do registro</label> <input
 							class="form-control" type="text" id="idAdmin_query"
 							name="fidAdmin_query"
-							placeholder="Identificação:<%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getIdAdmin()%>"
+							placeholder="ID: <%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getIdAdmin()%>"
 							disabled></input>
 					</div>
 
-					<div class="form-group col-md-3">
+					<div class="form-group col-md-4">
 						<label for="adiminDateRegistration_query">Data do cadastro
-							*</label> <input class="form-control" type="text"
+							</label> <input class="form-control" type="text"
 							id="adiminDateRegistration_query"
 							name="fadiminDateRegistration_query"
 							placeholder="Data: <%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getAdiminDateRegistration()%>"
@@ -167,7 +175,7 @@
 					</div>
 
 					<div class="form-group col-md-6">
-						<label for="nameAdmin_query">Nome admin *</label> <input
+						<label for="nameAdmin_query">Nome admin </label> <input
 							class="form-control" type="text" id="nameAdmin_query"
 							name="fnameAdmin_query"
 							placeholder="Nome admin: <%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getNameAdmin()%>"
@@ -177,7 +185,7 @@
 
 
 					<div class="form-group col-md-4">
-						<label for="accessLevel_query">Nível de acesso *</label> <input
+						<label for="accessLevel_query">Nível de acesso </label> <input
 							class="form-control" type="text" id="accessLevel_query"
 							name="faccessLevel_query"
 							placeholder="Acesso: <%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getAccessLevel()%>"
@@ -187,7 +195,7 @@
 
 
 					<div class="form-group col-md-8">
-						<label for="emailAccess_query">Email *</label> <input
+						<label for="emailAccess_query">E-mail</label> <input
 							class="form-control" style="text-transform: lowercase;"
 							type="email" id="emailAccess_query" name="femailAccess_query"
 							placeholder="Email: <%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getEmailAccess()%>"
@@ -196,7 +204,7 @@
 
 
 					<div class="form-group col-md-4">
-						<label for="adminPassword_query">Senha *</label> <input
+						<label for="adminPassword_query">Senha </label> <input
 							class="form-control" type="password" id="adminPassword_query"
 							name="fadminPassword_query"
 							placeholder="Senha:  <%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getAdminPassword()%>"
@@ -204,8 +212,7 @@
 					</div>
 
 					<div class="form-group col-md-5">
-						<label for="phoneContact_query">Telefone cel * OBS.:
-							incluir o "zero" do DDD.</label> <input class="form-control" type="text"
+						<label for="phoneContact_query">Telefone para contato </label> <input class="form-control" type="text"
 							id="phoneContact_query" name="fphoneContact_query"
 							placeholder="Telefone: <%=adminRegistrationDao.returnAccess_Administrator_dao().get(0).getPhoneContact()%>"
 							disabled></input>
